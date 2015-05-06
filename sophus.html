@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sophus</title>
+  <script src="coffee-script.js"></script>
+  <script src="sophus.js"></script>
+<style>
+#scriptCoff0 { border: 5px ridge lightGray; background-color: Black; color: LightGreen; font-family: "French Script MT", Monaco, Courier, monospace; font-size: 320%; }
+      h1 {color: Red; text-align: center; font-variant: small-caps; text-shadow: 3px 1px 3px Brown;}
+      h2 {color: Magenta;}
+      h3 {color: Blue;}
+      h4 {color: darkGreen;}
+</style>
+</head>
+<body>
+	<script type="text/coffeescript">
+$ ->
+	$("#syntaxe").accordion
+		collapsible: true
+		active: false
+	
+	</script>
+<h1>Interpréteur Sophus</h1>
+
+
+<p><textarea id="scriptCoff0" rows="10" cols="64" >#exemple bac ES Amérique du Nord 2014
+arbres = new Variable 50000
+année = new Variable 2013
+57000.tantQuePlusGrandQue arbres, ->
+    diminuer arbres, de, 5, pourcents
+    augmenter arbres, de, 3000
+    incrémenter année
+montrer année
+</textarea></p>
+<p>
+<button id="RunCoff0" onClick="try{CoffeeScript.run(document.getElementById('scriptCoff0').value)} catch(e){alert(e)};">Lancer cet algorithme</button>
+</p>
+<div id="syntaxe">
+<h2>Syntaxe de Sophus</h2>
+<div>
+<table border=1>
+	<tr><th>Action</th><th>Exemple</th></tr>
+	<tr><td>créer une variable</td><td>v = new Variable 22/7</td></tr>
+	<tr><td>affecter la variable v</td><td>mettreDans v, "un texte"</td></tr>
+	<tr><td>affecter la variable v</td><td>mettre "un texte", dans, v</td></tr>
+	<tr><td>entrer une variable v</td><td>entrer v</td></tr>
+	<tr><td>Afficher une variable v</td><td>montrer v</td></tr>
+	<tr><td>arrondir une variable v à l'entier le plus proche</td><td>arrondir v</td></tr>
+	<tr><td>arrondir une variable v à 0,05 près</td><td>arrondir v, à, 0.05, près</td></tr>
+	<tr><td>arrondir une variable v au centième</td><td>arrondir v, à, 2, décimales</td></tr>
+	<tr><td>tronquer une variable v</td><td>comme les arrondis mais avec "tronquer" au lieu de "arrondir"</td></tr>
+	<tr><td>ajouter 1 à une variable v</td><td>incrémenter v</td></tr>
+	<tr><td>ajouter 2 à une variable v</td><td>augmenter v, de, 2</td></tr>
+	<tr><td>augmenter une variable v de deux cinquièmes</td><td>augmenter v, de, 2, cinquièmes</td></tr>
+	<tr><td>augmenter une variable v de trois pourcents</td><td>augmenter v, de, 3, pourcents</td></tr>
+	<tr><td>soustraire 1 à une variable v</td><td>décrémenter v</td></tr>
+	<tr><td>soustraire un nombre, une fraction ou un pourcentage à une variable v</td><td>comme pour ajouter mais "diminuer" au lieu de "augmenter"</td></tr>
+	<tr><td>multiplier une variable v par un entier entre 2 et 6</td><td>tripler v</td></tr>
+	<tr><td>multiplier une variable v par 8</td><td>octupler v</td></tr>
+	<tr><td>multiplier une variable v par 10</td><td>décupler v</td></tr>
+	<tr><td>multiplier une variable v par 100</td><td>centupler v</td></tr>
+	<tr><td>multiplier une variable v par 1000</td><td>multiplier v, par, 1000</td></tr>
+	<tr><td>diviser une variable v par un nombre non nul</td><td>diviser v, par, 3</td></tr>
+	<tr><td>remplacer une variable v par son carré</td><td>éleverAuCarré v</td></tr>
+	<tr><td>variante pour remplacer une variable v par son carré</td><td>élever v, "au carré"</td></tr>
+	<tr><td>remplacer une variable v par son cube</td><td>éleverAuCube v</td></tr>
+	<tr><td>remplacer une variable v par sa puissance quatrième</td><td>élever v, "à la puissance", 4</td></tr>
+	<tr><td>remplacer une variable v par son inverse</td><td>inverser v</td></tr>
+	<tr><td>remplacer une variable v par sa racine carrée</td><td>extraireLaRacineDe v</td></tr>
+
+</table>
+<ul>
+<li>propriétés booléennes de v: v.estPositif(), v.estNégatif(), v.estNul(), v.estPair(), v.estImpair()</li>
+<li>Fonctions mathématiques du nombre x (pas une variable): carré(x), cube(x), racine(x), sinus(x) (en degrés), cosinus(x) (en degrés), tangente(x) (en degrés), sin(x) (en radians), cos(x) (en radians), tan(x) (en radians)</li>
+</ul>
+<h3>Tests et boucle en Sophus</h3>
+<h5>Attention à l'indentation ! Les tests et boucles doivent commencer par "-&gt;" avant d'aller à la ligne avec indentation.</h5>
+<h4>Tests</h4>
+<p>Pour savoir si on est dimanche ou s'il faut aller travailler, on peut utiliser 
+une variable <code>dimanche</code> qui contient un texte différent selon le jour de la semaine:</p>
+<pre>v = (new Date()).getDay()
+dimanche = new Variable 
+si v == 0, ->
+    mettreDans dimanche, "youpi !"
+si v > 0, ->
+    mettreDans dimanche, "snif !"
+montrer dimanche</pre>
+<h4>Répétitions</h4>
+<p>Pour calculer les puissances de 2 (suite géométrique) on peut créer un indice <code>nombre</code> et 
+répéter 5 fois l'opération consistant à mettre la valeur actuelle de ce nombre dans 
+un tableau :</p>
+<pre>tableau = []
+nombre = new Variable 2
+5.foisFaire ->
+    tableau.empiler nombre.valeur
+    doubler nombre
+montrer tableau</pre>
+<h4>Recherche de seuil</h4>
+<p>En 2010, Jean-Vincent a placé un capital de 200 € à 2,5 % d'intérêts composés par an. Quand le capital 
+dépassera-t-il 250 € ?</p>
+<pre>capital = new Variable 200
+année = new Variable 2010
+250.tantQuePlusGrandQue capital, ->
+    incrémenter année
+    augmenter capital, de, 2.5, pourcents
+montrer année</pre>
+</div>
+</div>
+
+<footer id="enbas">© IREM de La Réunion: Alain Busser, Florian Tobé 2014</footer>
+</body>
+</html>
