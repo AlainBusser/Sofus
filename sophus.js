@@ -1,3 +1,4 @@
+
 /*
 Sophus
 un langage de programmation inspiré par COBOL
@@ -7,7 +8,7 @@ auteurs:
 ©2013
 ce logiciel est libre sous license MIT
  */
-var Variable, aLaPuissance, aMoinsQue, arrondir, auCarré, auCube, augmenter, carré, centupler, cinq, cinquième, cinquièmes, cos, cosinus, cube, dans, de, demi, demis, deux, diminuer, diviser, dix, dixième, dixièmes, doubler, décimales, décrémenter, décupler, entrer, extraireLaRacineDe, huit, huitième, huitièmes, incrémenter, inverser, mettre, mettreDans, montrer, multiplier, neuf, neuvième, neuvièmes, octupler, par, pourcent, pourcents, près, quadrupler, quart, quarts, quatre, quintupler, racine, sept, septième, septièmes, sextupler, si, sin, sinon, sinus, six, sixième, sixièmes, tan, tangente, tiers, tripler, trois, tronquer, un, x, à, élever, éleverAuCarré, éleverAuCube, π, _ref, _ref1, _ref2;
+var Variable, aLaPuissance, aMoinsQue, arrondir, auCarré, auCube, augmenter, carré, centupler, cinq, cinquième, cinquièmes, cos, cosinus, cube, dans, de, demi, demis, deux, diminuer, diviser, dix, dixième, dixièmes, doubler, décimales, décrémenter, décupler, entrer, estTableau, extraireLaRacineDe, huit, huitième, huitièmes, incrémenter, inverser, mettre, mettreDans, montrer, multiplier, neuf, neuvième, neuvièmes, octupler, par, pourcent, pourcents, près, quadrupler, quart, quarts, quatre, quintupler, racine, ref, ref1, ref2, sept, septième, septièmes, sextupler, si, sin, sinon, sinus, six, sixième, sixièmes, taille, tan, tangente, tiers, tripler, trois, tronquer, un, x, à, élever, éleverAuCarré, éleverAuCube, π;
 
 Boolean.prototype.toLocaleString = function() {
   if (this.valueOf()) {
@@ -18,30 +19,30 @@ Boolean.prototype.toLocaleString = function() {
 };
 
 Number.prototype.foisFaire = function(fn) {
-  var i, _i, _results;
-  _results = [];
-  for (i = _i = 0; 0 <= this ? _i < this : _i > this; i = 0 <= this ? ++_i : --_i) {
-    _results.push(fn());
+  var i, j, ref, results;
+  results = [];
+  for (i = j = 0, ref = this; 0 <= ref ? j < ref : j > ref; i = 0 <= ref ? ++j : --j) {
+    results.push(fn());
   }
-  return _results;
+  return results;
 };
 
 Number.prototype.tantQuePlusGrandQue = function(variable, fn) {
-  var _results;
-  _results = [];
+  var results;
+  results = [];
   while (variable.valeur < this) {
-    _results.push(fn());
+    results.push(fn());
   }
-  return _results;
+  return results;
 };
 
 Number.prototype.tantQuePlusPetitQue = function(variable, fn) {
-  var _results;
-  _results = [];
+  var results;
+  results = [];
   while (variable.valeur > this) {
-    _results.push(fn());
+    results.push(fn());
   }
-  return _results;
+  return results;
 };
 
 Array.prototype.empiler = function(machin) {
@@ -49,14 +50,30 @@ Array.prototype.empiler = function(machin) {
 };
 
 Array.prototype.toLocaleString = "[" + ((function() {
-  var _i, _len, _results;
-  _results = [];
-  for (_i = 0, _len = this.length; _i < _len; _i++) {
-    x = this[_i];
-    _results.push(x.toLocaleString());
+  var j, len, results;
+  results = [];
+  for (j = 0, len = this.length; j < len; j++) {
+    x = this[j];
+    results.push(x.toLocaleString());
   }
-  return _results;
+  return results;
 }).call(this)) + "]";
+
+estTableau = function(o) {
+  if ((o.valeur != null) && Array.isArray(o.valeur)) {
+    return true;
+  } else {
+    return Array.isArray(o);
+  }
+};
+
+taille = function(o) {
+  if (o.valeur != null) {
+    return o.valeur.length;
+  } else {
+    return o.length;
+  }
+};
 
 décimales = "décimales";
 
@@ -82,36 +99,49 @@ auCube = "au cube";
 
 aLaPuissance = "à la puissance";
 
-_ref = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], un = _ref[0], deux = _ref[1], trois = _ref[2], quatre = _ref[3], cinq = _ref[4], six = _ref[5], sept = _ref[6], huit = _ref[7], neuf = _ref[8], dix = _ref[9];
+ref = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], un = ref[0], deux = ref[1], trois = ref[2], quatre = ref[3], cinq = ref[4], six = ref[5], sept = ref[6], huit = ref[7], neuf = ref[8], dix = ref[9];
 
-_ref1 = ["demis", "tiers", "quarts", "cinquièmes", "sixièmes", "septièmes", "huitièmes", "neuvièmes", "dixièmes"], demis = _ref1[0], tiers = _ref1[1], quarts = _ref1[2], cinquièmes = _ref1[3], sixièmes = _ref1[4], septièmes = _ref1[5], huitièmes = _ref1[6], neuvièmes = _ref1[7], dixièmes = _ref1[8];
+ref1 = ["demis", "tiers", "quarts", "cinquièmes", "sixièmes", "septièmes", "huitièmes", "neuvièmes", "dixièmes"], demis = ref1[0], tiers = ref1[1], quarts = ref1[2], cinquièmes = ref1[3], sixièmes = ref1[4], septièmes = ref1[5], huitièmes = ref1[6], neuvièmes = ref1[7], dixièmes = ref1[8];
 
-_ref2 = ["demis", "tiers", "quarts", "cinquièmes", "sixièmes", "septièmes", "huitièmes", "neuvièmes", "dixièmes"], demi = _ref2[0], tiers = _ref2[1], quart = _ref2[2], cinquième = _ref2[3], sixième = _ref2[4], septième = _ref2[5], huitième = _ref2[6], neuvième = _ref2[7], dixième = _ref2[8];
+ref2 = ["demis", "tiers", "quarts", "cinquièmes", "sixièmes", "septièmes", "huitièmes", "neuvièmes", "dixièmes"], demi = ref2[0], tiers = ref2[1], quart = ref2[2], cinquième = ref2[3], sixième = ref2[4], septième = ref2[5], huitième = ref2[6], neuvième = ref2[7], dixième = ref2[8];
 
 π = Math.PI;
 
 montrer = (function(_this) {
   return function(o) {
     if (o.valeur != null) {
-      return alert(o.valeur.toLocaleString());
+      if (Array.isArray(o.valeur)) {
+        return alert("[" + ((function() {
+          var j, len, ref3, results;
+          ref3 = o.valeur;
+          results = [];
+          for (j = 0, len = ref3.length; j < len; j++) {
+            x = ref3[j];
+            results.push(" " + x.toLocaleString() + " ");
+          }
+          return results;
+        })()) + "]");
+      } else {
+        return alert(o.valeur.toLocaleString());
+      }
     } else {
       if (((function() {
-        var _i, _len, _results;
-        _results = [];
-        for (_i = 0, _len = o.length; _i < _len; _i++) {
-          x = o[_i];
-          _results.push(x);
+        var j, len, results;
+        results = [];
+        for (j = 0, len = o.length; j < len; j++) {
+          x = o[j];
+          results.push(x);
         }
-        return _results;
+        return results;
       })()).length > 1) {
         return alert("[" + ((function() {
-          var _i, _len, _results;
-          _results = [];
-          for (_i = 0, _len = o.length; _i < _len; _i++) {
-            x = o[_i];
-            _results.push(" " + x.toLocaleString() + " ");
+          var j, len, results;
+          results = [];
+          for (j = 0, len = o.length; j < len; j++) {
+            x = o[j];
+            results.push(" " + x.toLocaleString() + " ");
           }
-          return _results;
+          return results;
         })()) + "]");
       } else {
         return alert(o.toLocaleString());
@@ -161,19 +191,19 @@ Variable = (function() {
 
 mettreDans = (function(_this) {
   return function(o, bidule) {
-    var _ref3;
-    o.valeur = (_ref3 = bidule.valeur) != null ? _ref3 : bidule;
+    var ref3;
+    o.valeur = (ref3 = bidule.valeur) != null ? ref3 : bidule;
     return null;
   };
 })(this);
 
 mettre = (function(_this) {
   return function(bidule, dans, o) {
-    var _ref3;
+    var ref3;
     if (dans == null) {
       dans = "dans";
     }
-    o.valeur = (_ref3 = bidule.valeur) != null ? _ref3 : bidule;
+    o.valeur = (ref3 = bidule.valeur) != null ? ref3 : bidule;
     return null;
   };
 })(this);
@@ -240,13 +270,13 @@ extraireLaRacineDe = (function(_this) {
 
 élever = (function(_this) {
   return function(o, a, exposant) {
-    var _ref3;
+    var ref3;
     if (exposant == null) {
       exposant = 2;
     }
     switch (a) {
       case "à la puissance":
-        return o.valeur = Math.pow(o.valeur, (_ref3 = exposant.valeur) != null ? _ref3 : exposant);
+        return o.valeur = Math.pow(o.valeur, (ref3 = exposant.valeur) != null ? ref3 : exposant);
       case "au carré":
         return o.valeur *= o.valeur;
       case "au cube":
@@ -309,49 +339,153 @@ tronquer = (function(_this) {
 
 doubler = (function(_this) {
   return function(o) {
-    return o.valeur *= 2;
+    if (Array.isArray(o.valeur)) {
+      return o.valeur = (function() {
+        var j, len, ref3, results;
+        ref3 = o.valeur;
+        results = [];
+        for (j = 0, len = ref3.length; j < len; j++) {
+          x = ref3[j];
+          results.push(2 * x);
+        }
+        return results;
+      })();
+    } else {
+      return o.valeur *= 2;
+    }
   };
 })(this);
 
 tripler = (function(_this) {
   return function(o) {
-    return o.valeur *= 3;
+    if (Array.isArray(o.valeur)) {
+      return o.valeur = (function() {
+        var j, len, ref3, results;
+        ref3 = o.valeur;
+        results = [];
+        for (j = 0, len = ref3.length; j < len; j++) {
+          x = ref3[j];
+          results.push(3 * x);
+        }
+        return results;
+      })();
+    } else {
+      return o.valeur *= 3;
+    }
   };
 })(this);
 
 quadrupler = (function(_this) {
   return function(o) {
-    return o.valeur *= 4;
+    if (Array.isArray(o.valeur)) {
+      return o.valeur = (function() {
+        var j, len, ref3, results;
+        ref3 = o.valeur;
+        results = [];
+        for (j = 0, len = ref3.length; j < len; j++) {
+          x = ref3[j];
+          results.push(4 * x);
+        }
+        return results;
+      })();
+    } else {
+      return o.valeur *= 4;
+    }
   };
 })(this);
 
 quintupler = (function(_this) {
   return function(o) {
-    return o.valeur *= 5;
+    if (Array.isArray(o.valeur)) {
+      return o.valeur = (function() {
+        var j, len, ref3, results;
+        ref3 = o.valeur;
+        results = [];
+        for (j = 0, len = ref3.length; j < len; j++) {
+          x = ref3[j];
+          results.push(5 * x);
+        }
+        return results;
+      })();
+    } else {
+      return o.valeur *= 5;
+    }
   };
 })(this);
 
 sextupler = (function(_this) {
   return function(o) {
-    return o.valeur *= 6;
+    if (Array.isArray(o.valeur)) {
+      return o.valeur = (function() {
+        var j, len, ref3, results;
+        ref3 = o.valeur;
+        results = [];
+        for (j = 0, len = ref3.length; j < len; j++) {
+          x = ref3[j];
+          results.push(6 * x);
+        }
+        return results;
+      })();
+    } else {
+      return o.valeur *= 6;
+    }
   };
 })(this);
 
 octupler = (function(_this) {
   return function(o) {
-    return o.valeur *= 8;
+    if (Array.isArray(o.valeur)) {
+      return o.valeur = (function() {
+        var j, len, ref3, results;
+        ref3 = o.valeur;
+        results = [];
+        for (j = 0, len = ref3.length; j < len; j++) {
+          x = ref3[j];
+          results.push(8 * x);
+        }
+        return results;
+      })();
+    } else {
+      return o.valeur *= 8;
+    }
   };
 })(this);
 
 décupler = (function(_this) {
   return function(o) {
-    return o.valeur *= 10;
+    if (Array.isArray(o.valeur)) {
+      return o.valeur = (function() {
+        var j, len, ref3, results;
+        ref3 = o.valeur;
+        results = [];
+        for (j = 0, len = ref3.length; j < len; j++) {
+          x = ref3[j];
+          results.push(10 * x);
+        }
+        return results;
+      })();
+    } else {
+      return o.valeur *= 10;
+    }
   };
 })(this);
 
 centupler = (function(_this) {
   return function(o) {
-    return o.valeur *= 100;
+    if (Array.isArray(o.valeur)) {
+      return o.valeur = (function() {
+        var j, len, ref3, results;
+        ref3 = o.valeur;
+        results = [];
+        for (j = 0, len = ref3.length; j < len; j++) {
+          x = ref3[j];
+          results.push(100 * x);
+        }
+        return results;
+      })();
+    } else {
+      return o.valeur *= 100;
+    }
   };
 })(this);
 
@@ -371,47 +505,62 @@ décrémenter = (function(_this) {
 
 augmenter = (function(_this) {
   return function(o, de, chouia, mode) {
-    var _ref10, _ref11, _ref12, _ref13, _ref3, _ref4, _ref5, _ref6, _ref7, _ref8, _ref9;
+    var ref10, ref11, ref12, ref13, ref3, ref4, ref5, ref6, ref7, ref8, ref9;
     if (mode == null) {
       mode = "";
     }
-    if (de === "de") {
-      switch (mode) {
-        case "":
-          o.valeur += (_ref3 = chouia.valeur) != null ? _ref3 : chouia;
-          break;
-        case "demis":
-          o.valeur *= 1 + ((_ref4 = chouia.valeur) != null ? _ref4 : chouia) / 2;
-          break;
-        case "tiers":
-          o.valeur *= 1 + ((_ref5 = chouia.valeur) != null ? _ref5 : chouia) / 3;
-          break;
-        case "quarts":
-          o.valeur *= 1 + ((_ref6 = chouia.valeur) != null ? _ref6 : chouia) / 4;
-          break;
-        case "cinquièmes":
-          o.valeur *= 1 + ((_ref7 = chouia.valeur) != null ? _ref7 : chouia) / 5;
-          break;
-        case "sixièmes":
-          o.valeur *= 1 + ((_ref8 = chouia.valeur) != null ? _ref8 : chouia) / 6;
-          break;
-        case "septièmes":
-          o.valeur *= 1 + ((_ref9 = chouia.valeur) != null ? _ref9 : chouia) / 7;
-          break;
-        case "huitièmes":
-          o.valeur *= 1 + ((_ref10 = chouia.valeur) != null ? _ref10 : chouia) / 8;
-          break;
-        case "neuvièmes":
-          o.valeur *= 1 + ((_ref11 = chouia.valeur) != null ? _ref11 : chouia) / 9;
-          break;
-        case "dixièmes":
-          o.valeur *= 1 + ((_ref12 = chouia.valeur) != null ? _ref12 : chouia) / 10;
-          break;
-        case "pourcents":
-          o.valeur *= 1 + ((_ref13 = chouia.valeur) != null ? _ref13 : chouia) / 100;
+    if (estTableau(o)) {
+      if (mode === "") {
+        if (estTableau(chouia)) {
+          if ((taille(chouia)) === (taille(o))) {
+            o.valeur = o.valeur.map(function(courant, place) {
+              var ref3;
+              return courant + ((ref3 = chouia.valeur) != null ? ref3 : chouia)[place];
+            });
+          } else {
+            alert("erreur de dimension");
+          }
+        }
       }
     } else {
-      alert("Je veux bien augmenter cette variable mais de combien ?");
+      if (de === "de") {
+        switch (mode) {
+          case "":
+            o.valeur += (ref3 = chouia.valeur) != null ? ref3 : chouia;
+            break;
+          case "demis":
+            o.valeur *= 1 + ((ref4 = chouia.valeur) != null ? ref4 : chouia) / 2;
+            break;
+          case "tiers":
+            o.valeur *= 1 + ((ref5 = chouia.valeur) != null ? ref5 : chouia) / 3;
+            break;
+          case "quarts":
+            o.valeur *= 1 + ((ref6 = chouia.valeur) != null ? ref6 : chouia) / 4;
+            break;
+          case "cinquièmes":
+            o.valeur *= 1 + ((ref7 = chouia.valeur) != null ? ref7 : chouia) / 5;
+            break;
+          case "sixièmes":
+            o.valeur *= 1 + ((ref8 = chouia.valeur) != null ? ref8 : chouia) / 6;
+            break;
+          case "septièmes":
+            o.valeur *= 1 + ((ref9 = chouia.valeur) != null ? ref9 : chouia) / 7;
+            break;
+          case "huitièmes":
+            o.valeur *= 1 + ((ref10 = chouia.valeur) != null ? ref10 : chouia) / 8;
+            break;
+          case "neuvièmes":
+            o.valeur *= 1 + ((ref11 = chouia.valeur) != null ? ref11 : chouia) / 9;
+            break;
+          case "dixièmes":
+            o.valeur *= 1 + ((ref12 = chouia.valeur) != null ? ref12 : chouia) / 10;
+            break;
+          case "pourcents":
+            o.valeur *= 1 + ((ref13 = chouia.valeur) != null ? ref13 : chouia) / 100;
+        }
+      } else {
+        alert("Je veux bien augmenter cette variable mais de combien ?");
+      }
     }
     return null;
   };
@@ -419,60 +568,103 @@ augmenter = (function(_this) {
 
 diminuer = (function(_this) {
   return function(o, de, chouia, mode) {
-    var _ref10, _ref11, _ref12, _ref13, _ref3, _ref4, _ref5, _ref6, _ref7, _ref8, _ref9;
+    var ref10, ref11, ref12, ref13, ref3, ref4, ref5, ref6, ref7, ref8, ref9;
     if (mode == null) {
       mode = "";
     }
-    if (de === "de") {
-      switch (mode) {
-        case "":
-          o.valeur -= (_ref3 = chouia.valeur) != null ? _ref3 : chouia;
-          break;
-        case "demis":
-          o.valeur *= 1 - ((_ref4 = chouia.valeur) != null ? _ref4 : chouia) / 2;
-          break;
-        case "tiers":
-          o.valeur *= 1 - ((_ref5 = chouia.valeur) != null ? _ref5 : chouia) / 3;
-          break;
-        case "quarts":
-          o.valeur *= 1 - ((_ref6 = chouia.valeur) != null ? _ref6 : chouia) / 4;
-          break;
-        case "cinquièmes":
-          o.valeur *= 1 - ((_ref7 = chouia.valeur) != null ? _ref7 : chouia) / 5;
-          break;
-        case "sixièmes":
-          o.valeur *= 1 - ((_ref8 = chouia.valeur) != null ? _ref8 : chouia) / 6;
-          break;
-        case "septièmes":
-          o.valeur *= 1 - ((_ref9 = chouia.valeur) != null ? _ref9 : chouia) / 7;
-          break;
-        case "huitièmes":
-          o.valeur *= 1 - ((_ref10 = chouia.valeur) != null ? _ref10 : chouia) / 8;
-          break;
-        case "neuvièmes":
-          o.valeur *= 1 - ((_ref11 = chouia.valeur) != null ? _ref11 : chouia) / 9;
-          break;
-        case "dixièmes":
-          o.valeur *= 1 - ((_ref12 = chouia.valeur) != null ? _ref12 : chouia) / 10;
-          break;
-        case "pourcents":
-          o.valeur *= 1 - ((_ref13 = chouia.valeur) != null ? _ref13 : chouia) / 100;
+    if (estTableau(o)) {
+      if (mode === "") {
+        if (estTableau(chouia)) {
+          if ((taille(chouia)) === (taille(o))) {
+            o.valeur = o.valeur.map(function(courant, place) {
+              var ref3;
+              return courant - ((ref3 = chouia.valeur) != null ? ref3 : chouia)[place];
+            });
+          } else {
+            alert("erreur de dimension");
+          }
+        }
       }
     } else {
-      alert("Je veux bien diminuer cette variable mais de combien ?");
+      if (de === "de") {
+        switch (mode) {
+          case "":
+            o.valeur -= (ref3 = chouia.valeur) != null ? ref3 : chouia;
+            break;
+          case "demis":
+            o.valeur *= 1 - ((ref4 = chouia.valeur) != null ? ref4 : chouia) / 2;
+            break;
+          case "tiers":
+            o.valeur *= 1 - ((ref5 = chouia.valeur) != null ? ref5 : chouia) / 3;
+            break;
+          case "quarts":
+            o.valeur *= 1 - ((ref6 = chouia.valeur) != null ? ref6 : chouia) / 4;
+            break;
+          case "cinquièmes":
+            o.valeur *= 1 - ((ref7 = chouia.valeur) != null ? ref7 : chouia) / 5;
+            break;
+          case "sixièmes":
+            o.valeur *= 1 - ((ref8 = chouia.valeur) != null ? ref8 : chouia) / 6;
+            break;
+          case "septièmes":
+            o.valeur *= 1 - ((ref9 = chouia.valeur) != null ? ref9 : chouia) / 7;
+            break;
+          case "huitièmes":
+            o.valeur *= 1 - ((ref10 = chouia.valeur) != null ? ref10 : chouia) / 8;
+            break;
+          case "neuvièmes":
+            o.valeur *= 1 - ((ref11 = chouia.valeur) != null ? ref11 : chouia) / 9;
+            break;
+          case "dixièmes":
+            o.valeur *= 1 - ((ref12 = chouia.valeur) != null ? ref12 : chouia) / 10;
+            break;
+          case "pourcents":
+            o.valeur *= 1 - ((ref13 = chouia.valeur) != null ? ref13 : chouia) / 100;
+        }
+      } else {
+        alert("Je veux bien diminuer cette variable mais de combien ?");
+      }
     }
     return null;
   };
 })(this);
 
 multiplier = (function(_this) {
-  return function(o, par, facteur) {
-    var _ref3;
+  return function(o, par, facteur, mode) {
+    var ref10, ref11, ref12, ref13, ref3, ref4, ref5, ref6, ref7, ref8, ref9;
     if (par == null) {
       par = "par";
     }
+    if (mode == null) {
+      mode = "";
+    }
     if (par === "par") {
-      return o.valeur *= (_ref3 = facteur.valeur) != null ? _ref3 : facteur;
+      switch (mode) {
+        case "":
+          return o.valeur *= (ref3 = facteur.valeur) != null ? ref3 : facteur;
+        case "demis":
+          return o.valeur *= ((ref4 = facteur.valeur) != null ? ref4 : facteur) / 2;
+        case "tiers":
+          return o.valeur *= ((ref5 = facteur.valeur) != null ? ref5 : facteur) / 3;
+        case "quarts":
+          return o.valeur *= ((ref6 = facteur.valeur) != null ? ref6 : facteur) / 4;
+        case "cinquièmes":
+          return o.valeur *= ((ref7 = facteur.valeur) != null ? ref7 : facteur) / 5;
+        case "sixièmes":
+          return o.valeur *= ((ref8 = facteur.valeur) != null ? ref8 : facteur) / 6;
+        case "septièmes":
+          return o.valeur *= ((ref9 = facteur.valeur) != null ? ref9 : facteur) / 7;
+        case "huitièmes":
+          return o.valeur *= ((ref10 = facteur.valeur) != null ? ref10 : facteur) / 8;
+        case "neuvièmes":
+          return o.valeur *= ((ref11 = facteur.valeur) != null ? ref11 : facteur) / 9;
+        case "dixièmes":
+          return o.valeur *= ((ref12 = facteur.valeur) != null ? ref12 : facteur) / 10;
+        case "pourcents":
+          return o.valeur *= ((ref13 = facteur.valeur) != null ? ref13 : facteur) / 100;
+        default:
+          return alert("erreur opérateur");
+      }
     } else {
       return alert("Je veux bien multiplier cette variable mais par quoi ?");
     }
@@ -480,15 +672,41 @@ multiplier = (function(_this) {
 })(this);
 
 diviser = (function(_this) {
-  return function(o, par, diviseur) {
-    var _ref3;
+  return function(o, par, facteur, mode) {
+    var ref10, ref11, ref12, ref3, ref4, ref5, ref6, ref7, ref8, ref9;
     if (par == null) {
       par = "par";
     }
+    if (mode == null) {
+      mode = "";
+    }
     if (par === "par") {
-      return o.valeur /= (_ref3 = diviseur.valeur) != null ? _ref3 : diviseur;
+      switch (mode) {
+        case "":
+          return o.valeur /= (ref3 = facteur.valeur) != null ? ref3 : facteur;
+        case "demis":
+          return o.valeur /= ((ref4 = facteur.valeur) != null ? ref4 : facteur) / 2;
+        case "tiers":
+          return o.valeur /= ((ref5 = facteur.valeur) != null ? ref5 : facteur) / 3;
+        case "quarts":
+          return o.valeur /= ((ref6 = facteur.valeur) != null ? ref6 : facteur) / 4;
+        case "cinquièmes":
+          return o.valeur /= ((ref7 = facteur.valeur) != null ? ref7 : facteur) / 5;
+        case "sixièmes":
+          return o.valeur /= ((ref8 = facteur.valeur) != null ? ref8 : facteur) / 6;
+        case "septièmes":
+          return o.valeur /= ((ref9 = facteur.valeur) != null ? ref9 : facteur) / 7;
+        case "huitièmes":
+          return o.valeur /= ((ref10 = facteur.valeur) != null ? ref10 : facteur) / 8;
+        case "neuvièmes":
+          return o.valeur /= ((ref11 = facteur.valeur) != null ? ref11 : facteur) / 9;
+        case "dixièmes":
+          return o.valeur /= ((ref12 = facteur.valeur) != null ? ref12 : facteur) / 10;
+        default:
+          return alert("erreur opérateur");
+      }
     } else {
-      return alert("Je veux bien diviser cette variable mais par combien ?");
+      return alert("Je veux bien diviser cette variable mais par quoi ?");
     }
   };
 })(this);

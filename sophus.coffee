@@ -18,6 +18,17 @@ Number::tantQuePlusGrandQue = (variable,fn) -> do fn while variable.valeur<this
 Number::tantQuePlusPetitQue = (variable,fn) -> do fn while variable.valeur>this
 Array::empiler = (machin) -> this.push machin
 Array::toLocaleString = "["+(x.toLocaleString() for x in this)+"]"
+estTableau = (o) ->
+    if o.valeur? and Array.isArray o.valeur
+        true
+    else
+        Array.isArray o
+taille = (o) ->
+    if o.valeur?
+        o.valeur.length
+    else
+        o.length
+
 
 #utilitaires
 
@@ -43,9 +54,12 @@ aLaPuissance = "à la puissance"
 #pour savoir si un objet est de type "Variable", on regarde s'il possède une valeur: 
 #Si oui on affiche sa valeur, sinon on l'affiche lui-même
 
-montrer = (o) => 
+montrer = (o) =>
     if o.valeur?
-        alert o.valeur.toLocaleString()
+        if Array.isArray o.valeur 
+            alert "["+(" "+x.toLocaleString()+" " for x in o.valeur)+"]"
+        else
+            alert o.valeur.toLocaleString()
     else
         if (x for x in o).length > 1
             alert "["+(" "+x.toLocaleString()+" " for x in o)+"]"
@@ -119,21 +133,45 @@ tronquer = (o,a="",epsilon=1,ordre="décimales") =>
             o.valeur = Math.floor(o.valeur/epsilon)*epsilon
             
 doubler = (o) =>
-    o.valeur *= 2
+	if Array.isArray o.valeur
+		o.valeur = (2*x for x in o.valeur)
+	else
+		o.valeur *= 2
 tripler = (o) =>
-    o.valeur *= 3
+	if Array.isArray o.valeur
+		o.valeur = (3*x for x in o.valeur)
+	else
+		o.valeur *= 3
 quadrupler = (o) =>
-    o.valeur *= 4
+	if Array.isArray o.valeur
+		o.valeur = (4*x for x in o.valeur)
+	else
+		o.valeur *= 4
 quintupler = (o) =>
-    o.valeur *= 5
+	if Array.isArray o.valeur
+		o.valeur = (5*x for x in o.valeur)
+	else
+		o.valeur *= 5
 sextupler = (o) =>
-    o.valeur *= 6
+	if Array.isArray o.valeur
+		o.valeur = (6*x for x in o.valeur)
+	else
+		o.valeur *= 6
 octupler = (o) =>
-    o.valeur *= 8
+	if Array.isArray o.valeur
+		o.valeur = (8*x for x in o.valeur)
+	else
+		o.valeur *= 8
 décupler = (o) =>
-    o.valeur *= 10
+	if Array.isArray o.valeur
+		o.valeur = (10*x for x in o.valeur)
+	else
+		o.valeur *= 10
 centupler = (o) =>
-    o.valeur *= 100
+	if Array.isArray o.valeur
+		o.valeur = (100*x for x in o.valeur)
+	else
+		o.valeur *= 100
 
 incrémenter = (o) => 
     o.valeur += 1
@@ -144,74 +182,137 @@ décrémenter = (o) =>
     null
 
 augmenter = (o,de,chouia,mode="") => 
-    if de is "de"
-        switch mode
-            when ""
-                o.valeur += chouia.valeur ? chouia
-            when "demis"
-                o.valeur *= (1+(chouia.valeur ? chouia)/2)
-            when "tiers"
-                o.valeur *= (1+(chouia.valeur ? chouia)/3)
-            when "quarts"
-                o.valeur *= (1+(chouia.valeur ? chouia)/4)
-            when "cinquièmes"
-                o.valeur *= (1+(chouia.valeur ? chouia)/5)
-            when "sixièmes"
-                o.valeur *= (1+(chouia.valeur ? chouia)/6)
-            when "septièmes"
-                o.valeur *= (1+(chouia.valeur ? chouia)/7)
-            when "huitièmes"
-                o.valeur *= (1+(chouia.valeur ? chouia)/8)
-            when "neuvièmes"
-                o.valeur *= (1+(chouia.valeur ? chouia)/9)
-            when "dixièmes"
-                o.valeur *= (1+(chouia.valeur ? chouia)/10)
-            when "pourcents"
-                o.valeur *= (1+(chouia.valeur ? chouia)/100)
-    else
-        alert "Je veux bien augmenter cette variable mais de combien ?"
-    null
+	if estTableau o
+		if mode is ""
+			if estTableau chouia
+				if (taille chouia) is (taille o)
+					o.valeur = o.valeur.map (courant,place) -> courant+(chouia.valeur ? chouia)[place]
+				else
+					alert "erreur de dimension"
+	else
+		if de is "de"
+				switch mode
+					when ""
+						o.valeur += chouia.valeur ? chouia
+					when "demis"
+						o.valeur *= (1+(chouia.valeur ? chouia)/2)
+					when "tiers"
+						o.valeur *= (1+(chouia.valeur ? chouia)/3)
+					when "quarts"
+						o.valeur *= (1+(chouia.valeur ? chouia)/4)
+					when "cinquièmes"
+						o.valeur *= (1+(chouia.valeur ? chouia)/5)
+					when "sixièmes"
+						o.valeur *= (1+(chouia.valeur ? chouia)/6)
+					when "septièmes"
+						o.valeur *= (1+(chouia.valeur ? chouia)/7)
+					when "huitièmes"
+						o.valeur *= (1+(chouia.valeur ? chouia)/8)
+					when "neuvièmes"
+						o.valeur *= (1+(chouia.valeur ? chouia)/9)
+					when "dixièmes"
+						o.valeur *= (1+(chouia.valeur ? chouia)/10)
+					when "pourcents"
+						o.valeur *= (1+(chouia.valeur ? chouia)/100)
+			else
+				alert "Je veux bien augmenter cette variable mais de combien ?"
+	null
 
 diminuer = (o,de,chouia,mode="") => 
-    if de is "de"
-        switch mode
-            when ""
-                o.valeur -= chouia.valeur ? chouia
-            when "demis"
-                o.valeur *= (1-(chouia.valeur ? chouia)/2)
-            when "tiers"
-                o.valeur *= (1-(chouia.valeur ? chouia)/3)
-            when "quarts"
-                o.valeur *= (1-(chouia.valeur ? chouia)/4)
-            when "cinquièmes"
-                o.valeur *= (1-(chouia.valeur ? chouia)/5)
-            when "sixièmes"
-                o.valeur *= (1-(chouia.valeur ? chouia)/6)
-            when "septièmes"
-                o.valeur *= (1-(chouia.valeur ? chouia)/7)
-            when "huitièmes"
-                o.valeur *= (1-(chouia.valeur ? chouia)/8)
-            when "neuvièmes"
-                o.valeur *= (1-(chouia.valeur ? chouia)/9)
-            when "dixièmes"
-                o.valeur *= (1-(chouia.valeur ? chouia)/10)
-            when "pourcents"
-                o.valeur *= (1-(chouia.valeur ? chouia)/100)
-    else
-        alert "Je veux bien diminuer cette variable mais de combien ?"
-    null
+	if estTableau o
+		if mode is ""
+			if estTableau chouia
+				if (taille chouia) is (taille o)
+					o.valeur = o.valeur.map (courant,place) -> courant-(chouia.valeur ? chouia)[place]
+				else
+					alert "erreur de dimension"
+	else
+		if de is "de"
+				switch mode
+					when ""
+						o.valeur -= chouia.valeur ? chouia
+					when "demis"
+						o.valeur *= (1-(chouia.valeur ? chouia)/2)
+					when "tiers"
+						o.valeur *= (1-(chouia.valeur ? chouia)/3)
+					when "quarts"
+						o.valeur *= (1-(chouia.valeur ? chouia)/4)
+					when "cinquièmes"
+						o.valeur *= (1-(chouia.valeur ? chouia)/5)
+					when "sixièmes"
+						o.valeur *= (1-(chouia.valeur ? chouia)/6)
+					when "septièmes"
+						o.valeur *= (1-(chouia.valeur ? chouia)/7)
+					when "huitièmes"
+						o.valeur *= (1-(chouia.valeur ? chouia)/8)
+					when "neuvièmes"
+						o.valeur *= (1-(chouia.valeur ? chouia)/9)
+					when "dixièmes"
+						o.valeur *= (1-(chouia.valeur ? chouia)/10)
+					when "pourcents"
+						o.valeur *= (1-(chouia.valeur ? chouia)/100)
+			else
+				alert "Je veux bien diminuer cette variable mais de combien ?"
+	null
 
-multiplier = (o,par="par",facteur) =>
-    if par is "par"
-        o.valeur *= facteur.valeur ? facteur
-    else
-        alert "Je veux bien multiplier cette variable mais par quoi ?"
 
-diviser = (o,par="par",diviseur) =>
-    if par is "par"
-        o.valeur /= diviseur.valeur ? diviseur
-    else
-        alert "Je veux bien diviser cette variable mais par combien ?"
+multiplier = (o,par="par",facteur,mode="") =>
+	if par is "par"
+		switch mode
+			when ""
+				o.valeur *= facteur.valeur ? facteur
+			when "demis"
+				o.valeur *= (facteur.valeur ? facteur)/2
+			when "tiers"
+				o.valeur *= (facteur.valeur ? facteur)/3
+			when "quarts"
+				o.valeur *= (facteur.valeur ? facteur)/4
+			when "cinquièmes"
+				o.valeur *= (facteur.valeur ? facteur)/5
+			when "sixièmes"
+				o.valeur *= (facteur.valeur ? facteur)/6
+			when "septièmes"
+				o.valeur *= (facteur.valeur ? facteur)/7
+			when "huitièmes"
+				o.valeur *= (facteur.valeur ? facteur)/8
+			when "neuvièmes"
+				o.valeur *= (facteur.valeur ? facteur)/9
+			when "dixièmes"
+				o.valeur *= (facteur.valeur ? facteur)/10
+			when "pourcents"
+				o.valeur *= (facteur.valeur ? facteur)/100
+			else
+				alert "erreur opérateur"
+	else
+		alert "Je veux bien multiplier cette variable mais par quoi ?"
+
+diviser = (o,par="par",facteur,mode="") =>
+	if par is "par"
+		switch mode
+			when ""
+				o.valeur /= facteur.valeur ? facteur
+			when "demis"
+				o.valeur /= (facteur.valeur ? facteur)/2
+			when "tiers"
+				o.valeur /= (facteur.valeur ? facteur)/3
+			when "quarts"
+				o.valeur /= (facteur.valeur ? facteur)/4
+			when "cinquièmes"
+				o.valeur /= (facteur.valeur ? facteur)/5
+			when "sixièmes"
+				o.valeur /= (facteur.valeur ? facteur)/6
+			when "septièmes"
+				o.valeur /= (facteur.valeur ? facteur)/7
+			when "huitièmes"
+				o.valeur /= (facteur.valeur ? facteur)/8
+			when "neuvièmes"
+				o.valeur /= (facteur.valeur ? facteur)/9
+			when "dixièmes"
+				o.valeur /= (facteur.valeur ? facteur)/10
+			else
+				alert "erreur opérateur"
+	else
+		alert "Je veux bien diviser cette variable mais par quoi ?"
 
 
 

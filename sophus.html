@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>sophus</title>
   <script src="coffee-script.js"></script>
+  <script src="jquery-1.js"></script>
   <script src="sophus.js"></script>
 <style>
 #scriptCoff0 { border: 5px ridge lightGray; background-color: Black; color: LightGreen; font-family: "French Script MT", Monaco, Courier, monospace; font-size: 320%; }
@@ -17,31 +18,28 @@
 </style>
 </head>
 <body>
-	<script type="text/coffeescript">
+<script type="text/coffeescript">
+###présentation
+###
 $ ->
-	$("#syntaxe").accordion
-		collapsible: true
-		active: false
-	
-	</script>
+    $("#manuel").hide 10
+    $("#syntaxe").on "click", ->
+        $("#manuel").toggle 1000
+</script>
 <h1>Interpréteur Sophus</h1>
 
 
-<p><textarea id="scriptCoff0" rows="10" cols="64" >#exemple bac ES Amérique du Nord 2014
-arbres = new Variable 50000
-année = new Variable 2013
-57000.tantQuePlusGrandQue arbres, ->
-    diminuer arbres, de, 5, pourcents
-    augmenter arbres, de, 3000
-    incrémenter année
-montrer année
+<p><textarea id="scriptCoff0" rows="6" cols="40" >prix = new Variable 160
+taux = new Variable 20
+augmenter prix, de, taux, pourcents
+diminuer prix, de, taux, pourcents
+montrer prix
 </textarea></p>
 <p>
-<button id="RunCoff0" onClick="try{CoffeeScript.run(document.getElementById('scriptCoff0').value)} catch(e){alert(e)};">Lancer cet algorithme</button>
+<button id="RunCoff0" onClick="try{CoffeeScript.run(document.getElementById('scriptCoff0').value)} catch(e){alert(e)};">Tester cet algorithme</button>
 </p>
-<div id="syntaxe">
-<h2>Syntaxe de Sophus</h2>
-<div>
+<h3 id="syntaxe">Syntaxe de Sophus</h3>
+<div id="manuel">
 <table border=1>
 	<tr><th>Action</th><th>Exemple</th></tr>
 	<tr><td>créer une variable</td><td>v = new Variable 22/7</td></tr>
@@ -64,13 +62,16 @@ montrer année
 	<tr><td>multiplier une variable v par 10</td><td>décupler v</td></tr>
 	<tr><td>multiplier une variable v par 100</td><td>centupler v</td></tr>
 	<tr><td>multiplier une variable v par 1000</td><td>multiplier v, par, 1000</td></tr>
+	<tr><td>multiplier une variable v par 0,75</td><td>multiplier v, par, 3, quarts</td></tr>
 	<tr><td>diviser une variable v par un nombre non nul</td><td>diviser v, par, 3</td></tr>
+	<tr><td>diviser une variable v par 0,4</td><td>diviser v, par, 2, cinquièmes</td></tr>
 	<tr><td>remplacer une variable v par son carré</td><td>éleverAuCarré v</td></tr>
 	<tr><td>variante pour remplacer une variable v par son carré</td><td>élever v, "au carré"</td></tr>
 	<tr><td>remplacer une variable v par son cube</td><td>éleverAuCube v</td></tr>
 	<tr><td>remplacer une variable v par sa puissance quatrième</td><td>élever v, "à la puissance", 4</td></tr>
 	<tr><td>remplacer une variable v par son inverse</td><td>inverser v</td></tr>
 	<tr><td>remplacer une variable v par sa racine carrée</td><td>extraireLaRacineDe v</td></tr>
+	<tr><td>Appliquer une translation à un point</td><td>augmenter p, de, [3,1]</td></tr>
 
 </table>
 <ul>
@@ -109,7 +110,7 @@ année = new Variable 2010
     augmenter capital, de, 2.5, pourcents
 montrer année</pre>
 </div>
-</div>
+
 
 <footer id="enbas">© IREM de La Réunion: Alain Busser, Florian Tobé 2014</footer>
 </body>
