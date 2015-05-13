@@ -1,4 +1,3 @@
-
 /*
 Sophus
 un langage de programmation inspiré par COBOL
@@ -638,35 +637,42 @@ multiplier = (function(_this) {
     if (mode == null) {
       mode = "";
     }
-    if (par === "par") {
-      switch (mode) {
-        case "":
-          return o.valeur *= (ref3 = facteur.valeur) != null ? ref3 : facteur;
-        case "demis":
-          return o.valeur *= ((ref4 = facteur.valeur) != null ? ref4 : facteur) / 2;
-        case "tiers":
-          return o.valeur *= ((ref5 = facteur.valeur) != null ? ref5 : facteur) / 3;
-        case "quarts":
-          return o.valeur *= ((ref6 = facteur.valeur) != null ? ref6 : facteur) / 4;
-        case "cinquièmes":
-          return o.valeur *= ((ref7 = facteur.valeur) != null ? ref7 : facteur) / 5;
-        case "sixièmes":
-          return o.valeur *= ((ref8 = facteur.valeur) != null ? ref8 : facteur) / 6;
-        case "septièmes":
-          return o.valeur *= ((ref9 = facteur.valeur) != null ? ref9 : facteur) / 7;
-        case "huitièmes":
-          return o.valeur *= ((ref10 = facteur.valeur) != null ? ref10 : facteur) / 8;
-        case "neuvièmes":
-          return o.valeur *= ((ref11 = facteur.valeur) != null ? ref11 : facteur) / 9;
-        case "dixièmes":
-          return o.valeur *= ((ref12 = facteur.valeur) != null ? ref12 : facteur) / 10;
-        case "pourcents":
-          return o.valeur *= ((ref13 = facteur.valeur) != null ? ref13 : facteur) / 100;
-        default:
-          return alert("erreur opérateur");
-      }
+    if (estTableau(o)) {
+      return o.valeur = o.valeur.map(function(courant) {
+        var ref3;
+        return courant *= (ref3 = facteur.valeur) != null ? ref3 : facteur;
+      });
     } else {
-      return alert("Je veux bien multiplier cette variable mais par quoi ?");
+      if (par === "par") {
+        switch (mode) {
+          case "":
+            return o.valeur *= (ref3 = facteur.valeur) != null ? ref3 : facteur;
+          case "demis":
+            return o.valeur *= ((ref4 = facteur.valeur) != null ? ref4 : facteur) / 2;
+          case "tiers":
+            return o.valeur *= ((ref5 = facteur.valeur) != null ? ref5 : facteur) / 3;
+          case "quarts":
+            return o.valeur *= ((ref6 = facteur.valeur) != null ? ref6 : facteur) / 4;
+          case "cinquièmes":
+            return o.valeur *= ((ref7 = facteur.valeur) != null ? ref7 : facteur) / 5;
+          case "sixièmes":
+            return o.valeur *= ((ref8 = facteur.valeur) != null ? ref8 : facteur) / 6;
+          case "septièmes":
+            return o.valeur *= ((ref9 = facteur.valeur) != null ? ref9 : facteur) / 7;
+          case "huitièmes":
+            return o.valeur *= ((ref10 = facteur.valeur) != null ? ref10 : facteur) / 8;
+          case "neuvièmes":
+            return o.valeur *= ((ref11 = facteur.valeur) != null ? ref11 : facteur) / 9;
+          case "dixièmes":
+            return o.valeur *= ((ref12 = facteur.valeur) != null ? ref12 : facteur) / 10;
+          case "pourcents":
+            return o.valeur *= ((ref13 = facteur.valeur) != null ? ref13 : facteur) / 100;
+          default:
+            return alert("erreur opérateur");
+        }
+      } else {
+        return alert("Je veux bien multiplier cette variable mais par quoi ?");
+      }
     }
   };
 })(this);
@@ -680,33 +686,40 @@ diviser = (function(_this) {
     if (mode == null) {
       mode = "";
     }
-    if (par === "par") {
-      switch (mode) {
-        case "":
-          return o.valeur /= (ref3 = facteur.valeur) != null ? ref3 : facteur;
-        case "demis":
-          return o.valeur /= ((ref4 = facteur.valeur) != null ? ref4 : facteur) / 2;
-        case "tiers":
-          return o.valeur /= ((ref5 = facteur.valeur) != null ? ref5 : facteur) / 3;
-        case "quarts":
-          return o.valeur /= ((ref6 = facteur.valeur) != null ? ref6 : facteur) / 4;
-        case "cinquièmes":
-          return o.valeur /= ((ref7 = facteur.valeur) != null ? ref7 : facteur) / 5;
-        case "sixièmes":
-          return o.valeur /= ((ref8 = facteur.valeur) != null ? ref8 : facteur) / 6;
-        case "septièmes":
-          return o.valeur /= ((ref9 = facteur.valeur) != null ? ref9 : facteur) / 7;
-        case "huitièmes":
-          return o.valeur /= ((ref10 = facteur.valeur) != null ? ref10 : facteur) / 8;
-        case "neuvièmes":
-          return o.valeur /= ((ref11 = facteur.valeur) != null ? ref11 : facteur) / 9;
-        case "dixièmes":
-          return o.valeur /= ((ref12 = facteur.valeur) != null ? ref12 : facteur) / 10;
-        default:
-          return alert("erreur opérateur");
-      }
+    if (estTableau(o)) {
+      return o.valeur = o.valeur.map(function(courant) {
+        var ref3;
+        return courant /= (ref3 = facteur.valeur) != null ? ref3 : facteur;
+      });
     } else {
-      return alert("Je veux bien diviser cette variable mais par quoi ?");
+      if (par === "par") {
+        switch (mode) {
+          case "":
+            return o.valeur /= (ref3 = facteur.valeur) != null ? ref3 : facteur;
+          case "demis":
+            return o.valeur /= ((ref4 = facteur.valeur) != null ? ref4 : facteur) / 2;
+          case "tiers":
+            return o.valeur /= ((ref5 = facteur.valeur) != null ? ref5 : facteur) / 3;
+          case "quarts":
+            return o.valeur /= ((ref6 = facteur.valeur) != null ? ref6 : facteur) / 4;
+          case "cinquièmes":
+            return o.valeur /= ((ref7 = facteur.valeur) != null ? ref7 : facteur) / 5;
+          case "sixièmes":
+            return o.valeur /= ((ref8 = facteur.valeur) != null ? ref8 : facteur) / 6;
+          case "septièmes":
+            return o.valeur /= ((ref9 = facteur.valeur) != null ? ref9 : facteur) / 7;
+          case "huitièmes":
+            return o.valeur /= ((ref10 = facteur.valeur) != null ? ref10 : facteur) / 8;
+          case "neuvièmes":
+            return o.valeur /= ((ref11 = facteur.valeur) != null ? ref11 : facteur) / 9;
+          case "dixièmes":
+            return o.valeur /= ((ref12 = facteur.valeur) != null ? ref12 : facteur) / 10;
+          default:
+            return alert("erreur opérateur");
+        }
+      } else {
+        return alert("Je veux bien diviser cette variable mais par quoi ?");
+      }
     }
   };
 })(this);

@@ -14,4 +14,4 @@ Sophus est un langage de programmation pour l'enseignement de l'algorithmique au
 
 -- est particulièrement adapté aux calculs différentiel et intégral ainsi qu'à la statistique descriptive
 
--- s'écrit avec une finition proche de la craie sur le tableau, si on installe la police ci-joint
+-- s'écrit avec une finition proche de la craie sur le tableau, si on installe la police ci-jointe

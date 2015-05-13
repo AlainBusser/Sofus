@@ -257,62 +257,68 @@ diminuer = (o,de,chouia,mode="") =>
 
 
 multiplier = (o,par="par",facteur,mode="") =>
-	if par is "par"
-		switch mode
-			when ""
-				o.valeur *= facteur.valeur ? facteur
-			when "demis"
-				o.valeur *= (facteur.valeur ? facteur)/2
-			when "tiers"
-				o.valeur *= (facteur.valeur ? facteur)/3
-			when "quarts"
-				o.valeur *= (facteur.valeur ? facteur)/4
-			when "cinquièmes"
-				o.valeur *= (facteur.valeur ? facteur)/5
-			when "sixièmes"
-				o.valeur *= (facteur.valeur ? facteur)/6
-			when "septièmes"
-				o.valeur *= (facteur.valeur ? facteur)/7
-			when "huitièmes"
-				o.valeur *= (facteur.valeur ? facteur)/8
-			when "neuvièmes"
-				o.valeur *= (facteur.valeur ? facteur)/9
-			when "dixièmes"
-				o.valeur *= (facteur.valeur ? facteur)/10
-			when "pourcents"
-				o.valeur *= (facteur.valeur ? facteur)/100
-			else
-				alert "erreur opérateur"
+	if estTableau o
+		o.valeur = o.valeur.map (courant) -> courant *= facteur.valeur ? facteur
 	else
-		alert "Je veux bien multiplier cette variable mais par quoi ?"
+		if par is "par"
+			switch mode
+				when ""
+					o.valeur *= facteur.valeur ? facteur
+				when "demis"
+					o.valeur *= (facteur.valeur ? facteur)/2
+				when "tiers"
+					o.valeur *= (facteur.valeur ? facteur)/3
+				when "quarts"
+					o.valeur *= (facteur.valeur ? facteur)/4
+				when "cinquièmes"
+					o.valeur *= (facteur.valeur ? facteur)/5
+				when "sixièmes"
+					o.valeur *= (facteur.valeur ? facteur)/6
+				when "septièmes"
+					o.valeur *= (facteur.valeur ? facteur)/7
+				when "huitièmes"
+					o.valeur *= (facteur.valeur ? facteur)/8
+				when "neuvièmes"
+					o.valeur *= (facteur.valeur ? facteur)/9
+				when "dixièmes"
+					o.valeur *= (facteur.valeur ? facteur)/10
+				when "pourcents"
+					o.valeur *= (facteur.valeur ? facteur)/100
+				else
+					alert "erreur opérateur"
+		else
+			alert "Je veux bien multiplier cette variable mais par quoi ?"
 
 diviser = (o,par="par",facteur,mode="") =>
-	if par is "par"
-		switch mode
-			when ""
-				o.valeur /= facteur.valeur ? facteur
-			when "demis"
-				o.valeur /= (facteur.valeur ? facteur)/2
-			when "tiers"
-				o.valeur /= (facteur.valeur ? facteur)/3
-			when "quarts"
-				o.valeur /= (facteur.valeur ? facteur)/4
-			when "cinquièmes"
-				o.valeur /= (facteur.valeur ? facteur)/5
-			when "sixièmes"
-				o.valeur /= (facteur.valeur ? facteur)/6
-			when "septièmes"
-				o.valeur /= (facteur.valeur ? facteur)/7
-			when "huitièmes"
-				o.valeur /= (facteur.valeur ? facteur)/8
-			when "neuvièmes"
-				o.valeur /= (facteur.valeur ? facteur)/9
-			when "dixièmes"
-				o.valeur /= (facteur.valeur ? facteur)/10
-			else
-				alert "erreur opérateur"
+	if estTableau o
+		o.valeur = o.valeur.map (courant) -> courant /= facteur.valeur ? facteur
 	else
-		alert "Je veux bien diviser cette variable mais par quoi ?"
+		if par is "par"
+			switch mode
+				when ""
+					o.valeur /= facteur.valeur ? facteur
+				when "demis"
+					o.valeur /= (facteur.valeur ? facteur)/2
+				when "tiers"
+					o.valeur /= (facteur.valeur ? facteur)/3
+				when "quarts"
+					o.valeur /= (facteur.valeur ? facteur)/4
+				when "cinquièmes"
+					o.valeur /= (facteur.valeur ? facteur)/5
+				when "sixièmes"
+					o.valeur /= (facteur.valeur ? facteur)/6
+				when "septièmes"
+					o.valeur /= (facteur.valeur ? facteur)/7
+				when "huitièmes"
+					o.valeur /= (facteur.valeur ? facteur)/8
+				when "neuvièmes"
+					o.valeur /= (facteur.valeur ? facteur)/9
+				when "dixièmes"
+					o.valeur /= (facteur.valeur ? facteur)/10
+				else
+					alert "erreur opérateur"
+		else
+			alert "Je veux bien diviser cette variable mais par quoi ?"
 
 
 
