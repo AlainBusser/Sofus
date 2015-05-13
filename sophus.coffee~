@@ -339,6 +339,6 @@ $ ->
   
   $("#runCoff0").on "click", ->
     try
-      eval CoffeeScript.compile $("#scriptCoff0").val()
+      eval(CoffeeScript.compile $("#scriptCoff0").val()
     catch e
       alert(e)

@@ -21,14 +21,14 @@
 <h1>Interpréteur Sophus</h1>
 
 
-<p><textarea id="scriptCoff0" rows="6" cols="40" >prix = new Variable 160
+<p><textarea id="script0" rows="6" cols="40" >prix = new Variable 160
 taux = new Variable 20
 augmenter prix, de, taux, pourcents
 diminuer prix, de, taux, pourcents
 montrer prix
 </textarea></p>
 <p>
-<button id="runCoff0">Tester cet algorithme</button>
+<button id="run0">Tester cet algorithme</button>
 </p>
 <h3 id="syntaxe">Syntaxe de Sophus</h3>
 <div id="manuel">
