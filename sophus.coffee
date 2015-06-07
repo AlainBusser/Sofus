@@ -330,15 +330,3 @@ aMoinsQue = (booleen,fonction) ->
     do fonction unless booleen
     null
     
-###présentation
-###
-$ ->
-  $("#manuel").hide 10
-  $("#syntaxe").on "click", ->
-      $("#manuel").toggle 1000
-  
-  $("#runCoff0").on "click", ->
-    try
-      eval CoffeeScript.compile $("#scriptCoff0").val()
-    catch e
-      alert(e)
