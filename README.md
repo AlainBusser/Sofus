@@ -14,4 +14,6 @@ Sophus est un langage de programmation pour l'enseignement de l'algorithmique au
 
 -- est particulièrement adapté aux calculs différentiel et intégral ainsi qu'à la statistique descriptive
 
+-- donne une approche de la géométrie repérée inspirée par le programme d'Erlangen, par exemple pour appliquer une translation de vecteur u à un point M on écrit *augmenter M, de, u*
+
 -- s'écrit avec une finition proche de la craie sur le tableau, si on installe la police ci-jointe
