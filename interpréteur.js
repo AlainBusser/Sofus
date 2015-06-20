@@ -24,7 +24,7 @@
     texte = texte.replace(/\.foisFaire\ *->/g, " fois faire");
     texte = texte.replace(/->/g, " faire ");
     texte = texte.replace(/,(\ )*de(\ )*,/g, " de ");
-    texte = texte.replace(/,(\ )*de(\ )*,/g, " de ");
+    texte = texte.replace(/,(\ )*par(\ )*,/g, " par ");
     texte = texte.replace(/,(\ )*à(\ )*,/g, " à ");
     texte = texte.replace(/,(\ )*dans(\ )*,/g, " dans ");
     texte = texte.replace(/,(\ )*auCarré/g, " au carré");
