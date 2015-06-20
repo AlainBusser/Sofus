@@ -20,6 +20,8 @@ correction = (unAlgo) ->
   texte = texte.replace /,(\ )*de(\ )*,/g, " de "
   texte = texte.replace /,(\ )*à(\ )*,/g, " à "
   texte = texte.replace /,(\ )*dans(\ )*,/g, " dans "
+  texte = texte.replace(/,(\ )*auCarré/g, " au carré");
+  texte = texte.replace(/,(\ )*auCube/g, " au cube");
   texte = texte.replace /,(\ )*àLaPuissance(\ )*,/g, " à la puissance "
   texte = texte.replace /Variable/g, "variable initialisée à "
   texte = texte.replace /==/g, " est égale à "
@@ -27,8 +29,8 @@ correction = (unAlgo) ->
   texte = texte.replace />=/g, " est supérieure ou égale à "
   texte = texte.replace /<=/g, " est inférieure ou égale à "
   texte = texte.replace /</g, " est inférieure à "
-  texte = texte.replace /,(\ )*éleverAuCarré(\ )*,/g, " élever au carré la variable "
-  texte = texte.replace /,(\ )*éleverAuCube(\ )*,/g, " élever au cube la variable "
+  texte = texte.replace /éleverAuCarré(\ )*,/g, " élever au carré la variable "
+  texte = texte.replace /éleverAuCube(\ )*,/g, " élever au cube la variable "
   texte = texte.replace /,(\ )*extraireLaRacineDe(\ )*,/g, " extraire la racine de "
   texte = texte.replace /,(\ )*demi/g, " demi"
   texte = texte.replace /,(\ )*tiers/g, " tiers"
