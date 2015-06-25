@@ -17,9 +17,9 @@
     texte = texte.replace(/Jusqu'à ce que\ /g, "until ");
     texte = texte.replace(/jusqu'à ce que\ /g, "until ");
     texte = texte.replace(/\ +fois\ +faire/g, ".foisFaire ->");
-    texte = texte.replace(/\ +au carré/g, " auCarré");
-    texte = texte.replace(/\ +au cube/g, " auCube");
-    texte = texte.replace(/\ +à la puissance/g, " àLaPuissance");
+    texte = texte.replace(/\ +au carré/g, ", auCarré");
+    texte = texte.replace(/\ +au cube/g, ", auCube");
+    texte = texte.replace(/\ +à la puissance/g, ", àLaPuissance");
     texte = texte.replace(/([^\,])\ +à\ +([^\,])/g, "$1, à, $2");
     texte = texte.replace(/([^\,])\ +de\ +([^\,])/g, "$1, de, $2");
     texte = texte.replace(/([^\,])\ +par\ +([^\,])/g, "$1, par, $2");

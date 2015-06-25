@@ -764,8 +764,30 @@
     texte = texte.replace(/Si\ /g, "if ");
     texte = texte.replace(/\ nouvelle\ /g, " new ");
     texte = texte.replace(/Tant que\ /g, "while ");
+    texte = texte.replace(/tant que\ /g, "while ");
     texte = texte.replace(/Jusqu'à ce que\ /g, "until ");
+    texte = texte.replace(/jusqu'à ce que\ /g, "until ");
+    texte = texte.replace(/\ +fois\ +faire/g, ".foisFaire ->");
+    texte = texte.replace(/\ +au carré/g, ", auCarré");
+    texte = texte.replace(/\ +au cube/g, ", auCube");
+    texte = texte.replace(/\ +à la puissance/g, ", àLaPuissance");
+    texte = texte.replace(/([^\,])\ +à\ +([^\,])/g, "$1, à, $2");
+    texte = texte.replace(/([^\,])\ +de\ +([^\,])/g, "$1, de, $2");
+    texte = texte.replace(/([^\,])\ +par\ +([^\,])/g, "$1, par, $2");
+    texte = texte.replace(/([^\,])\ +demi/g, "$1, demi");
+    texte = texte.replace(/([^\,])\ +tiers/g, "$1, tiers");
+    texte = texte.replace(/([^\,])\ +quart/g, "$1, quart");
+    texte = texte.replace(/([^\,])\ +cinquième/g, "$1, cinquième");
+    texte = texte.replace(/([^\,])\ +sixième/g, "$1, sixième");
+    texte = texte.replace(/([^\,])\ +septième/g, "$1, septième");
+    texte = texte.replace(/([^\,])\ +huitième/g, "$1, huitième");
+    texte = texte.replace(/([^\,])\ +neuvième/g, "$1, neuvième");
+    texte = texte.replace(/([^\,])\ +dixième/g, "$1, dixième");
+    texte = texte.replace(/([^\,])\ +pourcent/g, "$1, pourcent");
+    texte = texte.replace(/([^\,])\ +près/g, "$1, près");
+    texte = texte.replace(/([^\,])\ +décimale/g, "$1, décimale");
     texte = texte.replace(/\ devient\ /g, " = ");
+    texte = texte.replace(/:=/g, "=");
     return texte;
   };
 
@@ -816,12 +838,12 @@
 
 <p><textarea id="scriptCoff0" rows="10" cols="40" >devin devient nouvelle Variable 80
 magie = nouvelle Variable devin.valeur
-augmenter devin, de, 3
-élever devin, auCarré
-diminuer devin, de, 9
-élever magie, auCarré
-diminuer devin, de, magie
-diviser devin, par, 6
+augmenter devin de 3
+élever devin au carré
+diminuer devin de 9
+élever magie au carré
+diminuer devin de magie
+diviser devin par 6
 montrer devin</textarea></p>
 <p>
 <button id="RunCoff0" onClick="try{CoffeeScript.run(traduction(document.getElementById('scriptCoff0').value))} catch(e){alert(e)};">Lancer cet algorithme</button>

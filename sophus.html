@@ -23,10 +23,10 @@
 <h1>Interpréteur Sophus</h1>
 
 
-<p><textarea id="scriptCoff0" rows="6" cols="40" >prix = new Variable 160
-taux = new Variable 20
-augmenter prix, de, taux, pourcents
-diminuer prix, de, taux, pourcents
+<p><textarea id="scriptCoff0" rows="6" cols="40" >prix = nouvelle Variable 160
+taux = 20
+augmenter prix de taux pourcents
+diminuer prix de taux pourcents
 montrer prix
 </textarea></p>
 <p>
@@ -41,36 +41,36 @@ montrer prix
 <div id="manuel">
 <table border=1>
 	<tr><th>Action</th><th>Exemple</th></tr>
-	<tr><td>créer une variable</td><td>v = new Variable 22/7</td></tr>
+	<tr><td>créer une variable</td><td>v = nouvelle Variable 22/7</td></tr>
 	<tr><td>affecter la variable v</td><td>mettreDans v, "un texte"</td></tr>
-	<tr><td>affecter la variable v</td><td>mettre "un texte", dans, v</td></tr>
+	<tr><td>affecter la variable v</td><td>mettre "un texte" dans v</td></tr>
 	<tr><td>entrer une variable v</td><td>entrer v</td></tr>
 	<tr><td>Afficher une variable v</td><td>montrer v</td></tr>
 	<tr><td>arrondir une variable v à l'entier le plus proche</td><td>arrondir v</td></tr>
-	<tr><td>arrondir une variable v à 0,05 près</td><td>arrondir v, à, 0.05, près</td></tr>
-	<tr><td>arrondir une variable v au centième</td><td>arrondir v, à, 2, décimales</td></tr>
+	<tr><td>arrondir une variable v à 0,05 près</td><td>arrondir v à 0.05 près</td></tr>
+	<tr><td>arrondir une variable v au centième</td><td>arrondir v à 2 décimales</td></tr>
 	<tr><td>tronquer une variable v</td><td>comme les arrondis mais avec "tronquer" au lieu de "arrondir"</td></tr>
 	<tr><td>ajouter 1 à une variable v</td><td>incrémenter v</td></tr>
-	<tr><td>ajouter 2 à une variable v</td><td>augmenter v, de, 2</td></tr>
-	<tr><td>augmenter une variable v de deux cinquièmes</td><td>augmenter v, de, 2, cinquièmes</td></tr>
-	<tr><td>augmenter une variable v de trois pourcents</td><td>augmenter v, de, 3, pourcents</td></tr>
+	<tr><td>ajouter 2 à une variable v</td><td>augmenter v de 2</td></tr>
+	<tr><td>augmenter une variable v de deux cinquièmes</td><td>augmenter v de 2 cinquièmes</td></tr>
+	<tr><td>augmenter une variable v de trois pourcents</td><td>augmenter v de 3 pourcents</td></tr>
 	<tr><td>soustraire 1 à une variable v</td><td>décrémenter v</td></tr>
 	<tr><td>soustraire un nombre, une fraction ou un pourcentage à une variable v</td><td>comme pour ajouter mais "diminuer" au lieu de "augmenter"</td></tr>
 	<tr><td>multiplier une variable v par un entier entre 2 et 6</td><td>tripler v</td></tr>
 	<tr><td>multiplier une variable v par 8</td><td>octupler v</td></tr>
 	<tr><td>multiplier une variable v par 10</td><td>décupler v</td></tr>
 	<tr><td>multiplier une variable v par 100</td><td>centupler v</td></tr>
-	<tr><td>multiplier une variable v par 1000</td><td>multiplier v, par, 1000</td></tr>
-	<tr><td>multiplier une variable v par 0,75</td><td>multiplier v, par, 3, quarts</td></tr>
-	<tr><td>diviser une variable v par un nombre non nul</td><td>diviser v, par, 3</td></tr>
-	<tr><td>diviser une variable v par 0,4</td><td>diviser v, par, 2, cinquièmes</td></tr>
+	<tr><td>multiplier une variable v par 1000</td><td>multiplier v par 1000</td></tr>
+	<tr><td>multiplier une variable v par 0,75</td><td>multiplier v par 3 quarts</td></tr>
+	<tr><td>diviser une variable v par un nombre non nul</td><td>diviser v par 3</td></tr>
+	<tr><td>diviser une variable v par 0,4</td><td>diviser v par 2 cinquièmes</td></tr>
 	<tr><td>remplacer une variable v par son carré</td><td>éleverAuCarré v</td></tr>
-	<tr><td>variante pour remplacer une variable v par son carré</td><td>élever v, "au carré"</td></tr>
-	<tr><td>remplacer une variable v par son cube</td><td>éleverAuCube v</td></tr>
-	<tr><td>remplacer une variable v par sa puissance quatrième</td><td>élever v, "à la puissance", 4</td></tr>
+	<tr><td>variante pour remplacer une variable v par son carré</td><td>élever v au carré</td></tr>
+	<tr><td>remplacer une variable v par son cube</td><td>élever v au cube</td></tr>
+	<tr><td>remplacer une variable v par sa puissance quatrième</td><td>élever v à la puissance 4</td></tr>
 	<tr><td>remplacer une variable v par son inverse</td><td>inverser v</td></tr>
 	<tr><td>remplacer une variable v par sa racine carrée</td><td>extraireLaRacineDe v</td></tr>
-	<tr><td>Appliquer une translation à un point</td><td>augmenter p, de, [3,1]</td></tr>
+	<tr><td>Appliquer une translation à un point</td><td>augmenter p de [3,1]</td></tr>
 
 </table>
 <ul>
@@ -83,30 +83,30 @@ montrer prix
 <p>Pour savoir si on est dimanche ou s'il faut aller travailler, on peut utiliser 
 une variable <code>dimanche</code> qui contient un texte différent selon le jour de la semaine:</p>
 <pre>v = (new Date()).getDay()
-dimanche = new Variable 
-si v == 0, ->
+dimanche = nouvelle Variable 
+Si v == 0
     mettreDans dimanche, "youpi !"
-si v > 0, ->
+Sinon
     mettreDans dimanche, "snif !"
 montrer dimanche</pre>
 <h4>Répétitions</h4>
 <p>Pour calculer les puissances de 2 (suite géométrique) on peut créer un indice <code>nombre</code> et 
 répéter 5 fois l'opération consistant à mettre la valeur actuelle de ce nombre dans 
 un tableau :</p>
-<pre>tableau = []
-nombre = new Variable 2
-5.foisFaire ->
+<pre>tableau = [ ]
+nombre = nouvelle Variable 2
+5 fois faire
     tableau.empiler nombre.valeur
     doubler nombre
 montrer tableau</pre>
 <h4>Recherche de seuil</h4>
 <p>En 2010, Jean-Vincent a placé un capital de 200 € à 2,5 % d'intérêts composés par an. Quand le capital 
 dépassera-t-il 250 € ?</p>
-<pre>capital = new Variable 200
-année = new Variable 2010
-250.tantQuePlusGrandQue capital, ->
+<pre>capital = nouvelle Variable 200
+année = nouvelle Variable 2010
+jusqu'à ce que capital.valeur >= 250
     incrémenter année
-    augmenter capital, de, 2.5, pourcents
+    augmenter capital de 2.5 pourcents
 montrer année</pre>
 </div>
 
