@@ -63,7 +63,7 @@ correction = (unAlgo) ->
   texte = texte.replace(/,(\ )*auCube/g, " au cube");
   texte = texte.replace /,(\ )*àLaPuissance(\ )*,/g, " à la puissance "
   texte = texte.replace /Variable/g, "variable initialisée à "
-  texte = texte.replace /==/g, " est égale à "
+#  texte = texte.replace /==/g, " est égale à "
   texte = texte.replace /^->/g, " est supérieure à "
   texte = texte.replace />=/g, " est supérieure ou égale à "
   texte = texte.replace /<=/g, " est inférieure ou égale à "
