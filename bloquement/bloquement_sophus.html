@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Programmation graphique</title>
+  <script src="https://blockly-demo.appspot.com/static/blockly_compressed.js"></script>
+  <script src="https://blockly-demo.appspot.com/static/blocks_compressed.js"></script>
+  <script src="https://blockly-demo.appspot.com/static/javascript_compressed.js"></script>
+  <script src="https://blockly-demo.appspot.com/static/msg/js/fr.js"></script>
+  <script src="blocks_complements.js"></script>
+  <script src="javascript_complements.js"></script>
+  <script src="fr_complements.js"></script>
+  <style>
+    body {
+      background-color: #fff;
+      font-family: sans-serif;
+    }
+    h1 {
+      color: red; font-variant: small-caps; text-shadow: 0.04em 0.02em 0.1em gray; }
+    #sortieJS { display: inline-block; height: 480px; width: 50%; background-color: lightyellow; border: 3px inset orange; }
+  </style>
+</head>
+<body>
+  <h1>Programmation avec Blockly</h1>
+
+  <p>Pour écrire un programme de calcul, glisser les élements sur le plan de travail</p>
+
+<table><tr><td>
+  <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
+
+  <xml id="toolbox" style="display: none">
+    <category name="Variables" custom="VARIABLE"></category>
+    <category name="Entrees-sorties">
+        <block type="text"></block>
+    <block type="text_print"></block>
+    <block type="text_prompt"></block>
+    </category>    
+    <category name="Logique">
+      <category name="Conditions">
+        <block type="controls_if"></block>
+        <block type="controls_if">
+          <mutation else="1"></mutation>
+        </block>
+        <block type="controls_if">
+          <mutation elseif="1" else="1"></mutation>
+        </block>
+      </category>
+      <category name="Propositions">
+        <block type="logic_compare"></block>
+        <block type="logic_operation"></block>
+        <block type="logic_negate"></block>
+        <block type="logic_boolean"></block>
+        <block type="logic_null"></block>
+        <block type="logic_ternary"></block>
+      </category>
+    </category>
+    <category name="Boucles">
+        <category name="simples">
+      <block type="controls_repeat_ext">
+        <value name="TIMES">
+          <block type="math_number">
+            <field name="NUM">10</field>
+          </block>
+        </value>
+      </block>
+      <block type="controls_forEach"></block>
+        </category>
+        <category name="complexes">
+      <block type="controls_whileUntil"></block>
+      <block type="controls_for">
+        <field name="VAR">i</field>
+        <value name="FROM">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <value name="TO">
+          <block type="math_number">
+            <field name="NUM">10</field>
+          </block>
+        </value>
+        <value name="BY">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+      </block>
+      <block type="controls_flow_statements"></block>
+	</category>
+    </category>
+    <category name="Math">
+        <category name="constantes">
+      <block type="math_number"></block>
+      <block type="math_constant"></block>
+      </category>
+      <category name="fonctions">
+      <block type="math_single"></block>
+      <block type="math_trig"></block>
+      <block type="math_number_property"></block>
+      <block type="math_change">
+        <value name="DELTA">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+      </block>
+      <block type="math_round"></block>
+      </category>
+      <category name="opérations">
+      <block type="math_arithmetic"></block>
+      <block type="math_modulo"></block>
+      <block type="math_constrain">
+        <value name="LOW">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <value name="HIGH">
+          <block type="math_number">
+            <field name="NUM">100</field>
+          </block>
+        </value>
+      </block>
+      </category>
+      <category name="hasard">
+      <block type="math_random_int">
+        <value name="FROM">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <value name="TO">
+          <block type="math_number">
+            <field name="NUM">100</field>
+          </block>
+        </value>
+      </block>
+      <block type="math_random_float"></block>
+      </category>
+    <category name="Statistiques">
+        <category name="listes">
+      <block type="lists_create_empty"></block>
+      <block type="lists_create_with"></block>
+      <block type="lists_repeat">
+        <value name="NUM">
+          <block type="math_number">
+            <field name="NUM">5</field>
+          </block>
+        </value>
+      </block>
+        </category>
+        <category name="manipulation">
+      <block type="lists_indexOf"></block>
+      <block type="lists_getIndex"></block>
+      <block type="lists_setIndex"></block>
+        </category>
+      <block type="lists_length"></block>
+      <block type="lists_isEmpty"></block>
+      <block type="math_on_list"></block>
+    </category>
+    </category>
+    <category name="Sophus">
+      <block type="sophus_carre">
+      </block>
+      <block type="sophus_augmenter">
+        <value name="DELTA">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+      </block>
+    </category>
+  </xml>
+
+  <script>
+    var workspace = Blockly.inject('blocklyDiv',
+        {media: 'media/',
+         toolbox: document.getElementById('toolbox')});
+  function myUpdateFunction() {
+  var code = Blockly.JavaScript.workspaceToCode(workspace);
+  document.getElementById('sortieJS').value = code;
+}
+workspace.addChangeListener(myUpdateFunction);
+function lancer() {
+    Blockly.JavaScript.addReservedWords('code');
+var code = Blockly.JavaScript.workspaceToCode(workspace);
+try {
+  eval(code);
+} catch (e) {
+  alert(e);
+}
+}
+  </script>
+  </td><td></td><button onClick="lancer();">Lancer</button><td>
+  <textarea id="sortieJS" rows="32" cols="100"></textarea>
+  
+</td></tr></table>
+</body>
+</html>
