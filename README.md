@@ -4,16 +4,19 @@ Sophus est un langage de programmation pour l'enseignement de l'algorithmique au
 
 -- fait très peu appel aux affectations de variables (les variables sont initialisées puis modifiées *in situ*)
 
--- gère les fractions les plus courantes, y compris les pourcentages, en français (on peut par exemple augmenter une variable d'un quart avec *augmenter v, de, 1, quart*) 
-
--- affiche les contenus des variables en français (avec virgule décimale, arrondie à 3 décimales)
-
--- évite la confusion entre le nom d'une variable et sa valeur (si la variable x contient 2, *x.valeur* est égal à 2 mais pas x, qui, lui, reste une variable)
+-- gère les fractions les plus courantes, y compris les pourcentages, en français (on peut par exemple augmenter une variable d'un quart avec *augmenter v de 1 quart*) 
 
 -- gère les chaînes de caractères avec la concaténation
 
 -- est particulièrement adapté aux calculs différentiel et intégral ainsi qu'à la statistique descriptive
 
--- donne une approche de la géométrie repérée inspirée par le programme d'Erlangen, par exemple pour appliquer une translation de vecteur u à un point M on écrit *augmenter M, de, u*
+-- donne une approche de la géométrie repérée inspirée par le programme d'Erlangen, par exemple pour appliquer une translation de vecteur u à un point M on écrit *augmenter M de u*
 
--- s'écrit avec une finition proche de la craie sur le tableau, si on installe la police ci-jointe
+
+Auteurs:
+
+-- Alain Busser
+
+--Patrick Raffinat
+
+--Florian Tobé

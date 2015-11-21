@@ -3,6 +3,7 @@ Sophus
 un langage de programmation inspiré par COBOL
 auteurs:
 	Alain Busser
+	Patrick Raffinat
 	Florian Tobé
 ©2013
 ce logiciel est libre sous license MIT
