@@ -6,6 +6,14 @@ Blockly.JavaScript['sophus_carre'] = function(block) {
       ' * ' + varName + ';\n';
 };
 
+Blockly.JavaScript['sophus_doubler'] = function(block) {
+  var varName = Blockly.JavaScript.variableDB_.getName(
+      block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  var choix = block.getFieldValue('CHOIX');
+  return varName + ' = ' + varName +
+      ' * ' + choix + ';\n';
+};
+
 Blockly.JavaScript['sophus_augmenter'] = function(block) {
   var argument0 = Blockly.JavaScript.valueToCode(block, 'DELTA',
       Blockly.JavaScript.ORDER_ADDITION) || '0';
@@ -13,6 +21,33 @@ Blockly.JavaScript['sophus_augmenter'] = function(block) {
       block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
   return varName + ' = ' + varName +
       ' + ' + argument0 + ';\n';
+};
+
+Blockly.JavaScript['sophus_diminuer'] = function(block) {
+  var argument0 = Blockly.JavaScript.valueToCode(block, 'DELTA',
+      Blockly.JavaScript.ORDER_ADDITION) || '0';
+  var varName = Blockly.JavaScript.variableDB_.getName(
+      block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  return varName + ' = ' + varName +
+      ' + ' + argument0 + ';\n';
+};
+
+Blockly.JavaScript['sophus_augmenter_pct'] = function(block) {
+  var argument0 = Blockly.JavaScript.valueToCode(block, 'DELTA',
+      Blockly.JavaScript.ORDER_ADDITION) || '0';
+  var varName = Blockly.JavaScript.variableDB_.getName(
+      block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  return varName + ' = ' + varName +
+      ' * (1 + ' + argument0 + ' / 100)' + ';\n';
+};
+
+Blockly.JavaScript['sophus_diminuer_pct'] = function(block) {
+  var argument0 = Blockly.JavaScript.valueToCode(block, 'DELTA',
+      Blockly.JavaScript.ORDER_ADDITION) || '0';
+  var varName = Blockly.JavaScript.variableDB_.getName(
+      block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  return varName + ' = ' + varName +
+      ' * (1 - ' + argument0 + ' / 100)' + ';\n';
 };
 
 // ameliore la traduction quand la borne sup d'un Pour est une variable

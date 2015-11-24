@@ -160,15 +160,39 @@
     </category>
     </category>
     <category name="Sophus">
-      <block type="sophus_carre">
-      </block>
-      <block type="sophus_augmenter">
-        <value name="DELTA">
-          <block type="math_number">
-            <field name="NUM">1</field>
-          </block>
-        </value>
-      </block>
+		<category name="augmenter...">
+			<block type="sophus_augmenter">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">1</field>
+					</block>
+				</value>
+			</block>
+			<block type="sophus_diminuer">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">1</field>
+					</block>
+				</value>
+			</block>
+			<block type="sophus_augmenter_pct">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">10</field>
+					</block>
+				</value>
+			</block>
+			<block type="sophus_diminuer_pct">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">10</field>
+					</block>
+				</value>
+			</block>
+		</category>
+		<category name="multiplier...">
+		<block type="sophus_doubler"></block>
+		<block type="sophus_carre"></block>
     </category>
   </xml>
 
