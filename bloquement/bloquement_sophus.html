@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <title>Programmation graphique</title>
-  <script src="https://blockly-demo.appspot.com/static/blockly_compressed.js"></script>
-  <script src="https://blockly-demo.appspot.com/static/blocks_compressed.js"></script>
-  <script src="https://blockly-demo.appspot.com/static/javascript_compressed.js"></script>
-  <script src="https://blockly-demo.appspot.com/static/msg/js/fr.js"></script>
+  <script src="blockly_compressed.js"></script>
+  <script src="blocks_compressed.js"></script>
+  <script src="javascript_compressed.js"></script>
+  <script src="fr.js"></script>
   <script src="blocks_complements.js"></script>
   <script src="javascript_complements.js"></script>
   <script src="fr_complements.js"></script>
@@ -175,6 +175,13 @@
 					</block>
 				</value>
 			</block>
+			<block type="sophus_augmenter_fract">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">2</field>
+					</block>
+				</value>
+			</block>
 			<block type="sophus_augmenter_pct">
 				<value name="DELTA">
 					<block type="math_number">
@@ -190,7 +197,7 @@
 				</value>
 			</block>
 		</category>
-		<category name="multiplier...">
+		<category name="fonctions">
 		<block type="sophus_doubler"></block>
 		<block type="sophus_carre"></block>
     </category>
