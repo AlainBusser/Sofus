@@ -32,6 +32,16 @@ Blockly.JavaScript['sophus_diminuer'] = function(block) {
       ' + ' + argument0 + ';\n';
 };
 
+Blockly.JavaScript['sophus_augmenter_fract'] = function(block) {
+  var varName = Blockly.JavaScript.variableDB_.getName(
+      block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  var argument0 = Blockly.JavaScript.valueToCode(block, 'DELTA',
+      Blockly.JavaScript.ORDER_ADDITION) || '0';
+  var dropdown_denom = block.getFieldValue('DENOM');
+  return varName + ' = ' + varName + " + " + varName + " * " + argument0 + " / " + dropdown_denom + ";\n";
+};
+
+
 Blockly.JavaScript['sophus_augmenter_pct'] = function(block) {
   var argument0 = Blockly.JavaScript.valueToCode(block, 'DELTA',
       Blockly.JavaScript.ORDER_ADDITION) || '0';
@@ -40,6 +50,16 @@ Blockly.JavaScript['sophus_augmenter_pct'] = function(block) {
   return varName + ' = ' + varName +
       ' * (1 + ' + argument0 + ' / 100)' + ';\n';
 };
+
+Blockly.JavaScript['sophus_diminuer_fract'] = function(block) {
+  var varName = Blockly.JavaScript.variableDB_.getName(
+      block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  var argument0 = Blockly.JavaScript.valueToCode(block, 'DELTA',
+      Blockly.JavaScript.ORDER_ADDITION) || '0';
+  var dropdown_denom = block.getFieldValue('DENOM');
+  return varName + ' = ' + varName + " - " + varName + " * " + argument0 + " / " + dropdown_denom + ";\n";
+};
+
 
 Blockly.JavaScript['sophus_diminuer_pct'] = function(block) {
   var argument0 = Blockly.JavaScript.valueToCode(block, 'DELTA',

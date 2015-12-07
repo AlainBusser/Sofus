@@ -96,46 +96,71 @@ Blockly.Blocks['sophus_augmenter'] = {
 
 Blockly.Blocks['sophus_augmenter_fract'] = {
   init: function() {
-    this.appendValueInput("VAR")
-        .setCheck("Number")
-        .appendField("augmenter");
-    this.appendValueInput("NUMER")
-        .setCheck("Number")
-        .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField("de");
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown([["demis", "2"], ["tiers", "3"], ["quarts", "4"]]), "DENOM");
-    this.setInputsInline(true);
-    this.setColour(260);
-    this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
-  }
-};
-
-/* Blockly.Blocks['sophus_augmenter_fract'] = {
-  init: function() {
     this.jsonInit({
-      "message0": Blockly.Msg.SOPHUS_AUGMENTER_TITLE,
-      "args0": [
+  "message0": "augmenter %1 de %2 %3",
+  "args0": [
         {
           "type": "field_variable",
           "name": "VAR",
           "variable": Blockly.Msg.SOPHUS_AUGMENTER_FRACT_TITLE_ITEM
         },
-        {
-          "type": "input_value",
-          "name": "DELTA",
-          "check": "Number"
-        },
-        {
-            "type": 
-        }
-      ],
+    {
+      "type": "input_value",
+      "name": "DELTA"
+    },
+    {
+      "type": "field_dropdown",
+      "name": "DENOM",
+      "options": [
+        [
+          "tiers",
+          "3"
+        ],
+        [
+          "demis",
+          "1"
+        ],
+        [
+          "quarts",
+          "4"
+        ],
+        [
+          "cinquièmes",
+          "5"
+        ],
+        [
+          "sixièmes",
+          "6"
+        ],
+        [
+          "septièmes",
+          "7"
+        ],
+        [
+          "huitièmes",
+          "8"
+        ],
+        [
+          "neuvièmes",
+          "9"
+        ],
+        [
+          "dixièmes",
+          "10"
+        ],
+        [
+          "centièmes",
+          "100"
+        ]
+      ]
+    }
+  ],
       "previousStatement": null,
       "nextStatement": null,
+  "inputsInline": true,
       "colour": Blockly.Blocks.math.HUE,
       "helpUrl": Blockly.Msg.SOPHUS_AUGMENTER_FRACT_HELPURL
-    });
+});
     var thisBlock = this;
     this.setTooltip(function() {
       return Blockly.Msg.SOPHUS_AUGMENTER_FRACT_TOOLTIP.replace('%1',
@@ -151,7 +176,8 @@ Blockly.Blocks['sophus_augmenter_fract'] = {
     }
   }
 };
-*/
+
+
 
 Blockly.Blocks['sophus_augmenter_pct'] = {
   init: function() {
@@ -227,6 +253,90 @@ Blockly.Blocks['sophus_diminuer'] = {
     }
   }
 };
+
+Blockly.Blocks['sophus_diminuer_fract'] = {
+  init: function() {
+    this.jsonInit({
+  "message0": "diminuer %1 de %2 %3",
+  "args0": [
+        {
+          "type": "field_variable",
+          "name": "VAR",
+          "variable": Blockly.Msg.SOPHUS_DIMINUER_FRACT_TITLE_ITEM
+        },
+    {
+      "type": "input_value",
+      "name": "DELTA"
+    },
+    {
+      "type": "field_dropdown",
+      "name": "DENOM",
+      "options": [
+        [
+          "tiers",
+          "3"
+        ],
+        [
+          "demis",
+          "1"
+        ],
+        [
+          "quarts",
+          "4"
+        ],
+        [
+          "cinquièmes",
+          "5"
+        ],
+        [
+          "sixièmes",
+          "6"
+        ],
+        [
+          "septièmes",
+          "7"
+        ],
+        [
+          "huitièmes",
+          "8"
+        ],
+        [
+          "neuvièmes",
+          "9"
+        ],
+        [
+          "dixièmes",
+          "10"
+        ],
+        [
+          "centièmes",
+          "100"
+        ]
+      ]
+    }
+  ],
+      "previousStatement": null,
+      "nextStatement": null,
+  "inputsInline": true,
+      "colour": Blockly.Blocks.math.HUE,
+      "helpUrl": Blockly.Msg.SOPHUS_DIMINUER_FRACT_HELPURL
+});
+    var thisBlock = this;
+    this.setTooltip(function() {
+      return Blockly.Msg.SOPHUS_DIMINUER_FRACT_TOOLTIP.replace('%1',
+          thisBlock.getFieldValue('VAR'));
+    });
+  },
+  getVars: function() {
+    return [this.getFieldValue('VAR')];
+  },
+  renameVar: function(oldName, newName) {
+    if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+      this.setFieldValue(newName, 'VAR');
+    }
+  }
+};
+
 
 Blockly.Blocks['sophus_diminuer_pct'] = {
   init: function() {

@@ -20,7 +20,7 @@ Blockly.Msg.SOPHUS_DIMINUER_TITLE_ITEM = Blockly.Msg.VARIABLES_DEFAULT_NAME;
 
 Blockly.Msg.SOPHUS_AUGMENTER_FRACT_HELPURL = "";
 Blockly.Msg.SOPHUS_AUGMENTER_FRACT_TITLE = "augmenter %1 de %2";
-Blockly.Msg.SOPHUS_AUGMENTER_FRACT_TOOLTIP = "Ajouter une fraction à la variable '%1'.";
+Blockly.Msg.SOPHUS_AUGMENTER_FRACT_TOOLTIP = "Augmenter la variable '%1' d'une fraction de celle-ci.";
 Blockly.Msg.SOPHUS_AUGMENTER_FRACT_TITLE_ITEM = Blockly.Msg.VARIABLES_DEFAULT_NAME;
 
 Blockly.Msg.SOPHUS_AUGMENTER_PCT_HELPURL = "";
@@ -32,3 +32,8 @@ Blockly.Msg.SOPHUS_DIMINUER_PCT_HELPURL = "";
 Blockly.Msg.SOPHUS_DIMINUER_PCT_TITLE = "diminuer %1 de %2 pourcents";
 Blockly.Msg.SOPHUS_DIMINUER_PCT_TOOLTIP = "Diminuer la variable '%1' d'un certain pourcentage.";
 Blockly.Msg.SOPHUS_DIMINUER_PCT_TITLE_ITEM = Blockly.Msg.VARIABLES_DEFAULT_NAME;
+
+Blockly.Msg.SOPHUS_DIMINUER_FRACT_HELPURL = "";
+Blockly.Msg.SOPHUS_DIMINUER_FRACT_TITLE = "augmenter %1 de %2";
+Blockly.Msg.SOPHUS_DIMINUER_FRACT_TOOLTIP = "Soustraire à la variable '%1' une fraction de celle-ci.";
+Blockly.Msg.SOPHUS_DIMINUER_FRACT_TITLE_ITEM = Blockly.Msg.VARIABLES_DEFAULT_NAME;
