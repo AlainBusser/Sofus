@@ -1,3 +1,22 @@
+Blockly.Blocks['sophus_angle'] = {
+  init: function() {
+      this.jsonInit({
+  "id": "sophus_degres",
+  "message0": "angle %1",
+  "args0": [
+    {
+      "type": "field_angle",
+      "name": "angle",
+      "angle": 90
+    }
+  ],
+    "output": null,
+  "tooltip": "angle en degrés",
+    "colour": Blockly.Blocks.math.HUE,
+  "helpUrl": ""
+    });
+}
+};
 
 Blockly.Blocks['sophus_carre'] = {
   init: function() {
@@ -8,7 +27,25 @@ Blockly.Blocks['sophus_carre'] = {
           "type": "field_variable",
           "name": "VAR",
           "variable": Blockly.Msg.SOPHUS_CARRE_TITLE_ITEM
-        }
+        },
+    {
+      "type": "field_dropdown",
+      "name": "POW",
+      "options": [
+        [
+          "au carré",
+          "2"
+        ],
+        [
+          "au cube",
+          "3"
+        ],
+        [
+          "à la puissance 4",
+          "4"
+        ]
+      ]
+  }
       ],
       "previousStatement": null,
       "nextStatement": null,

@@ -4,7 +4,7 @@ Blockly.Msg.TEXT_PROMPT_TYPE_NUMBER = "saisir un nombre avec un message";
 Blockly.Msg.TEXT_PROMPT_TYPE_TEXT = "saisir un texte avec un message";
 
 Blockly.Msg.SOPHUS_CARRE_HELPURL = "";
-Blockly.Msg.SOPHUS_CARRE_TITLE = "élever %1 au carré";
+Blockly.Msg.SOPHUS_CARRE_TITLE = "élever %1 %2";
 Blockly.Msg.SOPHUS_CARRE_TOOLTIP = "Elever un nombre au carré.";
 Blockly.Msg.SOPHUS_CARRE_TITLE_ITEM = Blockly.Msg.VARIABLES_DEFAULT_NAME;
 

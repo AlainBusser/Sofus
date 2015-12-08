@@ -1,9 +1,15 @@
+Blockly.JavaScript['sophus_angle'] = function(block) {
+  var angledeg = block.getFieldValue('angle'); 
+  return angledeg;
+};
+
+
 
 Blockly.JavaScript['sophus_carre'] = function(block) {
   var varName = Blockly.JavaScript.variableDB_.getName(
       block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
-  return varName + ' = ' + varName +
-      ' * ' + varName + ';\n';
+  var dropdown_pow = block.getFieldValue('POW');
+  return varName + ' = Math.pow(' + varName + ',' + dropdown_pow + ');\n';
 };
 
 Blockly.JavaScript['sophus_doubler'] = function(block) {
