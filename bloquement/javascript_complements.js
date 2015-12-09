@@ -113,3 +113,91 @@ Blockly.JavaScript['controls_for'] = function(block) {
   }
   return code;
 };
+
+
+
+Blockly.JavaScript['sophus_multiplier'] = function(block) {
+  var argument0 = Blockly.JavaScript.valueToCode(block, 'DELTA',
+      Blockly.JavaScript.ORDER_ADDITION) || '0';
+  var varName = Blockly.JavaScript.variableDB_.getName(
+      block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  return varName + ' = ' + varName +
+      ' * ' + argument0 + ';\n';
+};
+
+
+
+Blockly.JavaScript['sophus_diviser'] = function(block) {
+  var argument0 = Blockly.JavaScript.valueToCode(block, 'DELTA',
+      Blockly.JavaScript.ORDER_ADDITION) || '0';
+  var varName = Blockly.JavaScript.variableDB_.getName(
+      block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  return varName + ' = ' + varName +
+      ' / ' + argument0 + ';\n';
+};
+
+
+Blockly.JavaScript['sophus_multiplier_fract'] = function(block) {
+  var varName = Blockly.JavaScript.variableDB_.getName(
+      block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  var argument0 = Blockly.JavaScript.valueToCode(block, 'DELTA',
+      Blockly.JavaScript.ORDER_ADDITION) || '0';
+  var dropdown_denom = block.getFieldValue('DENOM');
+  return varName + ' = ' + varName + " * " + argument0 + " / " + dropdown_denom + ";\n";
+};
+
+
+
+Blockly.JavaScript['sophus_diviser_fract'] = function(block) {
+  var varName = Blockly.JavaScript.variableDB_.getName(
+      block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  var argument0 = Blockly.JavaScript.valueToCode(block, 'DELTA',
+      Blockly.JavaScript.ORDER_ADDITION) || '0';
+  var dropdown_denom = block.getFieldValue('DENOM');
+  return varName + ' = ' + varName + " * " + dropdown_denom + " / " + argument0 + ";\n";
+};
+
+
+
+
+Blockly.JavaScript['sophus_arrondir'] = function(block) {
+  var varName = Blockly.JavaScript.variableDB_.getName(
+      block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  var argument0 = Blockly.JavaScript.valueToCode(block, 'DELTA',
+      Blockly.JavaScript.ORDER_ADDITION) || '0';
+  var dropdown_grad = block.getFieldValue('GRAD');
+  return varName + ' = Math.round(' + varName + " / " + dropdown_grad + argument0 + ") * " + dropdown_grad + argument0 + ";\n";
+};
+
+
+
+
+
+Blockly.JavaScript['sophus_tronquer'] = function(block) {
+  var varName = Blockly.JavaScript.variableDB_.getName(
+      block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  var argument0 = Blockly.JavaScript.valueToCode(block, 'DELTA',
+      Blockly.JavaScript.ORDER_ADDITION) || '0';
+  var dropdown_grad = block.getFieldValue('GRAD');
+  return varName + ' = Math.floor(' + varName + " / " + dropdown_grad + argument0 + ") * " + dropdown_grad + argument0 + ";\n";
+};
+
+
+
+Blockly.JavaScript['sophus_puissance'] = function(block) {
+  var argument0 = Blockly.JavaScript.valueToCode(block, 'POW',
+      Blockly.JavaScript.ORDER_ADDITION) || '0';
+  var varName = Blockly.JavaScript.variableDB_.getName(
+      block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  return varName + ' = Math.pow(' + varName +
+      ' , ' + argument0 + ');\n';
+};
+
+
+
+Blockly.JavaScript['sophus_inverser'] = function(block) {
+  var varName = Blockly.JavaScript.variableDB_.getName(
+      block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  return varName + ' = ' + " 1 / " + varName + ';\n';
+};
+

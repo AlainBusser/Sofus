@@ -37,3 +37,52 @@ Blockly.Msg.SOPHUS_DIMINUER_FRACT_HELPURL = "";
 Blockly.Msg.SOPHUS_DIMINUER_FRACT_TITLE = "augmenter %1 de %2";
 Blockly.Msg.SOPHUS_DIMINUER_FRACT_TOOLTIP = "Soustraire à la variable '%1' une fraction de celle-ci.";
 Blockly.Msg.SOPHUS_DIMINUER_FRACT_TITLE_ITEM = Blockly.Msg.VARIABLES_DEFAULT_NAME;
+
+Blockly.Msg.SOPHUS_MULTIPLIER_HELPURL = "";
+Blockly.Msg.SOPHUS_MULTIPLIER_TITLE = "multiplier %1 par %2";
+Blockly.Msg.SOPHUS_MULTIPLIER_TOOLTIP = "Multiplier '%1' par un nombre.";
+Blockly.Msg.SOPHUS_MULTIPLIER_TITLE_ITEM = Blockly.Msg.VARIABLES_DEFAULT_NAME;
+
+
+Blockly.Msg.SOPHUS_DIVISER_HELPURL = "";
+Blockly.Msg.SOPHUS_DIVISER_TITLE = "diviser %1 par %2";
+Blockly.Msg.SOPHUS_DIVISER_TOOLTIP = "Diviser '%1' par un nombre.";
+Blockly.Msg.SOPHUS_DIVISER_TITLE_ITEM = Blockly.Msg.VARIABLES_DEFAULT_NAME;
+
+
+Blockly.Msg.SOPHUS_MULTIPLIER_FRACT_HELPURL = "";
+Blockly.Msg.SOPHUS_MULTIPLIER_FRACT_TITLE = "multiplier %1 par %2";
+Blockly.Msg.SOPHUS_MULTIPLIER_FRACT_TOOLTIP = "Multiplier la variable '%1' par une fraction.";
+Blockly.Msg.SOPHUS_MULTIPLIER_FRACT_TITLE_ITEM = Blockly.Msg.VARIABLES_DEFAULT_NAME;
+
+
+Blockly.Msg.SOPHUS_DIVISER_FRACT_HELPURL = "";
+Blockly.Msg.SOPHUS_DIVISER_FRACT_TITLE = "augmenter %1 de %2";
+Blockly.Msg.SOPHUS_DIVISER_FRACT_TOOLTIP = "Diviser la variable '%1' par une fraction.";
+Blockly.Msg.SOPHUS_DIVISER_FRACT_TITLE_ITEM = Blockly.Msg.VARIABLES_DEFAULT_NAME;
+
+
+
+Blockly.Msg.SOPHUS_ARRONDIR_HELPURL = "";
+Blockly.Msg.SOPHUS_ARRONDIR_TITLE = "arrondir %1 à %2";
+Blockly.Msg.SOPHUS_ARRONDIR_TOOLTIP = "Arrondir la variable '%1' à un décimal.";
+Blockly.Msg.SOPHUS_ARRONDIR_TITLE_ITEM = Blockly.Msg.VARIABLES_DEFAULT_NAME;
+
+
+
+Blockly.Msg.SOPHUS_TRONQUER_HELPURL = "";
+Blockly.Msg.SOPHUS_TRONQUER_TITLE = "tronquer %1 à %2";
+Blockly.Msg.SOPHUS_TRONQUER_TOOLTIP = "Tronquer la variable '%1' à un décimal.";
+Blockly.Msg.SOPHUS_TRONQUER_TITLE_ITEM = Blockly.Msg.VARIABLES_DEFAULT_NAME;
+
+
+Blockly.Msg.SOPHUS_PUISSANCE_HELPURL = "";
+Blockly.Msg.SOPHUS_PUISSANCE_TITLE = "élever %1 à la puissance %2";
+Blockly.Msg.SOPHUS_PUISSANCE_TOOLTIP = "Elever '%1' à une puissance.";
+Blockly.Msg.SOPHUS_PUISSANCE_TITLE_ITEM = Blockly.Msg.VARIABLES_DEFAULT_NAME;
+
+
+Blockly.Msg.SOPHUS_INVERSER_HELPURL = "";
+Blockly.Msg.SOPHUS_INVERSER_TITLE = "inverser la variable %1";
+Blockly.Msg.SOPHUS_INVERSER_TOOLTIP = "Inverser '%1'.";
+Blockly.Msg.SOPHUS_INVERSER_TITLE_ITEM = Blockly.Msg.VARIABLES_DEFAULT_NAME;

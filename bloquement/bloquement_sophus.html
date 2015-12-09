@@ -35,6 +35,96 @@
     <block type="text_print"></block>
     <block type="text_prompt"></block>
     </category>    
+    <category name="Sophus">
+		<category name="transformations">
+			<block type="sophus_augmenter">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">1</field>
+					</block>
+				</value>
+			</block>
+			<block type="sophus_diminuer">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">1</field>
+					</block>
+				</value>
+			</block>
+			<block type="sophus_multiplier">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">2</field>
+					</block>
+				</value>
+			</block>
+			<block type="sophus_diviser">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">2</field>
+					</block>
+				</value>
+			</block>
+		</category>
+        <category name="pourcentages">
+			<block type="sophus_multiplier_fract">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">2</field>
+					</block>
+				</value>
+			</block>
+			<block type="sophus_diviser_fract">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">3</field>
+					</block>
+				</value>
+			</block>
+			<block type="sophus_augmenter_fract">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">2</field>
+					</block>
+				</value>
+			</block>
+			<block type="sophus_diminuer_fract">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">2</field>
+					</block>
+				</value>
+			</block>
+        </category>
+		<category name="fonctions">
+            <block type="sophus_inverser"></block>
+            <block type="sophus_doubler"></block>
+            <block type="sophus_carre"></block>
+			<block type="sophus_puissance">
+				<value name="POW">
+					<block type="math_number">
+						<field name="NUM">2</field>
+					</block>
+				</value>
+			</block>
+    </category>
+    <category name="arrondis">
+			<block type="sophus_arrondir">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">2</field>
+					</block>
+				</value>
+			</block>
+			<block type="sophus_tronquer">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">2</field>
+					</block>
+				</value>
+			</block>
+    </category>
+    </category>
     <category name="Logique">
       <category name="Conditions">
         <block type="controls_if"></block>
@@ -92,8 +182,8 @@
         <category name="constantes">
       <block type="math_number"></block>
       <block type="math_constant"></block>
-<!--      <block type="sophus_angle">  -->
-        </block>
+<!--      <block type="sophus_angle"> 
+        </block> -->
       </category>
       <category name="fonctions">
       <block type="math_single"></block>
@@ -160,55 +250,6 @@
       <block type="lists_isEmpty"></block>
       <block type="math_on_list"></block>
     </category>
-    </category>
-    <category name="Sophus">
-		<category name="transformations">
-			<block type="sophus_augmenter">
-				<value name="DELTA">
-					<block type="math_number">
-						<field name="NUM">1</field>
-					</block>
-				</value>
-			</block>
-			<block type="sophus_diminuer">
-				<value name="DELTA">
-					<block type="math_number">
-						<field name="NUM">1</field>
-					</block>
-				</value>
-			</block>
-			<block type="sophus_augmenter_fract">
-				<value name="DELTA">
-					<block type="math_number">
-						<field name="NUM">2</field>
-					</block>
-				</value>
-			</block>
-			<block type="sophus_augmenter_pct">
-				<value name="DELTA">
-					<block type="math_number">
-						<field name="NUM">10</field>
-					</block>
-				</value>
-			</block>
-			<block type="sophus_diminuer_fract">
-				<value name="DELTA">
-					<block type="math_number">
-						<field name="NUM">2</field>
-					</block>
-				</value>
-			</block>
-			<block type="sophus_diminuer_pct">
-				<value name="DELTA">
-					<block type="math_number">
-						<field name="NUM">10</field>
-					</block>
-				</value>
-			</block>
-		</category>
-		<category name="fonctions">
-		<block type="sophus_doubler"></block>
-		<block type="sophus_carre"></block>
     </category>
   </xml>
 
