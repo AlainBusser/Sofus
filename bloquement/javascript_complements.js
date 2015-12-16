@@ -35,7 +35,7 @@ Blockly.JavaScript['sophus_diminuer'] = function(block) {
   var varName = Blockly.JavaScript.variableDB_.getName(
       block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
   return varName + ' = ' + varName +
-      ' + ' + argument0 + ';\n';
+      ' - ' + argument0 + ';\n';
 };
 
 Blockly.JavaScript['sophus_augmenter_fract'] = function(block) {
