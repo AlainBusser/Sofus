@@ -15,6 +15,7 @@
       background-color: #fff;
       font-family: sans-serif;
     }
+    .grobouton { font-size: 140%;}
     h1 {
       color: red; font-variant: small-caps; text-shadow: 0.04em 0.02em 0.1em gray; }
     #sortieJS { display: inline-block; height: 480px; width: 50%; background-color: lightyellow; border: 3px inset orange; }
@@ -23,7 +24,8 @@
 <body>
   <h1>Sophus avec Blockly</h1>
 
-  <p>Pour écrire un programme de calcul, glisser les élements sur le plan de travail</p>
+  <p>Pour écrire un programme de calcul, glisser les élements sur le plan de travail. Pour effacer, glisser tout vers la corbeille 
+  (en bas à droite). </p>
 
 <table><tr><td>
   <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
@@ -249,20 +251,121 @@
       <block type="lists_length"></block>
       <block type="lists_isEmpty"></block>
       <block type="math_on_list"></block>
+      </category>
     </category>
-    </category>
+        <category name="Algorithmes" custom="PROCEDURE"></category>
+
   </xml>
+
+<xml id="startBlocks" style="display: none">
+  <block type="variables_set" x="78" y="79">
+    <field name="VAR">c</field>
+    <value name="VALUE">
+      <block type="math_number">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+    <next>
+      <block type="variables_set">
+        <field name="VAR">p</field>
+        <value name="VALUE">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <next>
+          <block type="controls_repeat_ext">
+            <value name="TIMES">
+              <block type="math_number">
+                <field name="NUM">40</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="sophus_augmenter">
+                <field name="VAR">c</field>
+                <value name="DELTA">
+                  <block type="math_number">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="sophus_diviser">
+                    <field name="VAR">c</field>
+                    <value name="DELTA">
+                      <block type="math_number">
+                        <field name="NUM">2</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set">
+                        <field name="VAR">c</field>
+                        <value name="VALUE">
+                          <block type="math_single">
+                            <field name="OP">ROOT</field>
+                            <value name="NUM">
+                              <block type="variables_get">
+                                <field name="VAR">c</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="sophus_multiplier">
+                            <field name="VAR">p</field>
+                            <value name="DELTA">
+                              <block type="variables_get">
+                                <field name="VAR">c</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+            <next>
+              <block type="sophus_inverser">
+                <field name="VAR">p</field>
+                <next>
+                  <block type="sophus_doubler">
+                    <field name="CHOIX">2</field>
+                    <field name="VAR">p</field>
+                    <next>
+                      <block type="text_print">
+                        <value name="TEXT">
+                          <block type="variables_get">
+                            <field name="VAR">p</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>
+
+
 
   <script>
     var workspace = Blockly.inject('blocklyDiv',
         {media: 'media/',
          toolbox: document.getElementById('toolbox')});
+    Blockly.Xml.domToWorkspace(workspace,
+        document.getElementById('startBlocks'));
   function myUpdateFunction() {
   var code = Blockly.JavaScript.workspaceToCode(workspace);
   document.getElementById('sortieJS').value = code;
 }
 workspace.addChangeListener(myUpdateFunction);
-function lancer() {
+function lancer() { 
     Blockly.JavaScript.addReservedWords('code');
 var code = Blockly.JavaScript.workspaceToCode(workspace);
 try {
@@ -271,10 +374,80 @@ try {
   alert(e);
 }
 }
+
+function effacer() {
+	workspace.clear();
+}
+function ouvrirClick() {
+    var fileinput = document.getElementById("fileToLoad");
+    fileinput.click();
+}
+function ouvrirFichier() {
+	var fileToLoad = document.getElementById("fileToLoad").files[0];
+	var fileReader = new FileReader();
+	fileReader.onload = function(fileLoadedEvent) {
+		var textFromFileLoaded = fileLoadedEvent.target.result;
+		try {
+			workspace.clear();
+			Blockly.Xml.domToWorkspace(workspace, Blockly.Xml.textToDom(textFromFileLoaded));
+		} catch (e) {
+			alert("ce fichier ne semble pas être lisible par Blockly");
+		};
+	}
+	fileReader.readAsText(fileToLoad, "UTF-8");
+}
+function sauverFichier() {
+	var textToWrite = Blockly.Xml.domToPrettyText( Blockly.Xml.workspaceToDom(workspace) );
+	var textFileAsBlob = new Blob([textToWrite], {type:'text/plain'});
+	var fileNameToSaveAs = prompt("nom du fichier (sauvé dans le dossier de téléchargements) ?", "fichier.txt");
+	if (fileNameToSaveAs==null) {
+		return;
+	}
+	var downloadLink = document.createElement("a");
+	downloadLink.download = fileNameToSaveAs;
+	downloadLink.innerHTML = "Download File";
+	if (window.webkitURL != null)
+	{
+		// Chrome allows the link to be clicked
+		// without actually adding it to the DOM.
+		downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+	}
+	else
+	{
+		// Firefox requires the link to be added to the DOM
+		// before it can be clicked.
+		downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+		downloadLink.onclick = function destroyClickedElement(event) {
+									document.body.removeChild(event.target);
+								};
+		downloadLink.style.display = "none";
+		document.body.appendChild(downloadLink);
+	}
+	downloadLink.click();
+}
+
+
   </script>
-  </td><td></td><button onClick="lancer();">Lancer</button><td>
+  </td><td></td><td>
   <textarea id="sortieJS" rows="32" cols="100"></textarea>
   
-</td></tr></table>
+</td></tr>
+         <tr>
+             <td><button class="grobouton" onClick="lancer();">Lancer</button></td><td></td>
+            <td align="center">
+				
+				<input type="file" id="fileToLoad" style="display: none" onchange="ouvrirFichier();" />
+				<input type="button" value="Ouvrir" onclick="ouvrirClick();"/>
+				<button type="button" onclick="sauverFichier()">Sauver</button>
+			</td>
+</tr>
+
+
+
+</table>
+
+
+
+
 </body>
 </html>
