@@ -23,6 +23,12 @@ Blockly.Blocks['sophus_carre'] = {
     this.jsonInit({
       "message0": Blockly.Msg.SOPHUS_CARRE_TITLE,
       "args0": [
+      {
+          "type": "field_image",
+          "src": "./img/puissance.png",
+          "width": 64,
+          "height": 32
+      },
         {
           "type": "field_variable",
           "name": "VAR",
@@ -76,7 +82,8 @@ Blockly.Blocks['sophus_doubler'] = {
 	]);
 	var variable = new Blockly.FieldVariable(Blockly.Msg.VARIABLES_DEFAULT_NAME);
 	this.appendDummyInput()
-		.appendField(dropdown, 'CHOIX')
+       .appendField(new Blockly.FieldImage("./img/multiplier.png", 64, 32, "*"))
+ 		.appendField(dropdown, 'CHOIX')
 		.appendField('la variable')
 		.appendField(variable, 'VAR');
 	this.setHelpUrl('');
@@ -99,6 +106,12 @@ Blockly.Blocks['sophus_augmenter'] = {
     this.jsonInit({
       "message0": Blockly.Msg.SOPHUS_AUGMENTER_TITLE,
       "args0": [
+      {
+          "type": "field_image",
+          "src": "./img/augmenter.png",
+          "width": 64,
+          "height": 32
+      },
         {
           "type": "field_variable",
           "name": "VAR",
@@ -134,8 +147,14 @@ Blockly.Blocks['sophus_augmenter'] = {
 Blockly.Blocks['sophus_augmenter_fract'] = {
   init: function() {
     this.jsonInit({
-  "message0": "augmenter %1 de %2 %3",
+  "message0": "%1 augmenter %2 de %3 %4",
   "args0": [
+      {
+          "type": "field_image",
+          "src": "./img/augmenter.png",
+          "width": 64,
+          "height": 32
+      },
         {
           "type": "field_variable",
           "name": "VAR",
@@ -204,7 +223,7 @@ Blockly.Blocks['sophus_augmenter_fract'] = {
 });
     var thisBlock = this;
     this.setTooltip(function() {
-      return Blockly.Msg.SOPHUS_AUGMENTER_FRACT_TOOLTIP.replace('%1',
+      return Blockly.Msg.SOPHUS_AUGMENTER_FRACT_TOOLTIP.replace('%2',
           thisBlock.getFieldValue('VAR'));
     });
   },
@@ -225,6 +244,12 @@ Blockly.Blocks['sophus_augmenter_pct'] = {
     this.jsonInit({
       "message0": Blockly.Msg.SOPHUS_AUGMENTER_PCT_TITLE,
       "args0": [
+      {
+          "type": "field_image",
+          "src": "./img/augmenter.png",
+          "width": 64,
+          "height": 32
+      },
         {
           "type": "field_variable",
           "name": "VAR",
@@ -243,7 +268,7 @@ Blockly.Blocks['sophus_augmenter_pct'] = {
     });
     var thisBlock = this;
     this.setTooltip(function() {
-      return Blockly.Msg.SOPHUS_AUGMENTER_PCT_TOOLTIP.replace('%1',
+      return Blockly.Msg.SOPHUS_AUGMENTER_PCT_TOOLTIP.replace('%2',
           thisBlock.getFieldValue('VAR'));
     });
   },
@@ -263,6 +288,12 @@ Blockly.Blocks['sophus_diminuer'] = {
     this.jsonInit({
       "message0": Blockly.Msg.SOPHUS_DIMINUER_TITLE,
       "args0": [
+      {
+          "type": "field_image",
+          "src": "./img/diminuer.png",
+          "width": 64,
+          "height": 32
+      },
         {
           "type": "field_variable",
           "name": "VAR",
@@ -281,7 +312,7 @@ Blockly.Blocks['sophus_diminuer'] = {
     });
     var thisBlock = this;
     this.setTooltip(function() {
-      return Blockly.Msg.SOPHUS_DIMINUER_TOOLTIP.replace('%1',
+      return Blockly.Msg.SOPHUS_DIMINUER_TOOLTIP.replace('%2',
           thisBlock.getFieldValue('VAR'));
     });
   },
@@ -298,8 +329,14 @@ Blockly.Blocks['sophus_diminuer'] = {
 Blockly.Blocks['sophus_diminuer_fract'] = {
   init: function() {
     this.jsonInit({
-  "message0": "diminuer %1 de %2 %3",
+  "message0": "%1 diminuer %2 de %3 %4",
   "args0": [
+      {
+          "type": "field_image",
+          "src": "./img/diminuer.png",
+          "width": 64,
+          "height": 32
+      },
         {
           "type": "field_variable",
           "name": "VAR",
@@ -368,7 +405,7 @@ Blockly.Blocks['sophus_diminuer_fract'] = {
 });
     var thisBlock = this;
     this.setTooltip(function() {
-      return Blockly.Msg.SOPHUS_DIMINUER_FRACT_TOOLTIP.replace('%1',
+      return Blockly.Msg.SOPHUS_DIMINUER_FRACT_TOOLTIP.replace('%2',
           thisBlock.getFieldValue('VAR'));
     });
   },
@@ -388,6 +425,12 @@ Blockly.Blocks['sophus_diminuer_pct'] = {
     this.jsonInit({
       "message0": Blockly.Msg.SOPHUS_DIMINUER_PCT_TITLE,
       "args0": [
+      {
+          "type": "field_image",
+          "src": "./img/diminuer.png",
+          "width": 64,
+          "height": 32
+      },
         {
           "type": "field_variable",
           "name": "VAR",
@@ -406,7 +449,7 @@ Blockly.Blocks['sophus_diminuer_pct'] = {
     });
     var thisBlock = this;
     this.setTooltip(function() {
-      return Blockly.Msg.SOPHUS_DIMINUER_PCT_TOOLTIP.replace('%1',
+      return Blockly.Msg.SOPHUS_DIMINUER_PCT_TOOLTIP.replace('%2',
           thisBlock.getFieldValue('VAR'));
     });
   },
@@ -430,6 +473,12 @@ Blockly.Blocks['sophus_multiplier'] = {
     this.jsonInit({
       "message0": Blockly.Msg.SOPHUS_MULTIPLIER_TITLE,
       "args0": [
+      {
+          "type": "field_image",
+          "src": "./img/multiplier.png",
+          "width": 64,
+          "height": 32
+      },
         {
           "type": "field_variable",
           "name": "VAR",
@@ -448,7 +497,7 @@ Blockly.Blocks['sophus_multiplier'] = {
     });
     var thisBlock = this;
     this.setTooltip(function() {
-      return Blockly.Msg.SOPHUS_MULTIPLIER_TOOLTIP.replace('%1',
+      return Blockly.Msg.SOPHUS_MULTIPLIER_TOOLTIP.replace('%2',
           thisBlock.getFieldValue('VAR'));
     });
   },
@@ -468,6 +517,12 @@ Blockly.Blocks['sophus_diviser'] = {
     this.jsonInit({
       "message0": Blockly.Msg.SOPHUS_DIVISER_TITLE,
       "args0": [
+      {
+          "type": "field_image",
+          "src": "./img/diviser.png",
+          "width": 64,
+          "height": 32
+      },
         {
           "type": "field_variable",
           "name": "VAR",
@@ -486,7 +541,7 @@ Blockly.Blocks['sophus_diviser'] = {
     });
     var thisBlock = this;
     this.setTooltip(function() {
-      return Blockly.Msg.SOPHUS_MULTIPLIER_TOOLTIP.replace('%1',
+      return Blockly.Msg.SOPHUS_MULTIPLIER_TOOLTIP.replace('%2',
           thisBlock.getFieldValue('VAR'));
     });
   },
@@ -503,8 +558,14 @@ Blockly.Blocks['sophus_diviser'] = {
 Blockly.Blocks['sophus_multiplier_fract'] = {
   init: function() {
     this.jsonInit({
-  "message0": "multiplier %1 par %2 %3",
+  "message0": "%1 multiplier %2 par %3 %4",
   "args0": [
+      {
+          "type": "field_image",
+          "src": "./img/multiplier.png",
+          "width": 64,
+          "height": 32
+      },
         {
           "type": "field_variable",
           "name": "VAR",
@@ -573,7 +634,7 @@ Blockly.Blocks['sophus_multiplier_fract'] = {
 });
     var thisBlock = this;
     this.setTooltip(function() {
-      return Blockly.Msg.SOPHUS_MULTIPLIER_FRACT_TOOLTIP.replace('%1',
+      return Blockly.Msg.SOPHUS_MULTIPLIER_FRACT_TOOLTIP.replace('%2',
           thisBlock.getFieldValue('VAR'));
     });
   },
@@ -591,8 +652,14 @@ Blockly.Blocks['sophus_multiplier_fract'] = {
 Blockly.Blocks['sophus_diviser_fract'] = {
   init: function() {
     this.jsonInit({
-  "message0": "diviser %1 par %2 %3",
+  "message0": "%1 diviser %2 par %3 %4",
   "args0": [
+      {
+          "type": "field_image",
+          "src": "./img/diviser.png",
+          "width": 64,
+          "height": 32
+      },
         {
           "type": "field_variable",
           "name": "VAR",
@@ -661,7 +728,7 @@ Blockly.Blocks['sophus_diviser_fract'] = {
 });
     var thisBlock = this;
     this.setTooltip(function() {
-      return Blockly.Msg.SOPHUS_DIVISER_FRACT_TOOLTIP.replace('%1',
+      return Blockly.Msg.SOPHUS_DIVISER_FRACT_TOOLTIP.replace('%2',
           thisBlock.getFieldValue('VAR'));
     });
   },
@@ -681,8 +748,14 @@ Blockly.Blocks['sophus_diviser_fract'] = {
 Blockly.Blocks['sophus_arrondir'] = {
   init: function() {
     this.jsonInit({
-  "message0": "arrondir %1 à %2 %3",
+  "message0": "%1 arrondir %2 à %3 %4",
   "args0": [
+      {
+          "type": "field_image",
+          "src": "./img/arrondi.png",
+          "width": 64,
+          "height": 32
+      },
         {
           "type": "field_variable",
           "name": "VAR",
@@ -715,7 +788,7 @@ Blockly.Blocks['sophus_arrondir'] = {
 });
     var thisBlock = this;
     this.setTooltip(function() {
-      return Blockly.Msg.SOPHUS_ARRONDIR_TOOLTIP.replace('%1',
+      return Blockly.Msg.SOPHUS_ARRONDIR_TOOLTIP.replace('%2',
           thisBlock.getFieldValue('VAR'));
     });
   },
@@ -735,8 +808,14 @@ Blockly.Blocks['sophus_arrondir'] = {
 Blockly.Blocks['sophus_tronquer'] = {
   init: function() {
     this.jsonInit({
-  "message0": "tronquer %1 à %2 %3",
+  "message0": "%1 tronquer %2 à %3 %4",
   "args0": [
+      {
+          "type": "field_image",
+          "src": "./img/troncature.png",
+          "width": 64,
+          "height": 32
+      },
         {
           "type": "field_variable",
           "name": "VAR",
@@ -769,7 +848,7 @@ Blockly.Blocks['sophus_tronquer'] = {
 });
     var thisBlock = this;
     this.setTooltip(function() {
-      return Blockly.Msg.SOPHUS_TRONQUER_TOOLTIP.replace('%1',
+      return Blockly.Msg.SOPHUS_TRONQUER_TOOLTIP.replace('%2',
           thisBlock.getFieldValue('VAR'));
     });
   },
@@ -841,6 +920,12 @@ Blockly.Blocks['sophus_puissance'] = {
     this.jsonInit({
       "message0": Blockly.Msg.SOPHUS_PUISSANCE_TITLE,
       "args0": [
+      {
+          "type": "field_image",
+          "src": "./img/puissance.png",
+          "width": 64,
+          "height": 32
+      },
         {
           "type": "field_variable",
           "name": "VAR",
@@ -859,7 +944,7 @@ Blockly.Blocks['sophus_puissance'] = {
     });
     var thisBlock = this;
     this.setTooltip(function() {
-      return Blockly.Msg.SOPHUS_PUISSANCE_TOOLTIP.replace('%1',
+      return Blockly.Msg.SOPHUS_PUISSANCE_TOOLTIP.replace('%2',
           thisBlock.getFieldValue('VAR'));
     });
   },
@@ -880,6 +965,12 @@ Blockly.Blocks['sophus_inverser'] = {
   "id": "sophus_inverser",
   "message0": Blockly.Msg.SOPHUS_INVERSER_TITLE,
   "args0": [
+      {
+          "type": "field_image",
+          "src": "./img/inverse.png",
+          "width": 64,
+          "height": 32
+      },
     {
       "type": "field_variable",
           "name": "VAR",
@@ -894,7 +985,7 @@ Blockly.Blocks['sophus_inverser'] = {
 });
     var thisBlock = this;
     this.setTooltip(function() {
-      return Blockly.Msg.SOPHUS_INVERSER_TOOLTIP.replace('%1',
+      return Blockly.Msg.SOPHUS_INVERSER_TOOLTIP.replace('%2',
           thisBlock.getFieldValue('VAR'));
     });
   },
