@@ -13,6 +13,15 @@ Sophus est un langage de programmation pour l'enseignement de l'algorithmique au
 -- donne une approche de la géométrie repérée inspirée par le programme d'Erlangen, par exemple pour appliquer une translation de vecteur u à un point M on écrit *augmenter M de u*
 
 
+
+Le dossier "bloquement" contient une version hors ligne de Blockly, munie de toutes les fonctions mathématiques de base de Blockly, ainsi que la version numérique de Sophus.
+
+![Pi par Viète](https://github.com/AlainBusser/Sophus/SophusPi.png)
+
+
+
+
+
 Auteurs:
 
 -- Alain Busser
