@@ -28,16 +28,22 @@
   (en bas à droite). </p>
 
 <table><tr><td>
-  <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
+  <div id="blocklyDiv" style="height: 580px; width: 800px;"></div>
 
   <xml id="toolbox" style="display: none">
-    <category name="Variables" custom="VARIABLE"></category>
-    <category name="Entrees-sorties">
+    <category name="Variables" colour="330" custom="VARIABLE"></category>
+    <category name="Entrées-sorties" colour="160">
         <block type="text"></block>
     <block type="text_print"></block>
     <block type="text_prompt"></block>
     </category>    
-    <category name="Sophus">
+    
+    
+    <sep></sep>
+    <sep></sep>
+    <sep></sep>
+    
+    <category name="Sophus" colour="330">
 		<category name="transformations">
 			<block type="sophus_augmenter">
 				<value name="DELTA">
@@ -127,7 +133,15 @@
 			</block>
     </category>
     </category>
-    <category name="Logique">
+    
+    <sep></sep>
+    <sep></sep>
+    <sep></sep>
+    
+    
+    
+    
+    <category name="Logique" colour="210">
       <category name="Conditions">
         <block type="controls_if"></block>
         <block type="controls_if">
@@ -146,7 +160,7 @@
         <block type="logic_ternary"></block>
       </category>
     </category>
-    <category name="Boucles">
+    <category name="Boucles" colour="120">
         <category name="simples">
       <block type="controls_repeat_ext">
         <value name="TIMES">
@@ -180,7 +194,7 @@
       <block type="controls_flow_statements"></block>
 	</category>
     </category>
-    <category name="Math">
+    <category name="Math" colour="230">
         <category name="constantes">
       <block type="math_number"></block>
       <block type="math_constant"></block>
@@ -253,14 +267,26 @@
       <block type="math_on_list"></block>
       </category>
     </category>
-        <category name="Algorithmes" custom="PROCEDURE"></category>
-        <category name="Texte">
+    
+    
+    <sep></sep>
+    <sep></sep>
+    <sep></sep>
+    <sep></sep>
+    <sep></sep>
+    <sep></sep>
+    
+    
+    
+        <category name="Fabrique" colour="290" custom="PROCEDURE"></category>
+        <category name="Texte" colour="160">
             <block type="text_join"></block>
             <block type="text_append"></block>
             <block type="text_length"></block>
             <block type="text_indexOf"></block>
             <block type="text_charAt"></block>
             <block type="text_getSubstring"></block>
+            <block type="lists_split"></block>
         </category>
 
   </xml>
