@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Programmation graphique</title>
+    <link rel="icon" href="favicon.ico" />
   <script src="javascript/blockly_compressed.js"></script>
   <script src="javascript/blocks_compressed.js"></script>
   <script src="javascript/javascript_compressed.js"></script>
@@ -28,13 +29,15 @@
   (en bas à droite). </p>
 
 <table><tr><td>
-  <div id="blocklyDiv" style="height: 580px; width: 800px;"></div>
+  <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
 
   <xml id="toolbox" style="display: none">
     <category name="Variables" colour="330" custom="VARIABLE"></category>
     <category name="Entrées-sorties" colour="160">
         <block type="text"></block>
-    <block type="text_print"></block>
+    <block type="text_print">
+          <value name="TEXT"><block type="variables_get"><field name="VAR">element</field></block></value>
+    </block>
     <block type="text_prompt"></block>
     </category>    
     
@@ -169,7 +172,9 @@
           </block>
         </value>
       </block>
-      <block type="controls_forEach"></block>
+      <block type="controls_forEach">
+          <value name="LIST"><block type="variables_get"><field name="VAR">liste</field></block></value>
+      </block>
         </category>
         <category name="complexes">
       <block type="controls_whileUntil"></block>
@@ -202,9 +207,15 @@
         </block> -->
       </category>
       <category name="fonctions">
-      <block type="math_single"></block>
-      <block type="math_trig"></block>
-      <block type="math_number_property"></block>
+      <block type="math_single">
+          <value name="NUM"><block type="variables_get"><field name="VAR">element</field></block></value>
+      </block>
+      <block type="math_trig">
+          <value name="NUM"><block type="variables_get"><field name="VAR">element</field></block></value>
+      </block>
+      <block type="math_number_property">
+          <value name="NUMBER_TO_CHECK"><block type="variables_get"><field name="VAR">element</field></block></value>
+      </block>
       <block type="math_change">
         <value name="DELTA">
           <block type="math_number">
@@ -212,11 +223,19 @@
           </block>
         </value>
       </block>
-      <block type="math_round"></block>
+      <block type="math_round">
+          <value name="NUM"><block type="variables_get"><field name="VAR">element</field></block></value>
+      </block>
       </category>
       <category name="opérations">
-      <block type="math_arithmetic"></block>
-      <block type="math_modulo"></block>
+      <block type="math_arithmetic">
+          <value name="A"><block type="variables_get"><field name="VAR">element</field></block></value>
+          <value name="B"><block type="variables_get"><field name="VAR">element</field></block></value>
+      </block>
+      <block type="math_modulo">
+          <value name="DIVIDEND"><block type="variables_get"><field name="VAR">element</field></block></value>
+          <value name="DIVISOR"><block type="variables_get"><field name="VAR">element</field></block></value>
+      </block>
       <block type="math_constrain">
         <value name="LOW">
           <block type="math_number">
@@ -228,6 +247,7 @@
             <field name="NUM">100</field>
           </block>
         </value>
+          <value name="VALUE"><block type="variables_get"><field name="VAR">element</field></block></value>
       </block>
       </category>
       <category name="hasard">
@@ -246,25 +266,69 @@
       <block type="math_random_float"></block>
       </category>
     <category name="Statistiques">
+      <block type="lists_length">    <value name="VALUE">
+      <block type="variables_get">
+        <field name="VAR">liste</field>
+      </block>
+    </value>
+</block>
+      <block type="lists_isEmpty">    <value name="VALUE">
+      <block type="variables_get">
+        <field name="VAR">liste</field>
+      </block>
+    </value>
+</block>
+      <block type="math_on_list">    <value name="LIST">
+      <block type="variables_get">
+        <field name="VAR">liste</field>
+      </block>
+    </value>
+</block>
         <category name="listes">
       <block type="lists_create_empty"></block>
-      <block type="lists_create_with"></block>
+      <block type="lists_create_with">
+                <value name="ADD0">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+                <value name="ADD1">
+          <block type="math_number">
+            <field name="NUM">2</field>
+          </block>
+        </value>
+                <value name="ADD2">
+          <block type="math_number">
+            <field name="NUM">3</field>
+          </block>
+        </value>
+
+      </block>
       <block type="lists_repeat">
         <value name="NUM">
           <block type="math_number">
             <field name="NUM">5</field>
           </block>
         </value>
+        <value name="ITEM">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
       </block>
         </category>
         <category name="manipulation">
-      <block type="lists_indexOf"></block>
-      <block type="lists_getIndex"></block>
-      <block type="lists_setIndex"></block>
+      <block type="lists_getIndex"><value name="VALUE"><block type="variables_get"><title name="VAR">liste</title></block></value>          
+                            <value name="AT"><block type="math_number"><field name="NUM">1</field></block></value>          
+    </block>
+      <block type="lists_setIndex"><value name="TO"><block type="variables_get"><title name="VAR">element</title></block></value>
+                            <value name="LIST"><block type="variables_get"><title name="VAR">liste</title></block></value>
+<value name="AT"><block type="math_number"><field name="NUM">1</field></block></value>          
+      </block>
+      <block type="lists_indexOf"><value name="VALUE"><block type="variables_get"><title name="VAR">liste</title></block></value>
+<value name="FIND"><block type="math_number"><field name="NUM">1</field></block></value>          
+      </block>
         </category>
-      <block type="lists_length"></block>
-      <block type="lists_isEmpty"></block>
-      <block type="math_on_list"></block>
       </category>
     </category>
     
@@ -290,6 +354,12 @@
         </category>
 
   </xml>
+  
+  
+  
+  
+  
+  <!-- fin du menu des outils et début du menu intégré au plan de travail -->
 
 <xml id="startBlocks" style="display: none">
   <block type="variables_set" x="78" y="79">
@@ -386,7 +456,7 @@
   </block>
 </xml>
 
-
+<!-- fin du programme préchargé -->
 
   <script>
     var workspace = Blockly.inject('blocklyDiv',
