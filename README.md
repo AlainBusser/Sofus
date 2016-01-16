@@ -12,6 +12,13 @@ Sophus est un langage de programmation pour l'enseignement de l'algorithmique au
 
 -- donne une approche de la géométrie repérée inspirée par le programme d'Erlangen, par exemple pour appliquer une translation de vecteur u à un point M on écrit *augmenter M de u*
 
+Le fichier sophus.html contient l'interpréteur Sophus avec une sortie en français et la liste des instructions:  Cliquer sur "syntaxe" pour la voir. Les mots clés sont 
+
+montrer, entrer, mettreDans, carré, cube, racine, sinus, cosinus, tangente, sin, cos, tan, éleverAuCarré, éleverAuCube, élever ... à la puissance, inverser, extraireLaRacineDe, arrondir, tronquer, doubler, tripler, quadrupler, quintupler, sextupler, octupler, décupler, centupler, incrémenter, décrémenter, augmenter, diminuer, multiplier, diviser, Si, àMoinsQue, pour, dans
+
+La syntaxe est déductible des fichiers coffee
+
+Le fichier responsiveSophus.html est une version allégée sans liste des instructions.
 
 
 Le dossier "bloquement" contient une version hors ligne de Blockly, munie de toutes les fonctions mathématiques de base de Blockly, ainsi que la version numérique de Sophus.
