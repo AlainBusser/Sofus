@@ -201,3 +201,14 @@ Blockly.JavaScript['sophus_inverser'] = function(block) {
   return varName + ' = ' + " 1 / " + varName + ';\n';
 };
 
+
+Blockly.JavaScript['big_aff'] = function(block) {
+  var value_var = Blockly.JavaScript.valueToCode(block, 'VAR', Blockly.JavaScript.ORDER_ATOMIC);
+  var code = 'document.getElementById("sortieNum").value += "\\n" + ' + value_var + ";\n";
+  return code;
+};
+
+Blockly.JavaScript['big_efface'] = function(block) {
+  var code = 'document.getElementById("sortieNum").value = "";\n';
+  return code;
+};

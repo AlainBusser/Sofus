@@ -27,7 +27,8 @@ Blockly.Blocks['sophus_carre'] = {
           "type": "field_image",
           "src": "./img/puissance.png",
           "width": 64,
-          "height": 32
+          "height": 32, 
+          "alt": "[^]:   "
       },
         {
           "type": "field_variable",
@@ -82,7 +83,7 @@ Blockly.Blocks['sophus_doubler'] = {
 	]);
 	var variable = new Blockly.FieldVariable(Blockly.Msg.VARIABLES_DEFAULT_NAME);
 	this.appendDummyInput()
-       .appendField(new Blockly.FieldImage("./img/multiplier.png", 64, 32, "*"))
+       .appendField(new Blockly.FieldImage("./img/multiplier.png", 64, 32, "[*]:   "))
  		.appendField(dropdown, 'CHOIX')
 		.appendField('la variable')
 		.appendField(variable, 'VAR');
@@ -110,7 +111,8 @@ Blockly.Blocks['sophus_augmenter'] = {
           "type": "field_image",
           "src": "./img/augmenter.png",
           "width": 64,
-          "height": 32
+          "height": 32, 
+          "alt": "[+]:   "
       },
         {
           "type": "field_variable",
@@ -153,7 +155,8 @@ Blockly.Blocks['sophus_augmenter_fract'] = {
           "type": "field_image",
           "src": "./img/augmenter.png",
           "width": 64,
-          "height": 32
+          "height": 32, 
+          "alt": "[+]:   "
       },
         {
           "type": "field_variable",
@@ -248,7 +251,8 @@ Blockly.Blocks['sophus_augmenter_pct'] = {
           "type": "field_image",
           "src": "./img/augmenter.png",
           "width": 64,
-          "height": 32
+          "height": 32, 
+          "alt": "[+]:   "
       },
         {
           "type": "field_variable",
@@ -292,7 +296,8 @@ Blockly.Blocks['sophus_diminuer'] = {
           "type": "field_image",
           "src": "./img/diminuer.png",
           "width": 64,
-          "height": 32
+          "height": 32, 
+          "alt": "[-]:   "
       },
         {
           "type": "field_variable",
@@ -335,7 +340,8 @@ Blockly.Blocks['sophus_diminuer_fract'] = {
           "type": "field_image",
           "src": "./img/diminuer.png",
           "width": 64,
-          "height": 32
+          "height": 32, 
+          "alt": "[-]:   "
       },
         {
           "type": "field_variable",
@@ -429,7 +435,8 @@ Blockly.Blocks['sophus_diminuer_pct'] = {
           "type": "field_image",
           "src": "./img/diminuer.png",
           "width": 64,
-          "height": 32
+          "height": 32, 
+          "alt": "[-]:   "
       },
         {
           "type": "field_variable",
@@ -477,7 +484,8 @@ Blockly.Blocks['sophus_multiplier'] = {
           "type": "field_image",
           "src": "./img/multiplier.png",
           "width": 64,
-          "height": 32
+          "height": 32, 
+          "alt": "[*]:   "
       },
         {
           "type": "field_variable",
@@ -521,7 +529,8 @@ Blockly.Blocks['sophus_diviser'] = {
           "type": "field_image",
           "src": "./img/diviser.png",
           "width": 64,
-          "height": 32
+          "height": 32, 
+          "alt": "[/]:   "
       },
         {
           "type": "field_variable",
@@ -564,7 +573,8 @@ Blockly.Blocks['sophus_multiplier_fract'] = {
           "type": "field_image",
           "src": "./img/multiplier.png",
           "width": 64,
-          "height": 32
+          "height": 32, 
+          "alt": "[*]:   "
       },
         {
           "type": "field_variable",
@@ -658,7 +668,8 @@ Blockly.Blocks['sophus_diviser_fract'] = {
           "type": "field_image",
           "src": "./img/diviser.png",
           "width": 64,
-          "height": 32
+          "height": 32, 
+          "alt": "[/]:   "
       },
         {
           "type": "field_variable",
@@ -754,7 +765,8 @@ Blockly.Blocks['sophus_arrondir'] = {
           "type": "field_image",
           "src": "./img/arrondi.png",
           "width": 64,
-          "height": 32
+          "height": 32, 
+          "alt": "[O]:   "
       },
         {
           "type": "field_variable",
@@ -814,7 +826,8 @@ Blockly.Blocks['sophus_tronquer'] = {
           "type": "field_image",
           "src": "./img/troncature.png",
           "width": 64,
-          "height": 32
+          "height": 32, 
+          "alt": "[o]:   "
       },
         {
           "type": "field_variable",
@@ -924,7 +937,8 @@ Blockly.Blocks['sophus_puissance'] = {
           "type": "field_image",
           "src": "./img/puissance.png",
           "width": 64,
-          "height": 32
+          "height": 32, 
+          "alt": "[^]:   "
       },
         {
           "type": "field_variable",
@@ -969,7 +983,8 @@ Blockly.Blocks['sophus_inverser'] = {
           "type": "field_image",
           "src": "./img/inverse.png",
           "width": 64,
-          "height": 32
+          "height": 32, 
+          "alt": "[un]:   "
       },
     {
       "type": "field_variable",
@@ -999,4 +1014,27 @@ Blockly.Blocks['sophus_inverser'] = {
   }
 };
 
+Blockly.Blocks['big_aff'] = {
+  init: function() {
+    this.appendValueInput("VAR")
+        .appendField("ajouter en bas");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(20);
+    this.setTooltip('afficher en bas de page');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['big_efface'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("palimpseste");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(20);
+    this.setTooltip('effacer la sortie des grands nombres');
+    this.setHelpUrl('https://fr.wikipedia.org/wiki/Palimpseste');
+  }
+};
 

@@ -13,19 +13,23 @@
   <script src="javascript/fr_complements.js"></script>
   <style>
     body {
-      background-color: #fff;
+      background-image: url("img/mur.jpg");
       font-family: sans-serif;
     }
     .grobouton { font-size: 140%;}
     h1 {
       color: red; font-variant: small-caps; text-shadow: 0.04em 0.02em 0.1em gray; }
-    #sortieJS { display: inline-block; height: 480px; width: 50%; background-color: lightyellow; border: 3px inset orange; }
+    #sortieJS { display: inline-block; height: 240px; width: 240px; 
+		background-color: lightyellow; border: 3px inset orange;
+		color: #507;
+		text-shadow: 2px 1px 3px gray; }
+	#sortieNum { height: 240px; width: 240px; background-color: lightCyan; border: 3px inset green; text-shadow: 2px 1px 3px gray; }
   </style>
 </head>
 <body>
-  <h1>Sophus avec Blockly</h1>
+  <h1><img src="favicon.ico"/>Sofus avec Blockly</h1>
 
-  <p>Pour écrire un programme de calcul, glisser les élements sur le plan de travail. Pour effacer, glisser tout vers la corbeille 
+  <p>Pour écrire un programme de calcul, glisser les éléments sur le plan de travail. Pour effacer, glisser tout vers la corbeille 
   (en bas à droite). </p>
 
 <table><tr><td>
@@ -39,6 +43,8 @@
           <value name="TEXT"><block type="variables_get"><field name="VAR">element</field></block></value>
     </block>
     <block type="text_prompt"></block>
+<block type="big_aff"></block>
+<block type="big_efface"></block>
     </category>    
     
     
@@ -362,7 +368,7 @@
   <!-- fin du menu des outils et début du menu intégré au plan de travail -->
 
 <xml id="startBlocks" style="display: none">
-  <block type="variables_set" x="78" y="79">
+  <block type="variables_set" x="20" y="20">
     <field name="VAR">c</field>
     <value name="VALUE">
       <block type="math_number">
@@ -471,7 +477,8 @@
 workspace.addChangeListener(myUpdateFunction);
 function lancer() { 
     Blockly.JavaScript.addReservedWords('code');
-var code = Blockly.JavaScript.workspaceToCode(workspace);
+//var code = Blockly.JavaScript.workspaceToCode(workspace);
+var code = document.getElementById("sortieJS").value;
 try {
   eval(code);
 } catch (e) {
@@ -533,11 +540,20 @@ function sauverFichier() {
 
   </script>
   </td><td></td><td>
+	  <table>
+		  <tr><td>
   <textarea id="sortieJS" rows="32" cols="100"></textarea>
+		  </td></tr>
+		  <tr><td>
+<textarea id="sortieNum"></textarea>
+		  </td></tr>
+	  </table>
   
-</td></tr>
+</td>
+
+</tr>
          <tr>
-             <td><button class="grobouton" onClick="lancer();">Lancer</button></td><td></td>
+             <td><button class="grobouton" onClick="lancer();"><img src="favicon.ico"/>Lancer</button></td><td></td>
             <td align="center">
 				
 				<input type="file" id="fileToLoad" style="display: none" onchange="ouvrirFichier();" />
