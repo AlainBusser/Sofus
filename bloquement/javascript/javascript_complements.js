@@ -212,3 +212,119 @@ Blockly.JavaScript['big_efface'] = function(block) {
   var code = 'document.getElementById("sortieNum").value = "";\n';
   return code;
 };
+
+
+
+Blockly.JavaScript['tortue_x'] = function(block) {
+  var code = 'toto1.x-320';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['tortue_y'] = function(block) {
+  var code = '240-toto1.y';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+
+Blockly.JavaScript['tortue_t'] = function(block) {
+  var code = '-toto1.t/Math.PI*180';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['tortue_c'] = function(block) {
+  var code = 'toto1.c';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+
+
+Blockly.JavaScript['avancer'] = function(block) {
+  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+  var code = 'toto1.av('+value_name+');\n';
+  return code;
+};
+
+
+Blockly.JavaScript['reculer'] = function(block) {
+  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+  var code = 'toto1.re('+value_name+');\n';
+  return code;
+};
+
+Blockly.JavaScript['tortue_gauche'] = function(block) {
+  var angle_name = block.getFieldValue('NAME');
+  var code = 'toto1.tg('+angle_name+');\n';
+  return code;
+};
+Blockly.JavaScript['tortue_droite'] = function(block) {
+  var angle_name = block.getFieldValue('NAME');
+  var code = 'toto1.td('+angle_name+');\n';
+  return code;
+};
+Blockly.JavaScript['var_gauche'] = function(block) {
+  var value_angle = Blockly.JavaScript.valueToCode(block, 'ANGLE', Blockly.JavaScript.ORDER_ATOMIC);
+  var code = 'toto1.tg('+value_angle+');\n';
+  return code;
+};
+Blockly.JavaScript['var_droite'] = function(block) {
+  var value_angle = Blockly.JavaScript.valueToCode(block, 'ANGLE', Blockly.JavaScript.ORDER_ATOMIC);
+  var code = 'toto1.td('+value_angle+');\n';
+  return code;
+};
+Blockly.JavaScript['mettre_angle'] = function(block) {
+  var value_angle = Blockly.JavaScript.valueToCode(block, 'ANGLE', Blockly.JavaScript.ORDER_ATOMIC);
+  var code = 'toto1.orient('+value_angle+');\n';
+  return code;
+};
+
+
+Blockly.JavaScript['teleport'] = function(block) {
+  var text_x = block.getFieldValue('X');
+  var text_y = block.getFieldValue('Y');
+  var code = 'toto1.teleport('+text_x+'+320,240-('+text_y+'));\n';
+  return code;
+};
+
+Blockly.JavaScript['teleport_var'] = function(block) {
+  var variable_x = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('X'), Blockly.Variables.NAME_TYPE);
+  var variable_y = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('Y'), Blockly.Variables.NAME_TYPE);
+  var code = 'toto1.teleport('+variable_x+'+320'+',240-('+variable_y+'));\n';
+  return code;
+};
+Blockly.JavaScript['lever_stylo'] = function(block) {
+  var code = 'toto1.penup();\n';
+  return code;
+};
+
+Blockly.JavaScript['baisser_stylo'] = function(block) {
+  var code = 'toto1.pendown();\n';
+  return code;
+};
+
+
+Blockly.JavaScript['scribe'] = function(block) {
+  var value_texte = Blockly.JavaScript.valueToCode(block, 'texte', Blockly.JavaScript.ORDER_ATOMIC);
+  var code = 'toto1.write('+value_texte+');\n';
+  return code;
+};
+
+Blockly.JavaScript['tampon'] = function(block) {
+  var code = 'toto1.cercle();\n';
+  return code;
+};
+
+Blockly.JavaScript['couleur_stylo'] = function(block) {
+  var colour_colstyle = block.getFieldValue('colstyle');
+  var code = 'toto1.c = "'+colour_colstyle+'";\n';
+  return code;
+};
+
+
+Blockly.JavaScript['eff_svg'] = function(block) {
+  var code = 'effaceDessin();\n';
+  return code;
+};
+Blockly.JavaScript['reset'] = function(block) {
+  var code = 'effaceDessin();toto1.t = 0; toto1.teleport(320,240);\n';
+  return code;
+};

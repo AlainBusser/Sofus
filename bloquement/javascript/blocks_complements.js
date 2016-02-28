@@ -1038,3 +1038,275 @@ Blockly.Blocks['big_efface'] = {
   }
 };
 
+
+Blockly.Blocks['tortue_x'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("abscisse de la tortue");
+    this.setOutput(true, "Number");
+    this.setColour(120);
+    this.setTooltip('abscisse actuelle de la tortue');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['tortue_y'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("ordonnée de la tortue");
+    this.setOutput(true, "Number");
+    this.setColour(120);
+    this.setTooltip('ordonnée actuelle de la tortue');
+    this.setHelpUrl('');
+  }
+};
+
+
+Blockly.Blocks['tortue_t'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("angle de la tortue");
+    this.setOutput(true, "Number");
+    this.setColour(120);
+    this.setTooltip('angle que fait la tortue avec l\'horizontale');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['tortue_c'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("couleur de la tortue");
+    this.setOutput(true);
+    this.setColour(120);
+    this.setTooltip('couleur du stylo');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['avancer'] = {
+  init: function() {
+    this.appendValueInput("NAME")
+        .setCheck("Number")
+        .appendField(new Blockly.FieldImage("img/turtle.png", 32, 32, "*"))
+        .appendField("avancer de");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(120);
+    this.setTooltip('avancer la tortue');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['reculer'] = {
+  init: function() {
+    this.appendValueInput("NAME")
+        .setCheck("Number")
+        .appendField(new Blockly.FieldImage("img/turtle.png", 32, 32, "*"))
+        .appendField("reculer de");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(120);
+    this.setTooltip('reculer la tortue');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['tortue_gauche'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldImage("img/turtle.png", 32, 32, "*"))
+        .appendField("vers la gauche de")
+        .appendField(new Blockly.FieldAngle(90), "NAME");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(120);
+    this.setTooltip('tourner la tortue vers la gauche');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['tortue_droite'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldImage("img/turtle.png", 32, 32, "*"))
+        .appendField("vers la droite de")
+        .appendField(new Blockly.FieldAngle(90), "NAME");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(120);
+    this.setTooltip('tourner la tortue vers la droite');
+    this.setHelpUrl('');
+  }
+};
+
+
+Blockly.Blocks['var_gauche'] = {
+  init: function() {
+    this.appendValueInput("ANGLE")
+        .setCheck("Number")
+        .appendField(new Blockly.FieldImage("img/turtle.png", 32, 32, "*"))
+        .appendField("tourner à gauche de");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(120);
+    this.setTooltip('tourner à gauche d\'un angle en degrés');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['var_droite'] = {
+  init: function() {
+    this.appendValueInput("ANGLE")
+        .setCheck("Number")
+        .appendField(new Blockly.FieldImage("img/turtle.png", 32, 32, "*"))
+        .appendField("tourner à droite de");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(120);
+    this.setTooltip('tourner à droite d\'un angle en degrés');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['mettre_angle'] = {
+  init: function() {
+    this.appendValueInput("ANGLE")
+        .setCheck("Number")
+        .appendField(new Blockly.FieldImage("img/turtle.png", 32, 32, "*"))
+        .appendField("orienter la tortue de");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(120);
+    this.setTooltip('imposer une direction à la tortue');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['teleport'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldImage("img/turtle.png", 32, 32, "*"))
+        .appendField("téléporter la tortue en (")
+        .appendField(new Blockly.FieldTextInput("0"), "X")
+        .appendField(",")
+        .appendField(new Blockly.FieldTextInput("0"), "Y")
+        .appendField(")");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(120);
+    this.setTooltip('téléporter sans changer l\'angle ni faire de tracé');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['tampon'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldImage("img/pencil.png", 32, 32, "*"))
+        .appendField("donner un coup de tampon")
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(120);
+    this.setTooltip('marquer un cercle à l\'emplacement de la tortue');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['teleport_var'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldImage("img/turtle.png", 32, 32, "*"))
+        .appendField("téléporter la tortue en (")
+        .appendField(new Blockly.FieldVariable("x"), "X")
+        .appendField(",")
+        .appendField(new Blockly.FieldVariable("y"), "Y")
+        .appendField(")");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(120);
+    this.setTooltip('déplacer la tortue vers des coordonnées variables');
+    this.setHelpUrl('');
+  }
+};
+
+
+Blockly.Blocks['lever_stylo'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldImage("img/pencil.png", 32, 32, "*"))
+        .appendField("lever le stylo");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(120);
+    this.setTooltip('dorénavant la tortue ne laisse plus de trace');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['baisser_stylo'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldImage("img/pencil.png", 32, 32, "*"))
+        .appendField("baisser le stylo");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(120);
+    this.setTooltip('dorénavant la tortue laisse des traces');
+    this.setHelpUrl('');
+  }
+};
+
+
+Blockly.Blocks['scribe'] = {
+  init: function() {
+    this.appendValueInput("texte")
+        .appendField(new Blockly.FieldImage("img/pencil.png", 32, 32, "*"))
+        .appendField("tamponner");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(120);
+    this.setTooltip('la tortue écrit un texte là où elle est');
+    this.setHelpUrl('');
+  }
+};
+
+
+Blockly.Blocks['couleur_stylo'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldImage("img/pencil.png", 32, 32, "*"))
+        .appendField("toner du stylo à")
+        .appendField(new Blockly.FieldColour("#000066"), "colstyle");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(120);
+    this.setTooltip('changer la couleur du stylo');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['eff_svg'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldImage("img/droplet.png", 32, 32, "*"))
+        .appendField("gommer le graphisme tortue");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(120);
+    this.setTooltip('vider le graphique de la tortue');
+    this.setHelpUrl('');
+  }
+};
+Blockly.Blocks['reset'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldImage("img/droplet.png", 32, 32, "*"))
+        .appendField("initialiser le graphisme tortue");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(120);
+    this.setTooltip('initialiser le graphique de la tortue (sauf la couleur)');
+    this.setHelpUrl('');
+  }
+};

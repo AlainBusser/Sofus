@@ -1,0 +1,123 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="teleport" x="12" y="-43">
+    <field name="X">-300</field>
+    <field name="Y">0</field>
+    <next>
+      <block type="controls_repeat_ext" collapsed="true">
+        <value name="TIMES">
+          <block type="math_number">
+            <field name="NUM">12</field>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="tortue_gauche">
+            <field name="NAME">90</field>
+            <next>
+              <block type="avancer">
+                <value name="NAME">
+                  <block type="math_number">
+                    <field name="NUM">5</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="scribe">
+                    <value name="texte">
+                      <block type="tortue_x"></block>
+                    </value>
+                    <next>
+                      <block type="reculer">
+                        <value name="NAME">
+                          <block type="math_number">
+                            <field name="NUM">5</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="tortue_droite">
+                            <field name="NAME">90</field>
+                            <next>
+                              <block type="avancer">
+                                <value name="NAME">
+                                  <block type="math_number">
+                                    <field name="NUM">50</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="teleport">
+            <field name="X">0</field>
+            <field name="Y">-200</field>
+            <next>
+              <block type="tortue_gauche">
+                <field name="NAME">90</field>
+                <next>
+                  <block type="controls_repeat_ext" collapsed="true">
+                    <value name="TIMES">
+                      <block type="math_number">
+                        <field name="NUM">9</field>
+                      </block>
+                    </value>
+                    <statement name="DO">
+                      <block type="tortue_droite">
+                        <field name="NAME">90</field>
+                        <next>
+                          <block type="avancer">
+                            <value name="NAME">
+                              <block type="math_number">
+                                <field name="NUM">5</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="scribe">
+                                <value name="texte">
+                                  <block type="tortue_y"></block>
+                                </value>
+                                <next>
+                                  <block type="reculer">
+                                    <value name="NAME">
+                                      <block type="math_number">
+                                        <field name="NUM">5</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="tortue_gauche">
+                                        <field name="NAME">90</field>
+                                        <next>
+                                          <block type="avancer">
+                                            <value name="NAME">
+                                              <block type="math_number">
+                                                <field name="NUM">50</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

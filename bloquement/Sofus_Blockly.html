@@ -8,6 +8,8 @@
   <script src="javascript/blocks_compressed.js"></script>
   <script src="javascript/javascript_compressed.js"></script>
   <script src="javascript/fr.js"></script>
+  <script src="javascript/jquery-2.2.1.min.js"></script>
+  <script src="javascript/tortue.js"></script>
   <script src="javascript/blocks_complements.js"></script>
   <script src="javascript/javascript_complements.js"></script>
   <script src="javascript/fr_complements.js"></script>
@@ -19,11 +21,13 @@
     .grobouton { font-size: 140%;}
     h1 {
       color: red; font-variant: small-caps; text-shadow: 0.04em 0.02em 0.1em gray; }
-    #sortieJS { display: inline-block; height: 240px; width: 240px; 
+    #sortieJS { display: none; height: 240px; width: 240px; 
 		background-color: lightyellow; border: 3px inset orange;
 		color: #507;
 		text-shadow: 2px 1px 3px gray; }
-	#sortieNum { height: 240px; width: 240px; background-color: lightCyan; border: 3px inset green; text-shadow: 2px 1px 3px gray; }
+#sortieSVG { display: none; width: 640px; height: 400px; }
+#graphique { width: 640px; height: 480px; border: 3px inset gray; background-color: white; }
+	#sortieNum { height: 240px; width: 640px; background-color: lightCyan; border: 3px inset green; text-shadow: 2px 1px 3px gray; }
   </style>
 </head>
 <body>
@@ -141,6 +145,68 @@
 				</value>
 			</block>
     </category>
+    </category>
+    <category name="Tortue" colour="120">
+		<category name="déplacement">
+			<block type="avancer">
+				<value name="NAME">
+					<block type="math_number">
+						<field name="NUM">80</field>
+					</block>
+				</value>
+			</block>
+			<block type="reculer">
+				<value name="NAME">
+					<block type="math_number">
+						<field name="NUM">80</field>
+					</block>
+				</value>
+			</block>
+			<block type="teleport"></block>
+			<block type="teleport_var"></block>
+		</category>
+		<category name="rotations">
+			<block type="tortue_gauche"></block>
+			<block type="tortue_droite"></block>
+			<block type="var_gauche">
+				<value name="ANGLE">
+					<block type="math_number">
+						<field name="NUM">90</field>
+					</block>
+				</value>
+			</block>
+			<block type="var_droite">
+				<value name="ANGLE">
+					<block type="math_number">
+						<field name="NUM">90</field>
+					</block>
+				</value>
+			</block>
+			<block type="mettre_angle">
+				<value name="ANGLE">
+					<block type="math_number">
+						<field name="NUM">90</field>
+					</block>
+				</value>
+			</block>
+		</category>
+		<category name="données">
+			<block type="tortue_x"></block>
+			<block type="tortue_y"></block>
+			<block type="tortue_t"></block>
+		</category>
+		<category name="stylo">
+			<block type="scribe"></block>
+			<block type="baisser_stylo"></block>
+			<block type="lever_stylo"></block>
+			<block type="couleur_stylo"></block>
+			<block type="tampon"></block>
+			<block type="tortue_c"></block>
+		</category>
+		<category name="gomme">
+			<block type="eff_svg"></block>
+			<block type="reset"></block>
+		</category>
     </category>
     
     <sep></sep>
@@ -537,23 +603,43 @@ function sauverFichier() {
 	downloadLink.click();
 }
 
+var sauverSVG = function() {
+	var fichier = document.getElementById('graphique').innerHTML;
+	var textFileAsBlob = new Blob([fichier], {type:'text/plain'});
+	var fileNameToSaveAs = prompt("nom du fichier (sauvé dans le dossier de téléchargements) ?", "figure.svg");
+	if (fileNameToSaveAs==null) {
+		return;
+	}
+	var downloadLink = document.createElement("a");
+	downloadLink.download = fileNameToSaveAs;
+	downloadLink.innerHTML = "Download File";
+	if (window.webkitURL != null)
+	{
+		// Chrome allows the link to be clicked
+		// without actually adding it to the DOM.
+		downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+	}
+	else
+	{
+		// Firefox requires the link to be added to the DOM
+		// before it can be clicked.
+		downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+		downloadLink.onclick = function destroyClickedElement(event) {
+									document.body.removeChild(event.target);
+								};
+		downloadLink.style.display = "none";
+		document.body.appendChild(downloadLink);
+	}
+	downloadLink.click();
+}
 
   </script>
-  </td><td></td><td>
-	  <table>
-		  <tr><td>
-  <textarea id="sortieJS" rows="32" cols="100"></textarea>
-		  </td></tr>
-		  <tr><td>
-<textarea id="sortieNum"></textarea>
-		  </td></tr>
-	  </table>
-  
-</td>
+  </td><td></td>
 
 </tr>
          <tr>
-             <td><button class="grobouton" onClick="lancer();"><img src="favicon.ico"/>Lancer</button></td><td></td>
+             <td><button class="grobouton" onClick="lancer();"><img src="favicon.ico"/>Lancer</button></td>
+             <td><button onClick="sauverSVG();">sauver figure</button></td>
             <td align="center">
 				
 				<input type="file" id="fileToLoad" style="display: none" onchange="ouvrirFichier();" />
@@ -562,12 +648,24 @@ function sauverFichier() {
 			</td>
 </tr>
 
-
+<tr><td>  <textarea id="sortieJS" rows="32" cols="100"></textarea></td></tr>
 
 </table>
 
+	  <table>
+		  <tr><td>
+<textarea id="sortieNum"></textarea>
+		  </td></tr>
+		  <tr><td>
+<div id="graphique">
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="leSVG" x="0mm" y="0mm" width="100%" height="100%">
 
+</div>
 
+		  </td></tr>
+	  </table>
+
+<textarea id="sortieSVG"></textarea>
 
 </body>
 </html>

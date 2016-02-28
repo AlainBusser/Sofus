@@ -1,3 +1,10 @@
+Version 1.3 avec graphisme tortue
+
+
+
+
+
+
 Sophus est un langage de programmation pour l'enseignement de l'algorithmique au collège. Parmi ses particularités il y a le fait que Sophus
 
 -- est proche de la langue naturelle (les actions sont décrites par des verbes, etc) 
