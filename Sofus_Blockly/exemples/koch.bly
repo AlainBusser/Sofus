@@ -1,0 +1,199 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="procedures_defnoreturn" x="21" y="-116">
+    <mutation>
+      <arg name="n"></arg>
+    </mutation>
+    <field name="NAME">koch</field>
+    <statement name="STACK">
+      <block type="controls_if">
+        <mutation else="1"></mutation>
+        <value name="IF0">
+          <block type="logic_compare">
+            <field name="OP">LTE</field>
+            <value name="A">
+              <block type="variables_get">
+                <field name="VAR">n</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="avancer" collapsed="true">
+            <value name="NAME">
+              <block type="math_number">
+                <field name="NUM">1.4</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <block type="procedures_callnoreturn" collapsed="true">
+            <mutation name="koch">
+              <arg name="n"></arg>
+            </mutation>
+            <value name="ARG0">
+              <block type="math_arithmetic">
+                <field name="OP">MINUS</field>
+                <value name="A">
+                  <block type="variables_get">
+                    <field name="VAR">n</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="tortue_gauche" collapsed="true">
+                <field name="NAME">60</field>
+                <next>
+                  <block type="procedures_callnoreturn" collapsed="true">
+                    <mutation name="koch">
+                      <arg name="n"></arg>
+                    </mutation>
+                    <value name="ARG0">
+                      <block type="math_arithmetic">
+                        <field name="OP">MINUS</field>
+                        <value name="A">
+                          <block type="variables_get">
+                            <field name="VAR">n</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="tortue_droite" collapsed="true">
+                        <field name="NAME">120</field>
+                        <next>
+                          <block type="procedures_callnoreturn" collapsed="true">
+                            <mutation name="koch">
+                              <arg name="n"></arg>
+                            </mutation>
+                            <value name="ARG0">
+                              <block type="math_arithmetic">
+                                <field name="OP">MINUS</field>
+                                <value name="A">
+                                  <block type="variables_get">
+                                    <field name="VAR">n</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="tortue_gauche" collapsed="true">
+                                <field name="NAME">60</field>
+                                <next>
+                                  <block type="procedures_callnoreturn" collapsed="true">
+                                    <mutation name="koch">
+                                      <arg name="n"></arg>
+                                    </mutation>
+                                    <value name="ARG0">
+                                      <block type="math_arithmetic">
+                                        <field name="OP">MINUS</field>
+                                        <value name="A">
+                                          <block type="variables_get">
+                                            <field name="VAR">n</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number">
+                                            <field name="NUM">1</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="reset" x="26" y="227">
+    <next>
+      <block type="teleport" collapsed="true">
+        <field name="X">-240</field>
+        <field name="Y">100</field>
+        <next>
+          <block type="procedures_callnoreturn" collapsed="true">
+            <mutation name="koch">
+              <arg name="n"></arg>
+            </mutation>
+            <value name="ARG0">
+              <block type="math_number">
+                <field name="NUM">6</field>
+              </block>
+            </value>
+            <next>
+              <block type="tortue_droite" collapsed="true">
+                <field name="NAME">120</field>
+                <next>
+                  <block type="procedures_callnoreturn" collapsed="true">
+                    <mutation name="koch">
+                      <arg name="n"></arg>
+                    </mutation>
+                    <value name="ARG0">
+                      <block type="math_number">
+                        <field name="NUM">6</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="tortue_droite" collapsed="true">
+                        <field name="NAME">120</field>
+                        <next>
+                          <block type="procedures_callnoreturn" collapsed="true">
+                            <mutation name="koch">
+                              <arg name="n"></arg>
+                            </mutation>
+                            <value name="ARG0">
+                              <block type="math_number">
+                                <field name="NUM">6</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="tortue_droite" collapsed="true">
+                                <field name="NAME">120</field>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

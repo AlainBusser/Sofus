@@ -1,0 +1,153 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="procedures_defnoreturn" x="16" y="-90">
+    <mutation>
+      <arg name="longueur"></arg>
+    </mutation>
+    <field name="NAME">arbre</field>
+    <statement name="STACK">
+      <block type="controls_if">
+        <mutation else="1"></mutation>
+        <value name="IF0">
+          <block type="logic_compare">
+            <field name="OP">LTE</field>
+            <value name="A">
+              <block type="variables_get">
+                <field name="VAR">longueur</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number">
+                <field name="NUM">2</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="avancer">
+            <value name="NAME">
+              <block type="variables_get">
+                <field name="VAR">longueur</field>
+              </block>
+            </value>
+            <next>
+              <block type="reculer">
+                <value name="NAME">
+                  <block type="variables_get">
+                    <field name="VAR">longueur</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <block type="avancer">
+            <value name="NAME">
+              <block type="variables_get">
+                <field name="VAR">longueur</field>
+              </block>
+            </value>
+            <next>
+              <block type="tortue_gauche">
+                <field name="NAME">30</field>
+                <next>
+                  <block type="procedures_callnoreturn">
+                    <mutation name="arbre">
+                      <arg name="longueur"></arg>
+                    </mutation>
+                    <value name="ARG0">
+                      <block type="math_arithmetic">
+                        <field name="OP">DIVIDE</field>
+                        <value name="A">
+                          <block type="variables_get">
+                            <field name="VAR">longueur</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number">
+                            <field name="NUM">1.4</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="tortue_droite">
+                        <field name="NAME">45</field>
+                        <next>
+                          <block type="procedures_callnoreturn">
+                            <mutation name="arbre">
+                              <arg name="longueur"></arg>
+                            </mutation>
+                            <value name="ARG0">
+                              <block type="math_arithmetic">
+                                <field name="OP">DIVIDE</field>
+                                <value name="A">
+                                  <block type="variables_get">
+                                    <field name="VAR">longueur</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number">
+                                    <field name="NUM">1.4</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="tortue_gauche">
+                                <field name="NAME">15</field>
+                                <next>
+                                  <block type="reculer">
+                                    <value name="NAME">
+                                      <block type="variables_get">
+                                        <field name="VAR">longueur</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="reset" x="23" y="476">
+    <next>
+      <block type="teleport">
+        <field name="X">0</field>
+        <field name="Y">-200</field>
+        <next>
+          <block type="couleur_stylo">
+            <field name="colstyle">#003300</field>
+            <next>
+              <block type="tortue_gauche">
+                <field name="NAME">90</field>
+                <next>
+                  <block type="procedures_callnoreturn">
+                    <mutation name="arbre">
+                      <arg name="longueur"></arg>
+                    </mutation>
+                    <value name="ARG0">
+                      <block type="math_number">
+                        <field name="NUM">80</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

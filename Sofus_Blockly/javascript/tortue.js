@@ -1,5 +1,6 @@
 var Tortue;
 var SVG, dessineSegment, dessineTexte, effaceDessin;
+var axeX, axeY, axes;
 
 SVG = function(tag) {
   return document.createElementNS('http://www.w3.org/2000/svg', tag);
@@ -64,7 +65,52 @@ dessineCercle = function(cx, cy, r, couleur) {
   return $(SVG('circle')).attr('cx', cx).attr('cy', cy).attr('r', r).attr('fill', couleur).attr('fill-opacity', 0.4).attr('stroke', couleur).attr('stroke-width', 1).appendTo(dessin);
 };
 
+axeX = function(){
+	dessineSegment(20,240,620,240,"black");
+	dessineSegment(620,240,600,234,"black");
+	dessineSegment(620,240,600,246,"black");
+for(var x=-300;x<300;x+=10){
+	if(Math.abs(x)%50>0) { 
+		dessineSegment(320+x,242,320+x,238,"black");
+	} else {
+		if(Math.abs(x)%100>0){
+			dessineSegment(320+x,244,320+x,236,"black");
+		}  else {
+			dessineSegment(320+x,245,320+x,235,"black");
+			dessineTexte(x,320+x,260)
+		}
+	}
+}
 
+}
+
+
+
+
+axeY = function(){
+	dessineSegment(320,440,320,40,"black");
+	dessineSegment(320,40,314,60,"black");
+	dessineSegment(320,40,326,60,"black");
+	for(var y=-200;y<200;y+=10){
+		if(Math.abs(y)%50>0){
+			dessineSegment(318,240-y,322,240-y,"black");
+		} else {
+			if(Math.abs(y)%100>0) {
+				dessineSegment(316,240-y,324,240-y,"black");
+			} else {
+				dessineSegment(315,240-y,325,240-y,"black");
+				dessineTexte(y,322,240-y);
+			}
+		}
+	}
+
+
+}
+
+axes = function(){
+	axeX();
+	axeY();
+}
 
 Tortue = (function() {
   function Tortue() {

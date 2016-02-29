@@ -1033,7 +1033,7 @@ Blockly.Blocks['big_efface'] = {
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(20);
-    this.setTooltip('effacer la sortie des grands nombres');
+    this.setTooltip('effacer la sortie');
     this.setHelpUrl('https://fr.wikipedia.org/wiki/Palimpseste');
   }
 };
@@ -1204,7 +1204,7 @@ Blockly.Blocks['tampon'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(new Blockly.FieldImage("img/pencil.png", 32, 32, "*"))
-        .appendField("donner un coup de tampon")
+        .appendField("marquer un point")
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
@@ -1310,3 +1310,41 @@ Blockly.Blocks['reset'] = {
     this.setHelpUrl('');
   }
 };
+Blockly.Blocks['axeX'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldImage("img/pencil.png", 32, 32, "*"))
+        .appendField("axe des abscisses");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(120);
+    this.setTooltip('dessiner l\'axe des abscisses');
+    this.setHelpUrl('');
+  }
+};
+Blockly.Blocks['axeY'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldImage("img/pencil.png", 32, 32, "*"))
+        .appendField("axe des ordonnées");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(120);
+    this.setTooltip('dessiner l\'axe des ordonnées');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['axes'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldImage("img/pencil.png", 32, 32, "*"))
+        .appendField("dessiner le repère");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(120);
+    this.setTooltip('dessin des deux axes sur le graphique tortue');
+    this.setHelpUrl('');
+  }
+};
+

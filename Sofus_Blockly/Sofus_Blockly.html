@@ -15,7 +15,7 @@
   <script src="javascript/fr_complements.js"></script>
   <style>
     body {
-      background-image: url("img/mur.jpg");
+      background-image: url("img/murdelave.jpg");
       font-family: sans-serif;
     }
     .grobouton { font-size: 140%;}
@@ -26,7 +26,7 @@
 		color: #507;
 		text-shadow: 2px 1px 3px gray; }
 #sortieSVG { display: none; width: 640px; height: 400px; }
-#graphique { width: 640px; height: 480px; border: 3px inset gray; background-color: white; }
+#graphique { width: 640px; height: 480px; border: 3px inset gray; background-image: url("img/sableblanc.jpg"); }
 	#sortieNum { height: 240px; width: 640px; background-color: lightCyan; border: 3px inset green; text-shadow: 2px 1px 3px gray; }
   </style>
 </head>
@@ -205,7 +205,10 @@
 		</category>
 		<category name="gomme">
 			<block type="eff_svg"></block>
+			<block type="axes"></block>
 			<block type="reset"></block>
+			<block type="axeX"></block>
+			<block type="axeY"></block>
 		</category>
     </category>
     
@@ -434,65 +437,78 @@
   <!-- fin du menu des outils et début du menu intégré au plan de travail -->
 
 <xml id="startBlocks" style="display: none">
-  <block type="variables_set" x="20" y="20">
-    <field name="VAR">c</field>
-    <value name="VALUE">
-      <block type="math_number">
-        <field name="NUM">0</field>
-      </block>
-    </value>
+  <block type="reset" x="46" y="23">
     <next>
-      <block type="variables_set">
-        <field name="VAR">p</field>
-        <value name="VALUE">
-          <block type="math_number">
-            <field name="NUM">1</field>
-          </block>
-        </value>
+      <block type="teleport">
+        <field name="X">-300</field>
+        <field name="Y">0</field>
+        <comment pinned="false" h="80" w="160">pour commencer le dessin à gauche de l'image</comment>
         <next>
-          <block type="controls_repeat_ext">
-            <value name="TIMES">
+          <block type="controls_for">
+            <field name="VAR">n</field>
+            <value name="FROM">
               <block type="math_number">
-                <field name="NUM">40</field>
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <value name="TO">
+              <block type="math_number">
+                <field name="NUM">1000</field>
+              </block>
+            </value>
+            <value name="BY">
+              <block type="math_number">
+                <field name="NUM">1</field>
               </block>
             </value>
             <statement name="DO">
-              <block type="sophus_augmenter">
-                <field name="VAR">c</field>
-                <value name="DELTA">
-                  <block type="math_number">
-                    <field name="NUM">1</field>
+              <block type="variables_set">
+                <field name="VAR">boussole</field>
+                <value name="VALUE">
+                  <block type="variables_get">
+                    <field name="VAR">n</field>
                   </block>
                 </value>
                 <next>
-                  <block type="sophus_diviser">
-                    <field name="VAR">c</field>
-                    <value name="DELTA">
-                      <block type="math_number">
-                        <field name="NUM">2</field>
-                      </block>
-                    </value>
+                  <block type="sophus_carre">
+                    <field name="VAR">boussole</field>
+                    <field name="POW">2</field>
                     <next>
-                      <block type="variables_set">
-                        <field name="VAR">c</field>
-                        <value name="VALUE">
-                          <block type="math_single">
-                            <field name="OP">ROOT</field>
-                            <value name="NUM">
-                              <block type="variables_get">
-                                <field name="VAR">c</field>
-                              </block>
-                            </value>
+                      <block type="sophus_diviser">
+                        <field name="VAR">boussole</field>
+                        <comment pinned="false" h="80" w="160">idée de Michel Mendès-France lors de recherches sur les nombres premiers</comment>
+                        <value name="DELTA">
+                          <block type="math_number">
+                            <field name="NUM">321</field>
                           </block>
                         </value>
                         <next>
                           <block type="sophus_multiplier">
-                            <field name="VAR">p</field>
+                            <field name="VAR">boussole</field>
+                            <comment pinned="false" h="80" w="160">un tour complet fait 360°</comment>
                             <value name="DELTA">
-                              <block type="variables_get">
-                                <field name="VAR">c</field>
+                              <block type="math_number">
+                                <field name="NUM">360</field>
                               </block>
                             </value>
+                            <next>
+                              <block type="mettre_angle">
+                                <value name="ANGLE">
+                                  <block type="variables_get">
+                                    <field name="VAR">boussole</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="avancer">
+                                    <value name="NAME">
+                                      <block type="math_number">
+                                        <field name="NUM">10</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
                           </block>
                         </next>
                       </block>
@@ -501,26 +517,6 @@
                 </next>
               </block>
             </statement>
-            <next>
-              <block type="sophus_inverser">
-                <field name="VAR">p</field>
-                <next>
-                  <block type="sophus_doubler">
-                    <field name="CHOIX">2</field>
-                    <field name="VAR">p</field>
-                    <next>
-                      <block type="text_print">
-                        <value name="TEXT">
-                          <block type="variables_get">
-                            <field name="VAR">p</field>
-                          </block>
-                        </value>
-                      </block>
-                    </next>
-                  </block>
-                </next>
-              </block>
-            </next>
           </block>
         </next>
       </block>
@@ -638,8 +634,10 @@ var sauverSVG = function() {
 
 </tr>
          <tr>
-             <td><button class="grobouton" onClick="lancer();"><img src="favicon.ico"/>Lancer</button></td>
-             <td><button onClick="sauverSVG();">sauver figure</button></td>
+             <td><button class="grobouton" onClick="lancer();"><img src="favicon.ico"/>Lancer</button>
+             <button onClick="sauverSVG();"><img src="img/turtle.png"/>sauver figure</button>
+             </td>
+             <td></td>
             <td align="center">
 				
 				<input type="file" id="fileToLoad" style="display: none" onchange="ouvrirFichier();" />

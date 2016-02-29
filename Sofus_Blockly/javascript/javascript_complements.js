@@ -328,3 +328,17 @@ Blockly.JavaScript['reset'] = function(block) {
   var code = 'effaceDessin();toto1.t = 0; toto1.teleport(320,240);\n';
   return code;
 };
+
+Blockly.JavaScript['axeX'] = function(block) {
+  var code = 'axeX();\n';
+  return code;
+};
+Blockly.JavaScript['axeY'] = function(block) {
+  var code = 'axeY();\n';
+  return code;
+};
+Blockly.JavaScript['axes'] = function(block) {
+  var code = 'axes();\n';
+  return code;
+};
+
