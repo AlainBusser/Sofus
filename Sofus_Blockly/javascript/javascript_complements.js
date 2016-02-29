@@ -341,4 +341,8 @@ Blockly.JavaScript['axes'] = function(block) {
   var code = 'axes();\n';
   return code;
 };
+Blockly.JavaScript['grille'] = function(block) {
+  var code = 'grille();\n';
+  return code;
+};
 

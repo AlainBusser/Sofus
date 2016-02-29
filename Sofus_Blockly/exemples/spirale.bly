@@ -1,0 +1,61 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="reset" x="57" y="52">
+    <next>
+      <block type="variables_set">
+        <field name="VAR">d</field>
+        <value name="VALUE">
+          <block type="math_number">
+            <field name="NUM">2</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR">a</field>
+            <value name="VALUE">
+              <block type="math_number">
+                <field name="NUM">90.5</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_repeat_ext">
+                <value name="TIMES">
+                  <block type="math_number">
+                    <field name="NUM">200</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="avancer">
+                    <value name="NAME">
+                      <block type="variables_get">
+                        <field name="VAR">d</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="sophus_augmenter">
+                        <field name="VAR">d</field>
+                        <value name="DELTA">
+                          <block type="math_number">
+                            <field name="NUM">2</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="var_droite">
+                            <value name="ANGLE">
+                              <block type="variables_get">
+                                <field name="VAR">a</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

@@ -1,0 +1,209 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="variables_set" x="29" y="-124">
+    <field name="VAR">effectifs</field>
+    <value name="VALUE">
+      <block type="lists_repeat" inline="true">
+        <value name="ITEM">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="NUM">
+          <block type="math_number">
+            <field name="NUM">40</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <next>
+      <block type="controls_repeat_ext">
+        <value name="TIMES">
+          <block type="math_number">
+            <field name="NUM">2000</field>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="variables_set">
+            <field name="VAR">dé1</field>
+            <value name="VALUE">
+              <block type="math_random_int">
+                <value name="FROM">
+                  <block type="math_number">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <value name="TO">
+                  <block type="math_number">
+                    <field name="NUM">20</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set">
+                <field name="VAR">dé2</field>
+                <value name="VALUE">
+                  <block type="math_random_int">
+                    <value name="FROM">
+                      <block type="math_number">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                    <value name="TO">
+                      <block type="math_number">
+                        <field name="NUM">20</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set">
+                    <field name="VAR">total</field>
+                    <value name="VALUE">
+                      <block type="math_arithmetic">
+                        <field name="OP">ADD</field>
+                        <value name="A">
+                          <block type="variables_get">
+                            <field name="VAR">dé1</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="variables_get">
+                            <field name="VAR">dé2</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="lists_setIndex" inline="false">
+                        <mutation at="true"></mutation>
+                        <field name="MODE">SET</field>
+                        <field name="WHERE">FROM_START</field>
+                        <value name="LIST">
+                          <block type="variables_get">
+                            <field name="VAR">effectifs</field>
+                          </block>
+                        </value>
+                        <value name="AT">
+                          <block type="variables_get">
+                            <field name="VAR">total</field>
+                          </block>
+                        </value>
+                        <value name="TO">
+                          <block type="math_arithmetic" inline="false">
+                            <field name="OP">ADD</field>
+                            <value name="A">
+                              <block type="lists_getIndex" inline="false">
+                                <mutation statement="false" at="true"></mutation>
+                                <field name="MODE">GET</field>
+                                <field name="WHERE">FROM_START</field>
+                                <value name="VALUE">
+                                  <block type="variables_get">
+                                    <field name="VAR">effectifs</field>
+                                  </block>
+                                </value>
+                                <value name="AT">
+                                  <block type="variables_get">
+                                    <field name="VAR">total</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="big_aff">
+            <value name="VAR">
+              <block type="variables_get">
+                <field name="VAR">effectifs</field>
+              </block>
+            </value>
+            <next>
+              <block type="reset">
+                <next>
+                  <block type="tortue_droite">
+                    <field name="NAME">90</field>
+                    <next>
+                      <block type="axes">
+                        <next>
+                          <block type="controls_for">
+                            <field name="VAR">n</field>
+                            <value name="FROM">
+                              <block type="math_number">
+                                <field name="NUM">0</field>
+                              </block>
+                            </value>
+                            <value name="TO">
+                              <block type="math_number">
+                                <field name="NUM">40</field>
+                              </block>
+                            </value>
+                            <value name="BY">
+                              <block type="math_number">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                            <statement name="DO">
+                              <block type="variables_set">
+                                <field name="VAR">hauteur</field>
+                                <value name="VALUE">
+                                  <block type="lists_getIndex" inline="false">
+                                    <mutation statement="false" at="true"></mutation>
+                                    <field name="MODE">GET</field>
+                                    <field name="WHERE">FROM_START</field>
+                                    <value name="VALUE">
+                                      <block type="variables_get">
+                                        <field name="VAR">effectifs</field>
+                                      </block>
+                                    </value>
+                                    <value name="AT">
+                                      <block type="variables_get">
+                                        <field name="VAR">n</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="teleport_var">
+                                    <field name="X">n</field>
+                                    <field name="Y">hauteur</field>
+                                    <next>
+                                      <block type="avancer">
+                                        <value name="NAME">
+                                          <block type="variables_get">
+                                            <field name="VAR">hauteur</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

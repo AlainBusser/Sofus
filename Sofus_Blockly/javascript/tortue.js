@@ -1,6 +1,6 @@
 var Tortue;
 var SVG, dessineSegment, dessineTexte, effaceDessin;
-var axeX, axeY, axes;
+var axeX, axeY, axes, grille;
 
 SVG = function(tag) {
   return document.createElementNS('http://www.w3.org/2000/svg', tag);
@@ -107,10 +107,35 @@ axeY = function(){
 
 }
 
+grille = function(){
+	for(var x = -300; x <= 300; x += 10) {
+		if (Math.abs(x)%50>0){
+			dessineSegment(320+x,40,320+x,440,"yellow");
+		} else {
+			dessineSegment(320+x,40,320+x,440,"orange");
+		}
+	}
+	for(var y = -200; y <= 200; y += 10) {
+		if (Math.abs(y)%50>0){
+			dessineSegment(20,240-y,620,240-y,"yellow");
+		} else {
+			dessineSegment(20,240-y,620,240-y,"orange");
+		}
+	}
+}
+
+
+
+
 axes = function(){
 	axeX();
 	axeY();
 }
+
+
+
+
+
 
 Tortue = (function() {
   function Tortue() {
