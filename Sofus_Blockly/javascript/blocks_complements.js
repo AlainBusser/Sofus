@@ -1088,7 +1088,7 @@ Blockly.Blocks['avancer'] = {
   init: function() {
     this.appendValueInput("NAME")
         .setCheck("Number")
-        .appendField(new Blockly.FieldImage("img/turtle.png", 32, 32, "*"))
+        .appendField(new Blockly.FieldImage("img/turtle.png", 32, 32, ""))
         .appendField("avancer de");
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -1102,7 +1102,7 @@ Blockly.Blocks['reculer'] = {
   init: function() {
     this.appendValueInput("NAME")
         .setCheck("Number")
-        .appendField(new Blockly.FieldImage("img/turtle.png", 32, 32, "*"))
+        .appendField(new Blockly.FieldImage("img/turtle.png", 32, 32, ""))
         .appendField("reculer de");
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -1115,7 +1115,7 @@ Blockly.Blocks['reculer'] = {
 Blockly.Blocks['tortue_gauche'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField(new Blockly.FieldImage("img/turtle.png", 32, 32, "*"))
+        .appendField(new Blockly.FieldImage("img/turtle.png", 32, 32, ""))
         .appendField("vers la gauche de")
         .appendField(new Blockly.FieldAngle(90), "NAME");
     this.setPreviousStatement(true);
@@ -1129,7 +1129,7 @@ Blockly.Blocks['tortue_gauche'] = {
 Blockly.Blocks['tortue_droite'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField(new Blockly.FieldImage("img/turtle.png", 32, 32, "*"))
+        .appendField(new Blockly.FieldImage("img/turtle.png", 32, 32, ""))
         .appendField("vers la droite de")
         .appendField(new Blockly.FieldAngle(90), "NAME");
     this.setPreviousStatement(true);
@@ -1145,7 +1145,7 @@ Blockly.Blocks['var_gauche'] = {
   init: function() {
     this.appendValueInput("ANGLE")
         .setCheck("Number")
-        .appendField(new Blockly.FieldImage("img/turtle.png", 32, 32, "*"))
+        .appendField(new Blockly.FieldImage("img/turtle.png", 32, 32, ""))
         .appendField("tourner à gauche de");
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -1159,7 +1159,7 @@ Blockly.Blocks['var_droite'] = {
   init: function() {
     this.appendValueInput("ANGLE")
         .setCheck("Number")
-        .appendField(new Blockly.FieldImage("img/turtle.png", 32, 32, "*"))
+        .appendField(new Blockly.FieldImage("img/turtle.png", 32, 32, ""))
         .appendField("tourner à droite de");
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -1173,7 +1173,7 @@ Blockly.Blocks['mettre_angle'] = {
   init: function() {
     this.appendValueInput("ANGLE")
         .setCheck("Number")
-        .appendField(new Blockly.FieldImage("img/turtle.png", 32, 32, "*"))
+        .appendField(new Blockly.FieldImage("img/turtle.png", 32, 32, ""))
         .appendField("orienter la tortue de");
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -1186,7 +1186,7 @@ Blockly.Blocks['mettre_angle'] = {
 Blockly.Blocks['teleport'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField(new Blockly.FieldImage("img/turtle.png", 32, 32, "*"))
+        .appendField(new Blockly.FieldImage("img/turtle.png", 32, 32, ""))
         .appendField("téléporter la tortue en (")
         .appendField(new Blockly.FieldTextInput("0"), "X")
         .appendField(",")
@@ -1275,7 +1275,7 @@ Blockly.Blocks['scribe'] = {
 Blockly.Blocks['couleur_stylo'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField(new Blockly.FieldImage("img/pencil.png", 32, 32, "*"))
+        .appendField(new Blockly.FieldImage("img/pencil.png", 32, 32, ""))
         .appendField("toner du stylo à")
         .appendField(new Blockly.FieldColour("#000066"), "colstyle");
     this.setPreviousStatement(true);
@@ -1289,7 +1289,7 @@ Blockly.Blocks['couleur_stylo'] = {
 Blockly.Blocks['eff_svg'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField(new Blockly.FieldImage("img/droplet.png", 32, 32, "*"))
+        .appendField(new Blockly.FieldImage("img/droplet.png", 32, 32, ""))
         .appendField("gommer le graphisme tortue");
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -1325,7 +1325,7 @@ Blockly.Blocks['axeX'] = {
 Blockly.Blocks['axeY'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField(new Blockly.FieldImage("img/pencil.png", 32, 32, "*"))
+        .appendField(new Blockly.FieldImage("img/pencil.png", 32, 32, ""))
         .appendField("axe des ordonnées");
     this.setPreviousStatement(true);
     this.setNextStatement(true);
