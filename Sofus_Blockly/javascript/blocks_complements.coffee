@@ -1,16 +1,15 @@
 Blockly.Blocks['sophus_angle'] = init: ->
   @jsonInit
-    'id': 'sophus_degres'
-    'message0': 'angle %1'
-    'args0': [ {
-      'type': 'field_angle'
-      'name': 'angle'
-      'angle': 90
-    } ]
-    'output': null
-    'tooltip': 'angle en degrés'
-    'colour': Blockly.Blocks.math.HUE
-    'helpUrl': ''
+    id: 'sophus_degres'
+    message0: 'angle %1'
+    args0:
+      type  : 'field_angle'
+      name  : 'angle'
+      angle : 90
+    output  : null
+    tooltip : 'angle en degrés'
+    colour  : Blockly.Blocks.math.HUE
+    helpUrl : ''
   return
 Blockly.Blocks['sophus_carre'] =
   init: ->
@@ -1105,14 +1104,7 @@ Blockly.Blocks['grille'] = init: ->
   @setTooltip 'grille orthonormée'
   @setHelpUrl ''
   return
-Blockly.Blocks['choisir_tortue'] = init: ->
-  @appendDummyInput().appendField(new (Blockly.FieldImage)('img/turtle.png', 32, 32, '')).appendField('Avec la tortue').appendField new (Blockly.FieldTextInput)('1'), 'N'
-  @setPreviousStatement true
-  @setNextStatement true
-  @setColour 120
-  @setTooltip 'Choisir une tortue'
-  @setHelpUrl ''
-  return
+
 Blockly.Blocks['creer_tortue'] = init: ->
   @appendDummyInput().appendField(new (Blockly.FieldImage)('img/turtle.png', 32, 32, '')).appendField('Creer la tortue #').appendField new (Blockly.FieldTextInput)('1'), 'N'
   @setPreviousStatement true
@@ -1122,3 +1114,38 @@ Blockly.Blocks['creer_tortue'] = init: ->
   @setHelpUrl ''
   return
 
+Blockly.Blocks['creer_tortue_var'] = init: ->
+  @appendValueInput('NAME').setCheck('Number').appendField(new (Blockly.FieldImage)('img/turtle.png', 32, 32, '')).appendField 'Créer Tortue #'
+  @setPreviousStatement true
+  @setNextStatement true
+  @setColour 120
+  @setTooltip 'Créer une tortue (String)'
+  @setHelpUrl ''
+  return
+
+Blockly.Blocks['choisir_tortue'] = init: ->
+  @appendDummyInput().appendField(new (Blockly.FieldImage)('img/turtle.png', 32, 32, '')).appendField('Avec la tortue').appendField new (Blockly.FieldTextInput)('1'), 'N'
+  @setPreviousStatement true
+  @setNextStatement true
+  @setColour 120
+  @setTooltip 'Choisir une tortue'
+  @setHelpUrl ''
+  return
+
+Blockly.Blocks['choisir_tortue_var'] = init: ->
+  @appendValueInput('NAME').setCheck('Number').appendField(new (Blockly.FieldImage)('img/turtle.png', 32, 32, '')).appendField 'Avec la Tortue #'
+  @setPreviousStatement true
+  @setNextStatement true
+  @setColour 120
+  @setTooltip 'Avec la tortue (Number)'
+  @setHelpUrl ''
+  return
+
+Blockly.Blocks['distance_avec_tortue_var'] = init: ->
+  @appendValueInput('NAME').setCheck('Number').appendField(new (Blockly.FieldImage)('img/turtle.png', 32, 32, '')).appendField 'Distance avec la Tortue #'
+  @setPreviousStatement true
+  @setNextStatement true
+  @setColour 120
+  @setTooltip 'Distance avec la tortue (Number)'
+  @setHelpUrl ''
+  return

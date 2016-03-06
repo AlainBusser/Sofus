@@ -149,10 +149,12 @@
     <category name="Tortue" colour="120">
 		<category name="déplacement">
 		  <block type="choisir_tortue"></block>
+		  <block type="choisir_tortue_var"></block>
 		  <block type="creer_tortue"></block>
+		  <block type="creer_tortue_var"></block>
+		  <block type="distance_avec_tortue_var"></block>
 			<block type="avancer">
 				<value name="NAME">
-					<block type="math_number">
 						<field name="NUM">80</field>
 					</block>
 				</value>
@@ -440,106 +442,137 @@
   <!-- fin du menu des outils et début du menu intégré au plan de travail -->
 
 <xml id="startBlocks" style="display: none">
-  <block type="creer_tortue" x="14" y="-30">
-    <field name="N">2</field>
+  <block type="variables_set" x="68" y="-170">
+    <field name="VAR">element</field>
+    <value name="VALUE">
+      <block type="math_number">
+        <field name="NUM">2</field>
+      </block>
+    </value>
     <next>
-      <block type="reset">
+      <block type="creer_tortue_var">
+        <value name="NAME">
+          <block type="variables_get">
+            <field name="VAR">element</field>
+          </block>
+        </value>
         <next>
-          <block type="choisir_tortue">
-            <field name="N">1</field>
+          <block type="reset">
             <next>
-              <block type="couleur_stylo">
-                <field name="colstyle">#000066</field>
+              <block type="choisir_tortue">
+                <field name="N">1</field>
                 <next>
-                  <block type="teleport">
-                    <field name="X">-300</field>
-                    <field name="Y">0</field>
-                    <comment pinned="false" h="80" w="160">pour commencer le dessin à gauche de l'image</comment>
+                  <block type="couleur_stylo">
+                    <field name="colstyle">#000066</field>
                     <next>
-                      <block type="choisir_tortue">
-                        <field name="N">2</field>
+                      <block type="teleport">
+                        <field name="X">-300</field>
+                        <field name="Y">0</field>
+                        <comment pinned="false" h="80" w="160">pour commencer le dessin à gauche de l'image</comment>
                         <next>
-                          <block type="couleur_stylo">
-                            <field name="colstyle">#cc0000</field>
+                          <block type="choisir_tortue_var">
+                            <value name="NAME">
+                              <block type="variables_get">
+                                <field name="VAR">element</field>
+                              </block>
+                            </value>
                             <next>
-                              <block type="teleport">
-                                <field name="X">0</field>
-                                <field name="Y">0</field>
+                              <block type="couleur_stylo">
+                                <field name="colstyle">#cc0000</field>
                                 <next>
-                                  <block type="controls_for">
-                                    <field name="VAR">n</field>
-                                    <value name="FROM">
-                                      <block type="math_number">
-                                        <field name="NUM">0</field>
-                                      </block>
-                                    </value>
-                                    <value name="TO">
-                                      <block type="math_number">
-                                        <field name="NUM">1000</field>
-                                      </block>
-                                    </value>
-                                    <value name="BY">
-                                      <block type="math_number">
-                                        <field name="NUM">1</field>
-                                      </block>
-                                    </value>
-                                    <statement name="DO">
-                                      <block type="choisir_tortue">
-                                        <field name="N">1</field>
+                                  <block type="teleport">
+                                    <field name="X">0</field>
+                                    <field name="Y">0</field>
+                                    <next>
+                                      <block type="distance_avec_tortue_var">
+                                        <value name="NAME">
+                                          <block type="math_number">
+                                            <field name="NUM">1</field>
+                                          </block>
+                                        </value>
                                         <next>
-                                          <block type="variables_set">
-                                            <field name="VAR">boussole</field>
-                                            <value name="VALUE">
-                                              <block type="variables_get">
-                                                <field name="VAR">n</field>
+                                          <block type="controls_for">
+                                            <field name="VAR">n</field>
+                                            <value name="FROM">
+                                              <block type="math_number">
+                                                <field name="NUM">0</field>
                                               </block>
                                             </value>
-                                            <next>
-                                              <block type="sophus_carre">
-                                                <field name="VAR">boussole</field>
-                                                <field name="POW">2</field>
+                                            <value name="TO">
+                                              <block type="math_number">
+                                                <field name="NUM">1000</field>
+                                              </block>
+                                            </value>
+                                            <value name="BY">
+                                              <block type="math_number">
+                                                <field name="NUM">1</field>
+                                              </block>
+                                            </value>
+                                            <statement name="DO">
+                                              <block type="choisir_tortue">
+                                                <field name="N">1</field>
                                                 <next>
-                                                  <block type="sophus_diviser">
+                                                  <block type="variables_set">
                                                     <field name="VAR">boussole</field>
-                                                    <comment pinned="false" h="80" w="160">idée de Michel Mendès-France lors de recherches sur les nombres premiers</comment>
-                                                    <value name="DELTA">
-                                                      <block type="math_number">
-                                                        <field name="NUM">321</field>
+                                                    <value name="VALUE">
+                                                      <block type="variables_get">
+                                                        <field name="VAR">n</field>
                                                       </block>
                                                     </value>
                                                     <next>
-                                                      <block type="sophus_multiplier">
+                                                      <block type="sophus_carre">
                                                         <field name="VAR">boussole</field>
-                                                        <comment pinned="false" h="80" w="160">un tour complet fait 360°</comment>
-                                                        <value name="DELTA">
-                                                          <block type="math_number">
-                                                            <field name="NUM">360</field>
-                                                          </block>
-                                                        </value>
+                                                        <field name="POW">2</field>
                                                         <next>
-                                                          <block type="mettre_angle">
-                                                            <value name="ANGLE">
-                                                              <block type="variables_get">
-                                                                <field name="VAR">boussole</field>
+                                                          <block type="sophus_diviser">
+                                                            <field name="VAR">boussole</field>
+                                                            <comment pinned="false" h="80" w="160">idée de Michel Mendès-France lors de recherches sur les nombres premiers</comment>
+                                                            <value name="DELTA">
+                                                              <block type="math_number">
+                                                                <field name="NUM">321</field>
                                                               </block>
                                                             </value>
                                                             <next>
-                                                              <block type="avancer">
-                                                                <value name="NAME">
+                                                              <block type="sophus_multiplier">
+                                                                <field name="VAR">boussole</field>
+                                                                <comment pinned="false" h="80" w="160">un tour complet fait 360°</comment>
+                                                                <value name="DELTA">
                                                                   <block type="math_number">
-                                                                    <field name="NUM">10</field>
+                                                                    <field name="NUM">360</field>
                                                                   </block>
                                                                 </value>
                                                                 <next>
-                                                                  <block type="choisir_tortue">
-                                                                    <field name="N">2</field>
+                                                                  <block type="mettre_angle">
+                                                                    <value name="ANGLE">
+                                                                      <block type="variables_get">
+                                                                        <field name="VAR">boussole</field>
+                                                                      </block>
+                                                                    </value>
                                                                     <next>
-                                                                      <block type="reculer">
+                                                                      <block type="avancer">
                                                                         <value name="NAME">
                                                                           <block type="math_number">
-                                                                            <field name="NUM">80</field>
+                                                                            <field name="NUM">10</field>
                                                                           </block>
                                                                         </value>
+                                                                        <next>
+                                                                          <block type="choisir_tortue_var">
+                                                                            <value name="NAME">
+                                                                              <block type="variables_get">
+                                                                                <field name="VAR">element</field>
+                                                                              </block>
+                                                                            </value>
+                                                                            <next>
+                                                                              <block type="reculer">
+                                                                                <value name="NAME">
+                                                                                  <block type="math_number">
+                                                                                    <field name="NUM">1</field>
+                                                                                  </block>
+                                                                                </value>
+                                                                              </block>
+                                                                            </next>
+                                                                          </block>
+                                                                        </next>
                                                                       </block>
                                                                     </next>
                                                                   </block>
@@ -553,11 +586,11 @@
                                                   </block>
                                                 </next>
                                               </block>
-                                            </next>
+                                            </statement>
                                           </block>
                                         </next>
                                       </block>
-                                    </statement>
+                                    </next>
                                   </block>
                                 </next>
                               </block>

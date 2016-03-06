@@ -36,8 +36,16 @@ Le dossier "bloquement" contient une version hors ligne de Blockly, munie de tou
 
 ![Pi par Viète](https://raw.githubusercontent.com/AlainBusser/Sophus/master/SophusPi.png)
 
+Programmation CoffeeScript
+==========================
+Pour utiliser le langage CoffeeScript, il faut l'installer avec npm (qui vient avec NodeJS -> https://nodejs.org/en/download/):
+toto@pc-ubuntu:~$ npm install -g coffee-script
 
+Puis demander à scruter toutes modifications pour provoquer une compilation automatique (depuis le dossier javascript concerné) :
+toto@pc-ubuntu:~$ cd dev/Sophus/Sophus_blockly/javascript
+toto@pc-ubuntu:~/dev/Sophus/Sophus_blockly/javascript$ coffee --watch --compile -b .
 
+ATTENTION : l'option -b est importante, elle empeche coffeescript d'encapsuler la Classe Tortue dans une fonction. Sans cette option vous aurez l'erreur "Tortue est inconnue !" dans la console Javascript.
 
 
 Auteurs:
