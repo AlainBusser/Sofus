@@ -1,25 +1,11 @@
-
-newTurtle = ->
-  element = document.getElementById('turtles')
-
-  createButton = (context, func) ->
-    button = document.createElement('input')
-    button.type = 'button'
-    button.value = 'toto2'
-    button.onclick = func
-    context.appendChild button
-
-  createButton element, ->
-    toto = 'toto2'
-    console.log 'toto2'
-
-
-SVG = (tag) ->
-  document.createElementNS 'http://www.w3.org/2000/svg', tag
+totos = {}
+toto = 1
+SVG = (tag) -> document.createElementNS 'http://www.w3.org/2000/svg', tag
 
 effaceDessin = () ->
   dessin = $('#leSVG')
   dessin.empty()
+  dessin.append $( $.parseXML(v.svg) ).find("##{v.id}") for k,v of totos
 
 dessineSegment = (x1, y1, x2, y2, couleur) ->
   if x1 == null
@@ -107,18 +93,35 @@ grille = ->
       dessineSegment 20, 240 - y, 620, 240 - y, 'orange'
     y += 10
 
-
 axes = ->
   axeX()
   axeY()
 
 class Tortue
-  constructor : ->
+  constructor : (@id) ->
     @x = 320
     @y = 240
     @t = 0
     @c = '#000066'
     @stylo = true
+    @svg =
+      """
+      <svg xmlns='http://www.w3.org/2000/svg' version='1.1'>
+        <g id='#{@id}' transform='translate(320 240) rotate(0 20 20)' width='40' height='40' >
+            <line x1='4' y1='12' x2='28' y2='32' stroke-linecap='round' style='stroke: green; stroke-width: 4'/>
+            <line x1='4' y1='28' x2='28' y2='8' stroke-linecap='round' style='stroke: green; stroke-width: 4'/>
+            <line x1='20' y1='20' x2='36' y2='20' stroke-linecap='round' style='stroke: green; stroke-width: 8'/>
+            <ellipse cx='16' cy='20' rx='14' ry='10' style='fill: orange; stroke: brown; stroke-width: 2'/>
+            <circle cx='34' cy='16' r='2' style='fill: black; '/>
+            <circle cx='34' cy='24' r='2' style='fill: black; '/>
+        </g>
+      </svg>
+      """
+    $dessin = $('#leSVG')
+    $dessin.append $( $.parseXML(@svg) ).find("##{@id}")
+    console.log $("##{@id}").attr("transform")
+   
+  toto_update : -> $("##{@id}").attr("transform", "translate(#{@x-20} #{@y-20}) rotate(#{@t} 20 20)")
 
   penup   : -> @stylo = false
 
@@ -126,17 +129,25 @@ class Tortue
 
   couleur : (coul) -> @c = coul
 
-  tg      : (a) -> @t -= a / 180 * Math.PI
+  tg      : (a) ->
+    @t -= a / 180 * Math.PI
+    @toto_update()
 
-  td      : (a) -> @t += a / 180 * Math.PI
+  td      : (a) ->
+    @t += a / 180 * Math.PI
+    @toto_update()
 
-  orient  : (a) -> @t = a / 180 * Math.PI
+  orient  : (a) ->
+    @t = a / 180 * Math.PI
+    @toto_update()
 
   write   : (texte) -> dessineTexte texte, @x, @y, @c
 
   cercle  : -> dessineCercle @x, @y, 4, @c
   
-  teleport : (x, y) -> [@x, @y] = [x, y]
+  teleport : (x, y) ->
+    [@x, @y] = [x, y]
+    @toto_update()
 
   av : (d) ->
     oldx = @x
@@ -144,6 +155,7 @@ class Tortue
     @x += d * Math.cos(@t)
     @y += d * Math.sin(@t)
     dessineSegment(oldx, oldy, @x, @y, @c) if @stylo
+    @toto_update()
     
 
   re : (d) ->
@@ -154,8 +166,14 @@ class Tortue
     @x -= d * Math.cos(@t)
     @y -= d * Math.sin(@t)
     dessineSegment(oldx, oldy, @x, @y, @c) if @stylo
+    @toto_update()
+  
+  distance : (autre) ->
+    d = Math.sqrt(Math.pow(autre.x-@x,2)+Math.pow(autre.y-@y,2))
+    console.log "distance: #{d}"
+    return d
 
-totos = {}
-totos['1'] = new Tortue()
-toto = '1'
+$ ->
+  totos[toto] = new Tortue(toto)
+  
 

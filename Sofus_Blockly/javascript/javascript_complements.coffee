@@ -122,28 +122,28 @@ Blockly.JavaScript['big_efface'] = (block) ->
   code = 'document.getElementById("sortieNum").value = "";\n'
 
 Blockly.JavaScript['tortue_x'] = (block) ->
-  code = 'window.totos[window.toto].x-320'
+  code = 'totos[toto].x-320'
   [
     code
     Blockly.JavaScript.ORDER_NONE
   ]
 
 Blockly.JavaScript['tortue_y'] = (block) ->
-  code = '240-window.totos[window.toto].y'
+  code = '240-totos[toto].y'
   [
     code
     Blockly.JavaScript.ORDER_NONE
   ]
 
 Blockly.JavaScript['tortue_t'] = (block) ->
-  code = '-window.totos[window.toto].t/Math.PI*180'
+  code = '-totos[toto].t/Math.PI*180'
   [
     code
     Blockly.JavaScript.ORDER_NONE
   ]
 
 Blockly.JavaScript['tortue_c'] = (block) ->
-  code = 'window.totos[window.toto].c'
+  code = 'totos[toto].c'
   [
     code
     Blockly.JavaScript.ORDER_NONE
@@ -151,64 +151,64 @@ Blockly.JavaScript['tortue_c'] = (block) ->
 
 Blockly.JavaScript['avancer'] = (block) ->
   value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC)
-  code = 'window.totos[window.toto].av(' + value_name + ');\n'
+  code = 'totos[toto].av(' + value_name + ');\n'
 
 Blockly.JavaScript['reculer'] = (block) ->
   value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC)
-  code = 'window.totos[window.toto].re(' + value_name + ');\n'
+  code = 'totos[toto].re(' + value_name + ');\n'
 
 Blockly.JavaScript['tortue_gauche'] = (block) ->
   angle_name = block.getFieldValue('NAME')
-  code = 'window.totos[window.toto].tg(' + angle_name + ');\n'
+  code = 'totos[toto].tg(' + angle_name + ');\n'
 
 Blockly.JavaScript['tortue_droite'] = (block) ->
   angle_name = block.getFieldValue('NAME')
-  code = 'window.totos[window.toto].td(' + angle_name + ');\n'
+  code = 'totos[toto].td(' + angle_name + ');\n'
 
 Blockly.JavaScript['var_gauche'] = (block) ->
   value_angle = Blockly.JavaScript.valueToCode(block, 'ANGLE', Blockly.JavaScript.ORDER_ATOMIC)
-  code = 'window.totos[window.toto].tg(' + value_angle + ');\n'
+  code = 'totos[toto].tg(' + value_angle + ');\n'
 
 Blockly.JavaScript['var_droite'] = (block) ->
   value_angle = Blockly.JavaScript.valueToCode(block, 'ANGLE', Blockly.JavaScript.ORDER_ATOMIC)
-  code = 'window.totos[window.toto].td(' + value_angle + ');\n'
+  code = 'totos[toto].td(' + value_angle + ');\n'
 
 Blockly.JavaScript['mettre_angle'] = (block) ->
   value_angle = Blockly.JavaScript.valueToCode(block, 'ANGLE', Blockly.JavaScript.ORDER_ATOMIC)
-  code = 'window.totos[window.toto].orient(' + value_angle + ');\n'
+  code = 'totos[toto].orient(' + value_angle + ');\n'
 
 Blockly.JavaScript['teleport'] = (block) ->
   text_x = block.getFieldValue('X')
   text_y = block.getFieldValue('Y')
-  code = 'window.totos[window.toto].teleport(' + text_x + '+320,240-(' + text_y + '));\n'
+  code = 'totos[toto].teleport(' + text_x + '+320,240-(' + text_y + '));\n'
 
 Blockly.JavaScript['teleport_var'] = (block) ->
   variable_x = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('X'), Blockly.Variables.NAME_TYPE)
   variable_y = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('Y'), Blockly.Variables.NAME_TYPE)
-  code = 'window.totos[window.toto].teleport(' + variable_x + '+320' + ',240-(' + variable_y + '));\n'
+  code = 'totos[toto].teleport(' + variable_x + '+320' + ',240-(' + variable_y + '));\n'
 
 Blockly.JavaScript['lever_stylo'] = (block) ->
-  code = 'window.totos[window.toto].penup();\n'
+  code = 'totos[toto].penup();\n'
 
 Blockly.JavaScript['baisser_stylo'] = (block) ->
-  code = 'window.totos[window.toto].pendown();\n'
+  code = 'totos[toto].pendown();\n'
 
 Blockly.JavaScript['scribe'] = (block) ->
   value_texte = Blockly.JavaScript.valueToCode(block, 'texte', Blockly.JavaScript.ORDER_ATOMIC)
-  code = 'window.totos[window.toto].write(' + value_texte + ');\n'
+  code = "totos[toto].write('#{value_texte}');\n"
 
 Blockly.JavaScript['tampon'] = (block) ->
-  code = 'window.totos[window.toto].cercle();\n'
+  code = 'totos[toto].cercle();\n'
 
 Blockly.JavaScript['couleur_stylo'] = (block) ->
   colour_colstyle = block.getFieldValue('colstyle')
-  code = 'window.totos[window.toto].c = "' + colour_colstyle + '";\n'
+  code = "totos[toto].c = '#{colour_colstyle}';\n"
 
 Blockly.JavaScript['eff_svg'] = (block) ->
   code = 'effaceDessin();\n'
 
 Blockly.JavaScript['reset'] = (block) ->
-  code = 'effaceDessin();' + 'window.totos[window.toto].t = 0;' + 'window.totos[window.toto].teleport(320,240);\n'
+  code = 'effaceDessin();' + 'totos[toto].t = 0;' + 'totos[toto].teleport(320,240);\n'
 
 
 Blockly.JavaScript['axeX'] = (block) ->
@@ -225,10 +225,21 @@ Blockly.JavaScript['grille'] = (block) ->
 
 Blockly.JavaScript['creer_tortue'] = (block) ->
   text_n = block.getFieldValue('N')  
-  code = "window.totos['#{text_n}'] = new Tortue();\nconsole.log(window.totos);\n"
+  code = "totos['#{text_n}'] = new Tortue(#{value_name});\nconsole.log(totos);\n"
+
+Blockly.JavaScript['creer_tortue_var'] = (block) ->
+  value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC)
+  code = "totos[#{value_name}] = new Tortue(#{value_name});\nconsole.log(totos);\n"
+
 Blockly.JavaScript['choisir_tortue'] = (block) ->
   text_n = block.getFieldValue('N')  
-  code = "toto = '#{text_n}';\n"
-  
+  code = "toto = #{text_n};\n"
 
+Blockly.JavaScript['choisir_tortue_var'] = (block) ->
+  value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC)
+  code = "toto = #{value_name};\n"
+
+Blockly.JavaScript['distance_avec_tortue_var'] = (block) ->
+  value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC)
+  code = "totos[toto].distance(totos[#{value_name}]);\n"
 
