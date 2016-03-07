@@ -162,8 +162,7 @@
 					</block>
 				</value>
 			</block>
-			<block type="teleport"></block>
-			<block type="teleport_var"></block>
+			<block type="tortue_teleport"></block>
 		</category>
 		<category name="rotations">
 			<block type="tortue_gauche"></block>
@@ -449,46 +448,44 @@
   <!-- fin du menu des outils et début du menu intégré au plan de travail -->
 
 <xml id="startBlocks" style="display: none">
-  <block type="variables_set" x="10" y="10">
-    <field name="VAR">zero</field>
-    <value name="VALUE">
-      <block type="math_number">
-        <field name="NUM">0</field>
-      </block>
-    </value>
+  <block type="reset" x="10" y="10">
     <next>
-      <block type="reset">
+      <block type="axes">
         <next>
-          <block type="axes">
-            <next>
-              <block type="controls_for">
-                <field name="VAR">i</field>
-                <value name="FROM">
-                  <block type="math_number">
-                    <field name="NUM">2</field>
+          <block type="controls_for">
+            <field name="VAR">i</field>
+            <value name="FROM">
+              <block type="math_number">
+                <field name="NUM">2</field>
+              </block>
+            </value>
+            <value name="TO">
+              <block type="math_number">
+                <field name="NUM">12</field>
+              </block>
+            </value>
+            <value name="BY">
+              <block type="math_number">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="creer_tortue_var">
+                <value name="NAME">
+                  <block type="variables_get">
+                    <field name="VAR">i</field>
                   </block>
                 </value>
-                <value name="TO">
-                  <block type="math_number">
-                    <field name="NUM">12</field>
-                  </block>
-                </value>
-                <value name="BY">
-                  <block type="math_number">
-                    <field name="NUM">1</field>
-                  </block>
-                </value>
-                <statement name="DO">
-                  <block type="creer_tortue_var">
+                <next>
+                  <block type="choisir_tortue_var">
                     <value name="NAME">
                       <block type="variables_get">
                         <field name="VAR">i</field>
                       </block>
                     </value>
                     <next>
-                      <block type="variables_set">
-                        <field name="VAR">x</field>
-                        <value name="VALUE">
+                      <block type="tortue_teleport">
+                        <value name="ABS">
                           <block type="math_arithmetic">
                             <field name="OP">MULTIPLY</field>
                             <value name="A">
@@ -503,40 +500,49 @@
                             </value>
                           </block>
                         </value>
+                        <value name="ORD">
+                          <block type="math_number">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
                         <next>
-                          <block type="choisir_tortue_var">
-                            <value name="NAME">
-                              <block type="variables_get">
-                                <field name="VAR">i</field>
-                              </block>
-                            </value>
-                            <next>
-                              <block type="teleport_var">
-                                <field name="X">x</field>
-                                <field name="Y">zero</field>
-                                <next>
-                                  <block type="tortue_gauche">
-                                    <field name="NAME">90</field>
-                                  </block>
-                                </next>
-                              </block>
-                            </next>
+                          <block type="tortue_gauche">
+                            <field name="NAME">90</field>
                           </block>
                         </next>
                       </block>
                     </next>
                   </block>
-                </statement>
-                <next>
-                  <block type="controls_repeat_ext">
-                    <value name="TIMES">
-                      <block type="math_number">
-                        <field name="NUM">1000</field>
+                </next>
+              </block>
+            </statement>
+            <next>
+              <block type="controls_repeat_ext">
+                <value name="TIMES">
+                  <block type="math_number">
+                    <field name="NUM">1000</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="variables_set">
+                    <field name="VAR">dé_1</field>
+                    <value name="VALUE">
+                      <block type="math_random_int">
+                        <value name="FROM">
+                          <block type="math_number">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                        <value name="TO">
+                          <block type="math_number">
+                            <field name="NUM">6</field>
+                          </block>
+                        </value>
                       </block>
                     </value>
-                    <statement name="DO">
+                    <next>
                       <block type="variables_set">
-                        <field name="VAR">dé_1</field>
+                        <field name="VAR">dé_2</field>
                         <value name="VALUE">
                           <block type="math_random_int">
                             <value name="FROM">
@@ -553,55 +559,36 @@
                         </value>
                         <next>
                           <block type="variables_set">
-                            <field name="VAR">dé_2</field>
+                            <field name="VAR">somme</field>
                             <value name="VALUE">
-                              <block type="math_random_int">
-                                <value name="FROM">
-                                  <block type="math_number">
-                                    <field name="NUM">1</field>
+                              <block type="math_arithmetic">
+                                <field name="OP">ADD</field>
+                                <value name="A">
+                                  <block type="variables_get">
+                                    <field name="VAR">dé_1</field>
                                   </block>
                                 </value>
-                                <value name="TO">
-                                  <block type="math_number">
-                                    <field name="NUM">6</field>
+                                <value name="B">
+                                  <block type="variables_get">
+                                    <field name="VAR">dé_2</field>
                                   </block>
                                 </value>
                               </block>
                             </value>
                             <next>
-                              <block type="variables_set">
-                                <field name="VAR">somme</field>
-                                <value name="VALUE">
-                                  <block type="math_arithmetic">
-                                    <field name="OP">ADD</field>
-                                    <value name="A">
-                                      <block type="variables_get">
-                                        <field name="VAR">dé_1</field>
-                                      </block>
-                                    </value>
-                                    <value name="B">
-                                      <block type="variables_get">
-                                        <field name="VAR">dé_2</field>
-                                      </block>
-                                    </value>
+                              <block type="choisir_tortue_var">
+                                <value name="NAME">
+                                  <block type="variables_get">
+                                    <field name="VAR">somme</field>
                                   </block>
                                 </value>
                                 <next>
-                                  <block type="choisir_tortue_var">
+                                  <block type="avancer">
                                     <value name="NAME">
-                                      <block type="variables_get">
-                                        <field name="VAR">somme</field>
+                                      <block type="math_number">
+                                        <field name="NUM">1</field>
                                       </block>
                                     </value>
-                                    <next>
-                                      <block type="avancer">
-                                        <value name="NAME">
-                                          <block type="math_number">
-                                            <field name="NUM">1</field>
-                                          </block>
-                                        </value>
-                                      </block>
-                                    </next>
                                   </block>
                                 </next>
                               </block>
@@ -609,9 +596,9 @@
                           </block>
                         </next>
                       </block>
-                    </statement>
+                    </next>
                   </block>
-                </next>
+                </statement>
               </block>
             </next>
           </block>

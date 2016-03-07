@@ -232,7 +232,12 @@ Blockly.JavaScript['teleport'] = function(block) {
   text_y = block.getFieldValue('Y');
   return code = 'totos[toto].teleport(' + text_x + '+320,240-(' + text_y + '));\n';
 };
-
+Blockly.JavaScript['tortue_teleport'] = function(block) {
+  var value_abs = Blockly.JavaScript.valueToCode(block, 'ABS', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_ord = Blockly.JavaScript.valueToCode(block, 'ORD', Blockly.JavaScript.ORDER_ATOMIC);
+  var code = 'totos[toto].teleport(' + value_abs + '+320' + ',240-(' + value_ord + '));\n';
+  return code;
+};
 Blockly.JavaScript['teleport_var'] = function(block) {
   var code, variable_x, variable_y;
   variable_x = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('X'), Blockly.Variables.NAME_TYPE);

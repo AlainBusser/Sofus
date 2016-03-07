@@ -182,6 +182,12 @@ Blockly.JavaScript['teleport'] = (block) ->
   text_y = block.getFieldValue('Y')
   code = 'totos[toto].teleport(' + text_x + '+320,240-(' + text_y + '));\n'
 
+Blockly.JavaScript['tortue_teleport'] = (block) ->
+  value_abs = Blockly.JavaScript.valueToCode(block, 'ABS', Blockly.JavaScript.ORDER_ATOMIC)
+  value_ord = Blockly.JavaScript.valueToCode(block, 'ORD', Blockly.JavaScript.ORDER_ATOMIC)
+  code = 'totos[toto].teleport(' + value_abs + '+320' + ',240-(' + value_ord + '));\n'
+  code
+
 Blockly.JavaScript['teleport_var'] = (block) ->
   variable_x = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('X'), Blockly.Variables.NAME_TYPE)
   variable_y = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('Y'), Blockly.Variables.NAME_TYPE)

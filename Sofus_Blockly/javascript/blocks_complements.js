@@ -609,55 +609,6 @@ Blockly.Blocks['sophus_tronquer'] = {
 };
 
 
-/*
-
-Blockly.Blocks['sophus_arrondi'] = {
-  init: function() {
-    this.jsonInit({
-  "message0": "arrondi de %1 à %2 %3",
-  "args0": [
-        {
-          "type": "field_variable",
-          "name": "VAR",
-          "variable": Blockly.Msg.SOPHUS_ARRONDI_TITLE_ITEM
-        },
-    {
-      "type": "field_dropdown",
-      "name": "GRAD",
-      "options": [
-        [
-          "décimales",
-          "1e-"
-        ],
-        [
-          "près",
-          ""
-        ]
-      ]
-    }
-  ],
-  "inputsInline": true,
-  "output": "Number",
-      "colour": Blockly.Blocks.math.HUE,
-      "helpUrl": Blockly.Msg.SOPHUS_ARRONDI_HELPURL
-});
-    var thisBlock = this;
-    this.setTooltip(function() {
-      return Blockly.Msg.SOPHUS_ARRONDI_TOOLTIP.replace('%1',
-          thisBlock.getFieldValue('VAR'));
-    });
-  },
-  getVars: function() {
-    return [this.getFieldValue('VAR')];
-  },
-  renameVar: function(oldName, newName) {
-    if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
-      this.setFieldValue(newName, 'VAR');
-    }
-  }
-};
- */
-
 Blockly.Blocks['sophus_puissance'] = {
   init: function() {
     var thisBlock;
@@ -886,6 +837,24 @@ Blockly.Blocks['teleport'] = {
     this.setNextStatement(true);
     this.setColour(120);
     this.setTooltip('téléporter sans changer l\'angle ni faire de tracé');
+    this.setHelpUrl('');
+  }
+};
+Blockly.Blocks['tortue_teleport'] = {
+  init: function() {
+    this.appendValueInput("ABS")
+        .setCheck("Number")
+        .appendField("téléporter la tortue vers (");
+    this.appendValueInput("ORD")
+        .setCheck("Number")
+        .appendField(",");
+    this.appendDummyInput()
+        .appendField(")");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(120);
+    this.setTooltip('téléporter la tortue');
     this.setHelpUrl('');
   }
 };

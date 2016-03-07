@@ -1008,6 +1008,17 @@ Blockly.Blocks['teleport'] = init: ->
   @setTooltip 'téléporter sans changer l\'angle ni faire de tracé'
   @setHelpUrl ''
   return
+Blockly.Blocks['tortue_teleport'] = init: ->
+  @appendValueInput('ABS').setCheck('Number').appendField 'téléporter la tortue vers ('
+  @appendValueInput('ORD').setCheck('Number').appendField ','
+  @appendDummyInput().appendField ')'
+  @setInputsInline true
+  @setPreviousStatement true
+  @setNextStatement true
+  @setColour 120
+  @setTooltip 'téléporter la tortue'
+  @setHelpUrl ''
+  return
 Blockly.Blocks['tampon'] = init: ->
   @appendDummyInput().appendField(new (Blockly.FieldImage)('img/pencil.png', 32, 32, '')).appendField 'marquer un point'
   @setPreviousStatement true
