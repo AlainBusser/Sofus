@@ -1,7 +1,7 @@
 Version 1.4 avec tortues
 
 
-![logo](https://raw.githubusercontent.com/AlainBusser/Sophus/master/sophus1.svg)
+![logo](https://raw.githubusercontent.com/AlainBusser/Sophus/master/sophus1.png)
 
 
 

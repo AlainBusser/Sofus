@@ -1,0 +1,87 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="reset" x="46" y="23">
+    <next>
+      <block type="teleport">
+        <field name="X">-300</field>
+        <field name="Y">0</field>
+        <comment pinned="false" h="80" w="160">pour commencer le dessin à gauche de l'image</comment>
+        <next>
+          <block type="controls_for">
+            <field name="VAR">n</field>
+            <value name="FROM">
+              <block type="math_number">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <value name="TO">
+              <block type="math_number">
+                <field name="NUM">1000</field>
+              </block>
+            </value>
+            <value name="BY">
+              <block type="math_number">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="variables_set">
+                <field name="VAR">boussole</field>
+                <value name="VALUE">
+                  <block type="variables_get">
+                    <field name="VAR">n</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="sophus_carre">
+                    <field name="VAR">boussole</field>
+                    <field name="POW">2</field>
+                    <next>
+                      <block type="sophus_diviser">
+                        <field name="VAR">boussole</field>
+                        <comment pinned="false" h="80" w="160">idée de Michel Mendès-France lors de recherches sur les nombres premiers</comment>
+                        <value name="DELTA">
+                          <block type="math_number">
+                            <field name="NUM">321</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="sophus_multiplier">
+                            <field name="VAR">boussole</field>
+                            <comment pinned="false" h="80" w="160">un tour complet fait 360°</comment>
+                            <value name="DELTA">
+                              <block type="math_number">
+                                <field name="NUM">360</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="mettre_angle">
+                                <value name="ANGLE">
+                                  <block type="variables_get">
+                                    <field name="VAR">boussole</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="avancer">
+                                    <value name="NAME">
+                                      <block type="math_number">
+                                        <field name="NUM">10</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>
