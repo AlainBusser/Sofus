@@ -255,6 +255,16 @@ Blockly.JavaScript['baisser_stylo'] = function(block) {
   return code = 'totos[toto].pendown();\n';
 };
 
+Blockly.JavaScript['cacher_tortue'] = function(block) {
+  var code;
+  return code = 'totos[toto].hide();\n';
+};
+
+Blockly.JavaScript['montrer_tortue'] = function(block) {
+  var code;
+  return code = 'totos[toto].show();\n';
+};
+
 Blockly.JavaScript['scribe'] = function(block) {
   var code, value_texte;
   value_texte = Blockly.JavaScript.valueToCode(block, 'texte', Blockly.JavaScript.ORDER_ATOMIC);
@@ -331,3 +341,10 @@ Blockly.JavaScript['distance_avec_tortue_var'] = function(block) {
   value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
   return code = "totos[toto].distance(totos[" + value_name + "]);\n";
 };
+
+Blockly.JavaScript['tourner_vers_tortue_var'] = function(block) {
+  var code, value_name;
+  value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+  return code = "totos[toto].azimuth(totos[" + value_name + "]);\n";
+};
+

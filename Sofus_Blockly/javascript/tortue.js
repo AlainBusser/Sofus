@@ -179,6 +179,14 @@ Tortue = (function() {
     return this.stylo = true;
   };
 
+  Tortue.prototype.show = function() {
+    return $("#" + this.id).show();
+  };
+
+  Tortue.prototype.hide = function() {
+    return $("#" + this.id).hide();
+  };
+
   Tortue.prototype.couleur = function(coul) {
     return this.c = coul;
   };
@@ -243,6 +251,13 @@ Tortue = (function() {
     d = Math.sqrt(Math.pow(autre.x - this.x, 2) + Math.pow(autre.y - this.y, 2));
     console.log("distance: " + d);
     return d;
+  };
+  
+  Tortue.prototype.azimuth = function(autre) {
+    var a;
+    a = Math.atan2(autre.y - this.y, autre.x - this.x);
+    this.t = a;
+    return this.toto_update();
   };
 
   return Tortue;

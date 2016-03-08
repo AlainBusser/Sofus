@@ -1035,6 +1035,22 @@ Blockly.Blocks['teleport_var'] = init: ->
   @setTooltip 'déplacer la tortue vers des coordonnées variables'
   @setHelpUrl ''
   return
+Blockly.Blocks['cacher_tortue'] = init: ->
+  @appendDummyInput().appendField(new (Blockly.FieldImage)('img/ghost.png', 32, 32, '')).appendField 'cacher la tortue'
+  @setPreviousStatement true
+  @setNextStatement true
+  @setColour 120
+  @setTooltip 'dorénavant la tortue est invisible'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['montrer_tortue'] = init: ->
+  @appendDummyInput().appendField(new (Blockly.FieldImage)('img/turtle.png', 32, 32, '')).appendField 'montrer la tortue'
+  @setPreviousStatement true
+  @setNextStatement true
+  @setColour 120
+  @setTooltip 'dorénavant la tortue est visible'
+  @setHelpUrl ''
+  return
 Blockly.Blocks['lever_stylo'] = init: ->
   @appendDummyInput().appendField(new (Blockly.FieldImage)('img/pencil.png', 32, 32, '')).appendField 'lever le stylo'
   @setPreviousStatement true
@@ -1158,5 +1174,14 @@ Blockly.Blocks['distance_avec_tortue_var'] = init: ->
   @setNextStatement true
   @setColour 120
   @setTooltip 'Distance avec la tortue (Number)'
+  @setHelpUrl ''
+  return
+
+Blockly.Blocks['tourner_vers_tortue_var'] = init: ->
+  @appendValueInput('NAME').setCheck('Number').appendField(new (Blockly.FieldImage)('img/turtle.png', 32, 32, '')).appendField 'Tourner vers la Tortue #'
+  @setPreviousStatement true
+  @setNextStatement true
+  @setColour 120
+  @setTooltip 'Se tourner vers la tortue (Number)'
   @setHelpUrl ''
   return

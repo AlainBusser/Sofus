@@ -127,6 +127,10 @@ class Tortue
 
   pendown : -> @stylo = true
 
+  show = ->  $('#' + @id).show()
+
+  hide = ->  $('#' + @id).hide()
+  
   couleur : (coul) -> @c = coul
 
   tg      : (a) ->
@@ -172,6 +176,11 @@ class Tortue
     d = Math.sqrt(Math.pow(autre.x-@x,2)+Math.pow(autre.y-@y,2))
     console.log "distance: #{d}"
     return d
+
+  azimuth : (autre) ->
+    a = Math.atan2(autre.y-@y,autre.x-@x)
+    @t = a
+    @toto_update()
 
 $ ->
   totos[toto] = new Tortue(toto)
