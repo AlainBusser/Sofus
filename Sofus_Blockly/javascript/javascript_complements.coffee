@@ -182,10 +182,22 @@ Blockly.JavaScript['teleport'] = (block) ->
   text_y = block.getFieldValue('Y')
   code = 'totos[toto].teleport(' + text_x + '+320,240-(' + text_y + '));\n'
 
+Blockly.JavaScript['tortue_teleport'] = (block) ->
+  value_abs = Blockly.JavaScript.valueToCode(block, 'ABS', Blockly.JavaScript.ORDER_ATOMIC)
+  value_ord = Blockly.JavaScript.valueToCode(block, 'ORD', Blockly.JavaScript.ORDER_ATOMIC)
+  code = 'totos[toto].teleport(' + value_abs + '+320' + ',240-(' + value_ord + '));\n'
+  code
+
 Blockly.JavaScript['teleport_var'] = (block) ->
   variable_x = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('X'), Blockly.Variables.NAME_TYPE)
   variable_y = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('Y'), Blockly.Variables.NAME_TYPE)
   code = 'totos[toto].teleport(' + variable_x + '+320' + ',240-(' + variable_y + '));\n'
+
+Blockly.JavaScript['cacher_tortue'] = (block) ->
+  code = 'totos[toto].hide();\n'
+
+Blockly.JavaScript['montrer_tortue'] = (block) ->
+  code = 'totos[toto].show();\n'
 
 Blockly.JavaScript['lever_stylo'] = (block) ->
   code = 'totos[toto].penup();\n'
@@ -243,3 +255,8 @@ Blockly.JavaScript['distance_avec_tortue_var'] = (block) ->
   value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC)
   code = "totos[toto].distance(totos[#{value_name}]);\n"
 
+Blockly.JavaScript['tourner_vers_tortue_var'] = (block) ->
+  code = undefined
+  value_name = undefined
+  value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC)
+  code = 'totos[toto].azimuth(totos[' + value_name + ']);\n'

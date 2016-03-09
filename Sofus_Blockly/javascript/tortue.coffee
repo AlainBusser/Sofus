@@ -107,7 +107,7 @@ class Tortue
     @svg =
       """
       <svg xmlns='http://www.w3.org/2000/svg' version='1.1'>
-        <g id='#{@id}' transform='translate(320 240) rotate(0 20 20)' width='40' height='40' >
+        <g id='#{@id}' transform='translate(300 220) rotate(0 20 20)' width='40' height='40' >
             <line x1='4' y1='12' x2='28' y2='32' stroke-linecap='round' style='stroke: green; stroke-width: 4'/>
             <line x1='4' y1='28' x2='28' y2='8' stroke-linecap='round' style='stroke: green; stroke-width: 4'/>
             <line x1='20' y1='20' x2='36' y2='20' stroke-linecap='round' style='stroke: green; stroke-width: 8'/>
@@ -121,12 +121,16 @@ class Tortue
     $dessin.append $( $.parseXML(@svg) ).find("##{@id}")
     console.log $("##{@id}").attr("transform")
    
-  toto_update : -> $("##{@id}").attr("transform", "translate(#{@x-20} #{@y-20}) rotate(#{@t} 20 20)")
+  toto_update : -> $("##{@id}").attr("transform", "translate(#{@x-20} #{@y-20}) rotate(#{@t*180/Math.PI} 20 20)")
 
   penup   : -> @stylo = false
 
   pendown : -> @stylo = true
 
+  show = ->  $('#' + @id).show()
+
+  hide = ->  $('#' + @id).hide()
+  
   couleur : (coul) -> @c = coul
 
   tg      : (a) ->
@@ -172,6 +176,11 @@ class Tortue
     d = Math.sqrt(Math.pow(autre.x-@x,2)+Math.pow(autre.y-@y,2))
     console.log "distance: #{d}"
     return d
+
+  azimuth : (autre) ->
+    a = Math.atan2(autre.y-@y,autre.x-@x)
+    @t = a
+    @toto_update()
 
 $ ->
   totos[toto] = new Tortue(toto)

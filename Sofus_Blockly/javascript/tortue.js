@@ -161,14 +161,14 @@ Tortue = (function() {
     this.t = 0;
     this.c = '#000066';
     this.stylo = true;
-    this.svg = "<svg xmlns='http://www.w3.org/2000/svg' version='1.1'>\n  <g id='" + this.id + "' transform='translate(320 240) rotate(0 20 20)' width='40' height='40' >\n      <line x1='4' y1='12' x2='28' y2='32' stroke-linecap='round' style='stroke: green; stroke-width: 4'/>\n      <line x1='4' y1='28' x2='28' y2='8' stroke-linecap='round' style='stroke: green; stroke-width: 4'/>\n      <line x1='20' y1='20' x2='36' y2='20' stroke-linecap='round' style='stroke: green; stroke-width: 8'/>\n      <ellipse cx='16' cy='20' rx='14' ry='10' style='fill: orange; stroke: brown; stroke-width: 2'/>\n      <circle cx='34' cy='16' r='2' style='fill: black; '/>\n      <circle cx='34' cy='24' r='2' style='fill: black; '/>\n  </g>\n</svg>";
+    this.svg = "<svg xmlns='http://www.w3.org/2000/svg' version='1.1'>\n  <g id='" + this.id + "' transform='translate(300 220) rotate(0 20 20)' width='40' height='40' >\n      <line x1='4' y1='12' x2='28' y2='32' stroke-linecap='round' style='stroke: green; stroke-width: 4'/>\n      <line x1='4' y1='28' x2='28' y2='8' stroke-linecap='round' style='stroke: green; stroke-width: 4'/>\n      <line x1='20' y1='20' x2='36' y2='20' stroke-linecap='round' style='stroke: green; stroke-width: 8'/>\n      <ellipse cx='16' cy='20' rx='14' ry='10' style='fill: orange; stroke: brown; stroke-width: 2'/>\n      <circle cx='34' cy='16' r='2' style='fill: black; '/>\n      <circle cx='34' cy='24' r='2' style='fill: black; '/>\n  </g>\n</svg>";
     $dessin = $('#leSVG');
     $dessin.append($($.parseXML(this.svg)).find("#" + this.id));
     console.log($("#" + this.id).attr("transform"));
   }
 
   Tortue.prototype.toto_update = function() {
-    return $("#" + this.id).attr("transform", "translate(" + (this.x - 20) + " " + (this.y - 20) + ") rotate(" + this.t + " 20 20)");
+    return $("#" + this.id).attr("transform", "translate(" + (this.x - 20) + " " + (this.y - 20) + ") rotate(" + this.t*180/Math.PI + " 20 20)");
   };
 
   Tortue.prototype.penup = function() {
@@ -177,6 +177,14 @@ Tortue = (function() {
 
   Tortue.prototype.pendown = function() {
     return this.stylo = true;
+  };
+
+  Tortue.prototype.show = function() {
+    return $("#" + this.id).show();
+  };
+
+  Tortue.prototype.hide = function() {
+    return $("#" + this.id).hide();
   };
 
   Tortue.prototype.couleur = function(coul) {
@@ -243,6 +251,13 @@ Tortue = (function() {
     d = Math.sqrt(Math.pow(autre.x - this.x, 2) + Math.pow(autre.y - this.y, 2));
     console.log("distance: " + d);
     return d;
+  };
+  
+  Tortue.prototype.azimuth = function(autre) {
+    var a;
+    a = Math.atan2(autre.y - this.y, autre.x - this.x);
+    this.t = a;
+    return this.toto_update();
   };
 
   return Tortue;

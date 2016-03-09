@@ -1008,6 +1008,17 @@ Blockly.Blocks['teleport'] = init: ->
   @setTooltip 'téléporter sans changer l\'angle ni faire de tracé'
   @setHelpUrl ''
   return
+Blockly.Blocks['tortue_teleport'] = init: ->
+  @appendValueInput('ABS').setCheck('Number').appendField 'téléporter la tortue vers ('
+  @appendValueInput('ORD').setCheck('Number').appendField ','
+  @appendDummyInput().appendField ')'
+  @setInputsInline true
+  @setPreviousStatement true
+  @setNextStatement true
+  @setColour 120
+  @setTooltip 'téléporter la tortue'
+  @setHelpUrl ''
+  return
 Blockly.Blocks['tampon'] = init: ->
   @appendDummyInput().appendField(new (Blockly.FieldImage)('img/pencil.png', 32, 32, '')).appendField 'marquer un point'
   @setPreviousStatement true
@@ -1022,6 +1033,22 @@ Blockly.Blocks['teleport_var'] = init: ->
   @setNextStatement true
   @setColour 120
   @setTooltip 'déplacer la tortue vers des coordonnées variables'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['cacher_tortue'] = init: ->
+  @appendDummyInput().appendField(new (Blockly.FieldImage)('img/ghost.png', 32, 32, '')).appendField 'cacher la tortue'
+  @setPreviousStatement true
+  @setNextStatement true
+  @setColour 120
+  @setTooltip 'dorénavant la tortue est invisible'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['montrer_tortue'] = init: ->
+  @appendDummyInput().appendField(new (Blockly.FieldImage)('img/turtle.png', 32, 32, '')).appendField 'montrer la tortue'
+  @setPreviousStatement true
+  @setNextStatement true
+  @setColour 120
+  @setTooltip 'dorénavant la tortue est visible'
   @setHelpUrl ''
   return
 Blockly.Blocks['lever_stylo'] = init: ->
@@ -1147,5 +1174,14 @@ Blockly.Blocks['distance_avec_tortue_var'] = init: ->
   @setNextStatement true
   @setColour 120
   @setTooltip 'Distance avec la tortue (Number)'
+  @setHelpUrl ''
+  return
+
+Blockly.Blocks['tourner_vers_tortue_var'] = init: ->
+  @appendValueInput('NAME').setCheck('Number').appendField(new (Blockly.FieldImage)('img/turtle.png', 32, 32, '')).appendField 'Tourner vers la Tortue #'
+  @setPreviousStatement true
+  @setNextStatement true
+  @setColour 120
+  @setTooltip 'Se tourner vers la tortue (Number)'
   @setHelpUrl ''
   return
