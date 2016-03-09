@@ -118,7 +118,7 @@ class Tortue
       </svg>
       """
     $dessin = $('#leSVG')
-    $dessin.append $( $.parseXML(@svg) ).find("##{@id}")
+    $dessin.append $( $.parseXML(@svg) ).find("##{@id}") if ( $dessin.find("##{@id}").length is 0 )
     console.log $("##{@id}").attr("transform")
    
   toto_update : -> $("##{@id}").attr("transform", "translate(#{@x-20} #{@y-20}) rotate(#{@t*180/Math.PI} 20 20)")

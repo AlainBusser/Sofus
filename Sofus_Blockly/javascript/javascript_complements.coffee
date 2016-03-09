@@ -151,7 +151,7 @@ Blockly.JavaScript['tortue_c'] = (block) ->
 
 Blockly.JavaScript['avancer'] = (block) ->
   value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC)
-  code = 'totos[toto].av(' + value_name + ');\n'
+  code = "totos[toto].av(#{value_name});\n"
 
 Blockly.JavaScript['reculer'] = (block) ->
   value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC)
@@ -241,22 +241,27 @@ Blockly.JavaScript['creer_tortue'] = (block) ->
 
 Blockly.JavaScript['creer_tortue_var'] = (block) ->
   value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC)
-  code = "totos[#{value_name}] = new Tortue(#{value_name});\nconsole.log(totos);\n"
+  code = "totos[#{value_name}] = new Tortue(#{value_name});\nconsole.log('Après création dune tortue, voici les totos:',totos);\n"
 
 Blockly.JavaScript['choisir_tortue'] = (block) ->
-  text_n = block.getFieldValue('N')  
-  code = "toto = #{text_n};\n"
+  text_n = block.getFieldValue('N')
+  statements = Blockly.JavaScript.statementToCode(block, 'DO')
+  code = "toto = #{text_n};\n#{statements}"
 
 Blockly.JavaScript['choisir_tortue_var'] = (block) ->
   value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC)
-  code = "toto = #{value_name};\n"
+  statements = Blockly.JavaScript.statementToCode(block, 'DO')
+  code = "toto = #{value_name};\n#{statements}"
 
 Blockly.JavaScript['distance_avec_tortue_var'] = (block) ->
   value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC)
   code = "totos[toto].distance(totos[#{value_name}]);\n"
 
 Blockly.JavaScript['tourner_vers_tortue_var'] = (block) ->
-  code = undefined
-  value_name = undefined
   value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC)
   code = 'totos[toto].azimuth(totos[' + value_name + ']);\n'
+
+Blockly.JavaScript['repeter_doucement'] = (block) ->
+  times = Blockly.JavaScript.valueToCode(block, 'TIMES', Blockly.JavaScript.ORDER_ATOMIC)
+  statements = Blockly.JavaScript.statementToCode(block, 'DO')
+  code = "for (i = 1; i < #{times}; i++) { setTimeout(function(){#{statements}}, 200);}\n"
