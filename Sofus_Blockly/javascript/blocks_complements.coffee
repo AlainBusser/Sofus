@@ -1189,7 +1189,8 @@ Blockly.Blocks['tourner_vers_tortue_var'] = init: ->
   return
 
 Blockly.Blocks['repeter_doucement'] = init: ->
-  @appendValueInput('TIMES').setCheck('Number').appendField 'Repeter doucement'
+  @appendValueInput('TIMES').setCheck('Number').appendField( 'Repeter doucement' )
+  @appendDummyInput().appendField 'fois'
   @setPreviousStatement true
   @setNextStatement true
   @setColour 120

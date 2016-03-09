@@ -1129,6 +1129,7 @@ Blockly.Blocks['tourner_vers_tortue_var'] = {
 Blockly.Blocks['repeter_doucement'] = {
   init: function() {
     this.appendValueInput('TIMES').setCheck('Number').appendField('Repeter doucement');
+    this.appendDummyInput().appendField('fois');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
