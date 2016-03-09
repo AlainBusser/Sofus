@@ -1,6 +1,6 @@
 Version 1.4 avec tortues
 
-[attention]: https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTcjs0pKg7g9yzO56v9nrrTCTZJGRFzkHu1ZRebD1rmmH5yOQOy31VImQ "Attention !"
+[attention]: https://www.iconfinder.com/icons/58607/attention_sign_warning_icon "Attention !"
 
 ![logo](https://raw.githubusercontent.com/AlainBusser/Sophus/master/sophus1.png)
 
