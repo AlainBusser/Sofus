@@ -44,15 +44,17 @@ La syntaxe est déductible des fichiers coffee
 Le fichier responsiveSophus.html est une version allégée sans liste des instructions.
 
 
- # Programmation CoffeeScript
+# Programmation CoffeeScript
 
 Pour utiliser le langage CoffeeScript, il faut l'installer avec npm (qui vient avec  [NodeJS](https://nodejs.org/en/download/)) :
+'''bash
     toto@pc-ubuntu:~$ npm install -g coffee-script
-
+'''
 Puis demander à scruter toutes modifications pour provoquer une compilation automatique (depuis le dossier javascript concerné) :
+'''bash
     toto@pc-ubuntu:~$ cd dev/Sophus/Sophus_blockly/javascript
     toto@pc-ubuntu:~/dev/Sophus/Sophus_blockly/javascript$ coffee --watch --compile -b .
-
+'''
 ATTENTION : l'option -b est importante, elle empêche CoffeeScript d'encapsuler la Classe Tortue dans une fonction. Sans cette option vous aurez l'erreur "Tortue est inconnue !" dans la console Javascript.
 
 
