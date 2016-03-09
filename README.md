@@ -1,5 +1,6 @@
 Version 1.4 avec tortues
 
+[attention]: https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTcjs0pKg7g9yzO56v9nrrTCTZJGRFzkHu1ZRebD1rmmH5yOQOy31VImQ "Attention !"
 
 ![logo](https://raw.githubusercontent.com/AlainBusser/Sophus/master/sophus1.png)
 
@@ -55,7 +56,10 @@ Puis demander à scruter toutes modifications pour provoquer une compilation aut
     toto@pc-ubuntu:~$ cd dev/Sophus/Sophus_blockly/javascript
     toto@pc-ubuntu:~/dev/Sophus/Sophus_blockly/javascript$ coffee --watch --compile -b .
 ```
-ATTENTION : l'option -b est importante, elle empêche CoffeeScript d'encapsuler la Classe Tortue dans une fonction. Sans cette option vous aurez l'erreur "Tortue est inconnue !" dans la console Javascript.
+
+![alt text][attention]
+
+ l'option -b est importante, elle empêche CoffeeScript d'encapsuler la Classe Tortue dans une fonction. Sans cette option vous aurez l'erreur "Tortue est inconnue !" dans la console Javascript.
 
 
 
