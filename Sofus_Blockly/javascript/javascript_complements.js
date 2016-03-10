@@ -187,7 +187,7 @@ Blockly.JavaScript['tortue_c'] = function(block) {
 Blockly.JavaScript['avancer'] = function(block) {
   var code, value_name;
   value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
-  return code = 'totos[toto].av(' + value_name + ');\n';
+  return code = "totos[toto].av(" + value_name + ");\n";
 };
 
 Blockly.JavaScript['reculer'] = function(block) {
@@ -232,27 +232,20 @@ Blockly.JavaScript['teleport'] = function(block) {
   text_y = block.getFieldValue('Y');
   return code = 'totos[toto].teleport(' + text_x + '+320,240-(' + text_y + '));\n';
 };
+
 Blockly.JavaScript['tortue_teleport'] = function(block) {
-  var value_abs = Blockly.JavaScript.valueToCode(block, 'ABS', Blockly.JavaScript.ORDER_ATOMIC);
-  var value_ord = Blockly.JavaScript.valueToCode(block, 'ORD', Blockly.JavaScript.ORDER_ATOMIC);
-  var code = 'totos[toto].teleport(' + value_abs + '+320' + ',240-(' + value_ord + '));\n';
+  var code, value_abs, value_ord;
+  value_abs = Blockly.JavaScript.valueToCode(block, 'ABS', Blockly.JavaScript.ORDER_ATOMIC);
+  value_ord = Blockly.JavaScript.valueToCode(block, 'ORD', Blockly.JavaScript.ORDER_ATOMIC);
+  code = 'totos[toto].teleport(' + value_abs + '+320' + ',240-(' + value_ord + '));\n';
   return code;
 };
+
 Blockly.JavaScript['teleport_var'] = function(block) {
   var code, variable_x, variable_y;
   variable_x = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('X'), Blockly.Variables.NAME_TYPE);
   variable_y = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('Y'), Blockly.Variables.NAME_TYPE);
   return code = 'totos[toto].teleport(' + variable_x + '+320' + ',240-(' + variable_y + '));\n';
-};
-
-Blockly.JavaScript['lever_stylo'] = function(block) {
-  var code;
-  return code = 'totos[toto].penup();\n';
-};
-
-Blockly.JavaScript['baisser_stylo'] = function(block) {
-  var code;
-  return code = 'totos[toto].pendown();\n';
 };
 
 Blockly.JavaScript['cacher_tortue'] = function(block) {
@@ -263,6 +256,16 @@ Blockly.JavaScript['cacher_tortue'] = function(block) {
 Blockly.JavaScript['montrer_tortue'] = function(block) {
   var code;
   return code = 'totos[toto].show();\n';
+};
+
+Blockly.JavaScript['lever_stylo'] = function(block) {
+  var code;
+  return code = 'totos[toto].penup();\n';
+};
+
+Blockly.JavaScript['baisser_stylo'] = function(block) {
+  var code;
+  return code = 'totos[toto].pendown();\n';
 };
 
 Blockly.JavaScript['scribe'] = function(block) {
@@ -321,19 +324,21 @@ Blockly.JavaScript['creer_tortue'] = function(block) {
 Blockly.JavaScript['creer_tortue_var'] = function(block) {
   var code, value_name;
   value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
-  return code = "totos[" + value_name + "] = new Tortue(" + value_name + ");\nconsole.log(totos);\n";
+  return code = "totos[" + value_name + "] = new Tortue(" + value_name + ");\nconsole.log('Après création dune tortue, voici les totos:',totos);\n";
 };
 
 Blockly.JavaScript['choisir_tortue'] = function(block) {
-  var code, text_n;
+  var code, statements, text_n;
   text_n = block.getFieldValue('N');
-  return code = "toto = " + text_n + ";\n";
+  statements = Blockly.JavaScript.statementToCode(block, 'DO');
+  return code = "toto = " + text_n + ";\n" + statements;
 };
 
 Blockly.JavaScript['choisir_tortue_var'] = function(block) {
-  var code, value_name;
+  var code, statements, value_name;
   value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
-  return code = "toto = " + value_name + ";\n";
+  statements = Blockly.JavaScript.statementToCode(block, 'DO');
+  return code = "toto = " + value_name + ";\n" + statements;
 };
 
 Blockly.JavaScript['distance_avec_tortue_var'] = function(block) {
@@ -345,6 +350,12 @@ Blockly.JavaScript['distance_avec_tortue_var'] = function(block) {
 Blockly.JavaScript['tourner_vers_tortue_var'] = function(block) {
   var code, value_name;
   value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
-  return code = "totos[toto].azimuth(totos[" + value_name + "]);\n";
+  return code = 'totos[toto].azimuth(totos[' + value_name + ']);\n';
 };
 
+Blockly.JavaScript['repeter_doucement'] = function(block) {
+  var code, statements, times;
+  times = Blockly.JavaScript.valueToCode(block, 'TIMES', Blockly.JavaScript.ORDER_ATOMIC);
+  statements = Blockly.JavaScript.statementToCode(block, 'DO');
+  return code = "for (i = 1; i < " + times + "; i++) { setTimeout(function(){" + statements + "}, 200);}\n";
+};

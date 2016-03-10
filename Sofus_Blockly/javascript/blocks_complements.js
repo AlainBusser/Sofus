@@ -609,6 +609,55 @@ Blockly.Blocks['sophus_tronquer'] = {
 };
 
 
+/*
+
+Blockly.Blocks['sophus_arrondi'] = {
+  init: function() {
+    this.jsonInit({
+  "message0": "arrondi de %1 à %2 %3",
+  "args0": [
+        {
+          "type": "field_variable",
+          "name": "VAR",
+          "variable": Blockly.Msg.SOPHUS_ARRONDI_TITLE_ITEM
+        },
+    {
+      "type": "field_dropdown",
+      "name": "GRAD",
+      "options": [
+        [
+          "décimales",
+          "1e-"
+        ],
+        [
+          "près",
+          ""
+        ]
+      ]
+    }
+  ],
+  "inputsInline": true,
+  "output": "Number",
+      "colour": Blockly.Blocks.math.HUE,
+      "helpUrl": Blockly.Msg.SOPHUS_ARRONDI_HELPURL
+});
+    var thisBlock = this;
+    this.setTooltip(function() {
+      return Blockly.Msg.SOPHUS_ARRONDI_TOOLTIP.replace('%1',
+          thisBlock.getFieldValue('VAR'));
+    });
+  },
+  getVars: function() {
+    return [this.getFieldValue('VAR')];
+  },
+  renameVar: function(oldName, newName) {
+    if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+      this.setFieldValue(newName, 'VAR');
+    }
+  }
+};
+ */
+
 Blockly.Blocks['sophus_puissance'] = {
   init: function() {
     var thisBlock;
@@ -840,16 +889,12 @@ Blockly.Blocks['teleport'] = {
     this.setHelpUrl('');
   }
 };
+
 Blockly.Blocks['tortue_teleport'] = {
   init: function() {
-    this.appendValueInput("ABS")
-        .setCheck("Number")
-        .appendField("téléporter la tortue vers (");
-    this.appendValueInput("ORD")
-        .setCheck("Number")
-        .appendField(",");
-    this.appendDummyInput()
-        .appendField(")");
+    this.appendValueInput('ABS').setCheck('Number').appendField('téléporter la tortue vers (');
+    this.appendValueInput('ORD').setCheck('Number').appendField(',');
+    this.appendDummyInput().appendField(')');
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -881,28 +926,6 @@ Blockly.Blocks['teleport_var'] = {
   }
 };
 
-Blockly.Blocks['lever_stylo'] = {
-  init: function() {
-    this.appendDummyInput().appendField(new Blockly.FieldImage('img/pencil.png', 32, 32, '')).appendField('lever le stylo');
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
-    this.setColour(120);
-    this.setTooltip('dorénavant la tortue ne laisse plus de trace');
-    this.setHelpUrl('');
-  }
-};
-
-Blockly.Blocks['baisser_stylo'] = {
-  init: function() {
-    this.appendDummyInput().appendField(new Blockly.FieldImage('img/pencil.png', 32, 32, '')).appendField('baisser le stylo');
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
-    this.setColour(120);
-    this.setTooltip('dorénavant la tortue laisse des traces');
-    this.setHelpUrl('');
-  }
-};
-
 Blockly.Blocks['cacher_tortue'] = {
   init: function() {
     this.appendDummyInput().appendField(new Blockly.FieldImage('img/ghost.png', 32, 32, '')).appendField('cacher la tortue');
@@ -921,6 +944,28 @@ Blockly.Blocks['montrer_tortue'] = {
     this.setNextStatement(true);
     this.setColour(120);
     this.setTooltip('dorénavant la tortue est visible');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['lever_stylo'] = {
+  init: function() {
+    this.appendDummyInput().appendField(new Blockly.FieldImage('img/pencil.png', 32, 32, '')).appendField('lever le stylo');
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(120);
+    this.setTooltip('dorénavant la tortue ne laisse plus de trace');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['baisser_stylo'] = {
+  init: function() {
+    this.appendDummyInput().appendField(new Blockly.FieldImage('img/pencil.png', 32, 32, '')).appendField('baisser le stylo');
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(120);
+    this.setTooltip('dorénavant la tortue laisse des traces');
     this.setHelpUrl('');
   }
 };
@@ -1043,6 +1088,7 @@ Blockly.Blocks['choisir_tortue'] = {
     this.setColour(120);
     this.setTooltip('Choisir une tortue');
     this.setHelpUrl('');
+    this.appendStatementInput('DO').appendField('faire');
   }
 };
 
@@ -1054,6 +1100,7 @@ Blockly.Blocks['choisir_tortue_var'] = {
     this.setColour(120);
     this.setTooltip('Avec la tortue (Number)');
     this.setHelpUrl('');
+    this.appendStatementInput('DO').appendField('faire');
   }
 };
 
@@ -1067,6 +1114,7 @@ Blockly.Blocks['distance_avec_tortue_var'] = {
     this.setHelpUrl('');
   }
 };
+
 Blockly.Blocks['tourner_vers_tortue_var'] = {
   init: function() {
     this.appendValueInput('NAME').setCheck('Number').appendField(new Blockly.FieldImage('img/turtle.png', 32, 32, '')).appendField('Tourner vers la Tortue #');
@@ -1075,5 +1123,18 @@ Blockly.Blocks['tourner_vers_tortue_var'] = {
     this.setColour(120);
     this.setTooltip('Se tourner vers la tortue (Number)');
     this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['repeter_doucement'] = {
+  init: function() {
+    this.appendValueInput('TIMES').setCheck('Number').appendField('Repeter doucement');
+    this.appendDummyInput().appendField('fois');
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(120);
+    this.setTooltip('Repeter toutes les 500ms');
+    this.setHelpUrl('');
+    this.appendStatementInput('DO').appendField('faire');
   }
 };

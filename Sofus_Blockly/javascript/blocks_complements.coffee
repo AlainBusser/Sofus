@@ -1157,6 +1157,7 @@ Blockly.Blocks['choisir_tortue'] = init: ->
   @setColour 120
   @setTooltip 'Choisir une tortue'
   @setHelpUrl ''
+  @appendStatementInput('DO').appendField('faire')
   return
 
 Blockly.Blocks['choisir_tortue_var'] = init: ->
@@ -1166,6 +1167,7 @@ Blockly.Blocks['choisir_tortue_var'] = init: ->
   @setColour 120
   @setTooltip 'Avec la tortue (Number)'
   @setHelpUrl ''
+  @appendStatementInput('DO').appendField('faire')
   return
 
 Blockly.Blocks['distance_avec_tortue_var'] = init: ->
@@ -1184,4 +1186,15 @@ Blockly.Blocks['tourner_vers_tortue_var'] = init: ->
   @setColour 120
   @setTooltip 'Se tourner vers la tortue (Number)'
   @setHelpUrl ''
+  return
+
+Blockly.Blocks['repeter_doucement'] = init: ->
+  @appendValueInput('TIMES').setCheck('Number').appendField( 'Repeter doucement' )
+  @appendDummyInput().appendField 'fois'
+  @setPreviousStatement true
+  @setNextStatement true
+  @setColour 120
+  @setTooltip 'Repeter toutes les 500ms'
+  @setHelpUrl ''
+  @appendStatementInput('DO').appendField('faire')
   return
