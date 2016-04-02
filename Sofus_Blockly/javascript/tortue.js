@@ -183,11 +183,11 @@ Tortue = (function() {
     return this.stylo = true;
   };
 
-  show = function() {
+  Tortue.prototype.show = function() {
     return $('#' + this.id).show();
   };
 
-  hide = function() {
+  Tortue.prototype.hide = function() {
     return $('#' + this.id).hide();
   };
 

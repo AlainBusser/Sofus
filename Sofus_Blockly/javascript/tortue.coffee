@@ -127,9 +127,9 @@ class Tortue
 
   pendown : -> @stylo = true
 
-  show = ->  $('#' + @id).show()
+  show : ->  $('#' + @id).show()
 
-  hide = ->  $('#' + @id).hide()
+  hide : ->  $('#' + @id).hide()
   
   couleur : (coul) -> @c = coul
 
