@@ -2,6 +2,26 @@ totos = {}
 toto = 1
 SVG = (tag) -> document.createElementNS 'http://www.w3.org/2000/svg', tag
 
+garderobe = [
+      """
+            <line x1='4' y1='12' x2='28' y2='32' stroke-linecap='round' style='stroke: green; stroke-width: 4'/>
+            <line x1='4' y1='28' x2='28' y2='8' stroke-linecap='round' style='stroke: green; stroke-width: 4'/>
+            <line x1='20' y1='20' x2='36' y2='20' stroke-linecap='round' style='stroke: green; stroke-width: 8'/>
+            <ellipse cx='16' cy='20' rx='14' ry='10' style='fill: orange; stroke: brown; stroke-width: 2'/>
+            <circle cx='34' cy='16' r='2' style='fill: black; '/>
+            <circle cx='34' cy='24' r='2' style='fill: black; '/>
+      """,
+      """
+            <line x1='4' y1='12' x2='28' y2='32' stroke-linecap='round' style='stroke: green; stroke-width: 4'/>
+            <line x1='4' y1='28' x2='28' y2='8' stroke-linecap='round' style='stroke: green; stroke-width: 4'/>
+            <line x1='20' y1='20' x2='36' y2='20' stroke-linecap='round' style='stroke: green; stroke-width: 8'/>
+            <ellipse cx='16' cy='20' rx='14' ry='10' style='fill: darkGreen; stroke: brown; stroke-width: 2'/>
+            <circle cx='34' cy='16' r='2' style='fill: black; '/>
+            <circle cx='34' cy='24' r='2' style='fill: black; '/>
+      """
+      ]
+
+
 effaceDessin = () ->
   dessin = $('#leSVG')
   dessin.empty()
@@ -104,24 +124,21 @@ class Tortue
     @t = 0
     @c = '#000066'
     @stylo = true
-    @svg =
-      """
+    @costumeId = 0
+
+    @svg = """
       <svg xmlns='http://www.w3.org/2000/svg' version='1.1'>
         <g id='#{@id}' transform='translate(300 220) rotate(0 20 20)' width='40' height='40' >
-            <line x1='4' y1='12' x2='28' y2='32' stroke-linecap='round' style='stroke: green; stroke-width: 4'/>
-            <line x1='4' y1='28' x2='28' y2='8' stroke-linecap='round' style='stroke: green; stroke-width: 4'/>
-            <line x1='20' y1='20' x2='36' y2='20' stroke-linecap='round' style='stroke: green; stroke-width: 8'/>
-            <ellipse cx='16' cy='20' rx='14' ry='10' style='fill: orange; stroke: brown; stroke-width: 2'/>
-            <circle cx='34' cy='16' r='2' style='fill: black; '/>
-            <circle cx='34' cy='24' r='2' style='fill: black; '/>
+          #{garderobe[@costumeId]}
         </g>
       </svg>
-      """
+    """
     $dessin = $('#leSVG')
     $dessin.append $( $.parseXML(@svg) ).find("##{@id}") if ( $dessin.find("##{@id}").length is 0 )
     console.log $("##{@id}").attr("transform")
    
-  toto_update : -> $("##{@id}").attr("transform", "translate(#{@x-20} #{@y-20}) rotate(#{@t*180/Math.PI} 20 20)")
+  toto_update : -> 
+    $("##{@id}").attr("transform", "translate(#{@x-20} #{@y-20}) rotate(#{@t*180/Math.PI} 20 20)")
 
   penup   : -> @stylo = false
 
@@ -181,6 +198,19 @@ class Tortue
     a = Math.atan2(autre.y-@y,autre.x-@x)
     @t = a
     @toto_update()
+
+  costume_suivant : ->
+    @costumeId++
+    @svg = garderobe[@costumeId%garderobe.length]
+    $svg = """
+    <svg xmlns='http://www.w3.org/2000/svg' version='1.1'>
+        <g id='toto' transform='translate(300 220) rotate(0 20 20)' width='40' height='40' >
+        #{@svg}
+        </g>
+    </svg>
+    """
+    $("##{@id}").append  $( $.parseXML($svg) ).find( "#toto" ).contents()
+
 
 $ ->
   totos[toto] = new Tortue(toto)
