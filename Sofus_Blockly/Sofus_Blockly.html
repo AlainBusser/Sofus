@@ -10,6 +10,7 @@
   <script src="javascript/fr.js"></script>
   <script src="javascript/jquery-2.2.1.min.js"></script>
   <script src="javascript/tortue.js"></script>
+  <script src="javascript/fractions.js"></script>
   <script src="javascript/blocks_complements.js"></script>
   <script src="javascript/javascript_complements.js"></script>
   <script src="javascript/fr_complements.js"></script>
@@ -21,7 +22,7 @@
     .grobouton { font-size: 140%;}
     h1 {
       color: red; font-variant: small-caps; text-shadow: 0.04em 0.02em 0.1em gray; }
-    #sortieJS { display: inline; height: 240px; width: 240px; 
+    #sortieJS { display: none; height: 240px; width: 240px; 
 		background-color: lightyellow; border: 3px inset orange;
 		color: #507;
 		text-shadow: 2px 1px 3px gray; }
@@ -254,6 +255,13 @@
         <block type="logic_null"></block>
         <block type="logic_ternary"></block>
       </category>
+      <category name="tests fractions">
+		  <block type="egale"></block>
+		  <block type="inferieure"></block>
+		  <block type="superieure"></block>
+		  <block type="infegale"></block>
+		  <block type="supegale"></block>
+      </category>
     </category>
     <category name="Boucles" colour="120">
         <category name="simples">
@@ -305,6 +313,30 @@
 <!--      <block type="sophus_angle"> 
         </block> -->
       </category>
+    <category name="Fractions" colour="20">
+		<category name="constantes">
+			<block type="fraction_constante"></block>
+			<block type="constante_entier"></block>
+			<block type="fraction_build"></block>
+      <block type="math_number"></block>
+		</category>
+		<category name="opérations">
+			<block type="frac_plus"></block>
+			<block type="frac_moins"></block>
+			<block type="frac_fois"></block>
+			<block type="frac_sur"></block>
+			<block type="frac_pow"></block>
+		</category>
+		<category name="fonctions sur les fractions">
+			<block type="inverse"></block>
+			<block type="oppose"></block>
+			<block type="numerateur"></block>
+			<block type="denominateur"></block>
+			<block type="arrondi"></block>
+			<block type="egyptian"></block>
+		</category>
+		
+    </category>
       <category name="fonctions">
       <block type="math_single">
           <value name="NUM"><block type="variables_get"><field name="VAR">element</field></block></value>
