@@ -1188,6 +1188,37 @@ Blockly.Blocks['tourner_vers_tortue_var'] = init: ->
   @setHelpUrl ''
   return
 
+Blockly.Blocks['costume_suivant'] = init: ->
+  @appendDummyInput().appendField(new (Blockly.FieldImage)('img/turtle.png', 32, 32, '')).appendField 'avatar suivant'
+  @setPreviousStatement true
+  @setNextStatement true
+  @setColour 120
+  @setTooltip 'changer l\'aspect de la tortue'
+  @setHelpUrl ''
+  return
+
+Blockly.Blocks['costume_pred'] = init: ->
+  @appendDummyInput().appendField(new (Blockly.FieldImage)('img/turtle.png', 32, 32, '')).appendField 'avatar précédent'
+  @setPreviousStatement true
+  @setNextStatement true
+  @setColour 120
+  @setTooltip 'changer l\'aspect de la tortue'
+  @setHelpUrl ''
+  return
+
+Blockly.Blocks['costume'] = init: ->
+  @appendDummyInput().appendField(new (Blockly.FieldImage)('img/turtle.png', 32, 32, '')).appendField('choisir l\'avatar').appendField(new Blockly.FieldDropdown([["orange", "0"], ["gauche", "1"], ["droit", "2"], ["Frenet", "3"], ["vert", "4"]]), "CID")
+  @setPreviousStatement true
+  @setNextStatement true
+  @setColour 120
+  @setTooltip 'changer l\'aspect de la tortue'
+  @setHelpUrl ''
+  return
+
+
+
+
+
 Blockly.Blocks['repeter_doucement'] = init: ->
   @appendValueInput('TIMES').setCheck('Number').appendField( 'Repeter doucement' )
   @appendDummyInput().appendField 'fois'

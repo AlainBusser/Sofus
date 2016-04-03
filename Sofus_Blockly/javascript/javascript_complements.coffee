@@ -261,6 +261,19 @@ Blockly.JavaScript['tourner_vers_tortue_var'] = (block) ->
   value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC)
   code = 'totos[toto].azimuth(totos[' + value_name + ']);\n'
 
+Blockly.JavaScript['costume_suivant'] = (block) ->
+  code = 'totos[toto].costume_suivant();\n'
+
+Blockly.JavaScript['costume_pred'] = (block) ->
+  code = 'totos[toto].costume_pred();\n'
+
+Blockly.JavaScript['costume'] = (block) ->
+  dropdown_cid = block.getFieldValue('CID')
+  code = 'totos[toto].avatar('+ dropdown_cid+');\n'
+
+
+
+
 Blockly.JavaScript['repeter_doucement'] = (block) ->
   times = Blockly.JavaScript.valueToCode(block, 'TIMES', Blockly.JavaScript.ORDER_ATOMIC)
   statements = Blockly.JavaScript.statementToCode(block, 'DO')
