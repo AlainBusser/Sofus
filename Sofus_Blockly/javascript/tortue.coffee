@@ -58,8 +58,8 @@ garderobe = [
 
 effaceDessin = () ->
   dessin = $('#leSVG')
-  dessin.empty()
-  dessin.append $( $.parseXML(v.svg) ).find("##{v.id}") for k,v of totos
+  dessin.empty().append $($.parseXML(totos[1].svg)).find("#1")
+#  dessin.append $( $.parseXML(v.svg) ).find("##{v.id}") for k,v of totos
 
 dessineSegment = (x1, y1, x2, y2, couleur) ->
   if x1 == null

@@ -294,7 +294,7 @@ Blockly.JavaScript['eff_svg'] = function(block) {
 
 Blockly.JavaScript['reset'] = function(block) {
   var code;
-  return code = 'effaceDessin();' + 'totos[toto].t = 0;' + 'totos[toto].teleport(320,240);\n';
+  return code = 'effaceDessin(); toto = 1; ' + 'totos[toto].t = 0;' + 'totos[toto].teleport(320,240);\n';
 };
 
 Blockly.JavaScript['axeX'] = function(block) {

@@ -220,7 +220,7 @@ Blockly.JavaScript['eff_svg'] = (block) ->
   code = 'effaceDessin();\n'
 
 Blockly.JavaScript['reset'] = (block) ->
-  code = 'effaceDessin();' + 'totos[toto].t = 0;' + 'totos[toto].teleport(320,240);\n'
+  code = 'effaceDessin(); toto = 1; ' + 'totos[toto].t = 0;' + 'totos[toto].teleport(320,240);\n'
 
 
 Blockly.JavaScript['axeX'] = (block) ->
