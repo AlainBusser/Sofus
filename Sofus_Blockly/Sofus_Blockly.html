@@ -22,7 +22,7 @@
     .grobouton { font-size: 140%;}
     h1 {
       color: red; font-variant: small-caps; text-shadow: 0.04em 0.02em 0.1em gray; }
-    #sortieJS { display: none; height: 240px; width: 240px; 
+    #sortieJS { display: inline; height: 240px; width: 240px; 
 		background-color: lightyellow; border: 3px inset orange;
 		color: #507;
 		text-shadow: 2px 1px 3px gray; }
@@ -493,25 +493,46 @@
   <!-- fin du menu des outils et début du menu intégré au plan de travail -->
 
 <xml id="startBlocks" style="display: none">
-  <block type="costume_suivant" x="10" y="10">
+  <block type="costume" x="10" y="10">
+    <field name="CID">2</field>
     <next>
-      <block type="repeter_doucement">
+      <block type="controls_repeat_ext">
         <value name="TIMES">
           <block type="math_number">
             <field name="NUM">100</field>
           </block>
         </value>
         <statement name="DO">
-          <block type="costume_suivant">
+          <block type="repeter_doucement">
+            <value name="TIMES">
+              <block type="math_number">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="costume">
+                <field name="CID">1</field>
+                <next>
+                  <block type="avancer">
+                    <value name="NAME">
+                      <block type="math_number">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
             <next>
-              <block type="avancer">
-                <value name="NAME">
+              <block type="repeter_doucement">
+                <value name="TIMES">
                   <block type="math_number">
                     <field name="NUM">1</field>
                   </block>
                 </value>
-                <next>
-                  <block type="costume_pred">
+                <statement name="DO">
+                  <block type="costume">
+                    <field name="CID">2</field>
                     <next>
                       <block type="avancer">
                         <value name="NAME">
@@ -522,7 +543,7 @@
                       </block>
                     </next>
                   </block>
-                </next>
+                </statement>
               </block>
             </next>
           </block>

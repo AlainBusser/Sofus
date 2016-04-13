@@ -277,4 +277,4 @@ Blockly.JavaScript['costume'] = (block) ->
 Blockly.JavaScript['repeter_doucement'] = (block) ->
   times = Blockly.JavaScript.valueToCode(block, 'TIMES', Blockly.JavaScript.ORDER_ATOMIC)
   statements = Blockly.JavaScript.statementToCode(block, 'DO')
-  code = "for (var i = 0; i < #{times}; i++) { setTimeout(function(){#{statements}}, 1000);}\n"
+  code = "for (var i = 0; i < #{times}; i++) { setTimeout(function(){#{statements}}, 1000);$('#graphique').show(100);}\n"
