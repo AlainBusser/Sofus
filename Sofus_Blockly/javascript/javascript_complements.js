@@ -375,5 +375,5 @@ Blockly.JavaScript['repeter_doucement'] = function(block) {
   var code, statements, times;
   times = Blockly.JavaScript.valueToCode(block, 'TIMES', Blockly.JavaScript.ORDER_ATOMIC);
   statements = Blockly.JavaScript.statementToCode(block, 'DO');
-  return code = "for (i = 1; i < " + times + "; i++) { setTimeout(function(){" + statements + "}, 200);}\n";
+  return code = "for (var i = 0; i < " + times + "; i++) { setTimeout(function(){" + statements + "}, 1000);}\n";
 };

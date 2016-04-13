@@ -36,12 +36,22 @@ garderobe = [
 	<polygon style="fill: red" points="18,10 20,4 22,10"></polygon>
       """,      
       """
-            <line x1='4' y1='12' x2='28' y2='32' stroke-linecap='round' style='stroke: green; stroke-width: 4'/>
-            <line x1='4' y1='28' x2='28' y2='8' stroke-linecap='round' style='stroke: green; stroke-width: 4'/>
-            <line x1='20' y1='20' x2='36' y2='20' stroke-linecap='round' style='stroke: green; stroke-width: 8'/>
-            <ellipse cx='16' cy='20' rx='14' ry='10' style='fill: darkGreen; stroke: black; stroke-width: 2'/>
-            <circle cx='34' cy='16' r='2' style='fill: black; '/>
-            <circle cx='34' cy='24' r='2' style='fill: black; '/>
+	<line x1="4" y1="8" x2="4" y2="32" style="stroke: darkGray; stroke-width: 4"/>
+	<line x1="3" y1="8" x2="3" y2="32" style="stroke: lightGray; stroke-width: 2"/>
+	<line x1="4" y1="6" x2="4" y2="10" style="stroke: brown; stroke-width: 8"/>
+	<line x1="34" y1="14" x2="34" y2="26" style="stroke: darkBlue; stroke-width: 4"/>
+	<line x1="4" y1="30" x2="4" y2="34" style="stroke: brown; stroke-width: 8"/>
+	<line x1="20" y1="20" x2="36" y2="20" stroke-linecap="round" style="stroke: darkGray; stroke-width: 8"/>
+	<line x1="20" y1="19" x2="36" y2="19" stroke-linecap="round" style="stroke: gray; stroke-width: 6"/>
+	<line x1="20" y1="18" x2="36" y2="18" stroke-linecap="round" style="stroke: lightGray; stroke-width: 4"/>
+	<ellipse cx="16" cy="20" rx="14" ry="10" style="fill: gray; "/>
+	<ellipse cx="15" cy="19" rx="12" ry="8" style="fill: darkGray; "/>
+	<ellipse cx="14" cy="18" rx="10" ry="6" style="fill: lightGray; "/>
+	<ellipse cx="13" cy="17" rx="8" ry="4" style="fill: white; "/>
+      """,
+      """
+	<line x1="8" y1="20" x2="20" y2="20" style="stroke: brown; stroke-width: 1"/>
+	<polygon style="fill: brown" points="20,12 40,20 20,28"></polygon>
       """
       ]
 

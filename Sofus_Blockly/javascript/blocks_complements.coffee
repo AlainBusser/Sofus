@@ -1207,7 +1207,7 @@ Blockly.Blocks['costume_pred'] = init: ->
   return
 
 Blockly.Blocks['costume'] = init: ->
-  @appendDummyInput().appendField(new (Blockly.FieldImage)('img/turtle.png', 32, 32, '')).appendField('choisir l\'avatar').appendField(new Blockly.FieldDropdown([["orange", "0"], ["gauche", "1"], ["droit", "2"], ["Frenet", "3"], ["vert", "4"]]), "CID")
+  @appendDummyInput().appendField(new (Blockly.FieldImage)('img/turtle.png', 32, 32, '')).appendField('choisir l\'avatar').appendField(new Blockly.FieldDropdown([["origine", "0"], ["gauche", "1"], ["droit", "2"], ["Frenet", "3"], ["métal", "4"], ["classique", "5"]]), "CID")
   @setPreviousStatement true
   @setNextStatement true
   @setColour 120

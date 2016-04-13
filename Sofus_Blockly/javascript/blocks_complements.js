@@ -1151,7 +1151,7 @@ Blockly.Blocks['costume_pred'] = {
 
 Blockly.Blocks['costume'] = {
   init: function() {
-    this.appendDummyInput().appendField(new Blockly.FieldImage('img/turtle.png', 32, 32, '')).appendField('choisir l\'avatar').appendField(new Blockly.FieldDropdown([["orange", "0"], ["gauche", "1"], ["droit", "2"], ["Frenet", "3"], ["vert", "4"]]), "CID");
+    this.appendDummyInput().appendField(new Blockly.FieldImage('img/turtle.png', 32, 32, '')).appendField('choisir l\'avatar').appendField(new Blockly.FieldDropdown([["origine", "0"], ["gauche", "1"], ["droit", "2"], ["Frenet", "3"], ["métal", "4"], ["classique", "5"]]), "CID");
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
