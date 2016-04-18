@@ -1,0 +1,288 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="procedures_defreturn" collapsed="true" x="31" y="69">
+    <field name="NAME">fini</field>
+    <statement name="STACK">
+      <block type="variables_set">
+        <field name="VAR">bool1</field>
+        <value name="VALUE">
+          <block type="logic_boolean">
+            <field name="BOOL">FALSE</field>
+          </block>
+        </value>
+        <next>
+          <block type="choisir_tortue_var">
+            <value name="NAME">
+              <block type="math_number">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="variables_set">
+                <field name="VAR">bool1</field>
+                <value name="VALUE">
+                  <block type="logic_operation">
+                    <field name="OP">OR</field>
+                    <value name="A">
+                      <block type="variables_get">
+                        <field name="VAR">bool1</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="logic_compare">
+                        <field name="OP">GTE</field>
+                        <value name="A">
+                          <block type="tortue_y"></block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number">
+                            <field name="NUM">50</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <next>
+              <block type="choisir_tortue_var">
+                <value name="NAME">
+                  <block type="math_number">
+                    <field name="NUM">2</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="variables_set">
+                    <field name="VAR">bool1</field>
+                    <value name="VALUE">
+                      <block type="logic_operation">
+                        <field name="OP">OR</field>
+                        <value name="A">
+                          <block type="variables_get">
+                            <field name="VAR">bool1</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="logic_compare">
+                            <field name="OP">GTE</field>
+                            <value name="A">
+                              <block type="tortue_y"></block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number">
+                                <field name="NUM">50</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="RETURN">
+      <block type="variables_get">
+        <field name="VAR">bool1</field>
+      </block>
+    </value>
+  </block>
+  <block type="procedures_defnoreturn" collapsed="true" x="32" y="100">
+    <field name="NAME">départ</field>
+    <statement name="STACK">
+      <block type="reset">
+        <next>
+          <block type="tortue_gauche">
+            <field name="NAME">90</field>
+            <next>
+              <block type="creer_tortue_var">
+                <value name="NAME">
+                  <block type="math_number">
+                    <field name="NUM">2</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="choisir_tortue_var">
+                    <value name="NAME">
+                      <block type="math_number">
+                        <field name="NUM">2</field>
+                      </block>
+                    </value>
+                    <statement name="DO">
+                      <block type="costume">
+                        <field name="CID">5</field>
+                        <next>
+                          <block type="tortue_teleport">
+                            <value name="ABS">
+                              <block type="math_number">
+                                <field name="NUM">100</field>
+                              </block>
+                            </value>
+                            <value name="ORD">
+                              <block type="math_number">
+                                <field name="NUM">0</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="tortue_gauche">
+                                <field name="NAME">90</field>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" collapsed="true" x="33" y="135">
+    <field name="NAME">unePartie</field>
+    <statement name="STACK">
+      <block type="procedures_callnoreturn">
+        <mutation name="départ"></mutation>
+        <next>
+          <block type="controls_whileUntil">
+            <field name="MODE">UNTIL</field>
+            <value name="BOOL">
+              <block type="procedures_callreturn">
+                <mutation name="fini"></mutation>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="controls_if">
+                <mutation else="1"></mutation>
+                <value name="IF0">
+                  <block type="logic_compare">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="math_random_int">
+                        <value name="FROM">
+                          <block type="math_number">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                        <value name="TO">
+                          <block type="math_number">
+                            <field name="NUM">6</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number">
+                        <field name="NUM">6</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="choisir_tortue_var">
+                    <value name="NAME">
+                      <block type="math_number">
+                        <field name="NUM">2</field>
+                      </block>
+                    </value>
+                    <statement name="DO">
+                      <block type="avancer">
+                        <value name="NAME">
+                          <block type="math_number">
+                            <field name="NUM">50</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+                <statement name="ELSE">
+                  <block type="choisir_tortue_var">
+                    <value name="NAME">
+                      <block type="math_number">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                    <statement name="DO">
+                      <block type="avancer">
+                        <value name="NAME">
+                          <block type="math_number">
+                            <field name="NUM">10</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+            <next>
+              <block type="choisir_tortue_var">
+                <value name="NAME">
+                  <block type="math_number">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="controls_if">
+                    <mutation else="1"></mutation>
+                    <value name="IF0">
+                      <block type="logic_compare">
+                        <field name="OP">GTE</field>
+                        <value name="A">
+                          <block type="tortue_y"></block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number">
+                            <field name="NUM">50</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="big_aff">
+                        <value name="VAR">
+                          <block type="text">
+                            <field name="TEXT">la tortue gagne</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                    <statement name="ELSE">
+                      <block type="big_aff">
+                        <value name="VAR">
+                          <block type="text">
+                            <field name="TEXT">le lièvre gagne</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="controls_repeat_ext" x="28" y="186">
+    <value name="TIMES">
+      <block type="math_number">
+        <field name="NUM">10</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="procedures_callnoreturn">
+        <mutation name="unePartie"></mutation>
+      </block>
+    </statement>
+  </block>
+</xml>

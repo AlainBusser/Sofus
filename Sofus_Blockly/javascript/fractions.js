@@ -108,8 +108,12 @@ egypt = function(uneFraction) {
   var e, f, réduites;
   f = uneFraction;
   e = Math.floor(f.toFloat());
+  if(e>0){
   f = f.moins(new Fraction(e, 1));
   réduites = [e];
+} else {
+	réduites = [];
+}
   while (f.n !== 1) {
     e = new Fraction(1, Math.ceil(f.inverse().toFloat()));
     réduites.push(e);
