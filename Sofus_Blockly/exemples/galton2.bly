@@ -1,0 +1,244 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="procedures_defnoreturn" collapsed="true" x="27" y="50">
+    <mutation>
+      <arg name="p"></arg>
+    </mutation>
+    <field name="NAME">bernoulli</field>
+    <statement name="STACK">
+      <block type="controls_if">
+        <value name="IF0">
+          <block type="logic_compare">
+            <field name="OP">LTE</field>
+            <value name="A">
+              <block type="math_random_float"></block>
+            </value>
+            <value name="B">
+              <block type="variables_get">
+                <field name="VAR">p</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="avancer">
+            <value name="NAME">
+              <block type="math_number">
+                <field name="NUM">10</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defreturn" collapsed="true" x="30" y="90">
+    <mutation>
+      <arg name="p"></arg>
+    </mutation>
+    <field name="NAME">binomiale</field>
+    <statement name="STACK">
+      <block type="choisir_tortue_var">
+        <value name="NAME">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="tortue_teleport">
+            <value name="ABS">
+              <block type="math_number">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <value name="ORD">
+              <block type="math_number">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <next>
+              <block type="mettre_angle">
+                <value name="ANGLE">
+                  <block type="math_number">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="controls_repeat_ext">
+            <value name="TIMES">
+              <block type="math_number">
+                <field name="NUM">20</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="procedures_callnoreturn">
+                <mutation name="bernoulli">
+                  <arg name="p"></arg>
+                </mutation>
+                <value name="ARG0">
+                  <block type="variables_get">
+                    <field name="VAR">p</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <next>
+              <block type="variables_set">
+                <field name="VAR">X</field>
+                <value name="VALUE">
+                  <block type="tortue_x"></block>
+                </value>
+                <next>
+                  <block type="sophus_diviser">
+                    <field name="VAR">X</field>
+                    <value name="DELTA">
+                      <block type="math_number">
+                        <field name="NUM">10</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="RETURN">
+      <block type="variables_get">
+        <field name="VAR">X</field>
+      </block>
+    </value>
+  </block>
+  <block type="reset" x="24" y="137">
+    <next>
+      <block type="controls_for" collapsed="true">
+        <field name="VAR">i</field>
+        <value name="FROM">
+          <block type="math_number">
+            <field name="NUM">2</field>
+          </block>
+        </value>
+        <value name="TO">
+          <block type="math_number">
+            <field name="NUM">22</field>
+          </block>
+        </value>
+        <value name="BY">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="creer_tortue_var">
+            <value name="NAME">
+              <block type="variables_get">
+                <field name="VAR">i</field>
+              </block>
+            </value>
+            <next>
+              <block type="choisir_tortue_var">
+                <value name="NAME">
+                  <block type="variables_get">
+                    <field name="VAR">i</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="costume">
+                    <field name="CID">5</field>
+                    <next>
+                      <block type="tortue_teleport">
+                        <value name="ABS">
+                          <block type="math_arithmetic">
+                            <field name="OP">MULTIPLY</field>
+                            <value name="A">
+                              <block type="math_number">
+                                <field name="NUM">10</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="variables_get">
+                                <field name="VAR">i</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="ORD">
+                          <block type="math_number">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="tortue_gauche">
+                            <field name="NAME">90</field>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="controls_repeat_ext">
+            <value name="TIMES">
+              <block type="math_number">
+                <field name="NUM">400</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="variables_set">
+                <field name="VAR">X</field>
+                <value name="VALUE">
+                  <block type="procedures_callreturn">
+                    <mutation name="binomiale">
+                      <arg name="p"></arg>
+                    </mutation>
+                    <value name="ARG0">
+                      <block type="math_number">
+                        <field name="NUM">0.5</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="choisir_tortue_var">
+                    <value name="NAME">
+                      <block type="math_arithmetic">
+                        <field name="OP">ADD</field>
+                        <value name="A">
+                          <block type="variables_get">
+                            <field name="VAR">X</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number">
+                            <field name="NUM">2</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO">
+                      <block type="avancer">
+                        <value name="NAME">
+                          <block type="math_number">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

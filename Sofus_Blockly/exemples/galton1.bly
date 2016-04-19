@@ -1,0 +1,431 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="procedures_defnoreturn" collapsed="true" x="42" y="33">
+    <field name="NAME">clous</field>
+    <statement name="STACK">
+      <block type="reset">
+        <next>
+          <block type="controls_for">
+            <field name="VAR">y</field>
+            <value name="FROM">
+              <block type="math_number">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <value name="TO">
+              <block type="math_number">
+                <field name="NUM">20</field>
+              </block>
+            </value>
+            <value name="BY">
+              <block type="math_number">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="controls_for">
+                <field name="VAR">x</field>
+                <value name="FROM">
+                  <block type="math_number">
+                    <field name="NUM">-10</field>
+                  </block>
+                </value>
+                <value name="TO">
+                  <block type="math_arithmetic">
+                    <field name="OP">MINUS</field>
+                    <value name="A">
+                      <block type="math_number">
+                        <field name="NUM">10</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="variables_get">
+                        <field name="VAR">y</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="BY">
+                  <block type="math_number">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="tortue_teleport">
+                    <value name="ABS">
+                      <block type="math_arithmetic">
+                        <field name="OP">ADD</field>
+                        <value name="A">
+                          <block type="math_arithmetic">
+                            <field name="OP">MULTIPLY</field>
+                            <value name="A">
+                              <block type="math_number">
+                                <field name="NUM">20</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="variables_get">
+                                <field name="VAR">x</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_arithmetic">
+                            <field name="OP">MULTIPLY</field>
+                            <value name="A">
+                              <block type="math_number">
+                                <field name="NUM">10</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="variables_get">
+                                <field name="VAR">y</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="ORD">
+                      <block type="math_arithmetic">
+                        <field name="OP">MINUS</field>
+                        <value name="A">
+                          <block type="math_arithmetic">
+                            <field name="OP">MULTIPLY</field>
+                            <value name="A">
+                              <block type="math_number">
+                                <field name="NUM">16</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="variables_get">
+                                <field name="VAR">y</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number">
+                            <field name="NUM">100</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="tampon"></block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+            <next>
+              <block type="cacher_tortue"></block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" collapsed="true" x="41" y="66">
+    <field name="NAME">descente</field>
+    <statement name="STACK">
+      <block type="tortue_teleport">
+        <value name="ABS">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="ORD">
+          <block type="math_number">
+            <field name="NUM">240</field>
+          </block>
+        </value>
+        <next>
+          <block type="lever_stylo">
+            <next>
+              <block type="tortue_droite">
+                <field name="NAME">90</field>
+                <next>
+                  <block type="avancer">
+                    <value name="NAME">
+                      <block type="math_number">
+                        <field name="NUM">16</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="controls_repeat_ext">
+                        <value name="TIMES">
+                          <block type="math_number">
+                            <field name="NUM">20</field>
+                          </block>
+                        </value>
+                        <statement name="DO">
+                          <block type="avancer">
+                            <value name="NAME">
+                              <block type="math_number">
+                                <field name="NUM">16</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="var_gauche">
+                                <value name="ANGLE">
+                                  <block type="math_arithmetic">
+                                    <field name="OP">MINUS</field>
+                                    <value name="A">
+                                      <block type="math_arithmetic">
+                                        <field name="OP">MULTIPLY</field>
+                                        <value name="A">
+                                          <block type="math_number">
+                                            <field name="NUM">180</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_random_int">
+                                            <value name="FROM">
+                                              <block type="math_number">
+                                                <field name="NUM">0</field>
+                                              </block>
+                                            </value>
+                                            <value name="TO">
+                                              <block type="math_number">
+                                                <field name="NUM">1</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number">
+                                        <field name="NUM">90</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="avancer">
+                                    <value name="NAME">
+                                      <block type="math_number">
+                                        <field name="NUM">10</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="mettre_angle">
+                                        <value name="ANGLE">
+                                          <block type="math_number">
+                                            <field name="NUM">90</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="avancer">
+                            <value name="NAME">
+                              <block type="math_number">
+                                <field name="NUM">16</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="variables_set" collapsed="true" x="40" y="106">
+    <field name="VAR">effectifs</field>
+    <value name="VALUE">
+      <block type="lists_repeat">
+        <value name="ITEM">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="NUM">
+          <block type="math_number">
+            <field name="NUM">21</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <next>
+      <block type="procedures_callnoreturn">
+        <mutation name="clous"></mutation>
+        <next>
+          <block type="controls_for">
+            <field name="VAR">n</field>
+            <value name="FROM">
+              <block type="math_number">
+                <field name="NUM">2</field>
+              </block>
+            </value>
+            <value name="TO">
+              <block type="math_number">
+                <field name="NUM">202</field>
+              </block>
+            </value>
+            <value name="BY">
+              <block type="math_number">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="creer_tortue_var">
+                <value name="NAME">
+                  <block type="variables_get">
+                    <field name="VAR">n</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="choisir_tortue_var">
+                    <value name="NAME">
+                      <block type="variables_get">
+                        <field name="VAR">n</field>
+                      </block>
+                    </value>
+                    <statement name="DO">
+                      <block type="procedures_callnoreturn">
+                        <mutation name="descente"></mutation>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="lists_setIndex" collapsed="true">
+                        <mutation at="true"></mutation>
+                        <field name="MODE">SET</field>
+                        <field name="WHERE">FROM_START</field>
+                        <value name="LIST">
+                          <block type="variables_get">
+                            <field name="VAR">effectifs</field>
+                          </block>
+                        </value>
+                        <value name="AT">
+                          <block type="math_arithmetic">
+                            <field name="OP">ADD</field>
+                            <value name="A">
+                              <block type="math_arithmetic">
+                                <field name="OP">DIVIDE</field>
+                                <value name="A">
+                                  <block type="tortue_x"></block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number">
+                                    <field name="NUM">20</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number">
+                                <field name="NUM">11</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="TO">
+                          <block type="math_arithmetic">
+                            <field name="OP">ADD</field>
+                            <value name="A">
+                              <block type="math_number">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="lists_getIndex">
+                                <mutation statement="false" at="true"></mutation>
+                                <field name="MODE">GET</field>
+                                <field name="WHERE">FROM_START</field>
+                                <value name="VALUE">
+                                  <block type="variables_get">
+                                    <field name="VAR">effectifs</field>
+                                  </block>
+                                </value>
+                                <value name="AT">
+                                  <block type="math_arithmetic">
+                                    <field name="OP">ADD</field>
+                                    <value name="A">
+                                      <block type="math_arithmetic">
+                                        <field name="OP">DIVIDE</field>
+                                        <value name="A">
+                                          <block type="tortue_x"></block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number">
+                                            <field name="NUM">20</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number">
+                                        <field name="NUM">11</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="avancer" collapsed="true">
+                            <value name="NAME">
+                              <block type="lists_getIndex">
+                                <mutation statement="false" at="true"></mutation>
+                                <field name="MODE">GET</field>
+                                <field name="WHERE">FROM_START</field>
+                                <value name="VALUE">
+                                  <block type="variables_get">
+                                    <field name="VAR">effectifs</field>
+                                  </block>
+                                </value>
+                                <value name="AT">
+                                  <block type="math_arithmetic">
+                                    <field name="OP">ADD</field>
+                                    <value name="A">
+                                      <block type="math_arithmetic">
+                                        <field name="OP">DIVIDE</field>
+                                        <value name="A">
+                                          <block type="tortue_x"></block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number">
+                                            <field name="NUM">20</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number">
+                                        <field name="NUM">11</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

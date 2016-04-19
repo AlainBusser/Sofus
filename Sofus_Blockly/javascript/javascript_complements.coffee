@@ -255,7 +255,11 @@ Blockly.JavaScript['choisir_tortue_var'] = (block) ->
 
 Blockly.JavaScript['distance_avec_tortue_var'] = (block) ->
   value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC)
-  code = "totos[toto].distance(totos[#{value_name}]);\n"
+  code = "totos[toto].distance(totos[#{value_name}])"
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
 
 Blockly.JavaScript['tourner_vers_tortue_var'] = (block) ->
   value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC)

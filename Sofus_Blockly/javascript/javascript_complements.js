@@ -346,7 +346,8 @@ Blockly.JavaScript['choisir_tortue_var'] = function(block) {
 Blockly.JavaScript['distance_avec_tortue_var'] = function(block) {
   var code, value_name;
   value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
-  return code = "totos[toto].distance(totos[" + value_name + "]);\n";
+  code = "totos[toto].distance(totos[" + value_name + "])";
+  return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript['tourner_vers_tortue_var'] = function(block) {

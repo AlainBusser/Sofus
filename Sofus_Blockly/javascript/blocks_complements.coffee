@@ -1172,8 +1172,7 @@ Blockly.Blocks['choisir_tortue_var'] = init: ->
 
 Blockly.Blocks['distance_avec_tortue_var'] = init: ->
   @appendValueInput('NAME').setCheck('Number').appendField(new (Blockly.FieldImage)('img/turtle.png', 32, 32, '')).appendField 'Distance avec la Tortue #'
-  @setPreviousStatement true
-  @setNextStatement true
+  @setOutput true, 'Number'
   @setColour 120
   @setTooltip 'Distance avec la tortue (Number)'
   @setHelpUrl ''

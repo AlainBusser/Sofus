@@ -1,0 +1,114 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="procedures_defreturn" collapsed="true" x="11" y="48">
+    <mutation statements="false">
+      <arg name="lambda"></arg>
+    </mutation>
+    <field name="NAME">expo</field>
+    <value name="RETURN">
+      <block type="math_single">
+        <field name="OP">NEG</field>
+        <value name="NUM">
+          <block type="math_arithmetic">
+            <field name="OP">DIVIDE</field>
+            <value name="A">
+              <block type="math_single">
+                <field name="OP">LN</field>
+                <value name="NUM">
+                  <block type="math_random_float"></block>
+                </value>
+              </block>
+            </value>
+            <value name="B">
+              <block type="variables_get">
+                <field name="VAR">lambda</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="procedures_defreturn" collapsed="true" x="14" y="104">
+    <mutation>
+      <arg name="lambda"></arg>
+    </mutation>
+    <field name="NAME">Poisson</field>
+    <statement name="STACK">
+      <block type="variables_set">
+        <field name="VAR">N</field>
+        <value name="VALUE">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <next>
+          <block type="reset">
+            <next>
+              <block type="controls_whileUntil">
+                <field name="MODE">UNTIL</field>
+                <value name="BOOL">
+                  <block type="logic_compare">
+                    <field name="OP">GTE</field>
+                    <value name="A">
+                      <block type="tortue_x"></block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="avancer">
+                    <value name="NAME">
+                      <block type="procedures_callreturn">
+                        <mutation name="expo">
+                          <arg name="lambda"></arg>
+                        </mutation>
+                        <value name="ARG0">
+                          <block type="variables_get">
+                            <field name="VAR">lambda</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="sophus_augmenter">
+                        <field name="VAR">N</field>
+                        <value name="DELTA">
+                          <block type="math_number">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="RETURN">
+      <block type="variables_get">
+        <field name="VAR">N</field>
+      </block>
+    </value>
+  </block>
+  <block type="big_aff" x="12" y="169">
+    <value name="VAR">
+      <block type="procedures_callreturn">
+        <mutation name="Poisson">
+          <arg name="lambda"></arg>
+        </mutation>
+        <value name="ARG0">
+          <block type="math_number">
+            <field name="NUM">10</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+</xml>
