@@ -1,4 +1,4 @@
-Version 1.5 avec tortues
+Version 1.6 avec fractions
 
 [attention]: https://cdn0.iconfinder.com/data/icons/woocons1/Sign%20Warning.png "Attention !"
 

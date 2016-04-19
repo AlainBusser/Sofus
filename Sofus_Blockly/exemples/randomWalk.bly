@@ -1,0 +1,318 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="procedures_defreturn" collapsed="true" x="29" y="-18">
+    <field name="NAME">randomWalk</field>
+    <statement name="STACK">
+      <block type="choisir_tortue_var">
+        <value name="NAME">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="tortue_teleport">
+            <value name="ABS">
+              <block type="math_number">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <value name="ORD">
+              <block type="math_number">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_repeat_ext">
+                <value name="TIMES">
+                  <block type="math_number">
+                    <field name="NUM">100</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="avancer">
+                    <value name="NAME">
+                      <block type="math_number">
+                        <field name="NUM">10</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="var_gauche">
+                        <value name="ANGLE">
+                          <block type="math_random_int">
+                            <value name="FROM">
+                              <block type="math_number">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                            <value name="TO">
+                              <block type="math_number">
+                                <field name="NUM">360</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <next>
+                  <block type="variables_set">
+                    <field name="VAR">X</field>
+                    <value name="VALUE">
+                      <block type="distance_avec_tortue_var">
+                        <value name="NAME">
+                          <block type="math_number">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="sophus_diviser">
+            <field name="VAR">X</field>
+            <value name="DELTA">
+              <block type="math_number">
+                <field name="NUM">10</field>
+              </block>
+            </value>
+            <next>
+              <block type="sophus_tronquer">
+                <field name="VAR">X</field>
+                <field name="GRAD">1e-</field>
+                <value name="DELTA">
+                  <block type="math_number">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="RETURN">
+      <block type="math_arithmetic">
+        <field name="OP">ADD</field>
+        <value name="A">
+          <block type="variables_get">
+            <field name="VAR">X</field>
+          </block>
+        </value>
+        <value name="B">
+          <block type="math_number">
+            <field name="NUM">2</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="reset" collapsed="true" x="30" y="25">
+    <next>
+      <block type="lever_stylo" collapsed="true">
+        <next>
+          <block type="creer_tortue_var" collapsed="true">
+            <value name="NAME">
+              <block type="math_number">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <next>
+              <block type="choisir_tortue_var" collapsed="true">
+                <value name="NAME">
+                  <block type="math_number">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="cacher_tortue"></block>
+                </statement>
+                <next>
+                  <block type="controls_for" collapsed="true">
+                    <field name="VAR">n</field>
+                    <value name="FROM">
+                      <block type="math_number">
+                        <field name="NUM">2</field>
+                      </block>
+                    </value>
+                    <value name="TO">
+                      <block type="math_number">
+                        <field name="NUM">102</field>
+                      </block>
+                    </value>
+                    <value name="BY">
+                      <block type="math_number">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                    <statement name="DO">
+                      <block type="creer_tortue_var">
+                        <value name="NAME">
+                          <block type="variables_get">
+                            <field name="VAR">n</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="choisir_tortue_var">
+                            <value name="NAME">
+                              <block type="variables_get">
+                                <field name="VAR">n</field>
+                              </block>
+                            </value>
+                            <statement name="DO">
+                              <block type="cacher_tortue">
+                                <next>
+                                  <block type="tortue_teleport">
+                                    <value name="ABS">
+                                      <block type="math_arithmetic">
+                                        <field name="OP">MINUS</field>
+                                        <value name="A">
+                                          <block type="math_arithmetic">
+                                            <field name="OP">MULTIPLY</field>
+                                            <value name="A">
+                                              <block type="variables_get">
+                                                <field name="VAR">n</field>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="math_number">
+                                                <field name="NUM">4</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number">
+                                            <field name="NUM">200</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="ORD">
+                                      <block type="math_number">
+                                        <field name="NUM">0</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="tortue_gauche">
+                                        <field name="NAME">90</field>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="controls_repeat_ext">
+                        <value name="TIMES">
+                          <block type="math_number">
+                            <field name="NUM">1000</field>
+                          </block>
+                        </value>
+                        <statement name="DO">
+                          <block type="choisir_tortue_var">
+                            <value name="NAME">
+                              <block type="procedures_callreturn">
+                                <mutation name="randomWalk"></mutation>
+                              </block>
+                            </value>
+                            <statement name="DO">
+                              <block type="avancer">
+                                <value name="NAME">
+                                  <block type="math_number">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </statement>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="controls_for" collapsed="true">
+                            <field name="VAR">n</field>
+                            <value name="FROM">
+                              <block type="math_number">
+                                <field name="NUM">2</field>
+                              </block>
+                            </value>
+                            <value name="TO">
+                              <block type="math_number">
+                                <field name="NUM">102</field>
+                              </block>
+                            </value>
+                            <value name="BY">
+                              <block type="math_number">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                            <statement name="DO">
+                              <block type="choisir_tortue_var">
+                                <value name="NAME">
+                                  <block type="variables_get">
+                                    <field name="VAR">n</field>
+                                  </block>
+                                </value>
+                                <statement name="DO">
+                                  <block type="tortue_droite">
+                                    <field name="NAME">90</field>
+                                    <next>
+                                      <block type="avancer">
+                                        <value name="NAME">
+                                          <block type="math_number">
+                                            <field name="NUM">4</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="tortue_droite">
+                                            <field name="NAME">90</field>
+                                            <next>
+                                              <block type="avancer">
+                                                <value name="NAME">
+                                                  <block type="tortue_y"></block>
+                                                </value>
+                                                <next>
+                                                  <block type="tortue_droite">
+                                                    <field name="NAME">90</field>
+                                                    <next>
+                                                      <block type="avancer">
+                                                        <value name="NAME">
+                                                          <block type="math_number">
+                                                            <field name="NUM">4</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </statement>
+                              </block>
+                            </statement>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>
