@@ -1,0 +1,224 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="procedures_defreturn" collapsed="true" x="20" y="34">
+    <mutation statements="false">
+      <arg name="x"></arg>
+    </mutation>
+    <field name="NAME">f</field>
+    <value name="RETURN">
+      <block type="math_arithmetic">
+        <field name="OP">DIVIDE</field>
+        <value name="A">
+          <block type="math_arithmetic">
+            <field name="OP">POWER</field>
+            <value name="A">
+              <block type="variables_get">
+                <field name="VAR">x</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number">
+                <field name="NUM">2</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="B">
+          <block type="math_number">
+            <field name="NUM">200</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="procedures_defreturn" collapsed="true" x="16" y="72">
+    <mutation>
+      <arg name="x"></arg>
+    </mutation>
+    <field name="NAME">df</field>
+    <statement name="STACK">
+      <block type="variables_set">
+        <field name="VAR">y</field>
+        <value name="VALUE">
+          <block type="procedures_callreturn">
+            <mutation name="f">
+              <arg name="x"></arg>
+            </mutation>
+            <value name="ARG0">
+              <block type="math_arithmetic">
+                <field name="OP">ADD</field>
+                <value name="A">
+                  <block type="variables_get">
+                    <field name="VAR">x</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="sophus_diminuer">
+            <field name="VAR">y</field>
+            <value name="DELTA">
+              <block type="procedures_callreturn">
+                <mutation name="f">
+                  <arg name="x"></arg>
+                </mutation>
+                <value name="ARG0">
+                  <block type="variables_get">
+                    <field name="VAR">x</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="RETURN">
+      <block type="variables_get">
+        <field name="VAR">y</field>
+      </block>
+    </value>
+  </block>
+  <block type="procedures_defreturn" collapsed="true" x="15" y="110">
+    <mutation>
+      <arg name="x"></arg>
+    </mutation>
+    <field name="NAME">ds</field>
+    <statement name="STACK">
+      <block type="variables_set">
+        <field name="VAR">y</field>
+        <value name="VALUE">
+          <block type="procedures_callreturn">
+            <mutation name="df">
+              <arg name="x"></arg>
+            </mutation>
+            <value name="ARG0">
+              <block type="variables_get">
+                <field name="VAR">x</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="sophus_carre">
+            <field name="VAR">y</field>
+            <field name="POW">2</field>
+            <next>
+              <block type="sophus_augmenter">
+                <field name="VAR">y</field>
+                <value name="DELTA">
+                  <block type="math_number">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="sophus_puissance">
+                    <field name="VAR">y</field>
+                    <value name="POW">
+                      <block type="math_number">
+                        <field name="NUM">0.5</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="RETURN">
+      <block type="variables_get">
+        <field name="VAR">y</field>
+      </block>
+    </value>
+  </block>
+  <block type="reset" x="14" y="153">
+    <next>
+      <block type="axes">
+        <next>
+          <block type="tortue_teleport">
+            <value name="ABS">
+              <block type="math_number">
+                <field name="NUM">-200</field>
+              </block>
+            </value>
+            <value name="ORD">
+              <block type="math_number">
+                <field name="NUM">200</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_for">
+                <field name="VAR">i</field>
+                <value name="FROM">
+                  <block type="math_number">
+                    <field name="NUM">-200</field>
+                  </block>
+                </value>
+                <value name="TO">
+                  <block type="math_number">
+                    <field name="NUM">200</field>
+                  </block>
+                </value>
+                <value name="BY">
+                  <block type="math_number">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="mettre_angle">
+                    <value name="ANGLE">
+                      <block type="math_single">
+                        <field name="OP">NEG</field>
+                        <value name="NUM">
+                          <block type="math_trig">
+                            <field name="OP">ATAN</field>
+                            <value name="NUM">
+                              <block type="procedures_callreturn">
+                                <mutation name="df">
+                                  <arg name="x"></arg>
+                                </mutation>
+                                <value name="ARG0">
+                                  <block type="variables_get">
+                                    <field name="VAR">i</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="avancer">
+                        <value name="NAME">
+                          <block type="procedures_callreturn">
+                            <mutation name="ds">
+                              <arg name="x"></arg>
+                            </mutation>
+                            <value name="ARG0">
+                              <block type="variables_get">
+                                <field name="VAR">i</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

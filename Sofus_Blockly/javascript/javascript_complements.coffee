@@ -207,7 +207,7 @@ Blockly.JavaScript['baisser_stylo'] = (block) ->
 
 Blockly.JavaScript['scribe'] = (block) ->
   value_texte = Blockly.JavaScript.valueToCode(block, 'texte', Blockly.JavaScript.ORDER_ATOMIC)
-  code = "totos[toto].write('#{value_texte}');\n"
+  code = "totos[toto].write(#{value_texte});\n"
 
 Blockly.JavaScript['tampon'] = (block) ->
   code = 'totos[toto].cercle();\n'

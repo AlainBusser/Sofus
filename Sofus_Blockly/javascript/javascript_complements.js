@@ -273,7 +273,7 @@ Blockly.JavaScript['baisser_stylo'] = function(block) {
 Blockly.JavaScript['scribe'] = function(block) {
   var code, value_texte;
   value_texte = Blockly.JavaScript.valueToCode(block, 'texte', Blockly.JavaScript.ORDER_ATOMIC);
-  return code = "totos[toto].write('" + value_texte + "');\n";
+  return code = "totos[toto].write(" + value_texte + ");\n";
 };
 
 Blockly.JavaScript['tampon'] = function(block) {

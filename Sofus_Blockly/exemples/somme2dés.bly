@@ -1,9 +1,14 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
   <block type="reset" x="10" y="10">
     <next>
-      <block type="cacher_tortue">
+      <block type="avancer">
+        <value name="NAME">
+          <block type="math_number">
+            <field name="NUM">300</field>
+          </block>
+        </value>
         <next>
-          <block type="axes">
+          <block type="cacher_tortue">
             <next>
               <block type="controls_for">
                 <field name="VAR">i</field>
@@ -36,35 +41,39 @@
                             <field name="VAR">i</field>
                           </block>
                         </value>
-                        <next>
-                          <block type="tortue_teleport">
-                            <value name="ABS">
-                              <block type="math_arithmetic">
-                                <field name="OP">MULTIPLY</field>
-                                <value name="A">
-                                  <block type="math_number">
-                                    <field name="NUM">20</field>
-                                  </block>
-                                </value>
-                                <value name="B">
-                                  <block type="variables_get">
-                                    <field name="VAR">i</field>
-                                  </block>
-                                </value>
-                              </block>
-                            </value>
-                            <value name="ORD">
-                              <block type="math_number">
-                                <field name="NUM">0</field>
-                              </block>
-                            </value>
+                        <statement name="DO">
+                          <block type="cacher_tortue">
                             <next>
-                              <block type="tortue_gauche">
-                                <field name="NAME">90</field>
+                              <block type="tortue_teleport">
+                                <value name="ABS">
+                                  <block type="math_arithmetic">
+                                    <field name="OP">MULTIPLY</field>
+                                    <value name="A">
+                                      <block type="math_number">
+                                        <field name="NUM">20</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="variables_get">
+                                        <field name="VAR">i</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="ORD">
+                                  <block type="math_number">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="tortue_gauche">
+                                    <field name="NAME">90</field>
+                                  </block>
+                                </next>
                               </block>
                             </next>
                           </block>
-                        </next>
+                        </statement>
                       </block>
                     </next>
                   </block>
@@ -135,7 +144,7 @@
                                         <field name="VAR">somme</field>
                                       </block>
                                     </value>
-                                    <next>
+                                    <statement name="DO">
                                       <block type="avancer">
                                         <value name="NAME">
                                           <block type="math_number">
@@ -143,7 +152,7 @@
                                           </block>
                                         </value>
                                       </block>
-                                    </next>
+                                    </statement>
                                   </block>
                                 </next>
                               </block>
@@ -152,6 +161,42 @@
                         </next>
                       </block>
                     </statement>
+                    <next>
+                      <block type="controls_for">
+                        <field name="VAR">i</field>
+                        <value name="FROM">
+                          <block type="math_number">
+                            <field name="NUM">2</field>
+                          </block>
+                        </value>
+                        <value name="TO">
+                          <block type="math_number">
+                            <field name="NUM">12</field>
+                          </block>
+                        </value>
+                        <value name="BY">
+                          <block type="math_number">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                        <statement name="DO">
+                          <block type="choisir_tortue_var">
+                            <value name="NAME">
+                              <block type="variables_get">
+                                <field name="VAR">i</field>
+                              </block>
+                            </value>
+                            <statement name="DO">
+                              <block type="scribe">
+                                <value name="texte">
+                                  <block type="tortue_y"></block>
+                                </value>
+                              </block>
+                            </statement>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
                   </block>
                 </next>
               </block>

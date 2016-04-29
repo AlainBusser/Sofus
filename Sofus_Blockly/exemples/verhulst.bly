@@ -1,0 +1,106 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="reset" x="12" y="25">
+    <next>
+      <block type="axes">
+        <next>
+          <block type="variables_set">
+            <field name="VAR">u</field>
+            <value name="VALUE">
+              <block type="math_number">
+                <field name="NUM">3</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_for">
+                <field name="VAR">n</field>
+                <value name="FROM">
+                  <block type="math_number">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <value name="TO">
+                  <block type="math_number">
+                    <field name="NUM">300</field>
+                  </block>
+                </value>
+                <value name="BY">
+                  <block type="math_number">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="sophus_augmenter_fract" inline="false">
+                    <field name="VAR">u</field>
+                    <field name="DENOM">100</field>
+                    <value name="DELTA">
+                      <block type="math_arithmetic" inline="false">
+                        <field name="OP">DIVIDE</field>
+                        <value name="A">
+                          <block type="math_arithmetic" inline="false">
+                            <field name="OP">MINUS</field>
+                            <value name="A">
+                              <block type="math_number">
+                                <field name="NUM">200</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="variables_get">
+                                <field name="VAR">u</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number">
+                            <field name="NUM">40</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="tortue_teleport">
+                        <value name="ABS">
+                          <block type="variables_get">
+                            <field name="VAR">n</field>
+                          </block>
+                        </value>
+                        <value name="ORD">
+                          <block type="variables_get">
+                            <field name="VAR">u</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="controls_if">
+                            <value name="IF0">
+                              <block type="math_number_property">
+                                <mutation divisor_input="true"></mutation>
+                                <field name="PROPERTY">DIVISIBLE_BY</field>
+                                <value name="NUMBER_TO_CHECK">
+                                  <block type="variables_get">
+                                    <field name="VAR">n</field>
+                                  </block>
+                                </value>
+                                <value name="DIVISOR">
+                                  <block type="math_number">
+                                    <field name="NUM">10</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO0">
+                              <block type="tampon"></block>
+                            </statement>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>
