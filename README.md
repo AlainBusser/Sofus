@@ -10,35 +10,65 @@ La parodie de La Fontaine ci-dessous, inspirée par la signature du contrat MEN-
 >## Le Lobbyiste et le Libriste
 >
 >La raison du plus fort est toujours la meilleure :
+>
 >Nous l'allons montrer tout à l'heure.
+>
 >Un Libriste codait sans intérêt
+>
 >Dans un lieu un peu austère.
+>
 >Un Lobbyiste survient à jeun qui allait au ministère,
+>
 >Et que le fric en ces lieux attirait.
+>
 >Qui te rend si hardi de troubler mon codage ?
+>
 >Dit cet animal plein de rage :
+>
 >Tu seras châtié de ta témérité.
+>
 >- Sire, répond le Libriste, que votre Majesté
+>
 >Ne se mette pas en colère ;
+>
 >Mais plutôt qu'elle considère
+>
 >Que je me vais programmant
+>
 >Dans le courant,
+>
 >Plus de vingt millions au-dessous d'Elle,
+>
 >Et que par conséquent, sans aucune thune,
+>
 >Je ne puis troubler sa fortune.
+>
 >- Tu la troubles, reprit cette bête cruelle,
+>
 >Et je sais que de moi tu médis l'an passé.
+>
 >- Comment l'aurais-je fait si je n'avais pas de bouc ?
+>
 >Reprit le Libriste, je n'étais encore point chez Facebook.
+>
 >- Si ce n'est toi, c'est donc ton frère.
+>
 >- Je n'en ai point. 
+>
 >- C'est donc quelqu'un des tiens :
+>
 >Car vous ne m'épargnez guère,
+>
 >Vous, vos licences libres, et vos communs biens.
+>
 >On me l'a dit : il faut que je me venge.
+>
 >Là-dessus, encouragé par ses politiques succès,
+>
 >Le Lobbyiste l'emporte, et puis le mange,
+>
 >Sans autre forme de procès.
+>
 >
 >(d'après Jean de La Fontaine)
 
