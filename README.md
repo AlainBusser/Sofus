@@ -4,7 +4,43 @@ Version 1.6 avec fractions
 
 ![logo](https://raw.githubusercontent.com/AlainBusser/Sophus/master/sophus1.png)
 
+La parodie de La Fontaine ci-dessous, inspirée par la signature du contrat MEN-Microsoft France, est bien entendue sous licence Creative Commons
 
+>
+>## Le Lobbyiste et le Libriste
+>
+>La raison du plus fort est toujours la meilleure :
+>Nous l'allons montrer tout à l'heure.
+>Un Libriste codait sans intérêt
+>Dans un lieu un peu austère.
+>Un Lobbyiste survient à jeun qui allait au ministère,
+>Et que le fric en ces lieux attirait.
+>Qui te rend si hardi de troubler mon codage ?
+>Dit cet animal plein de rage :
+>Tu seras châtié de ta témérité.
+>- Sire, répond le Libriste, que votre Majesté
+>Ne se mette pas en colère ;
+>Mais plutôt qu'elle considère
+>Que je me vais programmant
+>Dans le courant,
+>Plus de vingt millions au-dessous d'Elle,
+>Et que par conséquent, sans aucune thune,
+>Je ne puis troubler sa fortune.
+>- Tu la troubles, reprit cette bête cruelle,
+>Et je sais que de moi tu médis l'an passé.
+>- Comment l'aurais-je fait si je n'avais pas de bouc ?
+>Reprit le Libriste, je n'étais encore point chez Facebook.
+>- Si ce n'est toi, c'est donc ton frère.
+>- Je n'en ai point. 
+>- C'est donc quelqu'un des tiens :
+>Car vous ne m'épargnez guère,
+>Vous, vos licences libres, et vos communs biens.
+>On me l'a dit : il faut que je me venge.
+>Là-dessus, encouragé par ses politiques succès,
+>Le Lobbyiste l'emporte, et puis le mange,
+>Sans autre forme de procès.
+>
+>(d'après Jean de La Fontaine)
 
 Sophus est un langage de programmation pour l'enseignement de l'algorithmique au collège. Parmi ses particularités il y a le fait que Sophus
 
@@ -18,7 +54,7 @@ Sophus est un langage de programmation pour l'enseignement de l'algorithmique au
 
  * est particulièrement adapté aux calculs différentiel et intégral ainsi qu'à la statistique descriptive
 
- * donne une approche de la géométrie repérée inspirée par le programme d'Erlangen, par exemple pour appliquer une translation de vecteur u à un point M on écrit *augmenter M de u*
+ * gère les :turtle: (sans limite sur le nombre de :turtle:)
 
 [Voir ici](http://irem.univ-reunion.fr/spip.php?rubrique173) pour en savoir plus et des exemples
 

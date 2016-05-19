@@ -19,7 +19,7 @@
       background-image: url("img/mur.jpg");
       font-family: sans-serif;
     }
-    .grobouton { display: none; font-size: 140%;}
+    .grobouton { display: inline-block; font-size: 200%;}
     h1 {
       color: red; font-variant: small-caps; text-shadow: 0.04em 0.02em 0.1em gray; }
     #sortieJS { display: none; height: 240px; width: 240px; 
@@ -32,7 +32,7 @@
   </style>
 </head>
 <body>
-  <h1><img src="favicon.ico"/>Sofus avec Blockly</h1>
+  <h1><img src="favicon.ico"/>Sofus avec Blockly<img src="img/toto1.svg"/></h1>
 
   <p>Pour écrire un programme de calcul, glisser les éléments sur le plan de travail. Pour effacer, glisser tout vers la corbeille 
   (en bas à droite). </p>
@@ -609,7 +609,7 @@
   function myUpdateFunction() {
   var code = Blockly.JavaScript.workspaceToCode(workspace);
   document.getElementById('sortieJS').value = code;
-  lancer();
+//  lancer();
 }
 workspace.addChangeListener(myUpdateFunction);
 function lancer() { 
@@ -705,6 +705,18 @@ var sauverSVG = function() {
 	downloadLink.click();
 }
 
+function Xcas(){
+	var code = document.getElementById("sortieJS").value;
+	/* ici on a l'export JavaScript,
+	reste à transformer ce JavaScript en Xcas */
+	code = code.replace(/=/g,":=");
+	code = code.replace(/:=:=/g,"=");
+	code = code.replace(/Math./g,"");
+	code = code.replace(/var\s/g,"local ");
+//	variables = code.match(/^function/g);
+	document.getElementById("sortieNum").value = code;
+}
+
   </script>
   </td><td></td>
 
@@ -712,7 +724,8 @@ var sauverSVG = function() {
 <tr>
    <td>
       <button class="grobouton" onClick="lancer();"><img src="favicon.ico"/>Lancer</button>
-      <button onClick="sauverSVG();"><img src="img/turtle.png"/>sauver figure</button>
+      <button onClick="Xcas();"><img src="img/xcas.png" height="32px"/>exporter Xcas</button>
+      <button onClick="sauverSVG();"><img src="img/turtle.png" width="32px"/>sauver figure</button>
    </td>
   <td align="center">
       <input type="file" id="fileToLoad" style="display: none" onchange="ouvrirFichier();" />
