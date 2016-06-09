@@ -33,7 +33,7 @@
   </style>
 </head>
 <body>
-  <h1><img src="favicon.ico"/>Sofus avec Blockly<img src="img/toto1.svg"/></h1>
+  <h1><img src="favicon.ico"/>Sofus avec Blockly<img src="img/turtle.png"/></h1>
 
   <p>Pour écrire un programme de calcul, glisser les éléments sur le plan de travail. Pour effacer, glisser tout vers la corbeille 
   (en bas à droite). </p>
@@ -720,11 +720,22 @@ function Xcas(){
 	code = code.replace(/var\s/g,"local ");
 	var variables = [];
 	code.replace(/function\ [^\(]*\(([^\)]*)\)/g,function(t,v){variables.push(v.split(","))});
-	variables = _.union(_.flatten(variables));
+	variables = _.union(_.flatten(variables));    // on vire les antécédents des fonctions, qui n'ont pas à être des variables locales
 	for (var v in variables) { 
+		variables[v] = variables[v].replace(/[\ ]*/g, "");
 		var ligne_en_trop = "local " + variables[v] + ";\n";
 		code = code.replace(ligne_en_trop,"");
 	}; 
+	var lignes = code.split("\n");
+	var locales = "";    // les lignes à copier-coller dans le début des fonctions
+	for (n in lignes){
+		if (lignes[n].startsWith("local ")){
+			locales += "   " + lignes[n] + "\n";
+		};
+	};
+	code = code.replace(/local\s*\S*/g,"");    // plus besoin, on les vire
+	code = code.replace(/\{/g,"\{\n"+locales);  // faudra les virer à la main dans les tests et les boucles
+	code = code.replace(/\n\}/g,"\n\}:;");    // Xcas est exigeant sur la syntaxe
 	document.getElementById("sortieNum").value = code;
 }
 
