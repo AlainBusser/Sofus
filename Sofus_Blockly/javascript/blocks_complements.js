@@ -754,7 +754,7 @@ Blockly.Blocks['big_aff'] = {
 
 Blockly.Blocks['big_efface'] = {
   init: function() {
-    this.appendDummyInput().appendField('palimpseste');
+    this.appendDummyInput().appendField(new Blockly.FieldImage('img/droplet.png', 32, 32, '')).appendField('palimpseste');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(20);

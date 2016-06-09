@@ -14,6 +14,7 @@
   <script src="javascript/blocks_complements.js"></script>
   <script src="javascript/javascript_complements.js"></script>
   <script src="javascript/fr_complements.js"></script>
+  <script src="javascript/underscore-min.js"></script>
   <style>
     body {
       background-image: url("img/mur.jpg");
@@ -43,6 +44,7 @@
   <xml id="toolbox" style="display: none">
     <category name="Variables" colour="330" custom="VARIABLE"></category>
     <category name="Entrées-sorties" colour="160">
+      <block type="math_number"></block>
         <block type="text"></block>
     <block type="text_print">
           <value name="TEXT"><block type="variables_get"><field name="VAR">element</field></block></value>
@@ -711,9 +713,18 @@ function Xcas(){
 	reste à transformer ce JavaScript en Xcas */
 	code = code.replace(/=/g,":=");
 	code = code.replace(/:=:=/g,"=");
+	code = code.replace(/!:=/g,"!=");
+	code = code.replace(/<:=/g,"<=");
+	code = code.replace(/>:=/g,">=");
 	code = code.replace(/Math./g,"");
 	code = code.replace(/var\s/g,"local ");
-//	variables = code.match(/^function/g);
+	var variables = [];
+	code.replace(/function\ [^\(]*\(([^\)]*)\)/g,function(t,v){variables.push(v.split(","))});
+	variables = _.union(_.flatten(variables));
+	for (var v in variables) { 
+		var ligne_en_trop = "local " + variables[v] + ";\n";
+		code = code.replace(ligne_en_trop,"");
+	}; 
 	document.getElementById("sortieNum").value = code;
 }
 

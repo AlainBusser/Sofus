@@ -909,7 +909,7 @@ Blockly.Blocks['big_aff'] = init: ->
   @setHelpUrl ''
   return
 Blockly.Blocks['big_efface'] = init: ->
-  @appendDummyInput().appendField 'palimpseste'
+  @appendDummyInput().appendField(new (Blockly.FieldImage)('img/droplet.png', 32, 32, '')).appendField 'palimpseste'
   @setPreviousStatement true
   @setNextStatement true
   @setColour 20
