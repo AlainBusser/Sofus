@@ -743,7 +743,7 @@ Blockly.Blocks['sophus_inverser'] = {
 
 Blockly.Blocks['big_aff'] = {
   init: function() {
-    this.appendValueInput('VAR').appendField('ajouter en bas');
+    this.appendValueInput('VAR').appendField(new Blockly.FieldImage('img/pencil.png', 32, 32, '')).appendField('ajouter en bas');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(20);

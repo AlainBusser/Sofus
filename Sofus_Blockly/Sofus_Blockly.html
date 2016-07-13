@@ -56,99 +56,7 @@
     
     
     <sep></sep>
-    <sep></sep>
-    <sep></sep>
-    
-    <category name="Sofus" colour="330">
-		<category name="transformations">
-			<block type="sophus_augmenter">
-				<value name="DELTA">
-					<block type="math_number">
-						<field name="NUM">1</field>
-					</block>
-				</value>
-			</block>
-			<block type="sophus_diminuer">
-				<value name="DELTA">
-					<block type="math_number">
-						<field name="NUM">1</field>
-					</block>
-				</value>
-			</block>
-			<block type="sophus_multiplier">
-				<value name="DELTA">
-					<block type="math_number">
-						<field name="NUM">2</field>
-					</block>
-				</value>
-			</block>
-			<block type="sophus_diviser">
-				<value name="DELTA">
-					<block type="math_number">
-						<field name="NUM">2</field>
-					</block>
-				</value>
-			</block>
-		</category>
-        <category name="pourcentages">
-			<block type="sophus_multiplier_fract">
-				<value name="DELTA">
-					<block type="math_number">
-						<field name="NUM">2</field>
-					</block>
-				</value>
-			</block>
-			<block type="sophus_diviser_fract">
-				<value name="DELTA">
-					<block type="math_number">
-						<field name="NUM">3</field>
-					</block>
-				</value>
-			</block>
-			<block type="sophus_augmenter_fract">
-				<value name="DELTA">
-					<block type="math_number">
-						<field name="NUM">2</field>
-					</block>
-				</value>
-			</block>
-			<block type="sophus_diminuer_fract">
-				<value name="DELTA">
-					<block type="math_number">
-						<field name="NUM">2</field>
-					</block>
-				</value>
-			</block>
-        </category>
-		<category name="fonctions">
-            <block type="sophus_inverser"></block>
-            <block type="sophus_doubler"></block>
-            <block type="sophus_carre"></block>
-			<block type="sophus_puissance">
-				<value name="POW">
-					<block type="math_number">
-						<field name="NUM">2</field>
-					</block>
-				</value>
-			</block>
-    </category>
-    <category name="arrondis">
-			<block type="sophus_arrondir">
-				<value name="DELTA">
-					<block type="math_number">
-						<field name="NUM">2</field>
-					</block>
-				</value>
-			</block>
-			<block type="sophus_tronquer">
-				<value name="DELTA">
-					<block type="math_number">
-						<field name="NUM">2</field>
-					</block>
-				</value>
-			</block>
-    </category>
-    </category>
+
     <category name="Tortue" colour="120">
 		<category name="déplacement">
 			<block type="avancer">
@@ -203,8 +111,10 @@
 		</category>
 		<category name="gomme">
 			<block type="eff_svg"></block>
-			<block type="axes"></block>
 			<block type="reset"></block>
+		</category>
+		<category name="axes">
+			<block type="axes"></block>
 			<block type="grille"></block>
 			<block type="axeX"></block>
 			<block type="axeY"></block>
@@ -315,6 +225,99 @@
 <!--      <block type="sophus_angle"> 
         </block> -->
       </category>
+    <sep></sep>
+    
+    <category name="Sofus" colour="330">
+		<category name="transformations">
+			<block type="sophus_augmenter">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">1</field>
+					</block>
+				</value>
+			</block>
+			<block type="sophus_diminuer">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">1</field>
+					</block>
+				</value>
+			</block>
+			<block type="sophus_multiplier">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">2</field>
+					</block>
+				</value>
+			</block>
+			<block type="sophus_diviser">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">2</field>
+					</block>
+				</value>
+			</block>
+		</category>
+        <category name="pourcentages">
+			<block type="sophus_multiplier_fract">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">2</field>
+					</block>
+				</value>
+			</block>
+			<block type="sophus_diviser_fract">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">3</field>
+					</block>
+				</value>
+			</block>
+			<block type="sophus_augmenter_fract">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">2</field>
+					</block>
+				</value>
+			</block>
+			<block type="sophus_diminuer_fract">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">2</field>
+					</block>
+				</value>
+			</block>
+        </category>
+		<category name="fonctions">
+            <block type="sophus_inverser"></block>
+            <block type="sophus_doubler"></block>
+            <block type="sophus_carre"></block>
+			<block type="sophus_puissance">
+				<value name="POW">
+					<block type="math_number">
+						<field name="NUM">2</field>
+					</block>
+				</value>
+			</block>
+    </category>
+    <category name="arrondis">
+			<block type="sophus_arrondir">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">2</field>
+					</block>
+				</value>
+			</block>
+			<block type="sophus_tronquer">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">2</field>
+					</block>
+				</value>
+			</block>
+    </category>
+    </category>
+        <sep></sep>
     <category name="Fractions" colour="20">
 		<category name="constantes">
 			<block type="fraction_constante"></block>

@@ -901,7 +901,7 @@ Blockly.Blocks['sophus_inverser'] =
       @setFieldValue newName, 'VAR'
     return
 Blockly.Blocks['big_aff'] = init: ->
-  @appendValueInput('VAR').appendField 'ajouter en bas'
+  @appendValueInput('VAR').appendField(new (Blockly.FieldImage)('img/pencil.png', 32, 32, '')).appendField 'ajouter en bas'
   @setPreviousStatement true
   @setNextStatement true
   @setColour 20
