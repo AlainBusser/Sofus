@@ -1,0 +1,102 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="variables_set" x="16" y="-137">
+    <field name="VAR">P1</field>
+    <value name="VALUE">
+      <block type="mat_3D">
+        <field name="a11">3/10</field>
+        <field name="a12">1/10</field>
+        <field name="a13">0</field>
+        <field name="a21">37/110</field>
+        <field name="a22">-1/10</field>
+        <field name="a23">1/11</field>
+        <field name="a31">4/11</field>
+        <field name="a32">0</field>
+        <field name="a33">-1/11</field>
+      </block>
+    </value>
+    <next>
+      <block type="variables_set">
+        <field name="VAR">D</field>
+        <value name="VALUE">
+          <block type="vec_diagonal">
+            <value name="vecteur">
+              <block type="vec_3D">
+                <field name="x">1</field>
+                <field name="y">0.6</field>
+                <field name="z">0.56</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR">P</field>
+            <value name="VALUE">
+              <block type="mat_inv">
+                <value name="matr">
+                  <block type="variables_get">
+                    <field name="VAR">P1</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="big_aff">
+                <value name="VAR">
+                  <block type="vec_aff">
+                    <value name="vec">
+                      <block type="variables_get">
+                        <field name="VAR">P</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set">
+                    <field name="VAR">P</field>
+                    <value name="VALUE">
+                      <block type="mat_3D">
+                        <field name="a11">1</field>
+                        <field name="a12">1</field>
+                        <field name="a13">1</field>
+                        <field name="a21">7</field>
+                        <field name="a22">-3</field>
+                        <field name="a23">-3</field>
+                        <field name="a31">4</field>
+                        <field name="a32">4</field>
+                        <field name="a33">-7</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="big_aff">
+                        <value name="VAR">
+                          <block type="vec_aff">
+                            <value name="vec">
+                              <block type="vec_fois">
+                                <field name="lui">P1</field>
+                                <value name="autre">
+                                  <block type="vec_fois">
+                                    <field name="lui">D</field>
+                                    <value name="autre">
+                                      <block type="variables_get">
+                                        <field name="VAR">P</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

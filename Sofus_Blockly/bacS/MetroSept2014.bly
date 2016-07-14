@@ -1,0 +1,133 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="big_efface" x="49" y="43">
+    <next>
+      <block type="variables_set">
+        <field name="VAR">U</field>
+        <value name="VALUE">
+          <block type="vec_const">
+            <field name="x">0.5</field>
+            <field name="y">0.5</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR">M</field>
+            <value name="VALUE">
+              <block type="mat_matrice">
+                <field name="a11">0.8</field>
+                <field name="a12">0.1</field>
+                <field name="a21">0.2</field>
+                <field name="a22">0.9</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_repeat_ext">
+                <value name="TIMES">
+                  <block type="math_number">
+                    <field name="NUM">10</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="variables_set">
+                    <field name="VAR">U</field>
+                    <value name="VALUE">
+                      <block type="vec_fois">
+                        <field name="lui">M</field>
+                        <value name="autre">
+                          <block type="variables_get">
+                            <field name="VAR">U</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="big_aff">
+                        <value name="VAR">
+                          <block type="vec_aff">
+                            <value name="vec">
+                              <block type="variables_get">
+                                <field name="VAR">U</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <next>
+                  <block type="big_aff">
+                    <value name="VAR">
+                      <block type="text">
+                        <field name="TEXT">Question 2:</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set">
+                        <field name="VAR">P</field>
+                        <value name="VALUE">
+                          <block type="mat_matrice">
+                            <field name="a11">1</field>
+                            <field name="a12">1</field>
+                            <field name="a21">2</field>
+                            <field name="a22">-1</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="big_aff">
+                            <value name="VAR">
+                              <block type="vec_aff">
+                                <value name="vec">
+                                  <block type="vec_fois" collapsed="true">
+                                    <field name="lui">P</field>
+                                    <value name="autre">
+                                      <block type="variables_get">
+                                        <field name="VAR">P</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="big_aff">
+                                <value name="VAR">
+                                  <block type="vec_aff">
+                                    <value name="vec">
+                                      <block type="vec_foisbis" collapsed="true">
+                                        <field name="facteur">1/3</field>
+                                        <value name="autre">
+                                          <block type="vec_fois">
+                                            <field name="lui">P</field>
+                                            <value name="autre">
+                                              <block type="vec_fois">
+                                                <field name="lui">M</field>
+                                                <value name="autre">
+                                                  <block type="variables_get">
+                                                    <field name="VAR">P</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

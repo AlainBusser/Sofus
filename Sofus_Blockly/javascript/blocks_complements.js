@@ -1159,6 +1159,459 @@ Blockly.Blocks['costume'] = {
   }
 };
 
+Blockly.Blocks['vec_const'] = {
+  init: function() {
+    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField(new Blockly.FieldTextInput('3'), 'x');
+    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField(new Blockly.FieldTextInput('2'), 'y');
+    this.setOutput(true, 'Vector');
+    this.setColour(20);
+    this.setTooltip('vecteur 2D');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['vec_3D'] = {
+  init: function() {
+    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField(new Blockly.FieldTextInput('3'), 'x');
+    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField(new Blockly.FieldTextInput('2'), 'y');
+    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField(new Blockly.FieldTextInput('1'), 'z');
+    this.setOutput(true, 'Vector');
+    this.setColour(20);
+    this.setTooltip('vecteur 3D');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['vec_alea'] = {
+  init: function() {
+    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField('vecteur aléatoire');
+    this.setOutput(true, 'Vector');
+    this.setColour(20);
+    this.setTooltip('vecteur aléatoire');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['vec_alea3'] = {
+  init: function() {
+    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField('vecteur aléatoire');
+    this.setOutput(true, 'Vector');
+    this.setColour(20);
+    this.setTooltip('vecteur aléatoire');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['vec_nul'] = {
+  init: function() {
+    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField('vecteur nul');
+    this.setOutput(true, 'Vector');
+    this.setColour(20);
+    this.setTooltip('vecteur nul');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['vec_nul3'] = {
+  init: function() {
+    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField('vecteur nul');
+    this.setOutput(true, 'Vector');
+    this.setColour(20);
+    this.setTooltip('vecteur nul');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['vec_aff'] = {
+  init: function() {
+    this.appendValueInput('vec').appendField(new Blockly.FieldImage('img/arrowhead.png', 32, 32, ''));
+    this.setOutput(true);
+    this.setColour(20);
+    this.setTooltip('visibilité des matrices');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['vec_eq'] = {
+  init: function() {
+    this.appendValueInput('autre').setCheck(['Vector', 'Matrix']).appendField(new Blockly.FieldVariable('element'), 'lui').appendField('=');
+    this.setOutput(true, 'Boolean');
+    this.setColour(20);
+    this.setTooltip('égalité de matrices');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['vec_add'] = {
+  init: function() {
+    this.appendValueInput('autre').appendField(new Blockly.FieldVariable('element'), 'lui').appendField('+');
+    this.setOutput(true);
+    this.setColour(20);
+    this.setTooltip('addition');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['vec_sub'] = {
+  init: function() {
+    this.appendValueInput('autre').appendField(new Blockly.FieldVariable('element'), 'lui').appendField('-');
+    this.setOutput(true);
+    this.setColour(20);
+    this.setTooltip('soustraction');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['vec_dot'] = {
+  init: function() {
+    this.appendValueInput('autre').setCheck('Vector').appendField(new Blockly.FieldVariable('element'), 'lui').appendField('.');
+    this.setOutput(true, 'Number');
+    this.setColour(20);
+    this.setTooltip('produit scalaire');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['vec_angle'] = {
+  init: function() {
+    this.appendValueInput('autre').setCheck('Vector').appendField(new Blockly.FieldVariable('element'), 'lui').appendField('angle avec');
+    this.setOutput(true, 'Number');
+    this.setColour(20);
+    this.setTooltip('');
+    this.setHelpUrl('angle de vecteurs (en radians)');
+  }
+};
+
+Blockly.Blocks['vec_distance'] = {
+  init: function() {
+    this.appendValueInput('autre').setCheck('Vector').appendField(new Blockly.FieldVariable('element'), 'lui').appendField('distance jusque');
+    this.setOutput(true, 'Number');
+    this.setColour(20);
+    this.setTooltip('');
+    this.setHelpUrl('distance entre vecteurs (considérés comme des points)');
+  }
+};
+
+Blockly.Blocks['vec_abscisse'] = {
+  init: function() {
+    this.appendValueInput('autre').setCheck('Vector').appendField('abscisse de');
+    this.setOutput(true, 'Number');
+    this.setColour(20);
+    this.setTooltip('abscisse du vecteur');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['vec_ordonnee'] = {
+  init: function() {
+    this.appendValueInput('autre').setCheck('Vector').appendField('ordonnée de');
+    this.setOutput(true, 'Number');
+    this.setColour(20);
+    this.setTooltip('ordonnée du vecteur');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['vec_colineaire'] = {
+  init: function() {
+    this.appendValueInput('autre').setCheck('Vector').appendField(new Blockly.FieldVariable('element'), 'lui').appendField('est colinéaire à');
+    this.setOutput(true, 'Boolean');
+    this.setColour(20);
+    this.setTooltip('test de colinéarité (parallélisme ou alignement)');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['vec_perpendiculaire'] = {
+  init: function() {
+    this.appendValueInput('autre').setCheck('Vector').appendField(new Blockly.FieldVariable('element'), 'lui').appendField('est perpendiculaire à');
+    this.setOutput(true, 'Boolean');
+    this.setColour(20);
+    this.setTooltip('perpendicularité entre vecteurs');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['vec_fois'] = {
+  init: function() {
+    this.appendValueInput('autre').setCheck('Number').appendField(new Blockly.FieldVariable('element'), 'lui').appendField('×');
+    this.setOutput(true);
+    this.setColour(20);
+    this.setTooltip('produit par un nombre');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['vec_foisbis'] = {
+  init: function() {
+    this.appendValueInput('autre').appendField(new Blockly.FieldTextInput('3'), 'facteur').appendField('×');
+    this.setOutput(true);
+    this.setColour(20);
+    this.setTooltip('produit nombre*matrice');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['vec_symmetry'] = {
+  init: function() {
+    this.appendValueInput('autre').setCheck('Vector').appendField(new Blockly.FieldVariable('element'), 'lui').appendField('symétrique par rapport à');
+    this.setOutput(true, 'Vector');
+    this.setColour(20);
+    this.setTooltip('symétrie centrale');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['vec_rotation'] = {
+  init: function() {
+    this.appendValueInput('autre').setCheck('Vector').appendField(new Blockly.FieldVariable('element'), 'lui').appendField('tourné de').appendField(new Blockly.FieldTextInput('3.14'), 'angle').appendField('radians autour de');
+    this.setOutput(true, 'Vector');
+    this.setColour(20);
+    this.setTooltip('rotation angle fixe');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['vec_norme'] = {
+  init: function() {
+    this.appendValueInput('autre').setCheck('Vector').appendField('norme de');
+    this.setOutput(true, 'Number');
+    this.setColour(20);
+    this.setTooltip('norme (ou longueur)');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['vec_unitaire'] = {
+  init: function() {
+    this.appendValueInput('autre').setCheck('Vector').appendField('normer');
+    this.setOutput(true, 'Vector');
+    this.setColour(20);
+    this.setTooltip('vecteur de norme 1 colinéaire à ce vecteur');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['vec_diagonal'] = {
+  init: function() {
+    this.appendValueInput('vecteur').setCheck('Vector').appendField('diagonale');
+    this.setOutput(true, 'Matrix');
+    this.setColour(20);
+    this.setTooltip('matrice diagonale');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['mat_matrice'] = {
+  init: function() {
+    this.appendDummyInput().appendField(new Blockly.FieldTextInput('3'), 'a11').appendField(new Blockly.FieldTextInput('-2'), 'a12');
+    this.appendDummyInput().appendField(new Blockly.FieldTextInput('1'), 'a21').appendField(new Blockly.FieldTextInput('5'), 'a22');
+    this.setOutput(true, 'Matrix');
+    this.setColour(120);
+    this.setTooltip('matrice 2 par 2');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['mat_3D'] = {
+  init: function() {
+    this.appendDummyInput().appendField(new Blockly.FieldTextInput('8'), 'a11').appendField(new Blockly.FieldTextInput('1'), 'a12').appendField(new Blockly.FieldTextInput('6'), 'a13');
+    this.appendDummyInput().appendField(new Blockly.FieldTextInput('3'), 'a21').appendField(new Blockly.FieldTextInput('5'), 'a22').appendField(new Blockly.FieldTextInput('7'), 'a23');
+    this.appendDummyInput().appendField(new Blockly.FieldTextInput('4'), 'a31').appendField(new Blockly.FieldTextInput('9'), 'a32').appendField(new Blockly.FieldTextInput('2'), 'a33');
+    this.setOutput(true, 'Matrix');
+    this.setColour(120);
+    this.setTooltip('matrice 3 par 3');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['mat_diag'] = {
+  init: function() {
+    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField(new Blockly.FieldTextInput('3'), 'a11').appendField('0');
+    this.appendDummyInput().appendField('0').appendField(new Blockly.FieldTextInput('2'), 'a22');
+    this.setOutput(true, 'Matrix');
+    this.setColour(120);
+    this.setTooltip('matrice diagonale');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['mat_id'] = {
+  init: function() {
+    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField('1').appendField('0');
+    this.appendDummyInput().appendField('0').appendField('1');
+    this.setOutput(true, 'Matrix');
+    this.setColour(120);
+    this.setTooltip('matrice identité');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['mat_id3'] = {
+  init: function() {
+    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField('1').appendField('0').appendField('0');
+    this.appendDummyInput().appendField('0').appendField('1').appendField('0');
+    this.appendDummyInput().appendField('0').appendField('0').appendField('1');
+    this.setOutput(true, 'Matrix');
+    this.setColour(120);
+    this.setTooltip('matrice identité');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['mat_alea'] = {
+  init: function() {
+    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField(new Blockly.FieldImage('img/die.png', 32, 32, 'X'));
+    this.setOutput(true, 'Matrix');
+    this.setColour(120);
+    this.setTooltip('matrice aléatoire');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['mat_alea3'] = {
+  init: function() {
+    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField(new Blockly.FieldImage('img/die.png', 32, 32, 'X'));
+    this.setOutput(true, 'Matrix');
+    this.setColour(120);
+    this.setTooltip('matrice aléatoire');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['mat_nulle'] = {
+  init: function() {
+    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField('0').appendField('0');
+    this.appendDummyInput().appendField('0').appendField('0');
+    this.setOutput(true, 'Matrix');
+    this.setColour(120);
+    this.setTooltip('matrice nulle');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['mat_nulle3'] = {
+  init: function() {
+    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField('0').appendField('0').appendField('0');
+    this.appendDummyInput().appendField('0').appendField('0').appendField('0');
+    this.appendDummyInput().appendField('0').appendField('0').appendField('0');
+    this.setOutput(true, 'Matrix');
+    this.setColour(120);
+    this.setTooltip('matrice nulle');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['mat_rotation'] = {
+  init: function() {
+    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField('rotation d\'angle').appendField(new Blockly.FieldAngle(45), 'angle');
+    this.setOutput(true, 'Matrix');
+    this.setColour(120);
+    this.setTooltip('matrice de rotation');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['mat_colonne1'] = {
+  init: function() {
+    this.appendValueInput('NAME').setCheck('Matrix').appendField('première colonne de');
+    this.setOutput(true, 'Vector');
+    this.setColour(20);
+    this.setTooltip('la première colonne de la matrice est un vecteur');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['mat_colonne2'] = {
+  init: function() {
+    this.appendValueInput('NAME').setCheck('Matrix').appendField('deuxième colonne de');
+    this.setOutput(true, 'Vector');
+    this.setColour(20);
+    this.setTooltip('la deuxième colonne de la matrice est un vecteur');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['mat_colonne3'] = {
+  init: function() {
+    this.appendValueInput('NAME').setCheck('Matrix').appendField('troisième colonne de');
+    this.setOutput(true, 'Vector');
+    this.setColour(20);
+    this.setTooltip('la troisième colonne de la matrice est un vecteur');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['mat_diagonal'] = {
+  init: function() {
+    this.appendValueInput('NAME').setCheck('Matrix').appendField('diagonale de');
+    this.setOutput(true, 'Vector');
+    this.setColour(20);
+    this.setTooltip('la diagonale de la matrice est un vecteur');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['mat_det'] = {
+  init: function() {
+    this.appendValueInput('matr').setCheck('Matrix').appendField('déterminant de');
+    this.setOutput(true, 'Number');
+    this.setColour(120);
+    this.setTooltip('déterminant');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['mat_inv'] = {
+  init: function() {
+    this.appendValueInput('matr').setCheck('Matrix').appendField('inverse de');
+    this.setOutput(true, 'Matrix');
+    this.setColour(120);
+    this.setTooltip('matrice inverse');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['mat_mult'] = {
+  init: function() {
+    this.appendValueInput('autre').appendField(new Blockly.FieldVariable('matrice'), 'lui').appendField('×');
+    this.setOutput(true);
+    this.setColour(120);
+    this.setTooltip('produit de matrices (ou de matrice et vecteur)');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['mat_arrondi'] = {
+  init: function() {
+    this.appendValueInput('autre').appendField('arrondi de');
+    this.setOutput(true);
+    this.setColour(120);
+    this.setTooltip('arrondi');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['mat_trace'] = {
+  init: function() {
+    this.appendValueInput('autre').setCheck('Matrix').appendField('trace de');
+    this.setOutput(true, 'Number');
+    this.setColour(120);
+    this.setTooltip('trace de la matrice');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['mat_transpose'] = {
+  init: function() {
+    this.appendValueInput('autre').setCheck('Matrix').appendField('transposée de');
+    this.setOutput(true, 'Matrix');
+    this.setColour(120);
+    this.setTooltip('transposition matricielle');
+    this.setHelpUrl('');
+  }
+};
+
 Blockly.Blocks['repeter_doucement'] = {
   init: function() {
     this.appendValueInput('TIMES').setCheck('Number').appendField('Repeter doucement');

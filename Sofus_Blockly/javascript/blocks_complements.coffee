@@ -1214,7 +1214,336 @@ Blockly.Blocks['costume'] = init: ->
   @setHelpUrl ''
   return
 
+# vecteurs et matrices
 
+Blockly.Blocks['vec_const'] = init: ->
+  @appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField new (Blockly.FieldTextInput)('3'), 'x'
+  @appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField new (Blockly.FieldTextInput)('2'), 'y'
+  @setOutput true, 'Vector'
+  @setColour 20
+  @setTooltip 'vecteur 2D'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['vec_3D'] = init: ->
+  @appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField new (Blockly.FieldTextInput)('3'), 'x'
+  @appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField new (Blockly.FieldTextInput)('2'), 'y'
+  @appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField new (Blockly.FieldTextInput)('1'), 'z'
+  @setOutput true, 'Vector'
+  @setColour 20
+  @setTooltip 'vecteur 3D'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['vec_alea'] = init: ->
+  @appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField 'vecteur aléatoire'
+  @setOutput true, 'Vector'
+  @setColour 20
+  @setTooltip 'vecteur aléatoire'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['vec_alea3'] = init: ->
+  @appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField 'vecteur aléatoire'
+  @setOutput true, 'Vector'
+  @setColour 20
+  @setTooltip 'vecteur aléatoire'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['vec_nul'] = init: ->
+  @appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField 'vecteur nul'
+  @setOutput true, 'Vector'
+  @setColour 20
+  @setTooltip 'vecteur nul'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['vec_nul3'] = init: ->
+  @appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField 'vecteur nul'
+  @setOutput true, 'Vector'
+  @setColour 20
+  @setTooltip 'vecteur nul'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['vec_aff'] = init: ->
+  @appendValueInput('vec').appendField new (Blockly.FieldImage)('img/arrowhead.png', 32, 32, '')
+  @setOutput true
+  @setColour 20
+  @setTooltip 'visibilité des matrices'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['vec_eq'] = init: ->
+  @appendValueInput('autre').setCheck([
+    'Vector'
+    'Matrix'
+  ]).appendField(new (Blockly.FieldVariable)('element'), 'lui').appendField '='
+  @setOutput true, 'Boolean'
+  @setColour 20
+  @setTooltip 'égalité de matrices'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['vec_add'] = init: ->
+  @appendValueInput('autre').appendField(new (Blockly.FieldVariable)('element'), 'lui').appendField '+'
+  @setOutput true
+  @setColour 20
+  @setTooltip 'addition'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['vec_sub'] = init: ->
+  @appendValueInput('autre').appendField(new (Blockly.FieldVariable)('element'), 'lui').appendField '-'
+  @setOutput true
+  @setColour 20
+  @setTooltip 'soustraction'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['vec_dot'] = init: ->
+  @appendValueInput('autre').setCheck('Vector').appendField(new (Blockly.FieldVariable)('element'), 'lui').appendField '.'
+  @setOutput true, 'Number'
+  @setColour 20
+  @setTooltip 'produit scalaire'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['vec_angle'] = init: ->
+  @appendValueInput('autre').setCheck('Vector').appendField(new (Blockly.FieldVariable)('element'), 'lui').appendField 'angle avec'
+  @setOutput true, 'Number'
+  @setColour 20
+  @setTooltip ''
+  @setHelpUrl 'angle de vecteurs (en radians)'
+  return
+Blockly.Blocks['vec_distance'] = init: ->
+  @appendValueInput('autre').setCheck('Vector').appendField(new (Blockly.FieldVariable)('element'), 'lui').appendField 'distance jusque'
+  @setOutput true, 'Number'
+  @setColour 20
+  @setTooltip ''
+  @setHelpUrl 'distance entre vecteurs (considérés comme des points)'
+  return
+Blockly.Blocks['vec_abscisse'] = init: ->
+  @appendValueInput('autre').setCheck('Vector').appendField 'abscisse de'
+  @setOutput true, 'Number'
+  @setColour 20
+  @setTooltip 'abscisse du vecteur'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['vec_ordonnee'] = init: ->
+  @appendValueInput('autre').setCheck('Vector').appendField 'ordonnée de'
+  @setOutput true, 'Number'
+  @setColour 20
+  @setTooltip 'ordonnée du vecteur'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['vec_colineaire'] = init: ->
+  @appendValueInput('autre').setCheck('Vector').appendField(new (Blockly.FieldVariable)('element'), 'lui').appendField 'est colinéaire à'
+  @setOutput true, 'Boolean'
+  @setColour 20
+  @setTooltip 'test de colinéarité (parallélisme ou alignement)'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['vec_perpendiculaire'] = init: ->
+  @appendValueInput('autre').setCheck('Vector').appendField(new (Blockly.FieldVariable)('element'), 'lui').appendField 'est perpendiculaire à'
+  @setOutput true, 'Boolean'
+  @setColour 20
+  @setTooltip 'perpendicularité entre vecteurs'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['vec_fois'] = init: ->
+  @appendValueInput('autre').setCheck('Number').appendField(new (Blockly.FieldVariable)('element'), 'lui').appendField '×'
+  @setOutput true
+  @setColour 20
+  @setTooltip 'produit par un nombre'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['vec_foisbis'] = init: ->
+  @appendValueInput('autre').appendField(new (Blockly.FieldTextInput)('3'), 'facteur').appendField '×'
+  @setOutput true
+  @setColour 20
+  @setTooltip 'produit nombre*matrice'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['vec_symmetry'] = init: ->
+  @appendValueInput('autre').setCheck('Vector').appendField(new (Blockly.FieldVariable)('element'), 'lui').appendField 'symétrique par rapport à'
+  @setOutput true, 'Vector'
+  @setColour 20
+  @setTooltip 'symétrie centrale'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['vec_rotation'] = init: ->
+  @appendValueInput('autre').setCheck('Vector').appendField(new (Blockly.FieldVariable)('element'), 'lui').appendField('tourné de').appendField(new (Blockly.FieldTextInput)('3.14'), 'angle').appendField 'radians autour de'
+  @setOutput true, 'Vector'
+  @setColour 20
+  @setTooltip 'rotation angle fixe'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['vec_norme'] = init: ->
+  @appendValueInput('autre').setCheck('Vector').appendField 'norme de'
+  @setOutput true, 'Number'
+  @setColour 20
+  @setTooltip 'norme (ou longueur)'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['vec_unitaire'] = init: ->
+  @appendValueInput('autre').setCheck('Vector').appendField 'normer'
+  @setOutput true, 'Vector'
+  @setColour 20
+  @setTooltip 'vecteur de norme 1 colinéaire à ce vecteur'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['vec_diagonal'] = init: ->
+  @appendValueInput('vecteur').setCheck('Vector').appendField 'diagonale'
+  @setOutput true, 'Matrix'
+  @setColour 20
+  @setTooltip 'matrice diagonale'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['mat_matrice'] = init: ->
+  @appendDummyInput().appendField(new (Blockly.FieldTextInput)('3'), 'a11').appendField new (Blockly.FieldTextInput)('-2'), 'a12'
+  @appendDummyInput().appendField(new (Blockly.FieldTextInput)('1'), 'a21').appendField new (Blockly.FieldTextInput)('5'), 'a22'
+  @setOutput true, 'Matrix'
+  @setColour 120
+  @setTooltip 'matrice 2 par 2'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['mat_3D'] = init: ->
+  @appendDummyInput().appendField(new (Blockly.FieldTextInput)('8'), 'a11').appendField(new (Blockly.FieldTextInput)('1'), 'a12').appendField new (Blockly.FieldTextInput)('6'), 'a13'
+  @appendDummyInput().appendField(new (Blockly.FieldTextInput)('3'), 'a21').appendField(new (Blockly.FieldTextInput)('5'), 'a22').appendField new (Blockly.FieldTextInput)('7'), 'a23'
+  @appendDummyInput().appendField(new (Blockly.FieldTextInput)('4'), 'a31').appendField(new (Blockly.FieldTextInput)('9'), 'a32').appendField new (Blockly.FieldTextInput)('2'), 'a33'
+  @setOutput true, 'Matrix'
+  @setColour 120
+  @setTooltip 'matrice 3 par 3'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['mat_diag'] = init: ->
+  @appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField(new (Blockly.FieldTextInput)('3'), 'a11').appendField '0'
+  @appendDummyInput().appendField('0').appendField new (Blockly.FieldTextInput)('2'), 'a22'
+  @setOutput true, 'Matrix'
+  @setColour 120
+  @setTooltip 'matrice diagonale'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['mat_id'] = init: ->
+  @appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField('1').appendField '0'
+  @appendDummyInput().appendField('0').appendField '1'
+  @setOutput true, 'Matrix'
+  @setColour 120
+  @setTooltip 'matrice identité'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['mat_id3'] = init: ->
+  @appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField('1').appendField('0').appendField '0'
+  @appendDummyInput().appendField('0').appendField('1').appendField '0'
+  @appendDummyInput().appendField('0').appendField('0').appendField '1'
+  @setOutput true, 'Matrix'
+  @setColour 120
+  @setTooltip 'matrice identité'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['mat_alea'] = init: ->
+  @appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField new (Blockly.FieldImage)('img/die.png', 32, 32, 'X')
+  @setOutput true, 'Matrix'
+  @setColour 120
+  @setTooltip 'matrice aléatoire'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['mat_alea3'] = init: ->
+  @appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField new (Blockly.FieldImage)('img/die.png', 32, 32, 'X')
+  @setOutput true, 'Matrix'
+  @setColour 120
+  @setTooltip 'matrice aléatoire'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['mat_nulle'] = init: ->
+  @appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField('0').appendField '0'
+  @appendDummyInput().appendField('0').appendField '0'
+  @setOutput true, 'Matrix'
+  @setColour 120
+  @setTooltip 'matrice nulle'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['mat_nulle3'] = init: ->
+  @appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField('0').appendField('0').appendField '0'
+  @appendDummyInput().appendField('0').appendField('0').appendField '0'
+  @appendDummyInput().appendField('0').appendField('0').appendField '0'
+  @setOutput true, 'Matrix'
+  @setColour 120
+  @setTooltip 'matrice nulle'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['mat_rotation'] = init: ->
+  @appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField('rotation d\'angle').appendField new (Blockly.FieldAngle)(45), 'angle'
+  @setOutput true, 'Matrix'
+  @setColour 120
+  @setTooltip 'matrice de rotation'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['mat_colonne1'] = init: ->
+  @appendValueInput('NAME').setCheck('Matrix').appendField 'première colonne de'
+  @setOutput true, 'Vector'
+  @setColour 20
+  @setTooltip 'la première colonne de la matrice est un vecteur'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['mat_colonne2'] = init: ->
+  @appendValueInput('NAME').setCheck('Matrix').appendField 'deuxième colonne de'
+  @setOutput true, 'Vector'
+  @setColour 20
+  @setTooltip 'la deuxième colonne de la matrice est un vecteur'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['mat_colonne3'] = init: ->
+  @appendValueInput('NAME').setCheck('Matrix').appendField 'troisième colonne de'
+  @setOutput true, 'Vector'
+  @setColour 20
+  @setTooltip 'la troisième colonne de la matrice est un vecteur'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['mat_diagonal'] = init: ->
+  @appendValueInput('NAME').setCheck('Matrix').appendField 'diagonale de'
+  @setOutput true, 'Vector'
+  @setColour 20
+  @setTooltip 'la diagonale de la matrice est un vecteur'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['mat_det'] = init: ->
+  @appendValueInput('matr').setCheck('Matrix').appendField 'déterminant de'
+  @setOutput true, 'Number'
+  @setColour 120
+  @setTooltip 'déterminant'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['mat_inv'] = init: ->
+  @appendValueInput('matr').setCheck('Matrix').appendField 'inverse de'
+  @setOutput true, 'Matrix'
+  @setColour 120
+  @setTooltip 'matrice inverse'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['mat_mult'] = init: ->
+  @appendValueInput('autre').appendField(new (Blockly.FieldVariable)('matrice'), 'lui').appendField '×'
+  @setOutput true
+  @setColour 120
+  @setTooltip 'produit de matrices (ou de matrice et vecteur)'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['mat_arrondi'] = init: ->
+  @appendValueInput('autre').appendField 'arrondi de'
+  @setOutput true
+  @setColour 120
+  @setTooltip 'arrondi'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['mat_trace'] = init: ->
+  @appendValueInput('autre').setCheck('Matrix').appendField 'trace de'
+  @setOutput true, 'Number'
+  @setColour 120
+  @setTooltip 'trace de la matrice'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['mat_transpose'] = init: ->
+  @appendValueInput('autre').setCheck('Matrix').appendField 'transposée de'
+  @setOutput true, 'Matrix'
+  @setColour 120
+  @setTooltip 'transposition matricielle'
+  @setHelpUrl ''
+  return
+
+
+
+# fin des vecteurs et matrices
 
 
 

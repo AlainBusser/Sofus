@@ -1,0 +1,44 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="variables_set" x="25" y="37">
+    <field name="VAR">C</field>
+    <value name="VALUE">
+      <block type="mat_matrice">
+        <field name="a11">3</field>
+        <field name="a12">1</field>
+        <field name="a21">5</field>
+        <field name="a22">2</field>
+      </block>
+    </value>
+    <next>
+      <block type="variables_set">
+        <field name="VAR">C1</field>
+        <value name="VALUE">
+          <block type="mat_matrice">
+            <field name="a11">2</field>
+            <field name="a12">-1</field>
+            <field name="a21">-5</field>
+            <field name="a22">3</field>
+          </block>
+        </value>
+        <next>
+          <block type="big_aff">
+            <value name="VAR">
+              <block type="vec_aff">
+                <value name="vec">
+                  <block type="vec_fois">
+                    <field name="lui">C</field>
+                    <value name="autre">
+                      <block type="variables_get">
+                        <field name="VAR">C1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

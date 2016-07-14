@@ -1,0 +1,74 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="variables_set" x="-67" y="-463">
+    <field name="VAR">t</field>
+    <value name="VALUE">
+      <block type="math_number">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+    <next>
+      <block type="controls_for">
+        <field name="VAR">n</field>
+        <value name="FROM">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <value name="TO">
+          <block type="math_number">
+            <field name="NUM">288</field>
+          </block>
+        </value>
+        <value name="BY">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="math_change">
+            <field name="VAR">t</field>
+            <value name="DELTA">
+              <block type="variables_get">
+                <field name="VAR">n</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_if">
+                <value name="IF0">
+                  <block type="math_number_property">
+                    <mutation divisor_input="false"></mutation>
+                    <field name="PROPERTY">WHOLE</field>
+                    <value name="NUMBER_TO_CHECK">
+                      <block type="math_arithmetic">
+                        <field name="OP">POWER</field>
+                        <value name="A">
+                          <block type="variables_get">
+                            <field name="VAR">t</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number">
+                            <field name="NUM">0.5</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="big_aff">
+                    <value name="VAR">
+                      <block type="variables_get">
+                        <field name="VAR">t</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

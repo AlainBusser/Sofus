@@ -1,0 +1,68 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="variables_set" x="25" y="-31">
+    <field name="VAR">A</field>
+    <value name="VALUE">
+      <block type="mat_matrice">
+        <field name="a11">1/2</field>
+        <field name="a12">0</field>
+        <field name="a21">1/2</field>
+        <field name="a22">1/2</field>
+      </block>
+    </value>
+    <next>
+      <block type="variables_set">
+        <field name="VAR">B</field>
+        <value name="VALUE">
+          <block type="vec_const">
+            <field name="x">100</field>
+            <field name="y">70</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR">C</field>
+            <value name="VALUE">
+              <block type="vec_const">
+                <field name="x">200</field>
+                <field name="y">340</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set">
+                <field name="VAR">C</field>
+                <value name="VALUE">
+                  <block type="vec_add">
+                    <field name="lui">B</field>
+                    <value name="autre">
+                      <block type="mat_mult">
+                        <field name="lui">A</field>
+                        <value name="autre">
+                          <block type="variables_get">
+                            <field name="VAR">C</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="big_aff">
+                    <value name="VAR">
+                      <block type="vec_aff">
+                        <value name="vec">
+                          <block type="variables_get">
+                            <field name="VAR">C</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

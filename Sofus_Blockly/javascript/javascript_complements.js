@@ -372,6 +372,333 @@ Blockly.JavaScript['costume'] = function(block) {
   return code = 'totos[toto].avatar(' + dropdown_cid + ');\n';
 };
 
+Blockly.JavaScript['vec_const'] = function(block) {
+  var code, text_x, text_y;
+  text_x = block.getFieldValue('x');
+  text_y = block.getFieldValue('y');
+  code = 'Vector.create([' + text_x + ',' + text_y + '])';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['vec_3D'] = function(block) {
+  var code, text_x, text_y, text_z;
+  text_x = block.getFieldValue('x');
+  text_y = block.getFieldValue('y');
+  text_z = block.getFieldValue('z');
+  code = 'Vector.create([' + text_x + ',' + text_y + ',' + text_z + '])';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['vec_alea'] = function(block) {
+  var code;
+  code = 'Vector.Random(2)';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['vec_alea3'] = function(block) {
+  var code;
+  code = 'Vector.Random(3)';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['vec_nul'] = function(block) {
+  var code;
+  code = 'Vector.Zero(2)';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['vec_nul3'] = function(block) {
+  var code;
+  code = 'Vector.Zero(3)';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['vec_aff'] = function(block) {
+  var code, value_vec;
+  value_vec = Blockly.JavaScript.valueToCode(block, 'vec', Blockly.JavaScript.ORDER_ATOMIC);
+  code = value_vec + '.inspect()';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['vec_eq'] = function(block) {
+  var code, value_autre, variable_lui;
+  variable_lui = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('lui'), Blockly.Variables.NAME_TYPE);
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC);
+  code = variable_lui + '.eql(' + value_autre + ')';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['vec_add'] = function(block) {
+  var code, value_autre, variable_lui;
+  variable_lui = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('lui'), Blockly.Variables.NAME_TYPE);
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC);
+  code = variable_lui + '.add(' + value_autre + ')';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['vec_sub'] = function(block) {
+  var code, value_autre, variable_lui;
+  variable_lui = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('lui'), Blockly.Variables.NAME_TYPE);
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC);
+  code = variable_lui + '.subtract(' + value_autre + ')';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['vec_dot'] = function(block) {
+  var code, value_autre, variable_lui;
+  variable_lui = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('lui'), Blockly.Variables.NAME_TYPE);
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC);
+  code = variable_lui + '.dot(' + value_autre + ')';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['vec_angle'] = function(block) {
+  var code, value_autre, variable_lui;
+  variable_lui = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('lui'), Blockly.Variables.NAME_TYPE);
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC);
+  code = variable_lui + '.angleFrom(' + value_autre + ')';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['vec_distance'] = function(block) {
+  var code, value_autre, variable_lui;
+  variable_lui = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('lui'), Blockly.Variables.NAME_TYPE);
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC);
+  code = variable_lui + '.distanceFrom(' + value_autre + ')';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['vec_abscisse'] = function(block) {
+  var code, value_autre;
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC);
+  code = value_autre + '.e(1)';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['vec_ordonnee'] = function(block) {
+  var code, value_autre;
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC);
+  code = value_autre + '.e(2)';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['vec_colineaire'] = function(block) {
+  var code, value_autre, variable_lui;
+  variable_lui = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('lui'), Blockly.Variables.NAME_TYPE);
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC);
+  code = '(' + variable_lui + '.isAntiparallelTo(' + value_autre + ')) || (' + variable_lui + '.isParallelTo(' + value_autre + '))';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['vec_perpendiculaire'] = function(block) {
+  var code, value_autre, variable_lui;
+  variable_lui = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('lui'), Blockly.Variables.NAME_TYPE);
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC);
+  code = variable_lui + '.isPerpendicularTo(' + value_autre + ')';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['vec_fois'] = function(block) {
+  var code, value_autre, variable_lui;
+  variable_lui = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('lui'), Blockly.Variables.NAME_TYPE);
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC);
+  code = variable_lui + '.multiply(' + value_autre + ')';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['vec_foisbis'] = function(block) {
+  var code, text_facteur, value_autre;
+  text_facteur = block.getFieldValue('facteur');
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC);
+  code = value_autre + '.multiply(' + text_facteur + ')';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['vec_symmetry'] = function(block) {
+  var code, value_autre, variable_lui;
+  variable_lui = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('lui'), Blockly.Variables.NAME_TYPE);
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC);
+  code = variable_lui + '.reflectionIn(' + value_autre + ')';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['vec_rotation'] = function(block) {
+  var code, text_angle, value_autre, variable_lui;
+  variable_lui = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('lui'), Blockly.Variables.NAME_TYPE);
+  text_angle = block.getFieldValue('angle');
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC);
+  code = variable_lui + '.rotate(' + text_angle + ',' + value_autre + ')';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['vec_norme'] = function(block) {
+  var code, value_autre;
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC);
+  code = value_autre + '.modulus()';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['vec_unitaire'] = function(block) {
+  var code, value_autre;
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC);
+  code = value_autre + '.toUnitVector()';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['vec_diagonal'] = function(block) {
+  var code, value_vecteur;
+  value_vecteur = Blockly.JavaScript.valueToCode(block, 'vecteur', Blockly.JavaScript.ORDER_ATOMIC);
+  code = value_vecteur + '.toDiagonalMatrix()';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['mat_matrice'] = function(block) {
+  var code, text_a11, text_a12, text_a21, text_a22;
+  text_a11 = block.getFieldValue('a11');
+  text_a12 = block.getFieldValue('a12');
+  text_a21 = block.getFieldValue('a21');
+  text_a22 = block.getFieldValue('a22');
+  code = 'Matrix.create([[' + text_a11 + ',' + text_a12 + '],[' + text_a21 + ',' + text_a22 + ']])';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['mat_3D'] = function(block) {
+  var code, text_a11, text_a12, text_a13, text_a21, text_a22, text_a23, text_a31, text_a32, text_a33;
+  text_a11 = block.getFieldValue('a11');
+  text_a12 = block.getFieldValue('a12');
+  text_a13 = block.getFieldValue('a13');
+  text_a21 = block.getFieldValue('a21');
+  text_a22 = block.getFieldValue('a22');
+  text_a23 = block.getFieldValue('a23');
+  text_a31 = block.getFieldValue('a31');
+  text_a32 = block.getFieldValue('a32');
+  text_a33 = block.getFieldValue('a33');
+  code = 'Matrix.create([[' + text_a11 + ',' + text_a12 + ',' + text_a13 + '],[' + text_a21 + ',' + text_a22 + ',' + text_a23 + '],[' + text_a31 + ',' + text_a32 + ',' + text_a33 + ']])';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['mat_diag'] = function(block) {
+  var code, text_a11, text_a22;
+  text_a11 = block.getFieldValue('a11');
+  text_a22 = block.getFieldValue('a22');
+  code = 'Matrix.Diagonal([' + text_a11 + ',' + text_a22 + '])';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['mat_id'] = function(block) {
+  var code;
+  code = 'Matrix.I(2)';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['mat_id3'] = function(block) {
+  var code;
+  code = 'Matrix.I(3)';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['mat_alea'] = function(block) {
+  var code;
+  code = 'Matrix.Random(2,2)';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['mat_alea3'] = function(block) {
+  var code;
+  code = 'Matrix.Random(3,3)';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['mat_nulle'] = function(block) {
+  var code;
+  code = 'Matrix.Zero(2,2)';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['mat_nulle3'] = function(block) {
+  var code;
+  code = 'Matrix.Zero(3,3)';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['mat_rotation'] = function(block) {
+  var angle_angle, code;
+  angle_angle = block.getFieldValue('angle');
+  code = 'Matrix.Rotation(Math.PI*' + angle_angle + '/180)';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['mat_colonne1'] = function(block) {
+  var code, value_name;
+  value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+  code = value_name + '.col(1)';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['mat_colonne2'] = function(block) {
+  var code, value_name;
+  value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+  code = value_name + '.col(2)';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['mat_colonne3'] = function(block) {
+  var code, value_name;
+  value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+  code = value_name + '.col(3)';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['mat_diagonal'] = function(block) {
+  var code, value_name;
+  value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+  code = value_name + '.diagonal()';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['mat_det'] = function(block) {
+  var code, value_matr;
+  value_matr = Blockly.JavaScript.valueToCode(block, 'matr', Blockly.JavaScript.ORDER_ATOMIC);
+  code = value_matr + '.determinant()';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['mat_inv'] = function(block) {
+  var code, value_matr;
+  value_matr = Blockly.JavaScript.valueToCode(block, 'matr', Blockly.JavaScript.ORDER_ATOMIC);
+  code = value_matr + '.inverse()';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['mat_mult'] = function(block) {
+  var code, value_autre, variable_lui;
+  variable_lui = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('lui'), Blockly.Variables.NAME_TYPE);
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC);
+  code = variable_lui + '.multiply(' + value_autre + ')';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['mat_arrondi'] = function(block) {
+  var code, value_autre;
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC);
+  code = value_autre + '.round()';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['mat_trace'] = function(block) {
+  var code, value_autre;
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC);
+  code = value_autre + '.trace()';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['mat_transpose'] = function(block) {
+  var code, value_autre;
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC);
+  code = value_autre + '.transpose()';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
 Blockly.JavaScript['repeter_doucement'] = function(block) {
   var code, statements, times;
   times = Blockly.JavaScript.valueToCode(block, 'TIMES', Blockly.JavaScript.ORDER_ATOMIC);

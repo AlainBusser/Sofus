@@ -1,0 +1,61 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="variables_set" x="27" y="23">
+    <field name="VAR">M</field>
+    <value name="VALUE">
+      <block type="mat_matrice">
+        <field name="a11">0.9</field>
+        <field name="a12">0.05</field>
+        <field name="a21">0.1</field>
+        <field name="a22">0.95</field>
+      </block>
+    </value>
+    <next>
+      <block type="variables_set">
+        <field name="VAR">U</field>
+        <value name="VALUE">
+          <block type="vec_const">
+            <field name="x">90</field>
+            <field name="y">30</field>
+          </block>
+        </value>
+        <next>
+          <block type="controls_repeat_ext">
+            <value name="TIMES">
+              <block type="math_number">
+                <field name="NUM">10</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="variables_set">
+                <field name="VAR">U</field>
+                <value name="VALUE">
+                  <block type="mat_mult">
+                    <field name="lui">M</field>
+                    <value name="autre">
+                      <block type="variables_get">
+                        <field name="VAR">U</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="big_aff">
+                    <value name="VAR">
+                      <block type="vec_aff">
+                        <value name="vec">
+                          <block type="variables_get">
+                            <field name="VAR">U</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

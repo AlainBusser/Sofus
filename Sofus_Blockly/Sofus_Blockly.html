@@ -11,6 +11,7 @@
   <script src="javascript/jquery-2.2.1.min.js"></script>
   <script src="javascript/tortue.js"></script>
   <script src="javascript/fractions.js"></script>
+  <script src="javascript/sylvester.js"></script>
   <script src="javascript/blocks_complements.js"></script>
   <script src="javascript/javascript_complements.js"></script>
   <script src="javascript/fr_complements.js"></script>
@@ -39,7 +40,7 @@
   (en bas à droite). </p>
 
 <table><tr><td>
-  <div id="blocklyDiv" style="height: 480px; width: 640px;"></div>
+  <div id="blocklyDiv" style="height: 480px; width: 800px;"></div>
 
   <xml id="toolbox" style="display: none">
     <category name="Variables" colour="330" custom="VARIABLE"></category>
@@ -50,6 +51,7 @@
           <value name="TEXT"><block type="variables_get"><field name="VAR">element</field></block></value>
     </block>
     <block type="text_prompt"></block>
+    <block type="vec_aff"></block>
 <block type="big_aff"></block>
 <block type="big_efface"></block>
     </category>    
@@ -173,6 +175,11 @@
 		  <block type="superieure"></block>
 		  <block type="infegale"></block>
 		  <block type="supegale"></block>
+      </category>
+      <category name="vecteurs">
+        <block type="vec_eq"></block>
+        <block type="vec_colineaire"></block>
+        <block type="vec_perpendiculaire"></block>
       </category>
     </category>
     <category name="Boucles" colour="120">
@@ -466,6 +473,73 @@
       </block>
         </category>
       </category>
+      <category name="matrices">
+    
+    <category name="Vecteurs" colour="20">
+		<category name="construction">
+		<block type="vec_const"></block>
+		<block type="vec_nul"></block>
+		<block type="vec_alea"></block>
+		<block type="vec_unitaire"></block>
+		</category>
+		<category name="opérations">
+		<block type="vec_add"></block>
+		<block type="vec_sub"></block>
+		<block type="vec_dot"></block>
+		<block type="vec_fois"></block>
+		<block type="vec_foisbis"></block>
+		</category>
+		<category name="géométrie">
+		<block type="vec_angle"></block>
+		<block type="vec_distance"></block>
+		<block type="vec_abscisse"></block>
+		<block type="vec_ordonnee"></block>
+		<block type="vec_norme"></block>
+		<block type="vec_symmetry"></block>
+		<block type="vec_rotation"></block>
+		</category>
+    </category>
+    
+    <category name="Matrices" colour="180">
+		<category name="construction">
+			<block type="mat_matrice"></block>
+			<block type="mat_diag"></block>
+			<block type="vec_diagonal"></block>
+			<block type="mat_id"></block>
+			<block type="mat_nulle"></block>
+			<block type="mat_alea"></block>
+			<block type="mat_rotation"></block>
+		</category>
+		<category name="opérations">
+			<block type="mat_mult"></block>
+			<block type="mat_inv"></block>
+			<block type="mat_det"></block>
+			<block type="mat_trace"></block>
+			<block type="mat_transpose"></block>
+			<block type="mat_arrondi"></block>
+		</category>
+		<category name="vecteurs">
+			<block type="mat_colonne1"></block>
+			<block type="mat_colonne2"></block>
+			<block type="mat_diagonal"></block>
+		</category>
+    </category>
+    <category name="3D">
+		<category name="vecteurs">
+		<block type="vec_3D"></block>
+		<block type="vec_alea3"></block>
+		<block type="vec_nul3"></block>
+		<block type="mat_colonne3"></block>
+		</category>
+		<category name="matrices">
+			<block type="mat_3D"></block>
+			<block type="mat_id3"></block>
+			<block type="mat_alea3"></block>
+			<block type="mat_nulle3"></block>
+		</category>
+    </category>
+    
+      </category>
     </category>
     
     
@@ -498,105 +572,69 @@
   <!-- fin du menu des outils et début du menu intégré au plan de travail -->
 
 <xml id="startBlocks" style="display: none">
-  <block type="reset" x="10" y="10">
+  <block type="big_efface" x="3" y="16">
     <next>
-      <block type="axes">
+      <block type="variables_set">
+        <field name="VAR">F</field>
+        <value name="VALUE">
+          <block type="constante_entier">
+            <field name="NUM">1</field>
+          </block>
+        </value>
         <next>
-          <block type="variables_set">
-            <field name="VAR">u</field>
-            <value name="VALUE">
+          <block type="controls_repeat_ext">
+            <value name="TIMES">
               <block type="math_number">
-                <field name="NUM">3</field>
+                <field name="NUM">10</field>
               </block>
             </value>
-            <next>
-              <block type="controls_for">
-                <field name="VAR">n</field>
-                <value name="FROM">
-                  <block type="math_number">
-                    <field name="NUM">1</field>
-                  </block>
-                </value>
-                <value name="TO">
-                  <block type="math_number">
-                    <field name="NUM">300</field>
-                  </block>
-                </value>
-                <value name="BY">
-                  <block type="math_number">
-                    <field name="NUM">1</field>
-                  </block>
-                </value>
-                <statement name="DO">
-                  <block type="sophus_augmenter_fract" inline="false">
-                    <field name="VAR">u</field>
-                    <field name="DENOM">100</field>
-                    <value name="DELTA">
-                      <block type="math_arithmetic" inline="false">
-                        <field name="OP">DIVIDE</field>
-                        <value name="A">
-                          <block type="math_arithmetic" inline="false">
-                            <field name="OP">MINUS</field>
-                            <value name="A">
-                              <block type="math_number">
-                                <field name="NUM">200</field>
-                              </block>
-                            </value>
-                            <value name="B">
-                              <block type="variables_get">
-                                <field name="VAR">u</field>
-                              </block>
-                            </value>
-                          </block>
-                        </value>
-                        <value name="B">
-                          <block type="math_number">
-                            <field name="NUM">40</field>
+            <statement name="DO">
+              <block type="variables_set">
+                <field name="VAR">F</field>
+                <value name="VALUE">
+                  <block type="inverse">
+                    <value name="NAME">
+                      <block type="frac_plus">
+                        <field name="FR1">F</field>
+                        <value name="NAME">
+                          <block type="constante_entier">
+                            <field name="NUM">1</field>
                           </block>
                         </value>
                       </block>
                     </value>
-                    <next>
-                      <block type="tortue_teleport">
-                        <value name="ABS">
-                          <block type="variables_get">
-                            <field name="VAR">n</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="big_aff">
+                    <value name="VAR">
+                      <block type="text_join" inline="false">
+                        <mutation items="3"></mutation>
+                        <value name="ADD0">
+                          <block type="variables_get" collapsed="true">
+                            <field name="VAR">F</field>
                           </block>
                         </value>
-                        <value name="ORD">
-                          <block type="variables_get">
-                            <field name="VAR">u</field>
+                        <value name="ADD1">
+                          <block type="text" collapsed="true">
+                            <field name="TEXT"> est la somme de </field>
                           </block>
                         </value>
-                        <next>
-                          <block type="controls_if">
-                            <value name="IF0">
-                              <block type="math_number_property">
-                                <mutation divisor_input="true"></mutation>
-                                <field name="PROPERTY">DIVISIBLE_BY</field>
-                                <value name="NUMBER_TO_CHECK">
-                                  <block type="variables_get">
-                                    <field name="VAR">n</field>
-                                  </block>
-                                </value>
-                                <value name="DIVISOR">
-                                  <block type="math_number">
-                                    <field name="NUM">10</field>
-                                  </block>
-                                </value>
+                        <value name="ADD2">
+                          <block type="egyptian" collapsed="true">
+                            <value name="FRAC">
+                              <block type="variables_get">
+                                <field name="VAR">F</field>
                               </block>
                             </value>
-                            <statement name="DO0">
-                              <block type="tampon"></block>
-                            </statement>
                           </block>
-                        </next>
+                        </value>
                       </block>
-                    </next>
+                    </value>
                   </block>
-                </statement>
+                </next>
               </block>
-            </next>
+            </statement>
           </block>
         </next>
       </block>
@@ -680,7 +718,7 @@ function ouvrirFichier() {
 			workspace.clear();
 			Blockly.Xml.domToWorkspace(workspace, Blockly.Xml.textToDom(textFromFileLoaded));
 		} catch (e) {
-			alert("ce fichier ne semble pas être lisible par Blockly");
+			alert("ce fichier est-il un fichier Sofus ?");
 		};
 	}
 	fileReader.readAsText(fileToLoad, "UTF-8");
@@ -688,7 +726,7 @@ function ouvrirFichier() {
 function sauverFichier() {
 	var textToWrite = Blockly.Xml.domToPrettyText( Blockly.Xml.workspaceToDom(workspace) );
 	var textFileAsBlob = new Blob([textToWrite], {type:'text/plain'});
-	var fileNameToSaveAs = prompt("nom du fichier (sauvé dans le dossier de téléchargements) ?", "fichier.txt");
+	var fileNameToSaveAs = prompt("nom du fichier (sauvé dans le dossier de téléchargements) ?", "fichier.sof");
 	if (fileNameToSaveAs==null) {
 		return;
 	}

@@ -1,0 +1,73 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="big_efface" x="5" y="-28">
+    <next>
+      <block type="variables_set">
+        <field name="VAR">X</field>
+        <value name="VALUE">
+          <block type="vec_const">
+            <field name="x">1100</field>
+            <field name="y">1100</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR">M</field>
+            <value name="VALUE">
+              <block type="mat_matrice">
+                <field name="a11">0.9</field>
+                <field name="a12">0.15</field>
+                <field name="a21">0.1</field>
+                <field name="a22">0.85</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set">
+                <field name="VAR">R</field>
+                <value name="VALUE">
+                  <block type="vec_const">
+                    <field name="x">-5</field>
+                    <field name="y">5</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set">
+                    <field name="VAR">S</field>
+                    <value name="VALUE">
+                      <block type="vec_const">
+                        <field name="x">1300</field>
+                        <field name="y">900</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="big_aff">
+                        <value name="VAR">
+                          <block type="vec_aff" collapsed="true">
+                            <value name="vec">
+                              <block type="vec_add">
+                                <field name="lui">R</field>
+                                <value name="autre">
+                                  <block type="vec_fois">
+                                    <field name="lui">M</field>
+                                    <value name="autre">
+                                      <block type="variables_get">
+                                        <field name="VAR">S</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

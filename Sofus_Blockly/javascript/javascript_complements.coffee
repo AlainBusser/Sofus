@@ -275,7 +275,381 @@ Blockly.JavaScript['costume'] = (block) ->
   dropdown_cid = block.getFieldValue('CID')
   code = 'totos[toto].avatar('+ dropdown_cid+');\n'
 
+# vecteurs et matrices
 
+Blockly.JavaScript['vec_const'] = (block) ->
+  text_x = block.getFieldValue('x')
+  text_y = block.getFieldValue('y')
+  code = 'Vector.create([' + text_x + ',' + text_y + '])'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['vec_3D'] = (block) ->
+  text_x = block.getFieldValue('x')
+  text_y = block.getFieldValue('y')
+  text_z = block.getFieldValue('z')
+  code = 'Vector.create([' + text_x + ',' + text_y + ',' + text_z + '])'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['vec_alea'] = (block) ->
+  code = 'Vector.Random(2)'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['vec_alea3'] = (block) ->
+  code = 'Vector.Random(3)'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['vec_nul'] = (block) ->
+  code = 'Vector.Zero(2)'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['vec_nul3'] = (block) ->
+  code = 'Vector.Zero(3)'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['vec_aff'] = (block) ->
+  value_vec = Blockly.JavaScript.valueToCode(block, 'vec', Blockly.JavaScript.ORDER_ATOMIC)
+  code = value_vec + '.inspect()'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['vec_eq'] = (block) ->
+  variable_lui = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('lui'), Blockly.Variables.NAME_TYPE)
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC)
+  code = variable_lui + '.eql(' + value_autre + ')'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['vec_add'] = (block) ->
+  variable_lui = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('lui'), Blockly.Variables.NAME_TYPE)
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC)
+  code = variable_lui + '.add(' + value_autre + ')'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['vec_sub'] = (block) ->
+  variable_lui = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('lui'), Blockly.Variables.NAME_TYPE)
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC)
+  code = variable_lui + '.subtract(' + value_autre + ')'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['vec_dot'] = (block) ->
+  variable_lui = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('lui'), Blockly.Variables.NAME_TYPE)
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC)
+  code = variable_lui + '.dot(' + value_autre + ')'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['vec_angle'] = (block) ->
+  variable_lui = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('lui'), Blockly.Variables.NAME_TYPE)
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC)
+  code = variable_lui + '.angleFrom(' + value_autre + ')'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['vec_distance'] = (block) ->
+  variable_lui = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('lui'), Blockly.Variables.NAME_TYPE)
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC)
+  code = variable_lui + '.distanceFrom(' + value_autre + ')'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['vec_abscisse'] = (block) ->
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC)
+  code = value_autre + '.e(1)'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['vec_ordonnee'] = (block) ->
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC)
+  code = value_autre + '.e(2)'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['vec_colineaire'] = (block) ->
+  variable_lui = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('lui'), Blockly.Variables.NAME_TYPE)
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC)
+  code = '(' + variable_lui + '.isAntiparallelTo(' + value_autre + ')) || (' + variable_lui + '.isParallelTo(' + value_autre + '))'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['vec_perpendiculaire'] = (block) ->
+  variable_lui = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('lui'), Blockly.Variables.NAME_TYPE)
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC)
+  code = variable_lui + '.isPerpendicularTo(' + value_autre + ')'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['vec_fois'] = (block) ->
+  variable_lui = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('lui'), Blockly.Variables.NAME_TYPE)
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC)
+  code = variable_lui + '.multiply(' + value_autre + ')'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['vec_foisbis'] = (block) ->
+  text_facteur = block.getFieldValue('facteur')
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC)
+  code = value_autre + '.multiply(' + text_facteur + ')'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['vec_symmetry'] = (block) ->
+  variable_lui = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('lui'), Blockly.Variables.NAME_TYPE)
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC)
+  code = variable_lui + '.reflectionIn(' + value_autre + ')'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['vec_rotation'] = (block) ->
+  variable_lui = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('lui'), Blockly.Variables.NAME_TYPE)
+  text_angle = block.getFieldValue('angle')
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC)
+  code = variable_lui + '.rotate(' + text_angle + ',' + value_autre + ')'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['vec_norme'] = (block) ->
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC)
+  code = value_autre + '.modulus()'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['vec_unitaire'] = (block) ->
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC)
+  code = value_autre + '.toUnitVector()'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['vec_diagonal'] = (block) ->
+  value_vecteur = Blockly.JavaScript.valueToCode(block, 'vecteur', Blockly.JavaScript.ORDER_ATOMIC)
+  code = value_vecteur + '.toDiagonalMatrix()'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['mat_matrice'] = (block) ->
+  text_a11 = block.getFieldValue('a11')
+  text_a12 = block.getFieldValue('a12')
+  text_a21 = block.getFieldValue('a21')
+  text_a22 = block.getFieldValue('a22')
+  code = 'Matrix.create([[' + text_a11 + ',' + text_a12 + '],[' + text_a21 + ',' + text_a22 + ']])'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['mat_3D'] = (block) ->
+  text_a11 = block.getFieldValue('a11')
+  text_a12 = block.getFieldValue('a12')
+  text_a13 = block.getFieldValue('a13')
+  text_a21 = block.getFieldValue('a21')
+  text_a22 = block.getFieldValue('a22')
+  text_a23 = block.getFieldValue('a23')
+  text_a31 = block.getFieldValue('a31')
+  text_a32 = block.getFieldValue('a32')
+  text_a33 = block.getFieldValue('a33')
+  code = 'Matrix.create([[' + text_a11 + ',' + text_a12 + ',' + text_a13 + '],[' + text_a21 + ',' + text_a22 + ',' + text_a23 + '],[' + text_a31 + ',' + text_a32 + ',' + text_a33 + ']])'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['mat_diag'] = (block) ->
+  text_a11 = block.getFieldValue('a11')
+  text_a22 = block.getFieldValue('a22')
+  code = 'Matrix.Diagonal([' + text_a11 + ',' + text_a22 + '])'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['mat_id'] = (block) ->
+  code = 'Matrix.I(2)'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['mat_id3'] = (block) ->
+  code = 'Matrix.I(3)'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['mat_alea'] = (block) ->
+  code = 'Matrix.Random(2,2)'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['mat_alea3'] = (block) ->
+  code = 'Matrix.Random(3,3)'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['mat_nulle'] = (block) ->
+  code = 'Matrix.Zero(2,2)'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['mat_nulle3'] = (block) ->
+  code = 'Matrix.Zero(3,3)'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['mat_rotation'] = (block) ->
+  angle_angle = block.getFieldValue('angle')
+  code = 'Matrix.Rotation(Math.PI*' + angle_angle + '/180)'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['mat_colonne1'] = (block) ->
+  value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC)
+  code = value_name + '.col(1)'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['mat_colonne2'] = (block) ->
+  value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC)
+  code = value_name + '.col(2)'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['mat_colonne3'] = (block) ->
+  value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC)
+  code = value_name + '.col(3)'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['mat_diagonal'] = (block) ->
+  value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC)
+  code = value_name + '.diagonal()'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['mat_det'] = (block) ->
+  value_matr = Blockly.JavaScript.valueToCode(block, 'matr', Blockly.JavaScript.ORDER_ATOMIC)
+  code = value_matr + '.determinant()'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['mat_inv'] = (block) ->
+  value_matr = Blockly.JavaScript.valueToCode(block, 'matr', Blockly.JavaScript.ORDER_ATOMIC)
+  code = value_matr + '.inverse()'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['mat_mult'] = (block) ->
+  variable_lui = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('lui'), Blockly.Variables.NAME_TYPE)
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC)
+  code = variable_lui + '.multiply(' + value_autre + ')'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['mat_arrondi'] = (block) ->
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC)
+  code = value_autre + '.round()'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['mat_trace'] = (block) ->
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC)
+  code = value_autre + '.trace()'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['mat_transpose'] = (block) ->
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC)
+  code = value_autre + '.transpose()'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+
+# fin des vecteurs et matrices
 
 
 Blockly.JavaScript['repeter_doucement'] = (block) ->

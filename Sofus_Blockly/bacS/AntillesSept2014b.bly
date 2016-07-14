@@ -1,0 +1,104 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="variables_set" x="27" y="47">
+    <field name="VAR">I</field>
+    <value name="VALUE">
+      <block type="mat_id"></block>
+    </value>
+    <next>
+      <block type="variables_set">
+        <field name="VAR">U</field>
+        <value name="VALUE">
+          <block type="vec_const">
+            <field name="x">50</field>
+            <field name="y">10</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR">A</field>
+            <value name="VALUE">
+              <block type="mat_matrice">
+                <field name="a11">0.6</field>
+                <field name="a12">0.15</field>
+                <field name="a21">0.2</field>
+                <field name="a22">0.4</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set">
+                <field name="VAR">B</field>
+                <value name="VALUE">
+                  <block type="vec_const">
+                    <field name="x">1</field>
+                    <field name="y">3</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set">
+                    <field name="VAR">D</field>
+                    <value name="VALUE">
+                      <block type="mat_diag">
+                        <field name="a11">0.3</field>
+                        <field name="a22">0.7</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set">
+                        <field name="VAR">P</field>
+                        <value name="VALUE">
+                          <block type="mat_matrice">
+                            <field name="a11">1</field>
+                            <field name="a12">3</field>
+                            <field name="a21">-2</field>
+                            <field name="a22">2</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="variables_set">
+                            <field name="VAR">Q</field>
+                            <value name="VALUE">
+                              <block type="mat_inv" collapsed="true">
+                                <value name="matr">
+                                  <block type="variables_get">
+                                    <field name="VAR">P</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="big_aff">
+                                <value name="VAR">
+                                  <block type="vec_aff">
+                                    <value name="vec">
+                                      <block type="vec_fois" collapsed="true">
+                                        <field name="lui">P</field>
+                                        <value name="autre">
+                                          <block type="vec_fois">
+                                            <field name="lui">D</field>
+                                            <value name="autre">
+                                              <block type="variables_get">
+                                                <field name="VAR">Q</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

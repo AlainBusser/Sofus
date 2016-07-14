@@ -1,0 +1,81 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="big_efface" x="32" y="34">
+    <next>
+      <block type="variables_set">
+        <field name="VAR">V</field>
+        <value name="VALUE">
+          <block type="vec_const">
+            <field name="x">50</field>
+            <field name="y">60</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR">R</field>
+            <value name="VALUE">
+              <block type="vec_const">
+                <field name="x">30</field>
+                <field name="y">10</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set">
+                <field name="VAR">M</field>
+                <value name="VALUE">
+                  <block type="mat_matrice">
+                    <field name="a11">0.2</field>
+                    <field name="a12">0.1</field>
+                    <field name="a21">0.6</field>
+                    <field name="a22">0.3</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="controls_repeat_ext">
+                    <value name="TIMES">
+                      <block type="math_number">
+                        <field name="NUM">10</field>
+                      </block>
+                    </value>
+                    <statement name="DO">
+                      <block type="variables_set">
+                        <field name="VAR">V</field>
+                        <value name="VALUE">
+                          <block type="vec_add">
+                            <field name="lui">R</field>
+                            <value name="autre">
+                              <block type="vec_fois">
+                                <field name="lui">M</field>
+                                <value name="autre">
+                                  <block type="variables_get">
+                                    <field name="VAR">V</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="big_aff">
+                            <value name="VAR">
+                              <block type="vec_aff">
+                                <value name="vec">
+                                  <block type="variables_get">
+                                    <field name="VAR">V</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

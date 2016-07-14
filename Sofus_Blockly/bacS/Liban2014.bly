@@ -1,0 +1,87 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="big_efface" x="3" y="-12">
+    <next>
+      <block type="variables_set">
+        <field name="VAR">U</field>
+        <value name="VALUE">
+          <block type="vec_3D">
+            <field name="x">1</field>
+            <field name="y">0</field>
+            <field name="z">0</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR">A</field>
+            <value name="VALUE">
+              <block type="mat_3D">
+                <field name="a11">0.95</field>
+                <field name="a12">0</field>
+                <field name="a13">0</field>
+                <field name="a21">0.05</field>
+                <field name="a22">0.8</field>
+                <field name="a23">0</field>
+                <field name="a31">0</field>
+                <field name="a32">0.2</field>
+                <field name="a33">1</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set">
+                <field name="VAR">D</field>
+                <value name="VALUE">
+                  <block type="vec_diagonal">
+                    <value name="vecteur">
+                      <block type="vec_3D">
+                        <field name="x">0.95</field>
+                        <field name="y">0.8</field>
+                        <field name="z">1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="controls_repeat_ext">
+                    <value name="TIMES">
+                      <block type="math_number">
+                        <field name="NUM">20</field>
+                      </block>
+                    </value>
+                    <statement name="DO">
+                      <block type="variables_set">
+                        <field name="VAR">U</field>
+                        <value name="VALUE">
+                          <block type="vec_fois">
+                            <field name="lui">A</field>
+                            <value name="autre">
+                              <block type="variables_get">
+                                <field name="VAR">U</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="big_aff">
+                            <value name="VAR">
+                              <block type="vec_aff">
+                                <value name="vec">
+                                  <block type="variables_get">
+                                    <field name="VAR">U</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

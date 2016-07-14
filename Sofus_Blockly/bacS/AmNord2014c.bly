@@ -1,0 +1,169 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="big_efface" x="5" y="-28">
+    <next>
+      <block type="variables_set">
+        <field name="VAR">n</field>
+        <value name="VALUE">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR">X</field>
+            <value name="VALUE">
+              <block type="vec_const">
+                <field name="x">1100</field>
+                <field name="y">1100</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set">
+                <field name="VAR">M</field>
+                <value name="VALUE">
+                  <block type="mat_matrice">
+                    <field name="a11">0.9</field>
+                    <field name="a12">0.15</field>
+                    <field name="a21">0.1</field>
+                    <field name="a22">0.85</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set">
+                    <field name="VAR">R</field>
+                    <value name="VALUE">
+                      <block type="vec_const">
+                        <field name="x">-5</field>
+                        <field name="y">5</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="controls_whileUntil">
+                        <field name="MODE">UNTIL</field>
+                        <value name="BOOL">
+                          <block type="logic_operation" inline="false">
+                            <field name="OP">AND</field>
+                            <value name="A">
+                              <block type="logic_compare" inline="false" collapsed="true">
+                                <field name="OP">LT</field>
+                                <value name="A">
+                                  <block type="math_arithmetic" inline="false" collapsed="true">
+                                    <field name="OP">MINUS</field>
+                                    <value name="A">
+                                      <block type="math_number">
+                                        <field name="NUM">1300</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="vec_abscisse" collapsed="true">
+                                        <value name="autre">
+                                          <block type="variables_get">
+                                            <field name="VAR">X</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number">
+                                    <field name="NUM">1.5</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="logic_compare" inline="false" collapsed="true">
+                                <field name="OP">LT</field>
+                                <value name="A">
+                                  <block type="math_arithmetic" inline="false" collapsed="true">
+                                    <field name="OP">MINUS</field>
+                                    <value name="A">
+                                      <block type="vec_ordonnee" collapsed="true">
+                                        <value name="autre">
+                                          <block type="variables_get">
+                                            <field name="VAR">X</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number">
+                                        <field name="NUM">900</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number">
+                                    <field name="NUM">1.5</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO">
+                          <block type="math_change">
+                            <field name="VAR">n</field>
+                            <value name="DELTA">
+                              <block type="math_number">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="variables_set" collapsed="true">
+                                <field name="VAR">X</field>
+                                <value name="VALUE">
+                                  <block type="vec_add" collapsed="true">
+                                    <field name="lui">R</field>
+                                    <value name="autre">
+                                      <block type="vec_fois">
+                                        <field name="lui">M</field>
+                                        <value name="autre">
+                                          <block type="variables_get">
+                                            <field name="VAR">X</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="big_aff" collapsed="true">
+                                    <value name="VAR">
+                                      <block type="vec_aff" collapsed="true">
+                                        <value name="vec">
+                                          <block type="variables_get">
+                                            <field name="VAR">X</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="big_aff">
+                            <value name="VAR">
+                              <block type="variables_get">
+                                <field name="VAR">n</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

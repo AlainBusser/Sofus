@@ -1,0 +1,146 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="big_efface" x="25" y="-73">
+    <next>
+      <block type="variables_set">
+        <field name="VAR">A</field>
+        <value name="VALUE">
+          <block type="mat_matrice">
+            <field name="a11">1/2</field>
+            <field name="a12">0</field>
+            <field name="a21">1/2</field>
+            <field name="a22">1/2</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR">I</field>
+            <value name="VALUE">
+              <block type="mat_id"></block>
+            </value>
+            <next>
+              <block type="variables_set">
+                <field name="VAR">T</field>
+                <value name="VALUE">
+                  <block type="mat_matrice">
+                    <field name="a11">0</field>
+                    <field name="a12">0</field>
+                    <field name="a21">1</field>
+                    <field name="a22">0</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set">
+                    <field name="VAR">P</field>
+                    <value name="VALUE">
+                      <block type="variables_get">
+                        <field name="VAR">I</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="controls_for">
+                        <field name="VAR">n</field>
+                        <value name="FROM">
+                          <block type="math_number">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                        <value name="TO">
+                          <block type="math_number">
+                            <field name="NUM">10</field>
+                          </block>
+                        </value>
+                        <value name="BY">
+                          <block type="math_number">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                        <statement name="DO">
+                          <block type="variables_set">
+                            <field name="VAR">P</field>
+                            <value name="VALUE">
+                              <block type="vec_fois">
+                                <field name="lui">P</field>
+                                <value name="autre">
+                                  <block type="variables_get">
+                                    <field name="VAR">A</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="variables_set">
+                                <field name="VAR">Q</field>
+                                <value name="VALUE">
+                                  <block type="vec_add">
+                                    <field name="lui">I</field>
+                                    <value name="autre">
+                                      <block type="vec_fois">
+                                        <field name="lui">T</field>
+                                        <value name="autre">
+                                          <block type="variables_get">
+                                            <field name="VAR">n</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="variables_set">
+                                    <field name="VAR">Q</field>
+                                    <value name="VALUE">
+                                      <block type="vec_fois">
+                                        <field name="lui">Q</field>
+                                        <value name="autre">
+                                          <block type="math_arithmetic">
+                                            <field name="OP">POWER</field>
+                                            <value name="A">
+                                              <block type="math_number">
+                                                <field name="NUM">0.5</field>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="variables_get">
+                                                <field name="VAR">n</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="big_aff">
+                                        <value name="VAR">
+                                          <block type="vec_aff">
+                                            <value name="vec">
+                                              <block type="vec_sub">
+                                                <field name="lui">P</field>
+                                                <value name="autre">
+                                                  <block type="variables_get">
+                                                    <field name="VAR">Q</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

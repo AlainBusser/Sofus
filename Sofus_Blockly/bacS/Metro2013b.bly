@@ -1,0 +1,141 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="variables_set" x="69" y="46">
+    <field name="VAR">A</field>
+    <value name="VALUE">
+      <block type="mat_matrice">
+        <field name="a11">0.95</field>
+        <field name="a12">0.01</field>
+        <field name="a21">0.05</field>
+        <field name="a22">0.99</field>
+      </block>
+    </value>
+    <next>
+      <block type="variables_set">
+        <field name="VAR">X</field>
+        <value name="VALUE">
+          <block type="vec_foisbis">
+            <field name="facteur">250000</field>
+            <value name="autre">
+              <block type="vec_const">
+                <field name="x">0.7</field>
+                <field name="y">0.3</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR">P</field>
+            <value name="VALUE">
+              <block type="mat_matrice">
+                <field name="a11">1</field>
+                <field name="a12">-1</field>
+                <field name="a21">5</field>
+                <field name="a22">1</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set">
+                <field name="VAR">Q</field>
+                <value name="VALUE">
+                  <block type="mat_matrice">
+                    <field name="a11">1</field>
+                    <field name="a12">1</field>
+                    <field name="a21">-5</field>
+                    <field name="a22">1</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="big_aff" collapsed="true">
+                    <value name="VAR">
+                      <block type="vec_aff">
+                        <value name="vec">
+                          <block type="vec_fois">
+                            <field name="lui">P</field>
+                            <value name="autre">
+                              <block type="variables_get">
+                                <field name="VAR">Q</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="big_aff" collapsed="true">
+                        <value name="VAR">
+                          <block type="vec_aff">
+                            <value name="vec">
+                              <block type="vec_fois">
+                                <field name="lui">Q</field>
+                                <value name="autre">
+                                  <block type="variables_get">
+                                    <field name="VAR">P</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="big_aff" collapsed="true">
+                            <value name="VAR">
+                              <block type="vec_aff">
+                                <value name="vec">
+                                  <block type="vec_foisbis">
+                                    <field name="facteur">6</field>
+                                    <value name="autre">
+                                      <block type="mat_inv">
+                                        <value name="matr">
+                                          <block type="variables_get">
+                                            <field name="VAR">P</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="big_aff" collapsed="true">
+                                <value name="VAR">
+                                  <block type="vec_aff">
+                                    <value name="vec">
+                                      <block type="vec_foisbis">
+                                        <field name="facteur">1/6</field>
+                                        <value name="autre">
+                                          <block type="vec_fois">
+                                            <field name="lui">Q</field>
+                                            <value name="autre">
+                                              <block type="vec_fois">
+                                                <field name="lui">A</field>
+                                                <value name="autre">
+                                                  <block type="variables_get">
+                                                    <field name="VAR">P</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

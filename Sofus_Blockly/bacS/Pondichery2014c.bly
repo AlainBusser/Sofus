@@ -1,0 +1,155 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="variables_set" x="16" y="33">
+    <field name="VAR">C</field>
+    <value name="VALUE">
+      <block type="vec_const">
+        <field name="x">17/46</field>
+        <field name="y">7/23</field>
+      </block>
+    </value>
+    <next>
+      <block type="variables_set">
+        <field name="VAR">A</field>
+        <value name="VALUE">
+          <block type="mat_matrice">
+            <field name="a11">0.4</field>
+            <field name="a12">0.4</field>
+            <field name="a21">0.2</field>
+            <field name="a22">0.1</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR">B</field>
+            <value name="VALUE">
+              <block type="vec_const">
+                <field name="x">0.1</field>
+                <field name="y">0.2</field>
+              </block>
+            </value>
+            <next>
+              <block type="big_aff">
+                <value name="VAR">
+                  <block type="vec_aff" collapsed="true">
+                    <value name="vec">
+                      <block type="variables_get">
+                        <field name="VAR">C</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="big_aff">
+                    <value name="VAR">
+                      <block type="vec_aff" collapsed="true">
+                        <value name="vec">
+                          <block type="vec_add">
+                            <field name="lui">B</field>
+                            <value name="autre">
+                              <block type="vec_fois">
+                                <field name="lui">A</field>
+                                <value name="autre">
+                                  <block type="variables_get">
+                                    <field name="VAR">C</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set">
+                        <field name="VAR">I</field>
+                        <value name="VALUE">
+                          <block type="mat_id"></block>
+                        </value>
+                        <next>
+                          <block type="variables_set" collapsed="true">
+                            <field name="VAR">N</field>
+                            <value name="VALUE">
+                              <block type="vec_sub">
+                                <field name="lui">I</field>
+                                <value name="autre">
+                                  <block type="variables_get">
+                                    <field name="VAR">A</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="big_aff" collapsed="true">
+                                <value name="VAR">
+                                  <block type="vec_aff">
+                                    <value name="vec">
+                                      <block type="vec_fois">
+                                        <field name="lui">N</field>
+                                        <value name="autre">
+                                          <block type="variables_get">
+                                            <field name="VAR">C</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="variables_set">
+                                    <field name="VAR">N1</field>
+                                    <value name="VALUE">
+                                      <block type="mat_matrice">
+                                        <field name="a11">45/23</field>
+                                        <field name="a12">20/23</field>
+                                        <field name="a21">10/23</field>
+                                        <field name="a22">30/23</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="big_aff" collapsed="true">
+                                        <value name="VAR">
+                                          <block type="vec_aff">
+                                            <value name="vec">
+                                              <block type="variables_get">
+                                                <field name="VAR">N1</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="big_aff" collapsed="true">
+                                            <value name="VAR">
+                                              <block type="vec_aff">
+                                                <value name="vec">
+                                                  <block type="mat_inv">
+                                                    <value name="matr">
+                                                      <block type="variables_get">
+                                                        <field name="VAR">N</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>
