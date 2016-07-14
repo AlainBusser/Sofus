@@ -1,4 +1,4 @@
-Version 1.6 avec corrections de bugs pour RMLL
+Version 1.7 avec matrices
 
 [attention]: https://cdn0.iconfinder.com/data/icons/woocons1/Sign%20Warning.png "Attention !"
 
