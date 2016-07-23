@@ -151,6 +151,18 @@ Blockly.JavaScript['sophus_inverser'] = function(block) {
   return varName + ' = ' + ' 1 / ' + varName + ';\n';
 };
 
+Blockly.JavaScript['sophus_incrementer'] = function(block) {
+  var varName;
+  varName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  return varName + ' += 1 ;\n';
+};
+
+Blockly.JavaScript['sophus_decrementer'] = function(block) {
+  var varName;
+  varName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  return varName + ' -= 1 ;\n';
+};
+
 Blockly.JavaScript['big_aff'] = function(block) {
   var code, value_var;
   value_var = Blockly.JavaScript.valueToCode(block, 'VAR', Blockly.JavaScript.ORDER_ATOMIC);

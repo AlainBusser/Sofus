@@ -900,6 +900,82 @@ Blockly.Blocks['sophus_inverser'] =
     if Blockly.Names.equals(oldName, @getFieldValue('VAR'))
       @setFieldValue newName, 'VAR'
     return
+
+Blockly.Blocks['sophus_incrementer'] =
+  init: ->
+    @jsonInit
+      'id': 'sophus_incrementer'
+      'message0': Blockly.Msg.SOPHUS_INCREMENTER_TITLE
+      'args0': [
+        {
+          'type': 'field_image'
+          'src': './img/augmenter.png'
+          'width': 64
+          'height': 32
+          'alt': '[un]:   '
+        }
+        {
+          'type': 'field_variable'
+          'name': 'VAR'
+          'variable': Blockly.Msg.SOPHUS_INCREMENTER_TITLE_ITEM
+        }
+      ]
+      'inputsInline': true
+      'previousStatement': null
+      'nextStatement': null
+      'colour': Blockly.Blocks.variables.HUE
+      'helpUrl': Blockly.Msg.SOPHUS_INCREMENTER_HELPURL
+    thisBlock = this
+    @setTooltip ->
+      Blockly.Msg.SOPHUS_INCREMENTER_TOOLTIP.replace '%2', thisBlock.getFieldValue('VAR')
+    return
+  getVars: ->
+    [ @getFieldValue('VAR') ]
+  renameVar: (oldName, newName) ->
+    if Blockly.Names.equals(oldName, @getFieldValue('VAR'))
+      @setFieldValue newName, 'VAR'
+    return
+
+
+Blockly.Blocks['sophus_decrementer'] =
+  init: ->
+    @jsonInit
+      'id': 'sophus_decrementer'
+      'message0': Blockly.Msg.SOPHUS_DECREMENTER_TITLE
+      'args0': [
+        {
+          'type': 'field_image'
+          'src': './img/diminuer.png'
+          'width': 64
+          'height': 32
+          'alt': '[un]:   '
+        }
+        {
+          'type': 'field_variable'
+          'name': 'VAR'
+          'variable': Blockly.Msg.SOPHUS_DECREMENTER_TITLE_ITEM
+        }
+      ]
+      'inputsInline': true
+      'previousStatement': null
+      'nextStatement': null
+      'colour': Blockly.Blocks.variables.HUE
+      'helpUrl': Blockly.Msg.SOPHUS_DECREMENTER_HELPURL
+    thisBlock = this
+    @setTooltip ->
+      Blockly.Msg.SOPHUS_DECREMENTER_TOOLTIP.replace '%2', thisBlock.getFieldValue('VAR')
+    return
+  getVars: ->
+    [ @getFieldValue('VAR') ]
+  renameVar: (oldName, newName) ->
+    if Blockly.Names.equals(oldName, @getFieldValue('VAR'))
+      @setFieldValue newName, 'VAR'
+    return
+
+
+
+
+
 Blockly.Blocks['big_aff'] = init: ->
   @appendValueInput('VAR').appendField(new (Blockly.FieldImage)('img/pencil.png', 32, 32, '')).appendField 'ajouter en bas'
   @setPreviousStatement true

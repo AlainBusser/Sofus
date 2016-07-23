@@ -18,6 +18,17 @@ Blockly.Msg.SOPHUS_AUGMENTER_TITLE = "%1 augmenter %2 de %3";
 Blockly.Msg.SOPHUS_AUGMENTER_TOOLTIP = "Ajouter un nombre à la variable '%2'.";
 Blockly.Msg.SOPHUS_AUGMENTER_TITLE_ITEM = Blockly.Msg.VARIABLES_DEFAULT_NAME;
 
+Blockly.Msg.SOPHUS_INCREMENTER_HELPURL = "";
+Blockly.Msg.SOPHUS_INCREMENTER_TITLE = "%1 incrémenter %2";
+Blockly.Msg.SOPHUS_INCREMENTER_TOOLTIP = "Ajouter un à la variable '%2'.";
+Blockly.Msg.SOPHUS_INCREMENTER_TITLE_ITEM = Blockly.Msg.VARIABLES_DEFAULT_NAME;
+
+Blockly.Msg.SOPHUS_DECREMENTER_HELPURL = "";
+Blockly.Msg.SOPHUS_DECREMENTER_TITLE = "%1 décrémenter %2";
+Blockly.Msg.SOPHUS_DECREMENTER_TOOLTIP = "Enlever un à la variable '%2'.";
+Blockly.Msg.SOPHUS_DECREMENTER_TITLE_ITEM = Blockly.Msg.VARIABLES_DEFAULT_NAME;
+
+
 Blockly.Msg.SOPHUS_DIMINUER_HELPURL = "";
 Blockly.Msg.SOPHUS_DIMINUER_TITLE = "%1 diminuer %2 de %3";
 Blockly.Msg.SOPHUS_DIMINUER_TOOLTIP = "Soustraire un nombre à la variable '%2'.";

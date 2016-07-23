@@ -44,6 +44,7 @@ Blockly.JavaScript['sophus_diminuer_pct'] = (block) ->
   varName + ' = ' + varName + ' * (1 - ' + argument0 + ' / 100)' + ';\n'
 
 # ameliore la traduction quand la borne sup d'un Pour est une variable
+# auteur: Patrick Raffinat
 
 Blockly.JavaScript['controls_for'] = (block) ->
   `var up`
@@ -113,6 +114,14 @@ Blockly.JavaScript['sophus_puissance'] = (block) ->
 Blockly.JavaScript['sophus_inverser'] = (block) ->
   varName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE)
   varName + ' = ' + ' 1 / ' + varName + ';\n'
+
+Blockly.JavaScript['sophus_incrementer'] = (block) ->
+  varName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE)
+  varName + ' += 1 ;\n'
+
+Blockly.JavaScript['sophus_decrementer'] = (block) ->
+  varName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE)
+  varName + ' -= 1 ;\n'
 
 Blockly.JavaScript['big_aff'] = (block) ->
   value_var = Blockly.JavaScript.valueToCode(block, 'VAR', Blockly.JavaScript.ORDER_ATOMIC)
