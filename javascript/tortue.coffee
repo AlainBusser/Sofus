@@ -158,7 +158,7 @@ class Tortue
     @t = 0
     @c = '#000066'
     @stylo = true
-    @costumeId = 0
+    @costumeId = 4
 
     @svg = """
       <svg xmlns='http://www.w3.org/2000/svg' version='1.1'>
@@ -174,8 +174,6 @@ class Tortue
   toto_update : -> 
     $("##{@id}").attr("transform", "translate(#{@x-20} #{@y-20}) rotate(#{@t*180/Math.PI} 20 20)")
 
-  toto_anim : -> 
-    $("##{@id}").append '<animateTransform attribute-name="transform" type="translate" from="0 0" to="320 240" dur="2s">'
 
   svg_update : ->
     @svg = garderobe[@costumeId]
