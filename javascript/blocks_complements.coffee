@@ -1633,3 +1633,13 @@ Blockly.Blocks['repeter_doucement'] = init: ->
   @setHelpUrl ''
   @appendStatementInput('DO').appendField('faire')
   return
+
+Blockly.Blocks['lentement'] = init: ->
+  @appendDummyInput().appendField 'Très lentement'
+  @setPreviousStatement true
+  @setNextStatement true
+  @setColour 120
+  @setTooltip 'Ralentir la tortue (risqué)'
+  @setHelpUrl ''
+  @appendStatementInput('DO').appendField('faire')
+  return

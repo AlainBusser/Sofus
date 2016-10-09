@@ -174,6 +174,9 @@ class Tortue
   toto_update : -> 
     $("##{@id}").attr("transform", "translate(#{@x-20} #{@y-20}) rotate(#{@t*180/Math.PI} 20 20)")
 
+  toto_anim : -> 
+    $("##{@id}").append '<animateTransform attribute-name="transform" type="translate" from="0 0" to="320 240" dur="2s">'
+
   svg_update : ->
     @svg = garderobe[@costumeId]
     $svg = """
@@ -195,13 +198,31 @@ class Tortue
   
   couleur : (coul) -> @c = coul
 
+  tg1      : (a) ->
+    if step<niveau or turbo
+        @t -= a / 180 * Math.PI
+        @toto_update()
+        step++
+
   tg      : (a) ->
-    @t -= a / 180 * Math.PI
-    @toto_update()
+    if turbo
+        @tg1 a
+    else
+        for x in [0...a]
+            @tg1 1
+
+  td1      : (a) ->
+    if step<niveau or turbo
+        @t += a / 180 * Math.PI
+        @toto_update()
+        step++
 
   td      : (a) ->
-    @t += a / 180 * Math.PI
-    @toto_update()
+    if turbo
+        @td1 a
+    else
+        for x in [0...a]
+            @td1 1
 
   orient  : (a) ->
     @t = a / 180 * Math.PI
@@ -215,28 +236,47 @@ class Tortue
     [@x, @y] = [x, y]
     @toto_update()
 
+  av1 : (d) ->
+    if step<niveau or turbo
+      oldx = undefined
+      oldy = undefined
+      oldx = @x
+      oldy = @y
+      @x += d * Math.cos(@t)
+      @y += d * Math.sin(@t)
+      dessineSegment(oldx, oldy, @x, @y, @c) if @stylo
+      @toto_update()
+      step++
+  
   av : (d) ->
-    oldx = @x
-    oldy = @y
-    @x += d * Math.cos(@t)
-    @y += d * Math.sin(@t)
-    dessineSegment(oldx, oldy, @x, @y, @c) if @stylo
-    @toto_update()
-    
+    if turbo
+	    @av1 d
+    else
+	    for x in [0...d]
+	        @av1 1
+  
 
+  re1 : (d) ->
+    if step<niveau or turbo
+      oldx = undefined
+      oldy = undefined
+      oldx = @x
+      oldy = @y
+      @x -= d * Math.cos(@t)
+      @y -= d * Math.sin(@t)
+      dessineSegment(oldx, oldy, @x, @y, @c) if @stylo
+      @toto_update()
+      step++
+  
   re : (d) ->
-    oldx = undefined
-    oldy = undefined
-    oldx = @x
-    oldy = @y
-    @x -= d * Math.cos(@t)
-    @y -= d * Math.sin(@t)
-    dessineSegment(oldx, oldy, @x, @y, @c) if @stylo
-    @toto_update()
+    if turbo
+	    @re1 d
+    else
+	    for x in [0...d]
+	        @re1 1
   
   distance : (autre) ->
     d = Math.sqrt(Math.pow(autre.x-@x,2)+Math.pow(autre.y-@y,2))
-    console.log "distance: #{d}"
     return d
 
   azimuth : (autre) ->

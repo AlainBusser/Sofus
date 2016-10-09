@@ -665,3 +665,7 @@ Blockly.JavaScript['repeter_doucement'] = (block) ->
   times = Blockly.JavaScript.valueToCode(block, 'TIMES', Blockly.JavaScript.ORDER_ATOMIC)
   statements = Blockly.JavaScript.statementToCode(block, 'DO')
   code = "for (var i = 0; i < #{times}; i++) { setTimeout(function(){#{statements}}, 1000);$('#graphique').show(100);}\n"
+
+Blockly.JavaScript['lentement'] = (block) ->
+  statements = Blockly.JavaScript.statementToCode(block, 'DO')
+  code = "turbo = false;\n#{statements}\nturbo = true;\n"

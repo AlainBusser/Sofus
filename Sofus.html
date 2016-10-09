@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <title>Programmation graphique</title>
     <link rel="icon" href="favicon.ico" />
+    <link rel="stylesheet" href="css/jquery.svg.css">
+    <link rel="stylesheet" href="css/sofus.css">
   <script src="javascript/blockly_compressed.js"></script>
   <script src="javascript/blocks_compressed.js"></script>
   <script src="javascript/javascript_compressed.js"></script>
@@ -16,25 +18,16 @@
   <script src="javascript/javascript_complements.js"></script>
   <script src="javascript/fr_complements.js"></script>
   <script src="javascript/underscore-min.js"></script>
-  <style>
-    body {
-      background-image: url("img/mur.jpg");
-      font-family: sans-serif;
-    }
-    .grobouton { display: inline-block; font-size: 200%;}
-    h1 {
-      color: red; font-variant: small-caps; text-shadow: 0.04em 0.02em 0.1em gray; }
-    #sortieJS { display: none; height: 240px; width: 240px; 
-		background-color: lightyellow; border: 3px inset orange;
-		color: #507;
-		text-shadow: 2px 1px 3px gray; }
-#sortieSVG { display: none; width: 640px; height: 400px; }
-#graphique { width: 640px; height: 480px; border: 3px inset gray; background-image: url("img/sableblanc.jpg"); }
-	#sortieNum { height: 240px; width: 640px; background-color: lightCyan; border: 3px inset green; text-shadow: 2px 1px 3px gray; }
-  </style>
 </head>
 <body>
-  <h1><img src="favicon.ico"/>Sofus avec Blockly<img src="img/turtle.png"/></h1>
+<script type="text/coffeescript">
+$ ->
+	$("#sortieNum").animate { 
+		width: 640,
+		height: 360
+		 }, 1000
+</script>
+  <h1><img src="favicon.ico"/> avec Blockly<img src="img/turtle.png"/></h1>
 
   <p>Pour écrire un programme de calcul, glisser les éléments sur le plan de travail. Pour effacer, glisser tout vers la corbeille 
   (en bas à droite). </p>
@@ -112,6 +105,7 @@
 			<block type="tampon"></block>
 		</category>
 		<category name="gomme">
+<!--			<block type="lentement"></block>-->
 			<block type="eff_svg"></block>
 			<block type="reset"></block>
 		</category>
@@ -184,13 +178,13 @@
     </category>
     <category name="Boucles" colour="120">
         <category name="simples">
-      <block type="repeter_doucement">
+<!--      <block type="repeter_doucement">
         <value name="TIMES">
           <block type="math_number">
             <field name="NUM">10</field>
           </block>
         </value>
-      </block>
+      </block>-->
       <block type="controls_repeat_ext">
         <value name="TIMES">
           <block type="math_number">
@@ -554,7 +548,7 @@
     
     
     
-        <category name="Fabrique" colour="290" custom="PROCEDURE"></category>
+        <category name="(Fa)brique" colour="290" custom="PROCEDURE"></category>
         <category name="Texte" colour="160">
             <block type="text_join"></block>
             <block type="text_append"></block>
@@ -650,7 +644,8 @@
 </tr>
 <tr>
    <td>
-      <button class="grobouton" onClick="lancer();"><img src="favicon.ico"/>Lancer</button>
+      <button class="grobouton" onClick="lancer();">Lancer <img src="favicon.ico"/></button>
+
       <button onClick="Xcas();"><img src="img/xcas.png" height="32px"/>exporter Xcas</button>
       <button onClick="sauverSVG();"><img src="img/turtle.png" width="32px"/>sauver figure</button>
    </td>
@@ -678,7 +673,7 @@
 	  </table>
 
 <textarea id="sortieSVG"></textarea>
-
+      <input type="checkbox" id="vite" checked=true> Tortue turbo</input>
 <!-- si on agit sur des bidules avec du JavaScript défini avant les bidules, ça foire sur certains navigateurs -->
   <script>
     var workspace = Blockly.inject('blocklyDiv',
@@ -692,7 +687,28 @@
 //  lancer();
 }
 workspace.addChangeListener(myUpdateFunction);
+var chronoToto;
+step=0;
+turbo=false;
+	tempo=10;
 function lancer() { 
+	turbo=document.getElementById("vite").checked;
+	if (turbo) {
+		stopToto();
+		    Blockly.JavaScript.addReservedWords('code');
+var code = document.getElementById("sortieJS").value;
+try {
+  eval(code);
+} catch (e) {
+document.getElementById("sortieNum").value += "\n" + e + "\n";
+}
+
+	} else {
+	stopToto();
+	chronoToto = setInterval(function(){ myTimer() }, tempo);
+	function myTimer() {
+		step=0;
+		
     Blockly.JavaScript.addReservedWords('code');
 //var code = Blockly.JavaScript.workspaceToCode(workspace);
 var code = document.getElementById("sortieJS").value;
@@ -702,6 +718,15 @@ try {
 //  alert(e);
 document.getElementById("sortieNum").value += "\n" + e + "\n";
 }
+niveau++;
+if(niveau>100000) {stopToto();};
+	}
+}
+	
+	function stopToto() {
+		clearInterval(chronoToto);
+		niveau=0;
+	}
 }
 
 function effacer() {

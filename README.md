@@ -1,4 +1,4 @@
-Version 1.7 avec matrices
+Version 1.8; le mode lent est risqué: Il faut mettre un "palimpseste" ou initialiser la tortue 
 
 [attention]: https://cdn0.iconfinder.com/data/icons/woocons1/Sign%20Warning.png "Attention !"
 
@@ -135,6 +135,8 @@ Les icônes de Sofus ont été créées avec la suite logicielle Blender3D; la t
 Auteurs:
 
  * Alain Busser
+ 
+ * Patrice Debrabant
 
  * Patrick Raffinat
 
