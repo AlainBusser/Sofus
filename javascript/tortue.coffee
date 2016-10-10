@@ -158,7 +158,7 @@ class Tortue
     @t = 0
     @c = '#000066'
     @stylo = true
-    @costumeId = 4
+    @costumeId = 5
 
     @svg = """
       <svg xmlns='http://www.w3.org/2000/svg' version='1.1'>

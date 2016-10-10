@@ -10,7 +10,7 @@
   <script src="javascript/blocks_compressed.js"></script>
   <script src="javascript/javascript_compressed.js"></script>
   <script src="javascript/fr.js"></script>
-  <script src="javascript/jquery-2.2.1.min.js"></script>
+  <script src="javascript/jquery-3.1.1.min.js"></script>
   <script src="javascript/tortue.js"></script>
   <script src="javascript/fractions.js"></script>
   <script src="javascript/sylvester.js"></script>
@@ -29,8 +29,7 @@ $ ->
 </script>
   <h1><img src="favicon.ico"/> avec Blockly<img src="img/turtle.png"/></h1>
 
-  <p>Pour écrire un programme de calcul, glisser les éléments sur le plan de travail. Pour effacer, glisser tout vers la corbeille 
-  (en bas à droite). </p>
+  <p>Programmer sans se prendre la tête avec les tortues</p>
 
 <table><tr><td>
   <div id="blocklyDiv" style="height: 480px; width: 800px;"></div>
@@ -474,6 +473,7 @@ $ ->
     <category name="Vecteurs" colour="20">
 		<category name="construction">
 		<block type="vec_const"></block>
+		<block type="vec_expr"></block>
 		<block type="vec_nul"></block>
 		<block type="vec_alea"></block>
 		<block type="vec_unitaire"></block>
@@ -518,6 +518,7 @@ $ ->
 			<block type="mat_colonne1"></block>
 			<block type="mat_colonne2"></block>
 			<block type="mat_diagonal"></block>
+			<block type="mat_col"></block>
 		</category>
     </category>
     <category name="3D">
@@ -526,12 +527,15 @@ $ ->
 		<block type="vec_alea3"></block>
 		<block type="vec_nul3"></block>
 		<block type="mat_colonne3"></block>
+		<block type="vec_cote"></block>
+		<block type="vec_expr3D"></block>
 		</category>
 		<category name="matrices">
 			<block type="mat_3D"></block>
 			<block type="mat_id3"></block>
 			<block type="mat_alea3"></block>
 			<block type="mat_nulle3"></block>
+			<block type="mat3D_col"></block>
 		</category>
     </category>
     

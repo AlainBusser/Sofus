@@ -1,0 +1,313 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="procedures_defreturn" collapsed="true" x="75" y="-29">
+    <mutation>
+      <arg name="a"></arg>
+      <arg name="b"></arg>
+    </mutation>
+    <field name="NAME">bezout</field>
+    <statement name="STACK">
+      <block type="variables_set">
+        <field name="VAR">c1</field>
+        <value name="VALUE">
+          <block type="vec_expr3D">
+            <value name="ABS">
+              <block type="variables_get">
+                <field name="VAR">a</field>
+              </block>
+            </value>
+            <value name="ORD">
+              <block type="math_number">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <value name="COT">
+              <block type="math_number">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR">c2</field>
+            <value name="VALUE">
+              <block type="vec_expr3D">
+                <value name="ABS">
+                  <block type="variables_get">
+                    <field name="VAR">b</field>
+                  </block>
+                </value>
+                <value name="ORD">
+                  <block type="math_number">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <value name="COT">
+                  <block type="math_number">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="controls_whileUntil">
+                <field name="MODE">UNTIL</field>
+                <value name="BOOL">
+                  <block type="logic_compare">
+                    <field name="OP">LT</field>
+                    <value name="A">
+                      <block type="vec_abscisse">
+                        <value name="autre">
+                          <block type="variables_get">
+                            <field name="VAR">c2</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="variables_set">
+                    <field name="VAR">c3</field>
+                    <value name="VALUE">
+                      <block type="variables_get">
+                        <field name="VAR">c2</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set">
+                        <field name="VAR">q</field>
+                        <value name="VALUE">
+                          <block type="vec_abscisse">
+                            <value name="autre">
+                              <block type="variables_get">
+                                <field name="VAR">c1</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="sophus_diviser">
+                            <field name="VAR">q</field>
+                            <value name="DELTA">
+                              <block type="vec_abscisse">
+                                <value name="autre">
+                                  <block type="variables_get">
+                                    <field name="VAR">c2</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="sophus_tronquer">
+                                <field name="VAR">q</field>
+                                <field name="GRAD">1e-</field>
+                                <value name="DELTA">
+                                  <block type="math_number">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="variables_set">
+                                    <field name="VAR">c2</field>
+                                    <value name="VALUE">
+                                      <block type="vec_fois">
+                                        <field name="lui">c2</field>
+                                        <value name="autre">
+                                          <block type="variables_get">
+                                            <field name="VAR">q</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="variables_set">
+                                        <field name="VAR">c1</field>
+                                        <value name="VALUE">
+                                          <block type="vec_sub">
+                                            <field name="lui">c1</field>
+                                            <value name="autre">
+                                              <block type="variables_get">
+                                                <field name="VAR">c2</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="variables_set">
+                                            <field name="VAR">c2</field>
+                                            <value name="VALUE">
+                                              <block type="variables_get">
+                                                <field name="VAR">c1</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="variables_set">
+                                                <field name="VAR">c1</field>
+                                                <value name="VALUE">
+                                                  <block type="variables_get">
+                                                    <field name="VAR">c3</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="big_aff">
+                                                    <value name="VAR">
+                                                      <block type="vec_aff">
+                                                        <value name="vec">
+                                                          <block type="variables_get">
+                                                            <field name="VAR">c1</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="RETURN">
+      <block type="text_join">
+        <mutation items="9"></mutation>
+        <value name="ADD0">
+          <block type="vec_ordonnee">
+            <value name="autre">
+              <block type="variables_get">
+                <field name="VAR">c1</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="ADD1">
+          <block type="text">
+            <field name="TEXT">×</field>
+          </block>
+        </value>
+        <value name="ADD2">
+          <block type="variables_get">
+            <field name="VAR">a</field>
+          </block>
+        </value>
+        <value name="ADD3">
+          <block type="text">
+            <field name="TEXT"> + </field>
+          </block>
+        </value>
+        <value name="ADD4">
+          <block type="vec_cote">
+            <value name="autre">
+              <block type="variables_get">
+                <field name="VAR">c1</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="ADD5">
+          <block type="text">
+            <field name="TEXT">×</field>
+          </block>
+        </value>
+        <value name="ADD6">
+          <block type="variables_get">
+            <field name="VAR">b</field>
+          </block>
+        </value>
+        <value name="ADD7">
+          <block type="text">
+            <field name="TEXT"> = </field>
+          </block>
+        </value>
+        <value name="ADD8">
+          <block type="math_arithmetic">
+            <field name="OP">ADD</field>
+            <value name="A">
+              <block type="math_arithmetic">
+                <field name="OP">MULTIPLY</field>
+                <value name="A">
+                  <block type="vec_ordonnee">
+                    <value name="autre">
+                      <block type="variables_get">
+                        <field name="VAR">c1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="variables_get">
+                    <field name="VAR">a</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_arithmetic">
+                <field name="OP">MULTIPLY</field>
+                <value name="A">
+                  <block type="vec_cote">
+                    <value name="autre">
+                      <block type="variables_get">
+                        <field name="VAR">c1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="variables_get">
+                    <field name="VAR">b</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="big_efface" x="89" y="26">
+    <next>
+      <block type="big_aff">
+        <value name="VAR">
+          <block type="procedures_callreturn">
+            <mutation name="bezout">
+              <arg name="a"></arg>
+              <arg name="b"></arg>
+            </mutation>
+            <value name="ARG0">
+              <block type="math_number">
+                <field name="NUM">10946</field>
+              </block>
+            </value>
+            <value name="ARG1">
+              <block type="math_number">
+                <field name="NUM">6765</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </next>
+  </block>
+</xml>

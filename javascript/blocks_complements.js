@@ -1391,6 +1391,43 @@ Blockly.Blocks['vec_ordonnee'] = {
   }
 };
 
+Blockly.Blocks['vec_expr'] = {
+  init: function() {
+    this.appendDummyInput().appendField("Vecteur");
+    this.appendValueInput("ABS").appendField("x: ");
+    this.appendValueInput("ORD").appendField("y: ");
+    this.setInputsInline(true);
+    this.setOutput(true);
+    this.setColour(20);
+    this.setTooltip('vecteur variable');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['vec_expr3D'] = {
+  init: function() {
+    this.appendDummyInput().appendField("Vecteur");
+    this.appendValueInput("ABS").appendField("x: ");
+    this.appendValueInput("ORD").appendField("y: ");
+    this.appendValueInput("COT").appendField("z: ");
+    this.setInputsInline(true);
+    this.setOutput(true);
+    this.setColour(20);
+    this.setTooltip('vecteur variable');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['vec_cote'] = {
+  init: function() {
+    this.appendValueInput('autre').setCheck('Vector').appendField('cote de');
+    this.setOutput(true, 'Number');
+    this.setColour(20);
+    this.setTooltip('cote du vecteur');
+    this.setHelpUrl('');
+  }
+};
+
 Blockly.Blocks['vec_colineaire'] = {
   init: function() {
     this.appendValueInput('autre').setCheck('Vector').appendField(new Blockly.FieldVariable('element'), 'lui').appendField('est colinéaire à');
@@ -1501,6 +1538,31 @@ Blockly.Blocks['mat_3D'] = {
     this.setColour(120);
     this.setTooltip('matrice 3 par 3');
     this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['mat_col'] = {
+  init: function() {
+    this.appendDummyInput().appendField("colonnes");
+    this.appendValueInput("C1");
+    this.appendValueInput("C2");
+    this.setInputsInline(true);
+    this.setOutput(true, 'Matrix');
+    this.setColour(120);
+    return this.setTooltip('matrice par ses colonnes');
+  }
+};
+
+Blockly.Blocks['mat3D_col'] = {
+  init: function() {
+    this.appendDummyInput().appendField("colonnes");
+    this.appendValueInput("C1");
+    this.appendValueInput("C2");
+    this.appendValueInput("C3");
+    this.setInputsInline(true);
+    this.setOutput(true, 'Matrix');
+    this.setColour(120);
+    return this.setTooltip('matrice par ses colonnes');
   }
 };
 

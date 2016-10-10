@@ -295,6 +295,25 @@ Blockly.JavaScript['vec_const'] = (block) ->
     Blockly.JavaScript.ORDER_NONE
   ]
 
+Blockly.JavaScript['vec_expr'] = (block) ->
+  text_x = Blockly.JavaScript.valueToCode(block, 'ABS', Blockly.JavaScript.ORDER_ATOMIC)
+  text_y = Blockly.JavaScript.valueToCode(block, 'ORD', Blockly.JavaScript.ORDER_ATOMIC)
+  code = 'Vector.create([' + text_x + ',' + text_y + '])'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['vec_expr3D'] = (block) ->
+  text_x = Blockly.JavaScript.valueToCode(block, 'ABS', Blockly.JavaScript.ORDER_ATOMIC)
+  text_y = Blockly.JavaScript.valueToCode(block, 'ORD', Blockly.JavaScript.ORDER_ATOMIC)
+  text_z = Blockly.JavaScript.valueToCode(block, 'COT', Blockly.JavaScript.ORDER_ATOMIC)
+  code = 'Vector.create([' + text_x + ',' + text_y + ',' + text_z + '])'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
 Blockly.JavaScript['vec_3D'] = (block) ->
   text_x = block.getFieldValue('x')
   text_y = block.getFieldValue('y')
@@ -411,6 +430,14 @@ Blockly.JavaScript['vec_ordonnee'] = (block) ->
     Blockly.JavaScript.ORDER_NONE
   ]
 
+Blockly.JavaScript['vec_cote'] = (block) ->
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC)
+  code = value_autre + '.e(3)'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
 Blockly.JavaScript['vec_colineaire'] = (block) ->
   variable_lui = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('lui'), Blockly.Variables.NAME_TYPE)
   value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC)
@@ -496,6 +523,25 @@ Blockly.JavaScript['mat_matrice'] = (block) ->
   text_a21 = block.getFieldValue('a21')
   text_a22 = block.getFieldValue('a22')
   code = 'Matrix.create([[' + text_a11 + ',' + text_a12 + '],[' + text_a21 + ',' + text_a22 + ']])'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['mat_col'] = (block) ->
+  value_c1 = Blockly.JavaScript.valueToCode(block, 'C1', Blockly.JavaScript.ORDER_NONE)
+  value_c2 = Blockly.JavaScript.valueToCode(block, 'C2', Blockly.JavaScript.ORDER_NONE)
+  code = 'Matrix.create('+value_c1+').augment('+value_c2+')'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
+
+Blockly.JavaScript['mat3D_col'] = (block) ->
+  value_c1 = Blockly.JavaScript.valueToCode(block, 'C1', Blockly.JavaScript.ORDER_NONE)
+  value_c2 = Blockly.JavaScript.valueToCode(block, 'C2', Blockly.JavaScript.ORDER_NONE)
+  value_c3 = Blockly.JavaScript.valueToCode(block, 'C3', Blockly.JavaScript.ORDER_NONE)
+  code = 'Matrix.create('+value_c1+').augment('+value_c2+').augment('+value_c3+')'
   [
     code
     Blockly.JavaScript.ORDER_NONE

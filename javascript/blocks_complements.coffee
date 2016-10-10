@@ -1403,6 +1403,34 @@ Blockly.Blocks['vec_ordonnee'] = init: ->
   @setTooltip 'ordonnée du vecteur'
   @setHelpUrl ''
   return
+Blockly.Blocks['vec_expr'] = init: ->
+  @appendDummyInput().appendField("Vecteur")
+  @appendValueInput("ABS").appendField("x: ")
+  @appendValueInput("ORD").appendField("y: ")
+  @setInputsInline true
+  @setOutput true
+  @setColour 20
+  @setTooltip 'vecteur variable'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['vec_expr3D'] = init: ->
+  @appendDummyInput().appendField("Vecteur")
+  @appendValueInput("ABS").appendField("x: ")
+  @appendValueInput("ORD").appendField("y: ")
+  @appendValueInput("COT").appendField("z: ")
+  @setInputsInline true
+  @setOutput true
+  @setColour 20
+  @setTooltip 'vecteur variable'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['vec_cote'] = init: ->
+  @appendValueInput('autre').setCheck('Vector').appendField 'cote de'
+  @setOutput true, 'Number'
+  @setColour 20
+  @setTooltip 'cote du vecteur'
+  @setHelpUrl ''
+  return
 Blockly.Blocks['vec_colineaire'] = init: ->
   @appendValueInput('autre').setCheck('Vector').appendField(new (Blockly.FieldVariable)('element'), 'lui').appendField 'est colinéaire à'
   @setOutput true, 'Boolean'
@@ -1483,6 +1511,23 @@ Blockly.Blocks['mat_3D'] = init: ->
   @setTooltip 'matrice 3 par 3'
   @setHelpUrl ''
   return
+Blockly.Blocks['mat_col'] = init: ->
+  @appendDummyInput().appendField "colonnes"
+  @appendValueInput("C1")
+  @appendValueInput("C2")
+  @setInputsInline(true)
+  @setOutput true, 'Matrix'
+  @setColour 120
+  @setTooltip 'matrice par ses colonnes'
+Blockly.Blocks['mat3D_col'] = init: ->
+  @appendDummyInput().appendField "colonnes"
+  @appendValueInput("C1")
+  @appendValueInput("C2")
+  @appendValueInput("C3")
+  @setInputsInline(true)
+  @setOutput true, 'Matrix'
+  @setColour 120
+  @setTooltip 'matrice par ses colonnes'
 Blockly.Blocks['mat_diag'] = init: ->
   @appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField(new (Blockly.FieldTextInput)('3'), 'a11').appendField '0'
   @appendDummyInput().appendField('0').appendField new (Blockly.FieldTextInput)('2'), 'a22'
