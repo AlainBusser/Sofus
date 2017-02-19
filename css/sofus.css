@@ -1,5 +1,5 @@
     body {
-      background-image: url("img/mur.jpg");
+      background-image: url("../img/mur.jpg");
       font-family: sans-serif;
     }
     .grobouton { display: inline-block; font-size: 200%;}
@@ -10,5 +10,5 @@
 		color: #507;
 		text-shadow: 2px 1px 3px gray; }
 #sortieSVG { display: none; width: 640px; height: 400px; }
-#graphique { width: 640px; height: 480px; border: 3px inset gray; background-image: url("img/sableblanc.jpg"); }
+#graphique { width: 640px; height: 480px; border: 3px inset gray; background-image: url("../img/sableblanc.jpg"); }
 	#sortieNum { resize: both; height: 80px; width: 640px; background-color: lightCyan; border: 3px inset green; text-shadow: 2px 1px 3px gray; }

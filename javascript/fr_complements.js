@@ -4,8 +4,8 @@ Blockly.Msg.TEXT_PROMPT_TYPE_NUMBER = "saisir un nombre avec un message";
 Blockly.Msg.TEXT_PROMPT_TYPE_TEXT = "saisir un texte avec un message";
 Blockly.Msg.MATH_CHANGE_TITLE = "ajouter %2 à %1";
 Blockly.Msg.MATH_RANDOM_FLOAT_TITLE_RANDOM = "alea entre 0 et 1";
-Blockly.Msg.PROCEDURES_DEFNORETURN_TITLE = "pour";
-Blockly.Msg.PROCEDURES_DEFRETURN_TITLE = "pour";
+Blockly.Msg.PROCEDURES_DEFNORETURN_TITLE = "Définir";
+Blockly.Msg.PROCEDURES_DEFRETURN_TITLE = "Définir";
 Blockly.Msg.PROCEDURES_DEFRETURN_RETURN = "retourner";
 
 Blockly.Msg.SOPHUS_CARRE_HELPURL = "";
@@ -99,6 +99,6 @@ Blockly.Msg.SOPHUS_PUISSANCE_TITLE_ITEM = Blockly.Msg.VARIABLES_DEFAULT_NAME;
 
 
 Blockly.Msg.SOPHUS_INVERSER_HELPURL = "";
-Blockly.Msg.SOPHUS_INVERSER_TITLE = "%1 inverser la variable %2";
-Blockly.Msg.SOPHUS_INVERSER_TOOLTIP = "Inverser '%2'.";
+Blockly.Msg.SOPHUS_INVERSER_TITLE = "%1 inverser %2";
+Blockly.Msg.SOPHUS_INVERSER_TOOLTIP = "Inverser la variable '%2'.";
 Blockly.Msg.SOPHUS_INVERSER_TITLE_ITEM = Blockly.Msg.VARIABLES_DEFAULT_NAME;

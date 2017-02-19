@@ -64,7 +64,7 @@ Blockly.Blocks['sophus_doubler'] = {
     var dropdown, variable;
     dropdown = new Blockly.FieldDropdown([['doubler', '2'], ['tripler', '3'], ['quadrupler', '4'], ['quintupler', '5'], ['sextupler', '6'], ['décupler', '10'], ['centupler', '100']]);
     variable = new Blockly.FieldVariable(Blockly.Msg.VARIABLES_DEFAULT_NAME);
-    this.appendDummyInput().appendField(new Blockly.FieldImage('./img/multiplier.png', 64, 32, '[*]:   ')).appendField(dropdown, 'CHOIX').appendField('la variable').appendField(variable, 'VAR');
+    this.appendDummyInput().appendField(new Blockly.FieldImage('./img/multiplier.png', 64, 32, '[*]:   ')).appendField(dropdown, 'CHOIX').appendField('').appendField(variable, 'VAR');
     this.setHelpUrl('');
     this.setPreviousStatement(true);
     this.setNextStatement(true);

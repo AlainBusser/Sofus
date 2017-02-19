@@ -94,7 +94,7 @@ Blockly.Blocks['sophus_doubler'] =
       ]
     ])
     variable = new (Blockly.FieldVariable)(Blockly.Msg.VARIABLES_DEFAULT_NAME)
-    @appendDummyInput().appendField(new (Blockly.FieldImage)('./img/multiplier.png', 64, 32, '[*]:   ')).appendField(dropdown, 'CHOIX').appendField('la variable').appendField variable, 'VAR'
+    @appendDummyInput().appendField(new (Blockly.FieldImage)('./img/multiplier.png', 64, 32, '[*]:   ')).appendField(dropdown, 'CHOIX').appendField('').appendField variable, 'VAR'
     @setHelpUrl ''
     @setPreviousStatement true
     @setNextStatement true

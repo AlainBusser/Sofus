@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Programmation graphique</title>
-    <link rel="icon" href="favicon.ico" />
+    <link rel="icon" href="img/exfavicon.png" />
     <link rel="stylesheet" href="css/jquery.svg.css">
     <link rel="stylesheet" href="css/sofus.css">
   <script src="javascript/blockly_compressed.js"></script>
@@ -27,12 +27,12 @@ $ ->
 		height: 360
 		 }, 1000
 </script>
-  <h1><img src="favicon.ico"/> avec Blockly<img src="img/turtle.png"/></h1>
+  <h1><img src="favicon.ico"/> avec Blockly<img src="img/turtle.png" width="80px"/></h1>
 
-  <p>Programmer sans se prendre la tête avec les tortues</p>
+  <p>Programmer sans prise de tête, avec les tortues</p>
 
 <table><tr><td>
-  <div id="blocklyDiv" style="height: 480px; width: 800px;"></div>
+  <div id="blocklyDiv" style="height: 480px; width: 800px; margin-left: 1em;"></div>
 
   <xml id="toolbox" style="display: none">
     <category name="Variables" colour="330" custom="VARIABLE"></category>
@@ -118,9 +118,9 @@ $ ->
 		<category name="aspect">
 			<block type="cacher_tortue"></block>
 			<block type="montrer_tortue"></block>
-			<block type="costume_suivant"></block>
-			<block type="costume_pred"></block>
-			<block type="costume"></block>
+<!--			<block type="costume_suivant" disabled="true"></block>
+			<block type="costume_pred" disabled="true"></block>
+			<block type="costume" disabled="true"></block> -->
 		</category>
 		<category name="multitortues">
 		<category name="données">
@@ -648,10 +648,10 @@ $ ->
 </tr>
 <tr>
    <td>
-      <button class="grobouton" onClick="lancer();">Lancer <img src="favicon.ico"/></button>
+      <button class="grobouton" onClick="lancer();">Lancer <img src="img/runner.png" height="64px"/></button>
 
       <button onClick="Xcas();"><img src="img/xcas.png" height="32px"/>exporter Xcas</button>
-      <button onClick="sauverSVG();"><img src="img/turtle.png" width="32px"/>sauver figure</button>
+      <button onClick="sauverSVG();"><img src="img/turtle.png" width="40px"/>sauver figure</button>
    </td>
   <td align="center">
       <input type="file" id="fileToLoad" style="display: none" onchange="ouvrirFichier();" />
@@ -677,6 +677,7 @@ $ ->
 	  </table>
 
 <textarea id="sortieSVG"></textarea>
+<img src="img/rocket.png" height="64px" />
       <input type="checkbox" id="vite" checked=true> Tortue turbo</input>
 <!-- si on agit sur des bidules avec du JavaScript défini avant les bidules, ça foire sur certains navigateurs -->
   <script>
