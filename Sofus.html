@@ -34,6 +34,12 @@ $ ->
 <table><tr><td>
   <div id="blocklyDiv" style="height: 480px; width: 800px; margin-left: 1em;"></div>
 
+
+<!-- c'est ici que sont placés les blocs, organisés en menus -->
+
+
+
+
   <xml id="toolbox" style="display: none">
     <category name="Variables" colour="330" custom="VARIABLE"></category>
     <category name="Entrées-sorties" colour="160">
@@ -648,7 +654,7 @@ $ ->
 </tr>
 <tr>
    <td>
-      <button class="grobouton" onClick="lancer();">Lancer <img src="img/runner.png" height="64px"/></button>
+      <button class="grobouton" onClick="lancer();"> <img src="img/flag.png" height="64px"/> Lancer</button>
 
       <button onClick="Xcas();"><img src="img/xcas.png" height="32px"/>exporter Xcas</button>
       <button onClick="sauverSVG();"><img src="img/turtle.png" width="40px"/>sauver figure</button>
