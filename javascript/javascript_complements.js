@@ -232,6 +232,18 @@ Blockly.JavaScript['var_droite'] = function(block) {
   return code = 'totos[toto].td(' + value_angle + ');\n';
 };
 
+Blockly.JavaScript['frac_gauche'] = function(block) {
+  var code, value_numer;
+  value_numer = Blockly.JavaScript.valueToCode(block, 'NUMER', Blockly.JavaScript.ORDER_ATOMIC);
+  return code = 'totos[toto].tg(' + value_numer + '*15' + ');\n';
+};
+
+Blockly.JavaScript['frac_droite'] = function(block) {
+  var code, value_numer;
+  value_numer = Blockly.JavaScript.valueToCode(block, 'NUMER', Blockly.JavaScript.ORDER_ATOMIC);
+  return code = 'totos[toto].td(' + value_numer + '*15' + ');\n';
+};
+
 Blockly.JavaScript['mettre_angle'] = function(block) {
   var code, value_angle;
   value_angle = Blockly.JavaScript.valueToCode(block, 'ANGLE', Blockly.JavaScript.ORDER_ATOMIC);

@@ -948,6 +948,30 @@ Blockly.Blocks['var_droite'] = {
   }
 };
 
+Blockly.Blocks['frac_gauche'] = {
+  init: function() {
+    this.appendValueInput('NUMER').setCheck('Number').appendField('à gauche de');
+    this.appendDummyInput().appendField('/ 6 d\'angle droit');
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(120);
+    this.setTooltip('tourner à gauche d\'un cran');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['frac_droite'] = {
+  init: function() {
+    this.appendValueInput('NUMER').setCheck('Number').appendField('à droite de');
+    this.appendDummyInput().appendField('/ 6 d\'angle droit');
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(120);
+    this.setTooltip('tourner à droite d\'un cran');
+    this.setHelpUrl('');
+  }
+};
+
 Blockly.Blocks['mettre_angle'] = {
   init: function() {
     this.appendValueInput('ANGLE').setCheck('Number').appendField(new Blockly.FieldImage('img/turtle.png', 32, 32, '')).appendField('orienter la tortue de');

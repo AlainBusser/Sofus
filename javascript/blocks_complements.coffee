@@ -1068,6 +1068,24 @@ Blockly.Blocks['var_droite'] = init: ->
   @setTooltip 'tourner à droite d\'un angle en degrés'
   @setHelpUrl ''
   return
+Blockly.Blocks['frac_gauche'] = init: ->
+  @appendValueInput('NUMER').setCheck('Number').appendField 'à gauche de'
+  @appendDummyInput().appendField '/ 6 d\'angle droit'
+  @setPreviousStatement true
+  @setNextStatement true
+  @setColour 120
+  @setTooltip 'tourner à gauche d\'un cran'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['frac_droite'] = init: ->
+  @appendValueInput('NUMER').setCheck('Number').appendField 'à droite de'
+  @appendDummyInput().appendField '/ 6 d\'angle droit'
+  @setPreviousStatement true
+  @setNextStatement true
+  @setColour 120
+  @setTooltip 'tourner à droite d\'un cran'
+  @setHelpUrl ''
+  return
 Blockly.Blocks['mettre_angle'] = init: ->
   @appendValueInput('ANGLE').setCheck('Number').appendField(new (Blockly.FieldImage)('img/turtle.png', 32, 32, '')).appendField 'orienter la tortue de'
   @setPreviousStatement true

@@ -182,6 +182,15 @@ Blockly.JavaScript['var_droite'] = (block) ->
   value_angle = Blockly.JavaScript.valueToCode(block, 'ANGLE', Blockly.JavaScript.ORDER_ATOMIC)
   code = 'totos[toto].td(' + value_angle + ');\n'
 
+Blockly.JavaScript['frac_gauche'] = (block) ->
+  value_numer = Blockly.JavaScript.valueToCode(block, 'NUMER', Blockly.JavaScript.ORDER_ATOMIC)
+  code = 'totos[toto].tg(' + value_numer + '*15' + ');\n'
+
+Blockly.JavaScript['frac_droite'] = (block) ->
+  value_numer = Blockly.JavaScript.valueToCode(block, 'NUMER', Blockly.JavaScript.ORDER_ATOMIC)
+  code = 'totos[toto].td(' + value_numer + '*15' + ');\n'
+
+
 Blockly.JavaScript['mettre_angle'] = (block) ->
   value_angle = Blockly.JavaScript.valueToCode(block, 'ANGLE', Blockly.JavaScript.ORDER_ATOMIC)
   code = 'totos[toto].orient(' + value_angle + ');\n'
