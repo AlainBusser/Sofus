@@ -1,4 +1,4 @@
-Version 1.8; le mode lent est risqué: Il faut mettre un "palimpseste" ou initialiser la tortue 
+Version 1.9; le mode lent est risqué: Il faut mettre un "palimpseste" ou initialiser la tortue 
 
 [attention]: https://cdn0.iconfinder.com/data/icons/woocons1/Sign%20Warning.png "Attention !"
 

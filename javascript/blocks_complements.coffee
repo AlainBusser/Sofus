@@ -1,16 +1,11 @@
 Blockly.Blocks['sophus_angle'] = init: ->
-  @jsonInit
-    id: 'sophus_degres'
-    message0: 'angle %1'
-    args0:
-      type  : 'field_angle'
-      name  : 'angle'
-      angle : 90
-    output  : null
-    tooltip : 'angle en degrés'
-    colour  : Blockly.Blocks.math.HUE
-    helpUrl : ''
+  @appendDummyInput().appendField new (Blockly.FieldAngle)(90), 'NAME'
+  @setOutput true, null
+  @setColour 330
+  @setTooltip 'angle en degrés'
+  @setHelpUrl ''
   return
+
 Blockly.Blocks['sophus_carre'] =
   init: ->
     @jsonInit
@@ -1706,3 +1701,56 @@ Blockly.Blocks['lentement'] = init: ->
   @setHelpUrl ''
   @appendStatementInput('DO').appendField('faire')
   return
+
+
+Blockly.Blocks['octet'] = init: ->
+	@appendDummyInput().appendField('octet ').appendField(new Blockly.FieldCheckbox("FALSE"), "O7").appendField(new Blockly.FieldCheckbox("FALSE"), "O6").appendField(new Blockly.FieldCheckbox("TRUE"), "O5").appendField(new Blockly.FieldCheckbox("FALSE"), "O4").appendField(new Blockly.FieldCheckbox("TRUE"), "O3").appendField(new Blockly.FieldCheckbox("FALSE"), "O2").appendField(new Blockly.FieldCheckbox("TRUE"), "O1").appendField(new Blockly.FieldCheckbox("FALSE"), "O0")
+	@setOutput true, null
+	@setColour 75
+	@setTooltip 'représentation binaire d\'un entier'
+	@setHelpUrl ''
+	return
+
+	
+Blockly.Blocks['binaire'] = init: ->
+	@appendValueInput("N").setCheck(null).appendField("binaire")
+	@setOutput true, null
+	@setColour 75
+	@setTooltip 'conversion en binaire représenté en décimal'
+	@setHelpUrl ''
+	return
+
+Blockly.Blocks['envers'] = init: ->
+	@appendValueInput("N").setCheck(null).appendField("inverser les chiffres de")
+	@setOutput true, null
+	@setColour 75
+	@setTooltip 'mettre les chiffres à l\'envers'
+	@setHelpUrl ''
+	return
+
+Blockly.Blocks['kaprekar_doubler'] = init: ->
+	@appendValueInput("N").setCheck(null).appendField("dupliquer les chiffres de")
+	@setOutput true, null
+	@setColour 75
+	@setTooltip 'dupliquer les chiffres'
+	@setHelpUrl ''
+	return
+
+Blockly.Blocks['cconcatener'] = init: ->
+	@appendValueInput("A").setCheck(null).appendField("concaténer")
+	@appendValueInput("B").setCheck(null).appendField("avec")
+	@setInputsInline true
+	@setOutput true, null
+	@setColour 75
+	@setTooltip 'concaténer les chiffres'
+	@setHelpUrl ''
+	return
+
+Blockly.Blocks['kaprekar_ranger'] = init: ->
+	@appendValueInput("N").setCheck(null).appendField("ranger les chiffres de")
+	@setOutput true, null
+	@setColour 75
+	@setTooltip 'ranger les chiffres dans l\'ordre croissant'
+	@setHelpUrl ''
+	return
+

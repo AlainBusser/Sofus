@@ -1,5 +1,18 @@
+reverseT = (s) ->
+	ss = ''
+	for t in [s.length-1..0] by -1
+		ss += s.charAt t
+	ss
+
+
+
+
 Blockly.JavaScript['sophus_angle'] = (block) ->
-  angledeg = block.getFieldValue('angle')
+  [
+    block.getFieldValue('NAME')
+    Blockly.JavaScript.ORDER_NONE
+  ]
+  
 
 Blockly.JavaScript['sophus_carre'] = (block) ->
   varName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE)
@@ -724,3 +737,55 @@ Blockly.JavaScript['repeter_doucement'] = (block) ->
 Blockly.JavaScript['lentement'] = (block) ->
   statements = Blockly.JavaScript.statementToCode(block, 'DO')
   code = "turbo = false;\n#{statements}\nturbo = true;\n"
+  
+Blockly.JavaScript['octet'] = (block) ->
+	octet = 0
+	if (block.getFieldValue('O7')=='TRUE') then octet += 128
+	if (block.getFieldValue('O6')=='TRUE') then octet += 64
+	if (block.getFieldValue('O5')=='TRUE') then octet += 32
+	if (block.getFieldValue('O4')=='TRUE') then octet += 16
+	if (block.getFieldValue('O3')=='TRUE') then octet += 8
+	if (block.getFieldValue('O2')=='TRUE') then octet += 4
+	if (block.getFieldValue('O1')=='TRUE') then octet += 2
+	if (block.getFieldValue('O0')=='TRUE') then octet += 1
+	[
+		octet
+		Blockly.JavaScript.ORDER_NONE
+	]
+	
+Blockly.JavaScript['binaire'] = (block) ->
+	n = Blockly.JavaScript.valueToCode(block, 'N', Blockly.JavaScript.ORDER_ATOMIC)
+	[
+		'Number(('+n+').toString(2))'
+		Blockly.JavaScript.ORDER_NONE
+	]
+
+Blockly.JavaScript['envers'] = (block) ->
+	n = Blockly.JavaScript.valueToCode(block, 'N', Blockly.JavaScript.ORDER_ATOMIC)
+	[
+		'Number(reverseT(""+'+n+'))'
+		Blockly.JavaScript.ORDER_NONE
+	]
+
+Blockly.JavaScript['kaprekar_doubler'] = (block) ->
+	n = Blockly.JavaScript.valueToCode(block, 'N', Blockly.JavaScript.ORDER_ATOMIC)
+	[
+		'Number(""+'+n+'+'+n+')'
+		Blockly.JavaScript.ORDER_NONE
+	]
+
+Blockly.JavaScript['cconcatener'] = (block) ->
+	a = Blockly.JavaScript.valueToCode(block, 'A', Blockly.JavaScript.ORDER_ATOMIC)
+	b = Blockly.JavaScript.valueToCode(block, 'B', Blockly.JavaScript.ORDER_ATOMIC)
+	[
+		'Number(""+'+a+'+'+b+')'
+		Blockly.JavaScript.ORDER_NONE
+	]
+
+Blockly.JavaScript['kaprekar_ranger'] = (block) ->
+	n = Blockly.JavaScript.valueToCode(block, 'N', Blockly.JavaScript.ORDER_ATOMIC)
+	[
+		'Number(('+n+').toString().split("").sort().join(""))'
+		Blockly.JavaScript.ORDER_NONE
+	]
+
