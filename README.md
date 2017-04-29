@@ -2,7 +2,7 @@ Version 1.9; le mode lent est risqué: Il faut mettre un "palimpseste" ou initia
 
 [attention]: https://cdn0.iconfinder.com/data/icons/woocons1/Sign%20Warning.png "Attention !"
 
-![logo](https://raw.githubusercontent.com/AlainBusser/Sophus/master/sophus1.png)
+![logo](https://raw.githubusercontent.com/AlainBusser/Sophus/master/img/sophus1.png)
 
 La parodie de La Fontaine ci-dessous, inspirée par la signature du contrat MEN-Microsoft France, est bien entendue sous licence Creative Commons
 

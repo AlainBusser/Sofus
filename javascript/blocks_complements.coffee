@@ -1721,7 +1721,7 @@ Blockly.Blocks['binaire'] = init: ->
 	return
 
 Blockly.Blocks['envers'] = init: ->
-	@appendValueInput("N").setCheck(null).appendField("inverser les chiffres de")
+	@appendValueInput("N").setCheck(null).appendField("retourné de")
 	@setOutput true, null
 	@setColour 75
 	@setTooltip 'mettre les chiffres à l\'envers'
@@ -1729,7 +1729,7 @@ Blockly.Blocks['envers'] = init: ->
 	return
 
 Blockly.Blocks['kaprekar_doubler'] = init: ->
-	@appendValueInput("N").setCheck(null).appendField("dupliquer les chiffres de")
+	@appendValueInput("N").setCheck(null).appendField("répété de")
 	@setOutput true, null
 	@setColour 75
 	@setTooltip 'dupliquer les chiffres'
@@ -1737,8 +1737,8 @@ Blockly.Blocks['kaprekar_doubler'] = init: ->
 	return
 
 Blockly.Blocks['cconcatener'] = init: ->
-	@appendValueInput("A").setCheck(null).appendField("concaténer")
-	@appendValueInput("B").setCheck(null).appendField("avec")
+	@appendValueInput("A").setCheck(null).appendField("le concaténé de")
+	@appendValueInput("B").setCheck(null).appendField("et")
 	@setInputsInline true
 	@setOutput true, null
 	@setColour 75
@@ -1747,7 +1747,7 @@ Blockly.Blocks['cconcatener'] = init: ->
 	return
 
 Blockly.Blocks['kaprekar_ranger'] = init: ->
-	@appendValueInput("N").setCheck(null).appendField("ranger les chiffres de")
+	@appendValueInput("N").setCheck(null).appendField("les chiffres triés de")
 	@setOutput true, null
 	@setColour 75
 	@setTooltip 'ranger les chiffres dans l\'ordre croissant'

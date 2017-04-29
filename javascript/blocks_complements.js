@@ -1816,7 +1816,7 @@ Blockly.Blocks['binaire'] = {
 
 Blockly.Blocks['envers'] = {
   init: function() {
-    this.appendValueInput("N").setCheck(null).appendField("inverser les chiffres de");
+    this.appendValueInput("N").setCheck(null).appendField("retourné de");
     this.setOutput(true, null);
     this.setColour(75);
     this.setTooltip('mettre les chiffres à l\'envers');
@@ -1826,7 +1826,7 @@ Blockly.Blocks['envers'] = {
 
 Blockly.Blocks['kaprekar_doubler'] = {
   init: function() {
-    this.appendValueInput("N").setCheck(null).appendField("dupliquer les chiffres de");
+    this.appendValueInput("N").setCheck(null).appendField("répété de");
     this.setOutput(true, null);
     this.setColour(75);
     this.setTooltip('dupliquer les chiffres');
@@ -1836,8 +1836,8 @@ Blockly.Blocks['kaprekar_doubler'] = {
 
 Blockly.Blocks['cconcatener'] = {
   init: function() {
-    this.appendValueInput("A").setCheck(null).appendField("concaténer");
-    this.appendValueInput("B").setCheck(null).appendField("avec");
+    this.appendValueInput("A").setCheck(null).appendField("le concaténé de");
+    this.appendValueInput("B").setCheck(null).appendField("et");
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour(75);
@@ -1848,7 +1848,7 @@ Blockly.Blocks['cconcatener'] = {
 
 Blockly.Blocks['kaprekar_ranger'] = {
   init: function() {
-    this.appendValueInput("N").setCheck(null).appendField("ranger les chiffres de");
+    this.appendValueInput("N").setCheck(null).appendField("les chiffres triés de");
     this.setOutput(true, null);
     this.setColour(75);
     this.setTooltip('ranger les chiffres dans l\'ordre croissant');
