@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   version="1.1"
+   width="40"
+   height="40"
+   id="svg2">
+  <metadata
+     id="metadata21">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs19">
+    <linearGradient
+       id="linearGradient3883">
+      <stop
+         id="stop3885"
+         style="stop-color:#ffffff;stop-opacity:1"
+         offset="0" />
+      <stop
+         id="stop3887"
+         style="stop-color:#000000;stop-opacity:1"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3875">
+      <stop
+         id="stop3877"
+         style="stop-color:#ffffff;stop-opacity:1"
+         offset="0" />
+      <stop
+         id="stop3879"
+         style="stop-color:#000000;stop-opacity:1"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3867">
+      <stop
+         id="stop3869"
+         style="stop-color:#ffc47c;stop-opacity:1"
+         offset="0" />
+      <stop
+         id="stop3871"
+         style="stop-color:#7f4000;stop-opacity:1"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3859">
+      <stop
+         id="stop3861"
+         style="stop-color:#008000;stop-opacity:1"
+         offset="0" />
+      <stop
+         id="stop3863"
+         style="stop-color:#80ff80;stop-opacity:1"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3851">
+      <stop
+         id="stop3853"
+         style="stop-color:#008000;stop-opacity:1"
+         offset="0" />
+      <stop
+         id="stop3855"
+         style="stop-color:#80ff80;stop-opacity:1"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3843">
+      <stop
+         id="stop3845"
+         style="stop-color:#008000;stop-opacity:1"
+         offset="0" />
+      <stop
+         id="stop3847"
+         style="stop-color:#80ff80;stop-opacity:1"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       x1="28.542374"
+       y1="24.915255"
+       x2="28.474577"
+       y2="15.423729"
+       id="linearGradient3849"
+       xlink:href="#linearGradient3843"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       x1="18.610168"
+       y1="18.338984"
+       x2="15.593221"
+       y2="14.610169"
+       id="linearGradient3857"
+       xlink:href="#linearGradient3851"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       x1="14.711864"
+       y1="22.169491"
+       x2="17.457626"
+       y2="18.779661"
+       id="linearGradient3865"
+       xlink:href="#linearGradient3859"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       cx="6.9908829"
+       cy="31.501242"
+       r="14.1"
+       fx="6.9908829"
+       fy="31.501242"
+       id="radialGradient3873"
+       xlink:href="#linearGradient3867"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-0.01662564,0.93746939,-1.2572385,-0.02229661,51.991989,10.758802)" />
+    <radialGradient
+       cx="34"
+       cy="24"
+       r="2"
+       fx="34"
+       fy="24"
+       id="radialGradient3881"
+       xlink:href="#linearGradient3875"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       cx="34"
+       cy="16"
+       r="2"
+       fx="34"
+       fy="16"
+       id="radialGradient3889"
+       xlink:href="#linearGradient3883"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     id="g3891">
+    <line
+       x1="4"
+       y1="12"
+       x2="28"
+       y2="32"
+       style="stroke:url(#linearGradient3865);stroke-width:4;stroke-linecap:round"
+       id="line5" />
+    <line
+       x1="4"
+       y1="28"
+       x2="28"
+       y2="8"
+       style="stroke:url(#linearGradient3857);stroke-width:4;stroke-linecap:round"
+       id="line7" />
+    <line
+       x1="20"
+       y1="20"
+       x2="36"
+       y2="20"
+       style="stroke:url(#linearGradient3849);stroke-width:8;stroke-linecap:round"
+       id="line9" />
+    <ellipse
+       cx="16"
+       cy="20"
+       rx="14"
+       ry="10"
+       id="ellipse11"
+       style="fill:url(#radialGradient3873);fill-opacity:1;stroke:#a52a2a;stroke-width:0.2;stroke-miterlimit:4;stroke-dasharray:none" />
+    <circle
+       cx="34"
+       cy="16"
+       r="2"
+       id="circle13"
+       style="fill:url(#radialGradient3889);fill-opacity:1" />
+    <circle
+       cx="34"
+       cy="24"
+       r="2"
+       id="circle15"
+       style="fill:url(#radialGradient3881);fill-opacity:1" />
+  </g>
+</svg>
