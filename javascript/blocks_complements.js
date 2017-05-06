@@ -1855,3 +1855,66 @@ Blockly.Blocks['kaprekar_ranger'] = {
     this.setHelpUrl('');
   }
 };
+
+Blockly.Blocks['remplacer'] = {
+  init: function() {
+    this.appendDummyInput().appendField("remplacer les");
+    this.appendValueInput("C1").setCheck(null);
+    this.appendDummyInput().appendField("par des");
+    this.appendValueInput("C2").setCheck(null);
+    this.appendDummyInput().appendField("dans");
+    this.appendValueInput("T").setCheck(null);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(150);
+    this.setTooltip('substitution');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['eval'] = {
+  init: function() {
+    this.appendValueInput("P").setCheck(null).appendField("JS");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(270);
+    this.setTooltip('JavaScript');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['eval0'] = {
+  init: function() {
+    this.appendValueInput("P").setCheck(null).appendField("JS");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(270);
+    this.setTooltip('JavaScript');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['coffee'] = {
+  init: function() {
+    this.appendValueInput("P").setCheck(null).appendField("CS");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(270);
+    this.setTooltip('CoffeeScript');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['coffee0'] = {
+  init: function() {
+    this.appendValueInput("P").setCheck(null).appendField(new Blockly.FieldImage('img/coffee.png', 32, 32, 'X'));
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(270);
+    this.setTooltip('CoffeeScript');
+    this.setHelpUrl('');
+  }
+};

@@ -1754,3 +1754,56 @@ Blockly.Blocks['kaprekar_ranger'] = init: ->
 	@setHelpUrl ''
 	return
 
+Blockly.Blocks['remplacer'] = init: ->
+	@appendDummyInput().appendField("remplacer les")
+	@appendValueInput("C1").setCheck(null)
+	@appendDummyInput().appendField("par des")
+	@appendValueInput("C2").setCheck(null)
+	@appendDummyInput().appendField("dans")
+	@appendValueInput("T").setCheck(null)
+	@setInputsInline true
+	@setPreviousStatement(true, null)
+	@setNextStatement(true, null)
+	@setColour(150)
+	@setTooltip('substitution')
+	@setHelpUrl('')
+	return
+	
+Blockly.Blocks['eval'] = init: ->
+	@appendValueInput("P").setCheck(null).appendField("JS")
+	@setInputsInline(true)
+	@setOutput(true, null)
+	@setColour(270)
+	@setTooltip('JavaScript')
+	@setHelpUrl('')
+	return
+
+Blockly.Blocks['eval0'] = init: ->
+	@appendValueInput("P").setCheck(null).appendField("JS")
+	@setInputsInline(true)
+	@setPreviousStatement(true, null)
+	@setNextStatement(true, null)
+	@setColour(270)
+	@setTooltip('JavaScript')
+	@setHelpUrl('')
+	return
+
+Blockly.Blocks['coffee'] = init: ->
+	@appendValueInput("P").setCheck(null).appendField("CS")
+	@setInputsInline(true)
+	@setOutput(true, null)
+	@setColour(270)
+	@setTooltip('CoffeeScript')
+	@setHelpUrl('')
+	return
+
+Blockly.Blocks['coffee0'] = init: ->
+	@appendValueInput("P").setCheck(null).appendField new (Blockly.FieldImage)('img/coffee.png', 32, 32, 'X')
+	@setInputsInline(true)
+	@setPreviousStatement(true, null)
+	@setNextStatement(true, null)
+	@setColour(270)
+	@setTooltip('CoffeeScript')
+	@setHelpUrl('')
+	return
+

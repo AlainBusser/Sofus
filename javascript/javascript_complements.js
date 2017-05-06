@@ -845,3 +845,37 @@ Blockly.JavaScript['kaprekar_ranger'] = function(block) {
   n = Blockly.JavaScript.valueToCode(block, 'N', Blockly.JavaScript.ORDER_ATOMIC);
   return ['Number((' + n + ').toString().split("").sort().join(""))', Blockly.JavaScript.ORDER_NONE];
 };
+
+Blockly.JavaScript['remplacer'] = function(block) {
+  var code, var_c1, var_c2, var_t;
+  var_c1 = Blockly.JavaScript.valueToCode(block, 'C1', Blockly.JavaScript.ORDER_ATOMIC);
+  var_c2 = Blockly.JavaScript.valueToCode(block, 'C2', Blockly.JavaScript.ORDER_ATOMIC);
+  var_t = Blockly.JavaScript.valueToCode(block, 'T', Blockly.JavaScript.ORDER_ATOMIC);
+  code = 'var re = new RegExp(' + var_c1 + ',"g");\n';
+  code += var_t + ' = ' + var_t + '.replace(re,' + var_c2 + ');\n';
+  return code;
+};
+
+Blockly.JavaScript['eval'] = function(block) {
+  var prog;
+  prog = Blockly.JavaScript.valueToCode(block, 'P', Blockly.JavaScript.ORDER_ATOMIC);
+  return ['eval(' + prog + ')', Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['eval0'] = function(block) {
+  var prog;
+  prog = Blockly.JavaScript.valueToCode(block, 'P', Blockly.JavaScript.ORDER_ATOMIC);
+  return 'eval(' + prog + ');\n';
+};
+
+Blockly.JavaScript['coffee'] = function(block) {
+  var prog;
+  prog = Blockly.JavaScript.valueToCode(block, 'P', Blockly.JavaScript.ORDER_ATOMIC);
+  return ['CoffeeScript.run(' + prog + ')', Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['coffee0'] = function(block) {
+  var prog;
+  prog = Blockly.JavaScript.valueToCode(block, 'P', Blockly.JavaScript.ORDER_ATOMIC);
+  return 'CoffeeScript.run(' + prog + ');\n';
+};

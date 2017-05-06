@@ -789,3 +789,36 @@ Blockly.JavaScript['kaprekar_ranger'] = (block) ->
 		Blockly.JavaScript.ORDER_NONE
 	]
 
+Blockly.JavaScript['remplacer'] = (block) ->
+	var_c1 = Blockly.JavaScript.valueToCode(block, 'C1', Blockly.JavaScript.ORDER_ATOMIC)
+	var_c2 = Blockly.JavaScript.valueToCode(block, 'C2', Blockly.JavaScript.ORDER_ATOMIC)
+	var_t = Blockly.JavaScript.valueToCode(block, 'T', Blockly.JavaScript.ORDER_ATOMIC)
+	code = 'var re = new RegExp('+var_c1+',"g");\n'
+	code += var_t+' = '+var_t+'.replace(re,'+var_c2+');\n'
+	code
+
+Blockly.JavaScript['eval'] = (block) ->
+	prog = Blockly.JavaScript.valueToCode(block, 'P', Blockly.JavaScript.ORDER_ATOMIC)
+	[
+		'eval('+prog+')'
+		Blockly.JavaScript.ORDER_NONE
+	]
+
+Blockly.JavaScript['eval0'] = (block) ->
+	prog = Blockly.JavaScript.valueToCode(block, 'P', Blockly.JavaScript.ORDER_ATOMIC)
+	'eval('+prog+');\n'
+
+
+Blockly.JavaScript['coffee'] = (block) ->
+	prog = Blockly.JavaScript.valueToCode(block, 'P', Blockly.JavaScript.ORDER_ATOMIC)
+	[
+		'CoffeeScript.run('+prog+')'
+		Blockly.JavaScript.ORDER_NONE
+	]
+
+Blockly.JavaScript['coffee0'] = (block) ->
+	prog = Blockly.JavaScript.valueToCode(block, 'P', Blockly.JavaScript.ORDER_ATOMIC)
+	'CoffeeScript.run('+prog+');\n'
+
+
+	
