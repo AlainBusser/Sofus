@@ -515,7 +515,3 @@ Blockly.JavaScript['arrondi'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
-
-
-
-

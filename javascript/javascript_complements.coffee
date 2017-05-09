@@ -531,6 +531,11 @@ Blockly.JavaScript['vec_unitaire'] = (block) ->
     Blockly.JavaScript.ORDER_NONE
   ]
 
+Blockly.JavaScript['normer_sofus'] = (block) ->
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC)
+  code = value_autre + ' = ' + value_autre + '.toUnitVector();\n'
+  code
+
 Blockly.JavaScript['vec_diagonal'] = (block) ->
   value_vecteur = Blockly.JavaScript.valueToCode(block, 'vecteur', Blockly.JavaScript.ORDER_ATOMIC)
   code = value_vecteur + '.toDiagonalMatrix()'
@@ -692,6 +697,51 @@ Blockly.JavaScript['mat_inv'] = (block) ->
     Blockly.JavaScript.ORDER_NONE
   ]
 
+Blockly.JavaScript['inverser_mat'] = (block) ->
+  value_matr = Blockly.JavaScript.valueToCode(block, 'matr', Blockly.JavaScript.ORDER_ATOMIC)
+  code = value_matr + " = " + value_matr + '.inverse();\n'
+  code
+
+Blockly.JavaScript['transposer_mat'] = (block) ->
+  value_matr = Blockly.JavaScript.valueToCode(block, 'matr', Blockly.JavaScript.ORDER_ATOMIC)
+  code = value_matr + " = " + value_matr + '.transpose();\n'
+  code
+
+Blockly.JavaScript['arrondir_mat'] = (block) ->
+  value_matr = Blockly.JavaScript.valueToCode(block, 'matr', Blockly.JavaScript.ORDER_ATOMIC)
+  code = value_matr + " = " + value_matr + '.round();\n'
+  code
+
+Blockly.JavaScript['mult_sofus_mat'] = (block) ->
+  value_matr = Blockly.JavaScript.valueToCode(block, 'matr', Blockly.JavaScript.ORDER_ATOMIC)
+  value_vec = Blockly.JavaScript.valueToCode(block, 'vec', Blockly.JavaScript.ORDER_ATOMIC)
+  code = value_matr + " = " + value_matr + '.x(' + value_vec + ');\n'
+  code
+
+Blockly.JavaScript['vec_multiplier'] = (block) ->
+  value_matr = Blockly.JavaScript.valueToCode(block, 'matr', Blockly.JavaScript.ORDER_ATOMIC)
+  value_vec = Blockly.JavaScript.valueToCode(block, 'vec', Blockly.JavaScript.ORDER_ATOMIC)
+  code = value_matr + " = " + value_matr + '.x(' + value_vec + ');\n'
+  code
+
+Blockly.JavaScript['vec_augmenter'] = (block) ->
+  value_matr = Blockly.JavaScript.valueToCode(block, 'matr', Blockly.JavaScript.ORDER_ATOMIC)
+  value_vec = Blockly.JavaScript.valueToCode(block, 'vec', Blockly.JavaScript.ORDER_ATOMIC)
+  code = value_matr + " = " + value_matr + '.add(' + value_vec + ');\n'
+  code
+
+Blockly.JavaScript['vec_diminuer'] = (block) ->
+  value_matr = Blockly.JavaScript.valueToCode(block, 'matr', Blockly.JavaScript.ORDER_ATOMIC)
+  value_vec = Blockly.JavaScript.valueToCode(block, 'vec', Blockly.JavaScript.ORDER_ATOMIC)
+  code = value_matr + " = " + value_matr + '.subtract(' + value_vec + ');\n'
+  code
+
+Blockly.JavaScript['sofus_scalaire'] = (block) ->
+  value_matr = Blockly.JavaScript.valueToCode(block, 'matr', Blockly.JavaScript.ORDER_ATOMIC)
+  value_vec = Blockly.JavaScript.valueToCode(block, 'vec', Blockly.JavaScript.ORDER_ATOMIC)
+  code = value_matr + " = " + value_matr + '.dot(' + value_vec + ');\n'
+  code
+
 Blockly.JavaScript['mat_mult'] = (block) ->
   variable_lui = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('lui'), Blockly.Variables.NAME_TYPE)
   value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC)
@@ -797,6 +847,14 @@ Blockly.JavaScript['remplacer'] = (block) ->
 	code += var_t+' = '+var_t+'.replace(re,'+var_c2+');\n'
 	code
 
+Blockly.JavaScript['remplacer1'] = (block) ->
+	var_c1 = Blockly.JavaScript.valueToCode(block, 'C1', Blockly.JavaScript.ORDER_ATOMIC)
+	var_c2 = Blockly.JavaScript.valueToCode(block, 'C2', Blockly.JavaScript.ORDER_ATOMIC)
+	var_t = Blockly.JavaScript.valueToCode(block, 'T', Blockly.JavaScript.ORDER_ATOMIC)
+	code = 'var re = new RegExp('+var_c1+');\n'
+	code += var_t+' = '+var_t+'.replace(re,'+var_c2+');\n'
+	code
+
 Blockly.JavaScript['eval'] = (block) ->
 	prog = Blockly.JavaScript.valueToCode(block, 'P', Blockly.JavaScript.ORDER_ATOMIC)
 	[
@@ -819,6 +877,31 @@ Blockly.JavaScript['coffee'] = (block) ->
 Blockly.JavaScript['coffee0'] = (block) ->
 	prog = Blockly.JavaScript.valueToCode(block, 'P', Blockly.JavaScript.ORDER_ATOMIC)
 	'CoffeeScript.run('+prog+');\n'
+
+Blockly.JavaScript['inverser_frac'] = (block) ->
+  frac_1 = Blockly.JavaScript.valueToCode(block, 'frac', Blockly.JavaScript.ORDER_ATOMIC)
+  code = frac_1 + " = " + frac_1 + '.inverse();\n'
+  code
+
+Blockly.JavaScript['augmenter_frac'] = (block) ->
+	frac_1 = Blockly.JavaScript.valueToCode(block, 'frac1', Blockly.JavaScript.ORDER_ATOMIC)
+	frac_2 = Blockly.JavaScript.valueToCode(block, 'frac2', Blockly.JavaScript.ORDER_ATOMIC)
+	frac_1 + ' = ' + frac_1 + '.plus(' + frac_2 + ');\n'
+
+Blockly.JavaScript['diminuer_frac'] = (block) ->
+	frac_1 = Blockly.JavaScript.valueToCode(block, 'frac1', Blockly.JavaScript.ORDER_ATOMIC)
+	frac_2 = Blockly.JavaScript.valueToCode(block, 'frac2', Blockly.JavaScript.ORDER_ATOMIC)
+	frac_1 + ' = ' + frac_1 + '.moins(' + frac_2 + ');\n'
+
+Blockly.JavaScript['multiplier_frac'] = (block) ->
+	frac_1 = Blockly.JavaScript.valueToCode(block, 'frac1', Blockly.JavaScript.ORDER_ATOMIC)
+	frac_2 = Blockly.JavaScript.valueToCode(block, 'frac2', Blockly.JavaScript.ORDER_ATOMIC)
+	frac_1 + ' = ' + frac_1 + '.fois(' + frac_2 + ');\n'
+
+Blockly.JavaScript['diviser_frac'] = (block) ->
+	frac_1 = Blockly.JavaScript.valueToCode(block, 'frac1', Blockly.JavaScript.ORDER_ATOMIC)
+	frac_2 = Blockly.JavaScript.valueToCode(block, 'frac2', Blockly.JavaScript.ORDER_ATOMIC)
+	frac_1 + ' = ' + frac_1 + '.sur(' + frac_2 + ');\n'
 
 
 	

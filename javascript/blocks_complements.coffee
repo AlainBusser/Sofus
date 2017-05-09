@@ -1500,6 +1500,88 @@ Blockly.Blocks['vec_unitaire'] = init: ->
   @setTooltip 'vecteur de norme 1 colinéaire à ce vecteur'
   @setHelpUrl ''
   return
+Blockly.Blocks['normer_sofus'] = init: ->
+  @appendValueInput('autre').setCheck('Vector').appendField 'normer'
+  @setPreviousStatement(true, null)
+  @setNextStatement(true, null)
+  @setColour 20
+  @setTooltip 'donner à ce vecteur une norme unité'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['inverser_mat'] = init: ->
+  @appendValueInput('matr').setCheck('Matrix').appendField 'inverser'
+  @setPreviousStatement(true, null)
+  @setNextStatement(true, null)
+  @setColour 120
+  @setTooltip 'inverser la matrice'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['transposer_mat'] = init: ->
+  @appendValueInput('matr').setCheck('Matrix').appendField 'transposer'
+  @setPreviousStatement(true, null)
+  @setNextStatement(true, null)
+  @setColour 120
+  @setTooltip 'transposer la matrice'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['arrondir_mat'] = init: ->
+  @appendValueInput('matr').setCheck('Matrix').appendField 'arrondir'
+  @setPreviousStatement(true, null)
+  @setNextStatement(true, null)
+  @setColour 120
+  @setTooltip 'arrondir les coefficients de la matrice'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['mult_sofus_mat'] = init: ->
+  @appendValueInput('matr').setCheck('Matrix').appendField 'multiplier'
+  @appendValueInput('vec').setCheck(null).appendField 'par'
+  @setInputsInline true
+  @setPreviousStatement(true, null)
+  @setNextStatement(true, null)
+  @setColour 120
+  @setTooltip 'multiplier la matrice par une matrice'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['vec_multiplier'] = init: ->
+  @appendValueInput('matr').setCheck('Vector').appendField 'multiplier'
+  @appendValueInput('vec').setCheck(null).appendField 'par'
+  @setInputsInline true
+  @setPreviousStatement(true, null)
+  @setNextStatement(true, null)
+  @setColour 20
+  @setTooltip 'multiplier le vecteur'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['vec_augmenter'] = init: ->
+  @appendValueInput('matr').setCheck(null).appendField 'augmenter'
+  @appendValueInput('vec').setCheck(null).appendField 'de'
+  @setInputsInline true
+  @setPreviousStatement(true, null)
+  @setNextStatement(true, null)
+  @setColour 20
+  @setTooltip 'additionner une matrice'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['vec_diminuer'] = init: ->
+  @appendValueInput('matr').setCheck(null).appendField 'diminuer'
+  @appendValueInput('vec').setCheck(null).appendField 'de'
+  @setInputsInline true
+  @setPreviousStatement(true, null)
+  @setNextStatement(true, null)
+  @setColour 20
+  @setTooltip 'soustraire une matrice'
+  @setHelpUrl ''
+  return
+Blockly.Blocks['sofus_scalaire'] = init: ->
+  @appendValueInput('matr').setCheck('Vector').appendField 'multiplier'
+  @appendValueInput('vec').setCheck('Vector').appendField 'scalairement par'
+  @setInputsInline true
+  @setPreviousStatement(true, null)
+  @setNextStatement(true, null)
+  @setColour 20
+  @setTooltip 'multiplier scalairement par un vecteur'
+  @setHelpUrl ''
+  return
 Blockly.Blocks['vec_diagonal'] = init: ->
   @appendValueInput('vecteur').setCheck('Vector').appendField 'diagonale'
   @setOutput true, 'Matrix'
@@ -1769,6 +1851,21 @@ Blockly.Blocks['remplacer'] = init: ->
 	@setHelpUrl('')
 	return
 	
+Blockly.Blocks['remplacer1'] = init: ->
+	@appendDummyInput().appendField("remplacer le premier")
+	@appendValueInput("C1").setCheck(null)
+	@appendDummyInput().appendField("par")
+	@appendValueInput("C2").setCheck(null)
+	@appendDummyInput().appendField("dans")
+	@appendValueInput("T").setCheck(null)
+	@setInputsInline true
+	@setPreviousStatement(true, null)
+	@setNextStatement(true, null)
+	@setColour(150)
+	@setTooltip('substitution')
+	@setHelpUrl('')
+	return
+	
 Blockly.Blocks['eval'] = init: ->
 	@appendValueInput("P").setCheck(null).appendField("JS")
 	@setInputsInline(true)
@@ -1804,6 +1901,60 @@ Blockly.Blocks['coffee0'] = init: ->
 	@setNextStatement(true, null)
 	@setColour(270)
 	@setTooltip('CoffeeScript')
+	@setHelpUrl('')
+	return
+
+Blockly.Blocks['inverser_frac'] = init: ->
+	@appendValueInput('frac').setCheck('Fraction').appendField 'inverser'
+	@setPreviousStatement(true, null)
+	@setNextStatement(true, null)
+	@setColour(45)
+	@setTooltip('inverser la fraction')
+	@setHelpUrl('')
+	return
+
+
+Blockly.Blocks['augmenter_frac'] = init: ->
+	@appendValueInput('frac1').setCheck('Fraction').appendField 'augmenter'
+	@appendValueInput('frac2').setCheck('Fraction').appendField 'de'
+	@setInputsInline(true)
+	@setPreviousStatement(true, null)
+	@setNextStatement(true, null)
+	@setColour(45)
+	@setTooltip 'additionner une fraction'
+	@setHelpUrl('')
+	return
+
+Blockly.Blocks['diminuer_frac'] = init: ->
+	@appendValueInput('frac1').setCheck('Fraction').appendField 'diminuer'
+	@appendValueInput('frac2').setCheck('Fraction').appendField 'de'
+	@setInputsInline(true)
+	@setPreviousStatement(true, null)
+	@setNextStatement(true, null)
+	@setColour(45)
+	@setTooltip 'soustraire une fraction'
+	@setHelpUrl('')
+	return
+
+Blockly.Blocks['multiplier_frac'] = init: ->
+	@appendValueInput('frac1').setCheck('Fraction').appendField 'multiplier'
+	@appendValueInput('frac2').setCheck('Fraction').appendField 'par'
+	@setInputsInline(true)
+	@setPreviousStatement(true, null)
+	@setNextStatement(true, null)
+	@setColour(45)
+	@setTooltip 'multiplier par une fraction'
+	@setHelpUrl('')
+	return
+
+Blockly.Blocks['diviser_frac'] = init: ->
+	@appendValueInput('frac1').setCheck('Fraction').appendField 'diviser'
+	@appendValueInput('frac2').setCheck('Fraction').appendField 'par'
+	@setInputsInline(true)
+	@setPreviousStatement(true, null)
+	@setNextStatement(true, null)
+	@setColour(45)
+	@setTooltip 'diviser par une fraction'
 	@setHelpUrl('')
 	return
 

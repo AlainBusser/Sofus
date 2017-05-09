@@ -601,6 +601,13 @@ Blockly.JavaScript['vec_unitaire'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
+Blockly.JavaScript['normer_sofus'] = function(block) {
+  var code, value_autre;
+  value_autre = Blockly.JavaScript.valueToCode(block, 'autre', Blockly.JavaScript.ORDER_ATOMIC);
+  code = value_autre + ' = ' + value_autre + '.toUnitVector();\n';
+  return code;
+};
+
 Blockly.JavaScript['vec_diagonal'] = function(block) {
   var code, value_vecteur;
   value_vecteur = Blockly.JavaScript.valueToCode(block, 'vecteur', Blockly.JavaScript.ORDER_ATOMIC);
@@ -743,6 +750,67 @@ Blockly.JavaScript['mat_inv'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
+Blockly.JavaScript['inverser_mat'] = function(block) {
+  var code, value_matr;
+  value_matr = Blockly.JavaScript.valueToCode(block, 'matr', Blockly.JavaScript.ORDER_ATOMIC);
+  code = value_matr + " = " + value_matr + '.inverse();\n';
+  return code;
+};
+
+Blockly.JavaScript['transposer_mat'] = function(block) {
+  var code, value_matr;
+  value_matr = Blockly.JavaScript.valueToCode(block, 'matr', Blockly.JavaScript.ORDER_ATOMIC);
+  code = value_matr + " = " + value_matr + '.transpose();\n';
+  return code;
+};
+
+Blockly.JavaScript['arrondir_mat'] = function(block) {
+  var code, value_matr;
+  value_matr = Blockly.JavaScript.valueToCode(block, 'matr', Blockly.JavaScript.ORDER_ATOMIC);
+  code = value_matr + " = " + value_matr + '.round();\n';
+  return code;
+};
+
+Blockly.JavaScript['mult_sofus_mat'] = function(block) {
+  var code, value_matr, value_vec;
+  value_matr = Blockly.JavaScript.valueToCode(block, 'matr', Blockly.JavaScript.ORDER_ATOMIC);
+  value_vec = Blockly.JavaScript.valueToCode(block, 'vec', Blockly.JavaScript.ORDER_ATOMIC);
+  code = value_matr + " = " + value_matr + '.x(' + value_vec + ');\n';
+  return code;
+};
+
+Blockly.JavaScript['vec_multiplier'] = function(block) {
+  var code, value_matr, value_vec;
+  value_matr = Blockly.JavaScript.valueToCode(block, 'matr', Blockly.JavaScript.ORDER_ATOMIC);
+  value_vec = Blockly.JavaScript.valueToCode(block, 'vec', Blockly.JavaScript.ORDER_ATOMIC);
+  code = value_matr + " = " + value_matr + '.x(' + value_vec + ');\n';
+  return code;
+};
+
+Blockly.JavaScript['vec_augmenter'] = function(block) {
+  var code, value_matr, value_vec;
+  value_matr = Blockly.JavaScript.valueToCode(block, 'matr', Blockly.JavaScript.ORDER_ATOMIC);
+  value_vec = Blockly.JavaScript.valueToCode(block, 'vec', Blockly.JavaScript.ORDER_ATOMIC);
+  code = value_matr + " = " + value_matr + '.add(' + value_vec + ');\n';
+  return code;
+};
+
+Blockly.JavaScript['vec_diminuer'] = function(block) {
+  var code, value_matr, value_vec;
+  value_matr = Blockly.JavaScript.valueToCode(block, 'matr', Blockly.JavaScript.ORDER_ATOMIC);
+  value_vec = Blockly.JavaScript.valueToCode(block, 'vec', Blockly.JavaScript.ORDER_ATOMIC);
+  code = value_matr + " = " + value_matr + '.subtract(' + value_vec + ');\n';
+  return code;
+};
+
+Blockly.JavaScript['sofus_scalaire'] = function(block) {
+  var code, value_matr, value_vec;
+  value_matr = Blockly.JavaScript.valueToCode(block, 'matr', Blockly.JavaScript.ORDER_ATOMIC);
+  value_vec = Blockly.JavaScript.valueToCode(block, 'vec', Blockly.JavaScript.ORDER_ATOMIC);
+  code = value_matr + " = " + value_matr + '.dot(' + value_vec + ');\n';
+  return code;
+};
+
 Blockly.JavaScript['mat_mult'] = function(block) {
   var code, value_autre, variable_lui;
   variable_lui = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('lui'), Blockly.Variables.NAME_TYPE);
@@ -856,6 +924,16 @@ Blockly.JavaScript['remplacer'] = function(block) {
   return code;
 };
 
+Blockly.JavaScript['remplacer1'] = function(block) {
+  var code, var_c1, var_c2, var_t;
+  var_c1 = Blockly.JavaScript.valueToCode(block, 'C1', Blockly.JavaScript.ORDER_ATOMIC);
+  var_c2 = Blockly.JavaScript.valueToCode(block, 'C2', Blockly.JavaScript.ORDER_ATOMIC);
+  var_t = Blockly.JavaScript.valueToCode(block, 'T', Blockly.JavaScript.ORDER_ATOMIC);
+  code = 'var re = new RegExp(' + var_c1 + ');\n';
+  code += var_t + ' = ' + var_t + '.replace(re,' + var_c2 + ');\n';
+  return code;
+};
+
 Blockly.JavaScript['eval'] = function(block) {
   var prog;
   prog = Blockly.JavaScript.valueToCode(block, 'P', Blockly.JavaScript.ORDER_ATOMIC);
@@ -878,4 +956,39 @@ Blockly.JavaScript['coffee0'] = function(block) {
   var prog;
   prog = Blockly.JavaScript.valueToCode(block, 'P', Blockly.JavaScript.ORDER_ATOMIC);
   return 'CoffeeScript.run(' + prog + ');\n';
+};
+
+Blockly.JavaScript['inverser_frac'] = function(block) {
+  var code, frac_1;
+  frac_1 = Blockly.JavaScript.valueToCode(block, 'frac', Blockly.JavaScript.ORDER_ATOMIC);
+  code = frac_1 + " = " + frac_1 + '.inverse();\n';
+  return code;
+};
+
+Blockly.JavaScript['augmenter_frac'] = function(block) {
+  var frac_1, frac_2;
+  frac_1 = Blockly.JavaScript.valueToCode(block, 'frac1', Blockly.JavaScript.ORDER_ATOMIC);
+  frac_2 = Blockly.JavaScript.valueToCode(block, 'frac2', Blockly.JavaScript.ORDER_ATOMIC);
+  return frac_1 + ' = ' + frac_1 + '.plus(' + frac_2 + ');\n';
+};
+
+Blockly.JavaScript['diminuer_frac'] = function(block) {
+  var frac_1, frac_2;
+  frac_1 = Blockly.JavaScript.valueToCode(block, 'frac1', Blockly.JavaScript.ORDER_ATOMIC);
+  frac_2 = Blockly.JavaScript.valueToCode(block, 'frac2', Blockly.JavaScript.ORDER_ATOMIC);
+  return frac_1 + ' = ' + frac_1 + '.moins(' + frac_2 + ');\n';
+};
+
+Blockly.JavaScript['multiplier_frac'] = function(block) {
+  var frac_1, frac_2;
+  frac_1 = Blockly.JavaScript.valueToCode(block, 'frac1', Blockly.JavaScript.ORDER_ATOMIC);
+  frac_2 = Blockly.JavaScript.valueToCode(block, 'frac2', Blockly.JavaScript.ORDER_ATOMIC);
+  return frac_1 + ' = ' + frac_1 + '.fois(' + frac_2 + ');\n';
+};
+
+Blockly.JavaScript['diviser_frac'] = function(block) {
+  var frac_1, frac_2;
+  frac_1 = Blockly.JavaScript.valueToCode(block, 'frac1', Blockly.JavaScript.ORDER_ATOMIC);
+  frac_2 = Blockly.JavaScript.valueToCode(block, 'frac2', Blockly.JavaScript.ORDER_ATOMIC);
+  return frac_1 + ' = ' + frac_1 + '.sur(' + frac_2 + ');\n';
 };

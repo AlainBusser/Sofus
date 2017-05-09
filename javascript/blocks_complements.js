@@ -1524,6 +1524,115 @@ Blockly.Blocks['vec_unitaire'] = {
   }
 };
 
+Blockly.Blocks['normer_sofus'] = {
+  init: function() {
+    this.appendValueInput('autre').setCheck('Vector').appendField('normer');
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(20);
+    this.setTooltip('donner à ce vecteur une norme unité');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['inverser_mat'] = {
+  init: function() {
+    this.appendValueInput('matr').setCheck('Matrix').appendField('inverser');
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+    this.setTooltip('inverser la matrice');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['transposer_mat'] = {
+  init: function() {
+    this.appendValueInput('matr').setCheck('Matrix').appendField('transposer');
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+    this.setTooltip('transposer la matrice');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['arrondir_mat'] = {
+  init: function() {
+    this.appendValueInput('matr').setCheck('Matrix').appendField('arrondir');
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+    this.setTooltip('arrondir les coefficients de la matrice');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['mult_sofus_mat'] = {
+  init: function() {
+    this.appendValueInput('matr').setCheck('Matrix').appendField('multiplier');
+    this.appendValueInput('vec').setCheck(null).appendField('par');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+    this.setTooltip('multiplier la matrice par une matrice');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['vec_multiplier'] = {
+  init: function() {
+    this.appendValueInput('matr').setCheck('Vector').appendField('multiplier');
+    this.appendValueInput('vec').setCheck(null).appendField('par');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(20);
+    this.setTooltip('multiplier le vecteur');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['vec_augmenter'] = {
+  init: function() {
+    this.appendValueInput('matr').setCheck(null).appendField('augmenter');
+    this.appendValueInput('vec').setCheck(null).appendField('de');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(20);
+    this.setTooltip('additionner une matrice');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['vec_diminuer'] = {
+  init: function() {
+    this.appendValueInput('matr').setCheck(null).appendField('diminuer');
+    this.appendValueInput('vec').setCheck(null).appendField('de');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(20);
+    this.setTooltip('soustraire une matrice');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['sofus_scalaire'] = {
+  init: function() {
+    this.appendValueInput('matr').setCheck('Vector').appendField('multiplier');
+    this.appendValueInput('vec').setCheck('Vector').appendField('scalairement par');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(20);
+    this.setTooltip('multiplier scalairement par un vecteur');
+    this.setHelpUrl('');
+  }
+};
+
 Blockly.Blocks['vec_diagonal'] = {
   init: function() {
     this.appendValueInput('vecteur').setCheck('Vector').appendField('diagonale');
@@ -1873,6 +1982,23 @@ Blockly.Blocks['remplacer'] = {
   }
 };
 
+Blockly.Blocks['remplacer1'] = {
+  init: function() {
+    this.appendDummyInput().appendField("remplacer le premier");
+    this.appendValueInput("C1").setCheck(null);
+    this.appendDummyInput().appendField("par");
+    this.appendValueInput("C2").setCheck(null);
+    this.appendDummyInput().appendField("dans");
+    this.appendValueInput("T").setCheck(null);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(150);
+    this.setTooltip('substitution');
+    this.setHelpUrl('');
+  }
+};
+
 Blockly.Blocks['eval'] = {
   init: function() {
     this.appendValueInput("P").setCheck(null).appendField("JS");
@@ -1915,6 +2041,69 @@ Blockly.Blocks['coffee0'] = {
     this.setNextStatement(true, null);
     this.setColour(270);
     this.setTooltip('CoffeeScript');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['inverser_frac'] = {
+  init: function() {
+    this.appendValueInput('frac').setCheck('Fraction').appendField('inverser');
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(45);
+    this.setTooltip('inverser la fraction');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['augmenter_frac'] = {
+  init: function() {
+    this.appendValueInput('frac1').setCheck('Fraction').appendField('augmenter');
+    this.appendValueInput('frac2').setCheck('Fraction').appendField('de');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(45);
+    this.setTooltip('additionner une fraction');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['diminuer_frac'] = {
+  init: function() {
+    this.appendValueInput('frac1').setCheck('Fraction').appendField('diminuer');
+    this.appendValueInput('frac2').setCheck('Fraction').appendField('de');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(45);
+    this.setTooltip('soustraire une fraction');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['multiplier_frac'] = {
+  init: function() {
+    this.appendValueInput('frac1').setCheck('Fraction').appendField('multiplier');
+    this.appendValueInput('frac2').setCheck('Fraction').appendField('par');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(45);
+    this.setTooltip('multiplier par une fraction');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['diviser_frac'] = {
+  init: function() {
+    this.appendValueInput('frac1').setCheck('Fraction').appendField('diviser');
+    this.appendValueInput('frac2').setCheck('Fraction').appendField('par');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(45);
+    this.setTooltip('diviser par une fraction');
     this.setHelpUrl('');
   }
 };

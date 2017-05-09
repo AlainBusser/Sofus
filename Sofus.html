@@ -339,6 +339,26 @@ $ ->
 				</value>
 			</block>
     </category>
+    <category name="fractions">
+		<block type="inverser_frac"></block>
+		<block type="augmenter_frac"></block>
+		<block type="diminuer_frac"></block>
+		<block type="multiplier_frac"></block>
+		<block type="diviser_frac"></block>
+    </category>
+    <category name="vecteurs">
+		<block type="normer_sofus"></block>
+		<block type="vec_augmenter"></block>
+		<block type="vec_diminuer"></block>
+		<block type="vec_multiplier"></block>
+		<block type="sofus_scalaire"></block>
+    </category>
+    <category name="matrices">
+		<block type="transposer_mat"></block>
+		<block type="inverser_mat"></block>
+		<block type="arrondir_mat"></block>
+		<block type="mult_sofus_mat"></block>
+    </category>
     </category>
         <sep></sep>
     <category name="Fractions" colour="20">
@@ -587,6 +607,7 @@ $ ->
             <block type="text_append"></block>
             <block type="text_length"></block>
 		<block type="remplacer"></block>
+		<block type="remplacer1"></block>
 		<block type="eval"></block>
 		<block type="eval0"></block>
 		<block type="coffee0"></block>
@@ -605,65 +626,69 @@ $ ->
   <!-- fin du menu des outils et début du menu intégré au plan de travail -->
 
 <xml id="startBlocks" style="display: none">
-  <block type="big_efface" x="3" y="16">
+  <block type="big_efface" id="_uqEW!hMb~=7@jI8s~ls" x="3" y="16">
     <next>
-      <block type="variables_set">
+      <block type="variables_set" id="d`5ge1^wvgc{{F17oue6">
         <field name="VAR">F</field>
         <value name="VALUE">
-          <block type="constante_entier">
+          <block type="constante_entier" id="Tz%Jm9.CmbD8kR`BRYo%">
             <field name="NUM">1</field>
           </block>
         </value>
         <next>
-          <block type="controls_repeat_ext">
+          <block type="controls_repeat_ext" id="QxzRpf]6),!Yi4Stl%_m">
             <value name="TIMES">
-              <block type="math_number">
+              <block type="math_number" id="bn/VTweUEZ3v{@d|aKxE">
                 <field name="NUM">10</field>
               </block>
             </value>
             <statement name="DO">
-              <block type="variables_set">
-                <field name="VAR">F</field>
-                <value name="VALUE">
-                  <block type="inverse">
-                    <value name="NAME">
-                      <block type="frac_plus">
-                        <field name="FR1">F</field>
-                        <value name="NAME">
-                          <block type="constante_entier">
-                            <field name="NUM">1</field>
-                          </block>
-                        </value>
-                      </block>
-                    </value>
+              <block type="augmenter_frac" id=":uGYl[Ax[_q^Rbn1Y/ms">
+                <value name="frac1">
+                  <block type="variables_get" id="zA5rNE=kI_4w![aaAVRv">
+                    <field name="VAR">F</field>
+                  </block>
+                </value>
+                <value name="frac2">
+                  <block type="constante_entier" id="CZoTx9^~[CP%}D|y-Uj(">
+                    <field name="NUM">1</field>
                   </block>
                 </value>
                 <next>
-                  <block type="big_aff">
-                    <value name="VAR">
-                      <block type="text_join" inline="false">
-                        <mutation items="3"></mutation>
-                        <value name="ADD0">
-                          <block type="variables_get" collapsed="true">
-                            <field name="VAR">F</field>
-                          </block>
-                        </value>
-                        <value name="ADD1">
-                          <block type="text" collapsed="true">
-                            <field name="TEXT"> est la somme de </field>
-                          </block>
-                        </value>
-                        <value name="ADD2">
-                          <block type="egyptian" collapsed="true">
-                            <value name="FRAC">
-                              <block type="variables_get">
+                  <block type="inverser_frac" id="~0TZX92?_t4;xxd#ka]m">
+                    <value name="frac">
+                      <block type="variables_get" id="%2XY)kC`:oN/YYV,T|78">
+                        <field name="VAR">F</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="big_aff" id="mhwsk%7UF%EK{:3]p=k~">
+                        <value name="VAR">
+                          <block type="text_join" id="!^rjox3sQBnB@35n~y(x" inline="false">
+                            <mutation items="3"></mutation>
+                            <value name="ADD0">
+                              <block type="variables_get" id="d%B-lLjijOOA}AKClJ.9" collapsed="true">
                                 <field name="VAR">F</field>
+                              </block>
+                            </value>
+                            <value name="ADD1">
+                              <block type="text" id="Hs*+FMXXKr^l|=47,i6/" collapsed="true">
+                                <field name="TEXT"> est la somme de </field>
+                              </block>
+                            </value>
+                            <value name="ADD2">
+                              <block type="egyptian" id="*s2}e5lE,v?K{9PebUck" collapsed="true">
+                                <value name="FRAC">
+                                  <block type="variables_get" id="1wKIe%DJQ8F0WWk/iG,R">
+                                    <field name="VAR">F</field>
+                                  </block>
+                                </value>
                               </block>
                             </value>
                           </block>
                         </value>
                       </block>
-                    </value>
+                    </next>
                   </block>
                 </next>
               </block>
