@@ -718,6 +718,12 @@ Blockly.JavaScript['mult_sofus_mat'] = (block) ->
   code = value_matr + " = " + value_matr + '.x(' + value_vec + ');\n'
   code
 
+Blockly.JavaScript['mult_gauche'] = (block) ->
+  value_matr = Blockly.JavaScript.valueToCode(block, 'matr', Blockly.JavaScript.ORDER_ATOMIC)
+  value_vec = Blockly.JavaScript.valueToCode(block, 'vec', Blockly.JavaScript.ORDER_ATOMIC)
+  code = value_vec + " = " + value_matr + '.x(' + value_vec + ');\n'
+  code
+
 Blockly.JavaScript['vec_multiplier'] = (block) ->
   value_matr = Blockly.JavaScript.valueToCode(block, 'matr', Blockly.JavaScript.ORDER_ATOMIC)
   value_vec = Blockly.JavaScript.valueToCode(block, 'vec', Blockly.JavaScript.ORDER_ATOMIC)
@@ -817,6 +823,13 @@ Blockly.JavaScript['envers'] = (block) ->
 		Blockly.JavaScript.ORDER_NONE
 	]
 
+Blockly.JavaScript['srevne'] = (block) ->
+	n = Blockly.JavaScript.valueToCode(block, 'N', Blockly.JavaScript.ORDER_ATOMIC)
+	[
+		'reverseT(""+'+n+')'
+		Blockly.JavaScript.ORDER_NONE
+	]
+
 Blockly.JavaScript['kaprekar_doubler'] = (block) ->
 	n = Blockly.JavaScript.valueToCode(block, 'N', Blockly.JavaScript.ORDER_ATOMIC)
 	[
@@ -904,4 +917,22 @@ Blockly.JavaScript['diviser_frac'] = (block) ->
 	frac_1 + ' = ' + frac_1 + '.sur(' + frac_2 + ');\n'
 
 
-	
+Blockly.JavaScript['pgcd'] = (block) ->
+	var_a = Blockly.JavaScript.valueToCode(block, 'A', Blockly.JavaScript.ORDER_ATOMIC)
+	var_b = Blockly.JavaScript.valueToCode(block, 'B', Blockly.JavaScript.ORDER_ATOMIC)
+	code = 'pgcd(' + var_a + ',' + var_b + ')'
+	[
+		code
+		Blockly.JavaScript.ORDER_NONE
+	]
+
+Blockly.JavaScript['doubler_frac'] = (block) ->
+  varName = Blockly.JavaScript.valueToCode(block, 'VAR', Blockly.JavaScript.ORDER_ATOMIC)
+  choix = block.getFieldValue('CHOIX')
+  varName + ' = ' + varName + '.fois(new Fraction(' + choix + ',1));\n'
+
+Blockly.JavaScript['doubler_vec'] = (block) ->
+  varName = Blockly.JavaScript.valueToCode(block, 'VAR', Blockly.JavaScript.ORDER_ATOMIC)
+  choix = block.getFieldValue('CHOIX')
+  varName + ' = ' + varName + '.x(' + choix + ');\n'
+

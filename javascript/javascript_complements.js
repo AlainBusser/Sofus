@@ -779,6 +779,14 @@ Blockly.JavaScript['mult_sofus_mat'] = function(block) {
   return code;
 };
 
+Blockly.JavaScript['mult_gauche'] = function(block) {
+  var code, value_matr, value_vec;
+  value_matr = Blockly.JavaScript.valueToCode(block, 'matr', Blockly.JavaScript.ORDER_ATOMIC);
+  value_vec = Blockly.JavaScript.valueToCode(block, 'vec', Blockly.JavaScript.ORDER_ATOMIC);
+  code = value_vec + " = " + value_matr + '.x(' + value_vec + ');\n';
+  return code;
+};
+
 Blockly.JavaScript['vec_multiplier'] = function(block) {
   var code, value_matr, value_vec;
   value_matr = Blockly.JavaScript.valueToCode(block, 'matr', Blockly.JavaScript.ORDER_ATOMIC);
@@ -895,6 +903,12 @@ Blockly.JavaScript['envers'] = function(block) {
   return ['Number(reverseT(""+' + n + '))', Blockly.JavaScript.ORDER_NONE];
 };
 
+Blockly.JavaScript['srevne'] = function(block) {
+  var n;
+  n = Blockly.JavaScript.valueToCode(block, 'N', Blockly.JavaScript.ORDER_ATOMIC);
+  return ['reverseT(""+' + n + ')', Blockly.JavaScript.ORDER_NONE];
+};
+
 Blockly.JavaScript['kaprekar_doubler'] = function(block) {
   var n;
   n = Blockly.JavaScript.valueToCode(block, 'N', Blockly.JavaScript.ORDER_ATOMIC);
@@ -991,4 +1005,26 @@ Blockly.JavaScript['diviser_frac'] = function(block) {
   frac_1 = Blockly.JavaScript.valueToCode(block, 'frac1', Blockly.JavaScript.ORDER_ATOMIC);
   frac_2 = Blockly.JavaScript.valueToCode(block, 'frac2', Blockly.JavaScript.ORDER_ATOMIC);
   return frac_1 + ' = ' + frac_1 + '.sur(' + frac_2 + ');\n';
+};
+
+Blockly.JavaScript['pgcd'] = function(block) {
+  var code, var_a, var_b;
+  var_a = Blockly.JavaScript.valueToCode(block, 'A', Blockly.JavaScript.ORDER_ATOMIC);
+  var_b = Blockly.JavaScript.valueToCode(block, 'B', Blockly.JavaScript.ORDER_ATOMIC);
+  code = 'pgcd(' + var_a + ',' + var_b + ')';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['doubler_frac'] = function(block) {
+  var choix, varName;
+  varName = Blockly.JavaScript.valueToCode(block, 'VAR', Blockly.JavaScript.ORDER_ATOMIC);
+  choix = block.getFieldValue('CHOIX');
+  return varName + ' = ' + varName + '.fois(new Fraction(' + choix + ',1));\n';
+};
+
+Blockly.JavaScript['doubler_vec'] = function(block) {
+  var choix, varName;
+  varName = Blockly.JavaScript.valueToCode(block, 'VAR', Blockly.JavaScript.ORDER_ATOMIC);
+  choix = block.getFieldValue('CHOIX');
+  return varName + ' = ' + varName + '.x(' + choix + ');\n';
 };

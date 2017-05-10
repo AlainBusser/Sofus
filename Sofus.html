@@ -345,6 +345,7 @@ $ ->
 		<block type="diminuer_frac"></block>
 		<block type="multiplier_frac"></block>
 		<block type="diviser_frac"></block>
+		<block type="doubler_frac"></block>
     </category>
     <category name="vecteurs">
 		<block type="normer_sofus"></block>
@@ -358,6 +359,8 @@ $ ->
 		<block type="inverser_mat"></block>
 		<block type="arrondir_mat"></block>
 		<block type="mult_sofus_mat"></block>
+		<block type="mult_gauche"></block>
+		<block type="doubler_vec"></block>
     </category>
     </category>
         <sep></sep>
@@ -428,6 +431,7 @@ $ ->
         </value>
           <value name="VALUE"><block type="variables_get"><field name="VAR">element</field></block></value>
       </block>
+      <block type="pgcd"></block>
       </category>
       <category name="hasard">
       <block type="math_random_int">
@@ -613,6 +617,7 @@ $ ->
 		<block type="coffee0"></block>
             <block type="text_indexOf"></block>
             <block type="text_charAt"></block>
+            <block type="srevne"></block>
             <block type="text_getSubstring"></block>
             <block type="lists_split"></block>
         </category>

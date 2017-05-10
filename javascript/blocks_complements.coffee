@@ -1542,6 +1542,16 @@ Blockly.Blocks['mult_sofus_mat'] = init: ->
   @setTooltip 'multiplier la matrice par une matrice'
   @setHelpUrl ''
   return
+Blockly.Blocks['mult_gauche'] = init: ->
+  @appendValueInput('vec').setCheck(null).appendField 'multiplier'
+  @appendValueInput('matr').setCheck('Matrix').appendField 'à gauche par'
+  @setInputsInline true
+  @setPreviousStatement(true, null)
+  @setNextStatement(true, null)
+  @setColour 120
+  @setTooltip 'multiplier la matrice par une matrice'
+  @setHelpUrl ''
+  return
 Blockly.Blocks['vec_multiplier'] = init: ->
   @appendValueInput('matr').setCheck('Vector').appendField 'multiplier'
   @appendValueInput('vec').setCheck(null).appendField 'par'
@@ -1810,6 +1820,14 @@ Blockly.Blocks['envers'] = init: ->
 	@setHelpUrl ''
 	return
 
+Blockly.Blocks['srevne'] = init: ->
+	@appendValueInput("N").setCheck(null).appendField("retourné de")
+	@setOutput true, null
+	@setColour 160
+	@setTooltip 'mettre les lettres à l\'envers'
+	@setHelpUrl ''
+	return
+
 Blockly.Blocks['kaprekar_doubler'] = init: ->
 	@appendValueInput("N").setCheck(null).appendField("répété de")
 	@setOutput true, null
@@ -1958,3 +1976,34 @@ Blockly.Blocks['diviser_frac'] = init: ->
 	@setHelpUrl('')
 	return
 
+Blockly.Blocks['pgcd'] = init: ->
+	@appendValueInput("A").setCheck(null).appendField("pgcd de")
+	@appendValueInput("B").setCheck(null).appendField("et")
+	@setInputsInline(true)
+	@setOutput(true, null)
+	@setColour(230)
+	@setTooltip('plus grand diviseur commun')
+	@setHelpUrl('')
+	return
+
+Blockly.Blocks['doubler_frac'] = init: ->
+	@appendDummyInput().appendField(new Blockly.FieldDropdown([["doubler","2"], ["tripler","3"], ["quadrupler","4"], ["quintupler","5"], ["sextupler","6"], ["octupler","8"], ["décupler","10"], ["centupler","100"]]), "CHOIX")
+	@appendValueInput("VAR").setCheck("Fraction")
+	@setInputsInline(true)
+	@setPreviousStatement(true, null)
+	@setNextStatement(true, null)
+	@setColour(45)
+	@setTooltip('multiplier la fraction par un entier')
+	@setHelpUrl('')
+	return
+
+Blockly.Blocks['doubler_vec'] = init: ->
+	@appendDummyInput().appendField(new Blockly.FieldDropdown([["doubler","2"], ["tripler","3"], ["quadrupler","4"], ["quintupler","5"], ["sextupler","6"], ["octupler","8"], ["décupler","10"], ["centupler","100"]]), "CHOIX")
+	@appendValueInput("VAR")
+	@setInputsInline(true)
+	@setPreviousStatement(true, null)
+	@setNextStatement(true, null)
+	@setColour(30)
+	@setTooltip('multiplier la matrice par un entier')
+	@setHelpUrl('')
+	return

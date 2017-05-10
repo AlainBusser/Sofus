@@ -1581,6 +1581,19 @@ Blockly.Blocks['mult_sofus_mat'] = {
   }
 };
 
+Blockly.Blocks['mult_gauche'] = {
+  init: function() {
+    this.appendValueInput('vec').setCheck(null).appendField('multiplier');
+    this.appendValueInput('matr').setCheck('Matrix').appendField('à gauche par');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+    this.setTooltip('multiplier la matrice par une matrice');
+    this.setHelpUrl('');
+  }
+};
+
 Blockly.Blocks['vec_multiplier'] = {
   init: function() {
     this.appendValueInput('matr').setCheck('Vector').appendField('multiplier');
@@ -1933,6 +1946,16 @@ Blockly.Blocks['envers'] = {
   }
 };
 
+Blockly.Blocks['srevne'] = {
+  init: function() {
+    this.appendValueInput("N").setCheck(null).appendField("retourné de");
+    this.setOutput(true, null);
+    this.setColour(160);
+    this.setTooltip('mettre les lettres à l\'envers');
+    this.setHelpUrl('');
+  }
+};
+
 Blockly.Blocks['kaprekar_doubler'] = {
   init: function() {
     this.appendValueInput("N").setCheck(null).appendField("répété de");
@@ -2104,6 +2127,44 @@ Blockly.Blocks['diviser_frac'] = {
     this.setNextStatement(true, null);
     this.setColour(45);
     this.setTooltip('diviser par une fraction');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['pgcd'] = {
+  init: function() {
+    this.appendValueInput("A").setCheck(null).appendField("pgcd de");
+    this.appendValueInput("B").setCheck(null).appendField("et");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(230);
+    this.setTooltip('plus grand diviseur commun');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['doubler_frac'] = {
+  init: function() {
+    this.appendDummyInput().appendField(new Blockly.FieldDropdown([["doubler", "2"], ["tripler", "3"], ["quadrupler", "4"], ["quintupler", "5"], ["sextupler", "6"], ["octupler", "8"], ["décupler", "10"], ["centupler", "100"]]), "CHOIX");
+    this.appendValueInput("VAR").setCheck("Fraction");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(45);
+    this.setTooltip('multiplier la fraction par un entier');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['doubler_vec'] = {
+  init: function() {
+    this.appendDummyInput().appendField(new Blockly.FieldDropdown([["doubler", "2"], ["tripler", "3"], ["quadrupler", "4"], ["quintupler", "5"], ["sextupler", "6"], ["octupler", "8"], ["décupler", "10"], ["centupler", "100"]]), "CHOIX");
+    this.appendValueInput("VAR");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(30);
+    this.setTooltip('multiplier la matrice par un entier');
     this.setHelpUrl('');
   }
 };
