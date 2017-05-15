@@ -1,0 +1,293 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="procedures_defnoreturn" collapsed="true" x="27" y="-177">
+    <field name="NAME">afficherA</field>
+    <statement name="STACK">
+      <block type="controls_if">
+        <mutation else="1"></mutation>
+        <value name="IF0">
+          <block type="transyl_etat">
+            <field name="NAME">A</field>
+            <field name="etat">moi.humain</field>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="big_aff">
+            <value name="VAR">
+              <block type="text">
+                <field name="TEXT">A est un humain</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <block type="big_aff">
+            <value name="VAR">
+              <block type="text">
+                <field name="TEXT">A est un vampire</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" collapsed="true" x="25" y="-146">
+    <field name="NAME">afficherB</field>
+    <statement name="STACK">
+      <block type="controls_if">
+        <mutation else="1"></mutation>
+        <value name="IF0">
+          <block type="transyl_etat">
+            <field name="NAME">B</field>
+            <field name="etat">moi.humain</field>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="big_aff">
+            <value name="VAR">
+              <block type="text">
+                <field name="TEXT">B est un humain</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <block type="big_aff">
+            <value name="VAR">
+              <block type="text">
+                <field name="TEXT">B est un vampire</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" collapsed="true" x="21" y="-118">
+    <field name="NAME">afficherC</field>
+    <statement name="STACK">
+      <block type="controls_if">
+        <mutation else="1"></mutation>
+        <value name="IF0">
+          <block type="transyl_etat">
+            <field name="NAME">C</field>
+            <field name="etat">moi.humain</field>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="big_aff">
+            <value name="VAR">
+              <block type="text">
+                <field name="TEXT">C est un humain</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <block type="big_aff">
+            <value name="VAR">
+              <block type="text">
+                <field name="TEXT">C est un vampire</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="big_efface" x="3" y="16">
+    <next>
+      <block type="variables_set">
+        <field name="VAR">A</field>
+        <value name="VALUE">
+          <block type="humain"></block>
+        </value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR">B</field>
+            <value name="VALUE">
+              <block type="humain"></block>
+            </value>
+            <next>
+              <block type="variables_set">
+                <field name="VAR">C</field>
+                <value name="VALUE">
+                  <block type="humain"></block>
+                </value>
+                <next>
+                  <block type="controls_forEach">
+                    <field name="VAR">u</field>
+                    <value name="LIST">
+                      <block type="lists_create_with" inline="true">
+                        <mutation items="2"></mutation>
+                        <value name="ADD0">
+                          <block type="logic_boolean">
+                            <field name="BOOL">TRUE</field>
+                          </block>
+                        </value>
+                        <value name="ADD1">
+                          <block type="logic_boolean">
+                            <field name="BOOL">FALSE</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO">
+                      <block type="transyl_affectation">
+                        <field name="PROP">.humain = </field>
+                        <field name="NAME">A</field>
+                        <value name="NAME">
+                          <block type="variables_get">
+                            <field name="VAR">u</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="controls_forEach">
+                            <field name="VAR">v</field>
+                            <value name="LIST">
+                              <block type="lists_create_with" inline="true">
+                                <mutation items="2"></mutation>
+                                <value name="ADD0">
+                                  <block type="logic_boolean">
+                                    <field name="BOOL">TRUE</field>
+                                  </block>
+                                </value>
+                                <value name="ADD1">
+                                  <block type="logic_boolean">
+                                    <field name="BOOL">FALSE</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO">
+                              <block type="transyl_affectation">
+                                <field name="PROP">.humain = </field>
+                                <field name="NAME">B</field>
+                                <value name="NAME">
+                                  <block type="variables_get">
+                                    <field name="VAR">v</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="controls_forEach">
+                                    <field name="VAR">w</field>
+                                    <value name="LIST">
+                                      <block type="lists_create_with" inline="true">
+                                        <mutation items="2"></mutation>
+                                        <value name="ADD0">
+                                          <block type="logic_boolean">
+                                            <field name="BOOL">TRUE</field>
+                                          </block>
+                                        </value>
+                                        <value name="ADD1">
+                                          <block type="logic_boolean">
+                                            <field name="BOOL">FALSE</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <statement name="DO">
+                                      <block type="transyl_affectation">
+                                        <field name="PROP">.humain = </field>
+                                        <field name="NAME">C</field>
+                                        <value name="NAME">
+                                          <block type="variables_get">
+                                            <field name="VAR">w</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="controls_if">
+                                            <value name="IF0">
+                                              <block type="dire">
+                                                <field name="NAME">B</field>
+                                                <value name="NAME">
+                                                  <block type="logic_operation" inline="false">
+                                                    <field name="OP">OR</field>
+                                                    <value name="A">
+                                                      <block type="transyl_etat">
+                                                        <field name="NAME">A</field>
+                                                        <field name="etat">moi.humain</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="B">
+                                                      <block type="logic_operation" inline="false">
+                                                        <field name="OP">OR</field>
+                                                        <value name="A">
+                                                          <block type="transyl_etat">
+                                                            <field name="NAME">B</field>
+                                                            <field name="etat">moi.humain</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="B">
+                                                          <block type="transyl_etat">
+                                                            <field name="NAME">C</field>
+                                                            <field name="etat">moi.humain</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <statement name="DO0">
+                                              <block type="controls_if">
+                                                <value name="IF0">
+                                                  <block type="dire">
+                                                    <field name="NAME">C</field>
+                                                    <value name="NAME">
+                                                      <block type="transyl_etat">
+                                                        <field name="NAME">B</field>
+                                                        <field name="etat">!moi.humain</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <statement name="DO0">
+                                                  <block type="procedures_callnoreturn">
+                                                    <mutation name="afficherA"></mutation>
+                                                    <next>
+                                                      <block type="procedures_callnoreturn">
+                                                        <mutation name="afficherB"></mutation>
+                                                        <next>
+                                                          <block type="procedures_callnoreturn">
+                                                            <mutation name="afficherC"></mutation>
+                                                            <next>
+                                                              <block type="big_aff">
+                                                                <value name="VAR">
+                                                                  <block type="text">
+                                                                    <field name="TEXT"></field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </statement>
+                                              </block>
+                                            </statement>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </statement>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

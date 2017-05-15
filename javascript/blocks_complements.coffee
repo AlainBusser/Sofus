@@ -2007,3 +2007,162 @@ Blockly.Blocks['doubler_vec'] = init: ->
 	@setTooltip('multiplier la matrice par un entier')
 	@setHelpUrl('')
 	return
+
+
+# Micromonde de Smullyan
+
+#Blockly.Blocks['vampire_doctor'] = init: ->
+#	@appendDummyInput().appendField("transylvanien").appendField(new Blockly.FieldDropdown([[{"src":"../Sophus/img/man.png","width":32,"height":32,"alt":"homme"},true], [{"src":"../Sophus/img/vampire.png","width":32,"height":32,"alt":"vampire"},false]]), "PUR")
+#	@appendField(new Blockly.FieldDropdown([[{"src":"../img/healthy.png","width":32,"height":32,"alt":"sain d'esprit"},true], [{"src":"../img/crazy.png","width":32,"height":32,"alt":"fou"},false]]), "SAIN")
+#	@appendField(new Blockly.FieldDropdown([[{"src":"../img/medical.png","width":32,"height":32,"alt":"médecin"},true], [{"src":"../img/sick.png","width":32,"height":32,"alt":"patient"},false]]), "MED")
+#	@setOutput(true, null)
+#	@setColour(330)
+#	@setTooltip('avec statut social')
+#	@setHelpUrl('')
+#	return
+
+
+Blockly.Blocks['humain'] = init: ->
+	@appendDummyInput().appendField("un").appendField(new Blockly.FieldImage("../Sophus/img/man.png", 32, 32, "humain"))
+	@setOutput(true, null)
+	@setColour(330)
+	@setTooltip('les humains disent toujours la vérité')
+	@setHelpUrl('')
+	return
+
+Blockly.Blocks['vampire'] = init: ->
+	@appendDummyInput().appendField("un").appendField(new Blockly.FieldImage("../Sophus/img/vampire.png", 32, 32, "vampire"))
+	@setOutput(true, null)
+	@setColour(330)
+	@setTooltip('les vampires mentent toujours')
+	@setHelpUrl('')
+	return
+
+Blockly.Blocks['sain'] = init: ->
+	@appendDummyInput().appendField("un").appendField(new Blockly.FieldImage("../Sophus/img/healthy.png", 32, 32, "sain d'esprit"))
+	@setOutput(true, null)
+	@setColour(330)
+	@setTooltip('les sains d\'esprit ne croient qu\'en des choses vraies')
+	@setHelpUrl('')
+	return
+
+Blockly.Blocks['fou'] = init: ->
+	@appendDummyInput().appendField("un").appendField(new Blockly.FieldImage("../Sophus/img/crazy.png", 32, 32, "fou"))
+	@setOutput(true, null)
+	@setColour(330)
+	@setTooltip('les fous ne croient qu\'en des choses fausses')
+	@setHelpUrl('')
+	return
+
+Blockly.Blocks['patient'] = init: ->
+	@appendDummyInput().appendField("un").appendField(new Blockly.FieldImage("../Sophus/img/sick.png", 32, 32, "patient"))
+	@setOutput(true, null)
+	@setColour(330)
+	@setTooltip('celui qui est soigné, mais est-il vraiment malade ?')
+	@setHelpUrl('')
+	return
+
+Blockly.Blocks['docteur'] = init: ->
+	@appendDummyInput().appendField("un").appendField(new Blockly.FieldImage("../Sophus/img/medical.png", 32, 32, "docteur"))
+	@setOutput(true, null)
+	@setColour(330)
+	@setTooltip('Un médecin, est-il sain d\'esprit ou est-il fou ?')
+	@setHelpUrl('')
+	return
+
+
+Blockly.Blocks['transyl_etat'] = init: ->
+	@appendDummyInput().appendField(new Blockly.FieldVariable("transylvanien"), "NAME").appendField("est").appendField(new Blockly.FieldDropdown([["humain","moi.humain"], ["vampire","!moi.humain"], ["sain d'esprit","moi.sain"], ["fou","!moi.sain"], ["un patient","!moi.docteur"], ["un médecin","moi.docteur"]]), "etat")
+	@setInputsInline(true)
+	@setOutput(true, "Boolean")
+	@setColour(330)
+	@setTooltip('l\'état dans lequel se trouve un transylvanien')
+	@setHelpUrl('')
+	return
+
+Blockly.Blocks['devenir'] = init: ->
+	@appendDummyInput().appendField(new Blockly.FieldVariable("transylvanien"), "NAME").appendField("devient").appendField(new Blockly.FieldDropdown([["humain",".humain = true"], ["vampire",".humain = false"], ["sain d'esprit",".sain = true"], ["fou",".sain = false"], ["un patient",".docteur = false"], ["un médecin",".docteur = true"]]), "etat")
+	@setInputsInline(true)
+	@setPreviousStatement(true, null)
+	@setNextStatement(true, null)
+	@setColour(330)
+	@setTooltip('évolution des transylvaniens')
+	@setHelpUrl('')
+	return
+
+Blockly.Blocks['dire'] =  init: ->
+	@appendValueInput("NAME").setCheck("Boolean").appendField(new Blockly.FieldVariable("transylvanien"), "NAME").appendField("dit que")
+	@setInputsInline(true)
+	@setOutput(true, "Boolean")
+	@setColour(330)
+	@setTooltip('affirmation')
+	@setHelpUrl('')
+	return
+
+Blockly.Blocks['croire'] =  init: ->
+	@appendValueInput("NAME").setCheck("Boolean").appendField(new Blockly.FieldVariable("transylvanien"), "NAME").appendField("croit que")
+	@setInputsInline(true)
+	@setOutput(true, "Boolean")
+	@setColour(330)
+	@setTooltip('croyance')
+	@setHelpUrl('')
+	return
+
+Blockly.Blocks['transyl_affectation'] = init: ->
+	@appendValueInput("NAME").setCheck("Boolean").appendField("positionner").appendField(new Blockly.FieldDropdown([["l'humanité",".humain = "], ["la santé mentale",".sain = "], ["la médicalité",".docteur = "]]), "PROP").appendField("de").appendField(new Blockly.FieldVariable("transylvanien"), "NAME").appendField("à")
+	@setInputsInline(true)
+	@setPreviousStatement(true, null)
+	@setNextStatement(true, null)
+	@setColour(330)
+	@setTooltip('imposer des propriétés')
+	@setHelpUrl('')
+	return
+
+# calcul formel
+
+
+Blockly.Blocks['developper'] = init: ->
+	@appendDummyInput().appendField("développer").appendField(new Blockly.FieldVariable("expression"), "EXPR")
+	@setPreviousStatement(true, null)
+	@setNextStatement(true, null)
+	@setColour(150)
+	@setTooltip('développer une expression')
+	@setHelpUrl('')
+	return
+
+Blockly.Blocks['simplifier'] = init: ->
+	@appendDummyInput().appendField("simplifier").appendField(new Blockly.FieldVariable("expression"), "EXPR")
+	@setPreviousStatement(true, null)
+	@setNextStatement(true, null)
+	@setColour(150)
+	@setTooltip('simplifier une expression')
+	@setHelpUrl('')
+	return
+
+Blockly.Blocks['deriver'] = init: ->
+	@appendDummyInput().appendField("dériver").appendField(new Blockly.FieldVariable("expression"), "EXPR")
+	@setPreviousStatement(true, null)
+	@setNextStatement(true, null)
+	@setColour(150)
+	@setTooltip('dériver une expression par rapport à sa variable')
+	@setHelpUrl('')
+	return
+
+Blockly.Blocks['solutions'] = init: ->
+	@appendValueInput("EQU").setCheck(null).appendField("solutions de")
+	@setOutput(true, null)
+	@setColour(150)
+	@setTooltip('résoudre une équation')
+	@setHelpUrl('')
+	return
+
+Blockly.Blocks['embelli'] = init: ->
+	@appendValueInput("EQU").setCheck(null).appendField("embelli de")
+	@setOutput(true, null)
+	@setColour(150)
+	@setTooltip('écrire mieux')
+	@setHelpUrl('')
+	return
+
+
+

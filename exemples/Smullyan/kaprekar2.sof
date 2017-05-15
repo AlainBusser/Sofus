@@ -1,0 +1,79 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="big_efface" x="54" y="-80">
+    <next>
+      <block type="variables_set">
+        <field name="VAR">nombre</field>
+        <value name="VALUE">
+          <block type="math_random_int">
+            <value name="FROM">
+              <block type="math_number">
+                <field name="NUM">1112</field>
+              </block>
+            </value>
+            <value name="TO">
+              <block type="math_number">
+                <field name="NUM">9998</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="controls_repeat_ext">
+            <value name="TIMES">
+              <block type="math_number">
+                <field name="NUM">6</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="big_aff">
+                <value name="VAR">
+                  <block type="variables_get">
+                    <field name="VAR">nombre</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set">
+                    <field name="VAR">petit</field>
+                    <value name="VALUE">
+                      <block type="kaprekar_ranger">
+                        <value name="N">
+                          <block type="variables_get">
+                            <field name="VAR">nombre</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set">
+                        <field name="VAR">nombre</field>
+                        <value name="VALUE">
+                          <block type="envers">
+                            <value name="N">
+                              <block type="variables_get">
+                                <field name="VAR">petit</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="sophus_diminuer">
+                            <field name="VAR">nombre</field>
+                            <value name="DELTA">
+                              <block type="variables_get">
+                                <field name="VAR">petit</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

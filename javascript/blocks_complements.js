@@ -2168,3 +2168,173 @@ Blockly.Blocks['doubler_vec'] = {
     this.setHelpUrl('');
   }
 };
+
+Blockly.Blocks['humain'] = {
+  init: function() {
+    this.appendDummyInput().appendField("un").appendField(new Blockly.FieldImage("../Sophus/img/man.png", 32, 32, "humain"));
+    this.setOutput(true, null);
+    this.setColour(330);
+    this.setTooltip('les humains disent toujours la vérité');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['vampire'] = {
+  init: function() {
+    this.appendDummyInput().appendField("un").appendField(new Blockly.FieldImage("../Sophus/img/vampire.png", 32, 32, "vampire"));
+    this.setOutput(true, null);
+    this.setColour(330);
+    this.setTooltip('les vampires mentent toujours');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['sain'] = {
+  init: function() {
+    this.appendDummyInput().appendField("un").appendField(new Blockly.FieldImage("../Sophus/img/healthy.png", 32, 32, "sain d'esprit"));
+    this.setOutput(true, null);
+    this.setColour(330);
+    this.setTooltip('les sains d\'esprit ne croient qu\'en des choses vraies');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['fou'] = {
+  init: function() {
+    this.appendDummyInput().appendField("un").appendField(new Blockly.FieldImage("../Sophus/img/crazy.png", 32, 32, "fou"));
+    this.setOutput(true, null);
+    this.setColour(330);
+    this.setTooltip('les fous ne croient qu\'en des choses fausses');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['patient'] = {
+  init: function() {
+    this.appendDummyInput().appendField("un").appendField(new Blockly.FieldImage("../Sophus/img/sick.png", 32, 32, "patient"));
+    this.setOutput(true, null);
+    this.setColour(330);
+    this.setTooltip('celui qui est soigné, mais est-il vraiment malade ?');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['docteur'] = {
+  init: function() {
+    this.appendDummyInput().appendField("un").appendField(new Blockly.FieldImage("../Sophus/img/medical.png", 32, 32, "docteur"));
+    this.setOutput(true, null);
+    this.setColour(330);
+    this.setTooltip('Un médecin, est-il sain d\'esprit ou est-il fou ?');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['transyl_etat'] = {
+  init: function() {
+    this.appendDummyInput().appendField(new Blockly.FieldVariable("transylvanien"), "NAME").appendField("est").appendField(new Blockly.FieldDropdown([["humain", "moi.humain"], ["vampire", "!moi.humain"], ["sain d'esprit", "moi.sain"], ["fou", "!moi.sain"], ["un patient", "!moi.docteur"], ["un médecin", "moi.docteur"]]), "etat");
+    this.setInputsInline(true);
+    this.setOutput(true, "Boolean");
+    this.setColour(330);
+    this.setTooltip('l\'état dans lequel se trouve un transylvanien');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['devenir'] = {
+  init: function() {
+    this.appendDummyInput().appendField(new Blockly.FieldVariable("transylvanien"), "NAME").appendField("devient").appendField(new Blockly.FieldDropdown([["humain", ".humain = true"], ["vampire", ".humain = false"], ["sain d'esprit", ".sain = true"], ["fou", ".sain = false"], ["un patient", ".docteur = false"], ["un médecin", ".docteur = true"]]), "etat");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(330);
+    this.setTooltip('évolution des transylvaniens');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['dire'] = {
+  init: function() {
+    this.appendValueInput("NAME").setCheck("Boolean").appendField(new Blockly.FieldVariable("transylvanien"), "NAME").appendField("dit que");
+    this.setInputsInline(true);
+    this.setOutput(true, "Boolean");
+    this.setColour(330);
+    this.setTooltip('affirmation');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['croire'] = {
+  init: function() {
+    this.appendValueInput("NAME").setCheck("Boolean").appendField(new Blockly.FieldVariable("transylvanien"), "NAME").appendField("croit que");
+    this.setInputsInline(true);
+    this.setOutput(true, "Boolean");
+    this.setColour(330);
+    this.setTooltip('croyance');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['transyl_affectation'] = {
+  init: function() {
+    this.appendValueInput("NAME").setCheck("Boolean").appendField("positionner").appendField(new Blockly.FieldDropdown([["l'humanité", ".humain = "], ["la santé mentale", ".sain = "], ["la médicalité", ".docteur = "]]), "PROP").appendField("de").appendField(new Blockly.FieldVariable("transylvanien"), "NAME").appendField("à");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(330);
+    this.setTooltip('imposer des propriétés');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['developper'] = {
+  init: function() {
+    this.appendDummyInput().appendField("développer").appendField(new Blockly.FieldVariable("expression"), "EXPR");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(150);
+    this.setTooltip('développer une expression');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['simplifier'] = {
+  init: function() {
+    this.appendDummyInput().appendField("simplifier").appendField(new Blockly.FieldVariable("expression"), "EXPR");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(150);
+    this.setTooltip('simplifier une expression');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['deriver'] = {
+  init: function() {
+    this.appendDummyInput().appendField("dériver").appendField(new Blockly.FieldVariable("expression"), "EXPR");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(150);
+    this.setTooltip('dériver une expression par rapport à sa variable');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['solutions'] = {
+  init: function() {
+    this.appendValueInput("EQU").setCheck(null).appendField("solutions de");
+    this.setOutput(true, null);
+    this.setColour(150);
+    this.setTooltip('résoudre une équation');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['embelli'] = {
+  init: function() {
+    this.appendValueInput("EQU").setCheck(null).appendField("embelli de");
+    this.setOutput(true, null);
+    this.setColour(150);
+    this.setTooltip('écrire mieux');
+    this.setHelpUrl('');
+  }
+};

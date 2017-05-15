@@ -1,4 +1,4 @@
-Version 1.9; le mode lent est risqué: Il faut mettre un "palimpseste" ou initialiser la tortue 
+Version 2.0 avec calcul formel et modélisation du mensonge et de la croyance; le mode lent est risqué: Il faut mettre un "palimpseste" ou initialiser la tortue 
 
 [attention]: https://cdn0.iconfinder.com/data/icons/woocons1/Sign%20Warning.png "Attention !"
 

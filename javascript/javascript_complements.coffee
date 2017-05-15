@@ -936,3 +936,146 @@ Blockly.JavaScript['doubler_vec'] = (block) ->
   choix = block.getFieldValue('CHOIX')
   varName + ' = ' + varName + '.x(' + choix + ');\n'
 
+# micromonde de Smullyan
+
+#Blockly.JavaScript['vampire_doctor'] = (block) ->
+#	dropdown_pur = block.getFieldValue('PUR')
+#	dropdown_sain = block.getFieldValue('SAIN')
+#	dropdown_med = block.getFieldValue('MED')
+#	code = ' { "human": ' + dropdown_pur
+#	code += ', "sain": ' + dropdown_sain
+#	code += ', "docteur": ' + dropdown_med
+#	code += ' } '
+#	[
+#		code
+#		Blockly.JavaScript.ORDER_NONE
+#	]
+
+Blockly.JavaScript['humain'] = (block) ->
+	code = ' { "humain": true, "sain": true, "docteur": false } '
+	[
+		code
+		Blockly.JavaScript.ORDER_NONE
+	]
+
+Blockly.JavaScript['vampire'] = (block) ->
+	code = ' { "humain": false, "sain": true, "docteur": false } '
+	[
+		code
+		Blockly.JavaScript.ORDER_NONE
+	]
+
+Blockly.JavaScript['sain'] = (block) ->
+	code = ' { "humain": true, "sain": true, "docteur": false } '
+	[
+		code
+		Blockly.JavaScript.ORDER_NONE
+	]
+
+Blockly.JavaScript['fou'] = (block) ->
+	code = ' { "humain": true, "sain": false, "docteur": false } '
+	[
+		code
+		Blockly.JavaScript.ORDER_NONE
+	]
+
+Blockly.JavaScript['fou'] = (block) ->
+	code = ' { "humain": true, "sain": false, "docteur": false } '
+	[
+		code
+		Blockly.JavaScript.ORDER_NONE
+	]
+
+Blockly.JavaScript['patient'] = (block) ->
+	code = ' { "humain": true, "sain": true, "docteur": false } '
+	[
+		code
+		Blockly.JavaScript.ORDER_NONE
+	]
+
+Blockly.JavaScript['docteur'] = (block) ->
+	code = ' { "humain": true, "sain": true, "docteur": true } '
+	[
+		code
+		Blockly.JavaScript.ORDER_NONE
+	]
+
+Blockly.JavaScript['transyl_etat'] = (block) ->
+	variable_name = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE)
+	dropdown_etat = block.getFieldValue('etat')
+	code = "var moi = " + variable_name + "; "
+	code = dropdown_etat.replace(/moi/,variable_name)
+	[
+		code
+		Blockly.JavaScript.ORDER_NONE
+	]
+
+
+Blockly.JavaScript['devenir'] = (block) ->
+	variable_name = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE)
+	dropdown_etat = block.getFieldValue('etat')
+	code = variable_name + dropdown_etat + ";\n"
+	code
+
+Blockly.JavaScript['dire'] = (block) ->
+	variable_name = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE)
+	value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC)
+	code = variable_name + ".humain == " + value_name
+	[
+		code
+		Blockly.JavaScript.ORDER_NONE
+	]
+
+Blockly.JavaScript['croire'] = (block) ->
+	variable_name = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE)
+	value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC)
+	code = variable_name + ".sain == " + value_name
+	[
+		code
+		Blockly.JavaScript.ORDER_NONE
+	]
+
+Blockly.JavaScript['transyl_affectation'] = (block) ->
+	dropdown_prop = block.getFieldValue('PROP')
+	variable_name = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE)
+	value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC)
+	code = variable_name + dropdown_prop + value_name + ";\n"
+	code
+
+
+# calcul formel
+
+
+Blockly.JavaScript['simplifier'] = (block) ->
+	expr = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('EXPR'), Blockly.Variables.NAME_TYPE)
+	code = expr + " = " + "CQ(" + expr + ").simplify().toString();\n"
+	code
+
+Blockly.JavaScript['developper'] = (block) ->
+	expr = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('EXPR'), Blockly.Variables.NAME_TYPE)
+	code = expr + " = " + "CQ(" + expr + ").expand().toString();\n"
+	code
+
+Blockly.JavaScript['deriver'] = (block) ->
+	expr = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('EXPR'), Blockly.Variables.NAME_TYPE)
+	code = "var fn = CQ(" + expr + ");\n"
+	code += "var vn = fn.getAllVariables()[0];\n"
+	code += expr + " = fn.differentiate(vn).toString();\n"
+	code
+
+Blockly.JavaScript['solutions'] = (block) ->
+	equ = Blockly.JavaScript.valueToCode(block, 'EQU', Blockly.JavaScript.ORDER_ATOMIC)
+	code = "CQ(" + equ + ").solve(CQ(" + equ + ").getAllVariables()[0])"
+	[
+		code
+		Blockly.JavaScript.ORDER_NONE
+	]
+
+Blockly.JavaScript['embelli'] = (block) ->
+	equ = Blockly.JavaScript.valueToCode(block, 'EQU', Blockly.JavaScript.ORDER_ATOMIC)
+	code = equ + '.replace(/\\*\\*2/g,"²").replace(/\\*\\*3/g,"³").replace(/\\*/g,"×")'
+	[
+		code
+		Blockly.JavaScript.ORDER_NONE
+	]
+

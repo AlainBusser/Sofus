@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <title>Programmation graphique</title>
     <link rel="icon" href="img/totoicon.png" />
-    <link rel="stylesheet" href="css/jquery.svg.css">
     <link rel="stylesheet" href="css/sofus.css">
   <script src="javascript/blockly_compressed.js"></script>
   <script src="javascript/blocks_compressed.js"></script>
@@ -15,6 +14,7 @@
   <script src="javascript/tortue.js"></script>
   <script src="javascript/fractions.js"></script>
   <script src="javascript/sylvester.js"></script>
+  <script src="javascript/coffeequate.min.js"></script>
   <script src="javascript/blocks_complements.js"></script>
   <script src="javascript/javascript_complements.js"></script>
   <script src="javascript/fr_complements.js"></script>
@@ -195,6 +195,32 @@ $ ->
         <block type="vec_colineaire"></block>
         <block type="vec_perpendiculaire"></block>
       </category>
+    <category name="Vampires" colour="75">
+		<category name="transylvaniens">
+			<block type="humain"></block>
+			<block type="vampire"></block>
+			<block type="sain"></block>
+			<block type="fou"></block>
+			<block type="patient"></block>
+			<block type="docteur"></block>
+		</category>
+		<category name="verbes">
+			<block type="transyl_etat"></block>
+			<block type="devenir"></block>
+			<block type="dire"></block>
+			<block type="croire"></block>
+			<block type="transyl_affectation"></block>
+		</category>
+    
+    <category name="Kaprekar">
+		<block type="octet"></block>
+		<block type="binaire"></block>
+		<block type="cconcatener"></block>
+		<block type="kaprekar_doubler"></block>
+		<block type="envers"></block>
+		<block type="kaprekar_ranger"></block>
+    </category>
+    </category>
     </category>
     <category name="Boucles" colour="120">
         <category name="simples">
@@ -389,12 +415,8 @@ $ ->
 		
     </category>
       <category name="fonctions">
-      <block type="math_single">
-          <value name="NUM"><block type="variables_get"><field name="VAR">element</field></block></value>
-      </block>
-      <block type="math_trig">
-          <value name="NUM"><block type="variables_get"><field name="VAR">element</field></block></value>
-      </block>
+      <block type="math_single"></block>
+      <block type="math_trig"></block>
       <block type="math_number_property">
           <value name="NUMBER_TO_CHECK"><block type="variables_get"><field name="VAR">element</field></block></value>
       </block>
@@ -410,14 +432,8 @@ $ ->
       </block>
       </category>
       <category name="opérations">
-      <block type="math_arithmetic">
-          <value name="A"><block type="variables_get"><field name="VAR">element</field></block></value>
-          <value name="B"><block type="variables_get"><field name="VAR">element</field></block></value>
-      </block>
-      <block type="math_modulo">
-          <value name="DIVIDEND"><block type="variables_get"><field name="VAR">element</field></block></value>
-          <value name="DIVISOR"><block type="variables_get"><field name="VAR">element</field></block></value>
-      </block>
+      <block type="math_arithmetic"></block>
+      <block type="math_modulo"></block>
       <block type="math_constrain">
         <value name="LOW">
           <block type="math_number">
@@ -586,16 +602,6 @@ $ ->
     
       </category>
     </category>
-    
-    <category name="Kaprekar" colour="75">
-		<block type="octet"></block>
-		<block type="binaire"></block>
-		<block type="cconcatener"></block>
-		<block type="kaprekar_doubler"></block>
-		<block type="envers"></block>
-		<block type="kaprekar_ranger"></block>
-    </category>
-    
     <sep></sep>
     <sep></sep>
     <sep></sep>
@@ -607,6 +613,11 @@ $ ->
     
         <category name="(Fa)brique" colour="290" custom="PROCEDURE"></category>
         <category name="Texte" colour="160">
+			<block type="developper"></block>
+			<block type="simplifier"></block>
+			<block type="solutions"></block>
+			<block type="deriver"></block>
+			<block type="embelli"></block>
             <block type="text_join"></block>
             <block type="text_append"></block>
             <block type="text_length"></block>

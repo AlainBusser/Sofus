@@ -1028,3 +1028,124 @@ Blockly.JavaScript['doubler_vec'] = function(block) {
   choix = block.getFieldValue('CHOIX');
   return varName + ' = ' + varName + '.x(' + choix + ');\n';
 };
+
+Blockly.JavaScript['humain'] = function(block) {
+  var code;
+  code = ' { "humain": true, "sain": true, "docteur": false } ';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['vampire'] = function(block) {
+  var code;
+  code = ' { "humain": false, "sain": true, "docteur": false } ';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['sain'] = function(block) {
+  var code;
+  code = ' { "humain": true, "sain": true, "docteur": false } ';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['fou'] = function(block) {
+  var code;
+  code = ' { "humain": true, "sain": false, "docteur": false } ';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['fou'] = function(block) {
+  var code;
+  code = ' { "humain": true, "sain": false, "docteur": false } ';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['patient'] = function(block) {
+  var code;
+  code = ' { "humain": true, "sain": true, "docteur": false } ';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['docteur'] = function(block) {
+  var code;
+  code = ' { "humain": true, "sain": true, "docteur": true } ';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['transyl_etat'] = function(block) {
+  var code, dropdown_etat, variable_name;
+  variable_name = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE);
+  dropdown_etat = block.getFieldValue('etat');
+  code = "var moi = " + variable_name + "; ";
+  code = dropdown_etat.replace(/moi/, variable_name);
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['devenir'] = function(block) {
+  var code, dropdown_etat, variable_name;
+  variable_name = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE);
+  dropdown_etat = block.getFieldValue('etat');
+  code = variable_name + dropdown_etat + ";\n";
+  return code;
+};
+
+Blockly.JavaScript['dire'] = function(block) {
+  var code, value_name, variable_name;
+  variable_name = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE);
+  value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+  code = variable_name + ".humain == " + value_name;
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['croire'] = function(block) {
+  var code, value_name, variable_name;
+  variable_name = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE);
+  value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+  code = variable_name + ".sain == " + value_name;
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['transyl_affectation'] = function(block) {
+  var code, dropdown_prop, value_name, variable_name;
+  dropdown_prop = block.getFieldValue('PROP');
+  variable_name = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE);
+  value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+  code = variable_name + dropdown_prop + value_name + ";\n";
+  return code;
+};
+
+Blockly.JavaScript['simplifier'] = function(block) {
+  var code, expr;
+  expr = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('EXPR'), Blockly.Variables.NAME_TYPE);
+  code = expr + " = " + "CQ(" + expr + ").simplify().toString();\n";
+  return code;
+};
+
+Blockly.JavaScript['developper'] = function(block) {
+  var code, expr;
+  expr = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('EXPR'), Blockly.Variables.NAME_TYPE);
+  code = expr + " = " + "CQ(" + expr + ").expand().toString();\n";
+  return code;
+};
+
+Blockly.JavaScript['deriver'] = function(block) {
+  var code, expr;
+  expr = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('EXPR'), Blockly.Variables.NAME_TYPE);
+  code = "var fn = CQ(" + expr + ");\n";
+  code += "var vn = fn.getAllVariables()[0];\n";
+  code += expr + " = fn.differentiate(vn).toString();\n";
+  return code;
+};
+
+Blockly.JavaScript['solutions'] = function(block) {
+  var code, equ;
+  equ = Blockly.JavaScript.valueToCode(block, 'EQU', Blockly.JavaScript.ORDER_ATOMIC);
+  code = "CQ(" + equ + ").solve(CQ(" + equ + ").getAllVariables()[0])";
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['embelli'] = function(block) {
+  var code, equ;
+  equ = Blockly.JavaScript.valueToCode(block, 'EQU', Blockly.JavaScript.ORDER_ATOMIC);
+  code = equ + '.replace(/\\*\\*2/g,"²").replace(/\\*\\*3/g,"³").replace(/\\*/g,"×")';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
