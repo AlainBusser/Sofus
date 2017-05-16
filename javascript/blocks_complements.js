@@ -2338,3 +2338,576 @@ Blockly.Blocks['embelli'] = {
     this.setHelpUrl('');
   }
 };
+
+Blockly.Blocks['CAS_carre'] = {
+  init: function() {
+    var thisBlock;
+    this.jsonInit({
+      'message0': Blockly.Msg.SOPHUS_CARRE_TITLE,
+      'args0': [
+        {
+          'type': 'field_image',
+          'src': './img/puissance.png',
+          'width': 64,
+          'height': 32,
+          'alt': '[^]:   '
+        }, {
+          'type': 'field_variable',
+          'name': 'VAR',
+          'variable': Blockly.Msg.SOPHUS_CARRE_TITLE_ITEM
+        }, {
+          'type': 'field_dropdown',
+          'name': 'POW',
+          'options': [['au carré', '2'], ['au cube', '3'], ['à la puissance 4', '4']]
+        }
+      ],
+      'previousStatement': null,
+      'nextStatement': null,
+      'colour': 165,
+      'helpUrl': Blockly.Msg.SOPHUS_CARRE_HELPURL
+    });
+    thisBlock = this;
+    this.setTooltip(function() {
+      return Blockly.Msg.SOPHUS_CARRE_TOOLTIP.replace('%1', thisBlock.getFieldValue('VAR'));
+    });
+  },
+  getVars: function() {
+    return [this.getFieldValue('VAR')];
+  },
+  renameVar: function(oldName, newName) {
+    if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+      this.setFieldValue(newName, 'VAR');
+    }
+  }
+};
+
+Blockly.Blocks['CAS_doubler'] = {
+  init: function() {
+    var dropdown, variable;
+    dropdown = new Blockly.FieldDropdown([['doubler', '2'], ['tripler', '3'], ['quadrupler', '4'], ['quintupler', '5'], ['sextupler', '6'], ['décupler', '10'], ['centupler', '100']]);
+    variable = new Blockly.FieldVariable(Blockly.Msg.VARIABLES_DEFAULT_NAME);
+    this.appendDummyInput().appendField(new Blockly.FieldImage('./img/multiplier.png', 64, 32, '[*]:   ')).appendField(dropdown, 'CHOIX').appendField('').appendField(variable, 'VAR');
+    this.setHelpUrl('');
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(165);
+  },
+  getVars: function() {
+    return [this.getFieldValue('VAR')];
+  },
+  renameVar: function(oldName, newName) {
+    if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+      this.setFieldValue(newName, 'VAR');
+    }
+  }
+};
+
+Blockly.Blocks['CAS_puissance'] = {
+  init: function() {
+    var thisBlock;
+    this.jsonInit({
+      'message0': Blockly.Msg.SOPHUS_PUISSANCE_TITLE,
+      'args0': [
+        {
+          'type': 'field_image',
+          'src': './img/puissance.png',
+          'width': 64,
+          'height': 32,
+          'alt': '[^]:   '
+        }, {
+          'type': 'field_variable',
+          'name': 'VAR',
+          'variable': Blockly.Msg.SOPHUS_PUISSANCE_TITLE_ITEM
+        }, {
+          'type': 'input_value',
+          'name': 'POW',
+          'check': 'Number'
+        }
+      ],
+      'previousStatement': null,
+      'nextStatement': null,
+      'colour': 165,
+      'helpUrl': Blockly.Msg.SOPHUS_PUISSANCE_HELPURL
+    });
+    thisBlock = this;
+    this.setTooltip(function() {
+      return Blockly.Msg.SOPHUS_PUISSANCE_TOOLTIP.replace('%2', thisBlock.getFieldValue('VAR'));
+    });
+  },
+  getVars: function() {
+    return [this.getFieldValue('VAR')];
+  },
+  renameVar: function(oldName, newName) {
+    if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+      this.setFieldValue(newName, 'VAR');
+    }
+  }
+};
+
+Blockly.Blocks['CAS_inverser'] = {
+  init: function() {
+    var thisBlock;
+    this.jsonInit({
+      'id': 'sophus_inverser',
+      'message0': Blockly.Msg.SOPHUS_INVERSER_TITLE,
+      'args0': [
+        {
+          'type': 'field_image',
+          'src': './img/inverse.png',
+          'width': 64,
+          'height': 32,
+          'alt': '[un]:   '
+        }, {
+          'type': 'field_variable',
+          'name': 'VAR',
+          'variable': Blockly.Msg.SOPHUS_INVERSER_TITLE_ITEM
+        }
+      ],
+      'inputsInline': true,
+      'previousStatement': null,
+      'nextStatement': null,
+      'colour': 165,
+      'helpUrl': Blockly.Msg.SOPHUS_INVERSER_HELPURL
+    });
+    thisBlock = this;
+    this.setTooltip(function() {
+      return Blockly.Msg.SOPHUS_INVERSER_TOOLTIP.replace('%2', thisBlock.getFieldValue('VAR'));
+    });
+  },
+  getVars: function() {
+    return [this.getFieldValue('VAR')];
+  },
+  renameVar: function(oldName, newName) {
+    if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+      this.setFieldValue(newName, 'VAR');
+    }
+  }
+};
+
+Blockly.Blocks['CAS_augmenter_fract'] = {
+  init: function() {
+    var thisBlock;
+    this.jsonInit({
+      'message0': '%1 augmenter %2 de %3 %4',
+      'args0': [
+        {
+          'type': 'field_image',
+          'src': './img/augmenter.png',
+          'width': 64,
+          'height': 32,
+          'alt': '[+]:   '
+        }, {
+          'type': 'field_variable',
+          'name': 'VAR',
+          'variable': Blockly.Msg.SOPHUS_AUGMENTER_FRACT_TITLE_ITEM
+        }, {
+          'type': 'input_value',
+          'name': 'DELTA'
+        }, {
+          'type': 'field_dropdown',
+          'name': 'DENOM',
+          'options': [['pourcents', '100'], ['demis', '2'], ['tiers', '3'], ['quarts', '4'], ['cinquièmes', '5'], ['sixièmes', '6'], ['septièmes', '7'], ['huitièmes', '8'], ['neuvièmes', '9'], ['dixièmes', '10'], ['centièmes', '100']]
+        }
+      ],
+      'previousStatement': null,
+      'nextStatement': null,
+      'inputsInline': true,
+      'colour': 165,
+      'helpUrl': Blockly.Msg.SOPHUS_AUGMENTER_FRACT_HELPURL
+    });
+    thisBlock = this;
+    this.setTooltip(function() {
+      return Blockly.Msg.SOPHUS_AUGMENTER_FRACT_TOOLTIP.replace('%2', thisBlock.getFieldValue('VAR'));
+    });
+  },
+  getVars: function() {
+    return [this.getFieldValue('VAR')];
+  },
+  renameVar: function(oldName, newName) {
+    if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+      this.setFieldValue(newName, 'VAR');
+    }
+  }
+};
+
+Blockly.Blocks['CAS_diminuer_fract'] = {
+  init: function() {
+    var thisBlock;
+    this.jsonInit({
+      'message0': '%1 diminuer %2 de %3 %4',
+      'args0': [
+        {
+          'type': 'field_image',
+          'src': './img/diminuer.png',
+          'width': 64,
+          'height': 32,
+          'alt': '[-]:   '
+        }, {
+          'type': 'field_variable',
+          'name': 'VAR',
+          'variable': Blockly.Msg.SOPHUS_DIMINUER_FRACT_TITLE_ITEM
+        }, {
+          'type': 'input_value',
+          'name': 'DELTA'
+        }, {
+          'type': 'field_dropdown',
+          'name': 'DENOM',
+          'options': [['pourcents', '100'], ['demis', '2'], ['tiers', '3'], ['quarts', '4'], ['cinquièmes', '5'], ['sixièmes', '6'], ['septièmes', '7'], ['huitièmes', '8'], ['neuvièmes', '9'], ['dixièmes', '10'], ['centièmes', '100']]
+        }
+      ],
+      'previousStatement': null,
+      'nextStatement': null,
+      'inputsInline': true,
+      'colour': 165,
+      'helpUrl': Blockly.Msg.SOPHUS_DIMINUER_FRACT_HELPURL
+    });
+    thisBlock = this;
+    this.setTooltip(function() {
+      return Blockly.Msg.SOPHUS_DIMINUER_FRACT_TOOLTIP.replace('%2', thisBlock.getFieldValue('VAR'));
+    });
+  },
+  getVars: function() {
+    return [this.getFieldValue('VAR')];
+  },
+  renameVar: function(oldName, newName) {
+    if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+      this.setFieldValue(newName, 'VAR');
+    }
+  }
+};
+
+Blockly.Blocks['CAS_multiplier_fract'] = {
+  init: function() {
+    var thisBlock;
+    this.jsonInit({
+      'message0': '%1 multiplier %2 par %3 %4',
+      'args0': [
+        {
+          'type': 'field_image',
+          'src': './img/multiplier.png',
+          'width': 64,
+          'height': 32,
+          'alt': '[*]:   '
+        }, {
+          'type': 'field_variable',
+          'name': 'VAR',
+          'variable': Blockly.Msg.SOPHUS_MULTIPLIER_FRACT_TITLE_ITEM
+        }, {
+          'type': 'input_value',
+          'name': 'DELTA'
+        }, {
+          'type': 'field_dropdown',
+          'name': 'DENOM',
+          'options': [['pourcents', '100'], ['demis', '2'], ['tiers', '3'], ['quarts', '4'], ['cinquièmes', '5'], ['sixièmes', '6'], ['septièmes', '7'], ['huitièmes', '8'], ['neuvièmes', '9'], ['dixièmes', '10'], ['centièmes', '100']]
+        }
+      ],
+      'previousStatement': null,
+      'nextStatement': null,
+      'inputsInline': true,
+      'colour': 165,
+      'helpUrl': Blockly.Msg.SOPHUS_MULTIPLIER_FRACT_HELPURL
+    });
+    thisBlock = this;
+    this.setTooltip(function() {
+      return Blockly.Msg.SOPHUS_MULTIPLIER_FRACT_TOOLTIP.replace('%2', thisBlock.getFieldValue('VAR'));
+    });
+  },
+  getVars: function() {
+    return [this.getFieldValue('VAR')];
+  },
+  renameVar: function(oldName, newName) {
+    if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+      this.setFieldValue(newName, 'VAR');
+    }
+  }
+};
+
+Blockly.Blocks['CAS_diviser_fract'] = {
+  init: function() {
+    var thisBlock;
+    this.jsonInit({
+      'message0': '%1 diviser %2 par %3 %4',
+      'args0': [
+        {
+          'type': 'field_image',
+          'src': './img/diviser.png',
+          'width': 64,
+          'height': 32,
+          'alt': '[/]:   '
+        }, {
+          'type': 'field_variable',
+          'name': 'VAR',
+          'variable': Blockly.Msg.SOPHUS_DIVISER_FRACT_TITLE_ITEM
+        }, {
+          'type': 'input_value',
+          'name': 'DELTA'
+        }, {
+          'type': 'field_dropdown',
+          'name': 'DENOM',
+          'options': [['pourcents', '100'], ['demis', '2'], ['tiers', '3'], ['quarts', '4'], ['cinquièmes', '5'], ['sixièmes', '6'], ['septièmes', '7'], ['huitièmes', '8'], ['neuvièmes', '9'], ['dixièmes', '10'], ['centièmes', '100']]
+        }
+      ],
+      'previousStatement': null,
+      'nextStatement': null,
+      'inputsInline': true,
+      'colour': 165,
+      'helpUrl': Blockly.Msg.SOPHUS_DIVISER_FRACT_HELPURL
+    });
+    thisBlock = this;
+    this.setTooltip(function() {
+      return Blockly.Msg.SOPHUS_DIVISER_FRACT_TOOLTIP.replace('%2', thisBlock.getFieldValue('VAR'));
+    });
+  },
+  getVars: function() {
+    return [this.getFieldValue('VAR')];
+  },
+  renameVar: function(oldName, newName) {
+    if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+      this.setFieldValue(newName, 'VAR');
+    }
+  }
+};
+
+Blockly.Blocks['CAS_augmenter'] = {
+  init: function() {
+    var thisBlock;
+    this.jsonInit({
+      'message0': Blockly.Msg.SOPHUS_AUGMENTER_TITLE,
+      'args0': [
+        {
+          'type': 'field_image',
+          'src': './img/augmenter.png',
+          'width': 64,
+          'height': 32,
+          'alt': '[+]:   '
+        }, {
+          'type': 'field_variable',
+          'name': 'VAR',
+          'variable': Blockly.Msg.SOPHUS_AUGMENTER_TITLE_ITEM
+        }, {
+          'type': 'input_value',
+          'name': 'DELTA'
+        }
+      ],
+      'previousStatement': null,
+      'nextStatement': null,
+      'colour': 165,
+      'helpUrl': Blockly.Msg.SOPHUS_AUGMENTER_HELPURL
+    });
+    thisBlock = this;
+    this.setTooltip(function() {
+      return Blockly.Msg.SOPHUS_AUGMENTER_TOOLTIP.replace('%1', thisBlock.getFieldValue('VAR'));
+    });
+  },
+  getVars: function() {
+    return [this.getFieldValue('VAR')];
+  },
+  renameVar: function(oldName, newName) {
+    if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+      this.setFieldValue(newName, 'VAR');
+    }
+  }
+};
+
+Blockly.Blocks['CAS_diminuer'] = {
+  init: function() {
+    var thisBlock;
+    this.jsonInit({
+      'message0': Blockly.Msg.SOPHUS_DIMINUER_TITLE,
+      'args0': [
+        {
+          'type': 'field_image',
+          'src': './img/diminuer.png',
+          'width': 64,
+          'height': 32,
+          'alt': '[-]:   '
+        }, {
+          'type': 'field_variable',
+          'name': 'VAR',
+          'variable': Blockly.Msg.SOPHUS_DIMINUER_TITLE_ITEM
+        }, {
+          'type': 'input_value',
+          'name': 'DELTA'
+        }
+      ],
+      'previousStatement': null,
+      'nextStatement': null,
+      'colour': 165,
+      'helpUrl': Blockly.Msg.SOPHUS_DIMINUER_HELPURL
+    });
+    thisBlock = this;
+    this.setTooltip(function() {
+      return Blockly.Msg.SOPHUS_DIMINUER_TOOLTIP.replace('%2', thisBlock.getFieldValue('VAR'));
+    });
+  },
+  getVars: function() {
+    return [this.getFieldValue('VAR')];
+  },
+  renameVar: function(oldName, newName) {
+    if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+      this.setFieldValue(newName, 'VAR');
+    }
+  }
+};
+
+Blockly.Blocks['CAS_multiplier'] = {
+  init: function() {
+    var thisBlock;
+    this.jsonInit({
+      'message0': Blockly.Msg.SOPHUS_MULTIPLIER_TITLE,
+      'args0': [
+        {
+          'type': 'field_image',
+          'src': './img/multiplier.png',
+          'width': 64,
+          'height': 32,
+          'alt': '[*]:   '
+        }, {
+          'type': 'field_variable',
+          'name': 'VAR',
+          'variable': Blockly.Msg.SOPHUS_MULTIPLIER_TITLE_ITEM
+        }, {
+          'type': 'input_value',
+          'name': 'DELTA'
+        }
+      ],
+      'previousStatement': null,
+      'nextStatement': null,
+      'colour': 165,
+      'helpUrl': Blockly.Msg.SOPHUS_MULTIPLIER_HELPURL
+    });
+    thisBlock = this;
+    this.setTooltip(function() {
+      return Blockly.Msg.SOPHUS_MULTIPLIER_TOOLTIP.replace('%2', thisBlock.getFieldValue('VAR'));
+    });
+  },
+  getVars: function() {
+    return [this.getFieldValue('VAR')];
+  },
+  renameVar: function(oldName, newName) {
+    if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+      this.setFieldValue(newName, 'VAR');
+    }
+  }
+};
+
+Blockly.Blocks['CAS_diviser'] = {
+  init: function() {
+    var thisBlock;
+    this.jsonInit({
+      'message0': Blockly.Msg.SOPHUS_DIVISER_TITLE,
+      'args0': [
+        {
+          'type': 'field_image',
+          'src': './img/diviser.png',
+          'width': 64,
+          'height': 32,
+          'alt': '[/]:   '
+        }, {
+          'type': 'field_variable',
+          'name': 'VAR',
+          'variable': Blockly.Msg.SOPHUS_DIVISER_TITLE_ITEM
+        }, {
+          'type': 'input_value',
+          'name': 'DELTA'
+        }
+      ],
+      'previousStatement': null,
+      'nextStatement': null,
+      'colour': 165,
+      'helpUrl': Blockly.Msg.SOPHUS_MULTIPLIER_HELPURL
+    });
+    thisBlock = this;
+    this.setTooltip(function() {
+      return Blockly.Msg.SOPHUS_MULTIPLIER_TOOLTIP.replace('%2', thisBlock.getFieldValue('VAR'));
+    });
+  },
+  getVars: function() {
+    return [this.getFieldValue('VAR')];
+  },
+  renameVar: function(oldName, newName) {
+    if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+      this.setFieldValue(newName, 'VAR');
+    }
+  }
+};
+
+Blockly.Blocks['CAS_incrementer'] = {
+  init: function() {
+    var thisBlock;
+    this.jsonInit({
+      'id': 'CAS_incrementer',
+      'message0': Blockly.Msg.SOPHUS_INCREMENTER_TITLE,
+      'args0': [
+        {
+          'type': 'field_image',
+          'src': './img/augmenter.png',
+          'width': 64,
+          'height': 32,
+          'alt': '[un]:   '
+        }, {
+          'type': 'field_variable',
+          'name': 'VAR',
+          'variable': Blockly.Msg.SOPHUS_INCREMENTER_TITLE_ITEM
+        }
+      ],
+      'inputsInline': true,
+      'previousStatement': null,
+      'nextStatement': null,
+      'colour': 165,
+      'helpUrl': Blockly.Msg.SOPHUS_INCREMENTER_HELPURL
+    });
+    thisBlock = this;
+    this.setTooltip(function() {
+      return Blockly.Msg.SOPHUS_INCREMENTER_TOOLTIP.replace('%2', thisBlock.getFieldValue('VAR'));
+    });
+  },
+  getVars: function() {
+    return [this.getFieldValue('VAR')];
+  },
+  renameVar: function(oldName, newName) {
+    if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+      this.setFieldValue(newName, 'VAR');
+    }
+  }
+};
+
+Blockly.Blocks['CAS_decrementer'] = {
+  init: function() {
+    var thisBlock;
+    this.jsonInit({
+      'id': 'CAS_decrementer',
+      'message0': Blockly.Msg.SOPHUS_DECREMENTER_TITLE,
+      'args0': [
+        {
+          'type': 'field_image',
+          'src': './img/diminuer.png',
+          'width': 64,
+          'height': 32,
+          'alt': '[un]:   '
+        }, {
+          'type': 'field_variable',
+          'name': 'VAR',
+          'variable': Blockly.Msg.SOPHUS_DECREMENTER_TITLE_ITEM
+        }
+      ],
+      'inputsInline': true,
+      'previousStatement': null,
+      'nextStatement': null,
+      'colour': 165,
+      'helpUrl': Blockly.Msg.SOPHUS_DECREMENTER_HELPURL
+    });
+    thisBlock = this;
+    this.setTooltip(function() {
+      return Blockly.Msg.SOPHUS_DECREMENTER_TOOLTIP.replace('%2', thisBlock.getFieldValue('VAR'));
+    });
+  },
+  getVars: function() {
+    return [this.getFieldValue('VAR')];
+  },
+  renameVar: function(oldName, newName) {
+    if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+      this.setFieldValue(newName, 'VAR');
+    }
+  }
+};

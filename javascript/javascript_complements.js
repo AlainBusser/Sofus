@@ -1149,3 +1149,102 @@ Blockly.JavaScript['embelli'] = function(block) {
   code = equ + '.replace(/\\*\\*2/g,"²").replace(/\\*\\*3/g,"³").replace(/\\*/g,"×")';
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
+
+Blockly.JavaScript['CAS_carre'] = function(block) {
+  var dropdown_pow, varName;
+  varName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  dropdown_pow = block.getFieldValue('POW');
+  return varName + " = CQ('('+" + varName + "+')**" + dropdown_pow + "').simplify().toString();\n";
+};
+
+Blockly.JavaScript['CAS_doubler'] = function(block) {
+  var choix, varName;
+  varName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  choix = block.getFieldValue('CHOIX');
+  return varName + " = CQ('('+" + varName + "+')*" + choix + "').simplify().toString();\n";
+};
+
+Blockly.JavaScript['CAS_puissance'] = function(block) {
+  var argument0, varName;
+  argument0 = Blockly.JavaScript.valueToCode(block, 'POW', Blockly.JavaScript.ORDER_ADDITION) || '0';
+  varName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  return varName + " = CQ('('+" + varName + "+')**" + argument0 + "').simplify().toString();\n";
+};
+
+Blockly.JavaScript['CAS_inverser'] = function(block) {
+  var varName;
+  varName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  return varName + " = CQ('1/('+" + varName + "+')').simplify().toString();\n";
+};
+
+Blockly.JavaScript['CAS_multiplier_fract'] = function(block) {
+  var argument0, dropdown_denom, varName;
+  varName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  argument0 = Blockly.JavaScript.valueToCode(block, 'DELTA', Blockly.JavaScript.ORDER_ADDITION) || '0';
+  dropdown_denom = block.getFieldValue('DENOM');
+  return varName + " = CQ('('+" + varName + "+')*'+" + argument0 + "+'/'+" + dropdown_denom + ").simplify().toString();\n";
+};
+
+Blockly.JavaScript['CAS_diviser_fract'] = function(block) {
+  var argument0, dropdown_denom, varName;
+  varName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  argument0 = Blockly.JavaScript.valueToCode(block, 'DELTA', Blockly.JavaScript.ORDER_ADDITION) || '0';
+  dropdown_denom = block.getFieldValue('DENOM');
+  return varName + " = CQ('('+" + varName + "+')*'+" + dropdown_denom + "+'/'+" + argument0 + ").simplify().toString();\n";
+};
+
+Blockly.JavaScript['CAS_augmenter_fract'] = function(block) {
+  var argument0, dropdown_denom, varName;
+  varName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  argument0 = Blockly.JavaScript.valueToCode(block, 'DELTA', Blockly.JavaScript.ORDER_ADDITION) || '0';
+  dropdown_denom = block.getFieldValue('DENOM');
+  return varName + " = CQ('('+" + varName + "+')*(1+'+" + argument0 + "+'/'+" + dropdown_denom + "+')').simplify().toString();\n";
+};
+
+Blockly.JavaScript['CAS_diminuer_fract'] = function(block) {
+  var argument0, dropdown_denom, varName;
+  varName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  argument0 = Blockly.JavaScript.valueToCode(block, 'DELTA', Blockly.JavaScript.ORDER_ADDITION) || '0';
+  dropdown_denom = block.getFieldValue('DENOM');
+  return varName + " = CQ('('+" + varName + "+')*(1-'+" + argument0 + "+'/'+" + dropdown_denom + "+')').simplify().toString();\n";
+};
+
+Blockly.JavaScript['CAS_augmenter'] = function(block) {
+  var argument0, varName;
+  argument0 = Blockly.JavaScript.valueToCode(block, 'DELTA', Blockly.JavaScript.ORDER_ADDITION) || '0';
+  varName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  return varName + " = CQ('('+" + varName + "+')+'+" + argument0 + ").simplify().toString();\n";
+};
+
+Blockly.JavaScript['CAS_diminuer'] = function(block) {
+  var argument0, varName;
+  argument0 = Blockly.JavaScript.valueToCode(block, 'DELTA', Blockly.JavaScript.ORDER_ADDITION) || '0';
+  varName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  return varName + " = CQ('('+" + varName + "+')-'+" + argument0 + ").simplify().toString();\n";
+};
+
+Blockly.JavaScript['CAS_multiplier'] = function(block) {
+  var argument0, varName;
+  argument0 = Blockly.JavaScript.valueToCode(block, 'DELTA', Blockly.JavaScript.ORDER_ADDITION) || '0';
+  varName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  return varName + " = CQ('('+" + varName + "+')*'+" + argument0 + ").simplify().toString();\n";
+};
+
+Blockly.JavaScript['CAS_diviser'] = function(block) {
+  var argument0, varName;
+  argument0 = Blockly.JavaScript.valueToCode(block, 'DELTA', Blockly.JavaScript.ORDER_ADDITION) || '0';
+  varName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  return varName + " = CQ('('+" + varName + "+')/'+" + argument0 + ").simplify().toString();\n";
+};
+
+Blockly.JavaScript['CAS_incrementer'] = function(block) {
+  var varName;
+  varName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  return varName + " = CQ('('+" + varName + "+')+1').simplify().toString();\n";
+};
+
+Blockly.JavaScript['CAS_decrementer'] = function(block) {
+  var varName;
+  varName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  return varName + " = CQ('('+" + varName + "+')-1').simplify().toString();\n";
+};

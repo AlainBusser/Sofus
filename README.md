@@ -85,11 +85,27 @@ Sophus est un langage de programmation pour l'enseignement de l'algorithmique au
  * est particulièrement adapté aux calculs différentiel et intégral ainsi qu'à la statistique descriptive
 
  * gère les :turtle: (sans limite sur le nombre de :turtle:)
+ 
+ * permet un peu de calcul formel grâce à Coffeequate
 
 [Voir ici](http://irem.univ-reunion.fr/spip.php?rubrique173) pour en savoir plus et des exemples
 
 
+# Logique
 
+Voici une description d'un micromonde de logique appelé "Transylvanie" par Raymond Smullyan:
+
+ * Deux sortes d'habitants, indiscernables à l'aspect, peuvent être rencontrés en Transylvanie: 
+  * Les humains ![humain](https://raw.githubusercontent.com/AlainBusser/Sophus/master/img/man.png) ne mentent jamais: On peut avoir confiance en eux, à condition de les reconnaître !
+  * Les vampires ![vampire](https://raw.githubusercontent.com/AlainBusser/Sophus/master/img/vampire.png) sont de fieffés menteurs: Ils ne disent jamais la vérité (on les dit d'origine crétoise)
+ * Mais une mystérieuse épidémie de folie est survenue en Transylvanie:
+  * Les fous ![fou](https://raw.githubusercontent.com/AlainBusser/Sophus/master/img/crazy.png) ne croient qu'en des faussetés; par exemple ils sont tous persuadés que 2+2=5 !
+  * Les sains d'esprit ![sain](https://raw.githubusercontent.com/AlainBusser/Sophus/master/img/healthy.png) croient tout ce qui est vrai et uniquement ce qui est vrai.
+  Ainsi, un vampire fou dira que 2+2=4 puisque, étant fou, il ne croit pas que 2+2=4, mais étant menteur, il prétendra que si !
+ * Parmi les humains, on essaye de soigner les fous, pour cela on les place dans des asiles, où on peut rencontrer
+  * les médecins ![toubib](https://raw.githubusercontent.com/AlainBusser/Sophus/master/img/medical.png) qui soignent bien les malades ... sauf si eux-mêmes sont fous !
+  * les patients eux-mêmes ![patient](https://raw.githubusercontent.com/AlainBusser/Sophus/master/img/sick.png) qui sont venus faire soigner leur folie. Mais que se passe-t-il si un patient n'est pas fou ?
+ 
 
 Le dossier "Sofus_Blockly" contient une version hors ligne de Blockly, munie de toutes les fonctions mathématiques de base de Blockly, ainsi que la version numérique de Sofus, avec le graphisme tortue.
 

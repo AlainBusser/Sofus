@@ -1,0 +1,344 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="procedures_defnoreturn" id="_9{Ylfe@wc[lnIrfleW8" collapsed="true" x="40" y="106">
+    <mutation>
+      <arg name="mot"></arg>
+    </mutation>
+    <field name="NAME">jouer</field>
+    <comment pinned="false" h="80" w="160">Décrire cette fonction…</comment>
+    <statement name="STACK">
+      <block type="variables_set" id="88K+x;5Y1w^%,]8v80+l">
+        <field name="VAR">liste</field>
+        <value name="VALUE">
+          <block type="lists_split" id="+QR1=Qm/V3c)(,[g7m=I" inline="false">
+            <mutation mode="SPLIT"></mutation>
+            <field name="MODE">SPLIT</field>
+            <value name="INPUT">
+              <block type="variables_get" id="X0)^j#y$U/6vw}d;c#dS">
+                <field name="VAR">mot</field>
+              </block>
+            </value>
+            <value name="DELIM">
+              <block type="text" id="hGoQKKhtCJw+VjkG7|kS">
+                <field name="TEXT"></field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="controls_forEach" id="=Jd}w?kgRg]:mi=,oP)@">
+            <field name="VAR">i</field>
+            <value name="LIST">
+              <block type="variables_get" id="q=uGvB2pwNaqzpc*dD3b">
+                <field name="VAR">liste</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="controls_if" id="{1F3H%WpYw2)wrWB7g*,">
+                <mutation else="1"></mutation>
+                <value name="IF0">
+                  <block type="logic_compare" id="zA6|nIT?md`3z?b*#kO`">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="variables_get" id="|O/;4i8]YtsI+e%B##.Z">
+                        <field name="VAR">i</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="text" id=",QCCXCy^u+i]D8{n6zXq">
+                        <field name="TEXT">a</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="avancer" id="=Uo],PKCYPwUp+lci`Dn">
+                    <value name="NAME">
+                      <block type="math_number" id="5x.k4e#:*~YU}.q.P}7B">
+                        <field name="NUM">4</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+                <statement name="ELSE">
+                  <block type="controls_if" id="18l*@3b5]#t!5YC~NRDc">
+                    <mutation else="1"></mutation>
+                    <value name="IF0">
+                      <block type="logic_compare" id="6~T.hw6$*lK@W,#1l4/m">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="variables_get" id="3wSj~1M5IV~F/jBYh2{,">
+                            <field name="VAR">i</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="text" id="+d[cs@LCZ2:|DiRwvh_C">
+                            <field name="TEXT">g</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="tortue_gauche" id="*h:7a];r;k]9S2ZEIjT|">
+                        <field name="NAME">90</field>
+                      </block>
+                    </statement>
+                    <statement name="ELSE">
+                      <block type="tortue_droite" id=")Ez(^kw#Y|`Cd5f_xYB%">
+                        <field name="NAME">90</field>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="variables_set" id="9T,bKVuMi(o{}1x#p)[Z" x="67" y="165">
+    <field name="VAR">p</field>
+    <value name="VALUE">
+      <block type="text" id="2Jur^xyrt#+Ed-FUZ:*m">
+        <field name="TEXT">0</field>
+      </block>
+    </value>
+    <next>
+      <block type="reset" id="!d3$s)9{K6bYuoxDSWd9">
+        <next>
+          <block type="big_efface" id="|BUnzSv5@C8+al9Hj*qk">
+            <next>
+              <block type="controls_repeat_ext" id="K7,C)6l2qj?v_?aXQ083">
+                <value name="TIMES">
+                  <block type="math_number" id="##nV|2jB}_{6j6o},pKa">
+                    <field name="NUM">12</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="variables_set" id="uW+N~I;JAU^zFW.X(/?D">
+                    <field name="VAR">tag</field>
+                    <value name="VALUE">
+                      <block type="variables_get" id="BBW7.Z0b4eCKVCY/C$c:">
+                        <field name="VAR">p</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="remplacer" id="Ces[aA*@b]1Y{3~6xNH:">
+                        <value name="C1">
+                          <block type="text" id="PxWz#1%a1@mSz)ibp}P-">
+                            <field name="TEXT">0</field>
+                          </block>
+                        </value>
+                        <value name="C2">
+                          <block type="text" id="]z.V]BZcvH!zE)8cTQQ}">
+                            <field name="TEXT">Z</field>
+                          </block>
+                        </value>
+                        <value name="T">
+                          <block type="variables_get" id="ous}T~`t^/9(mGImCuZP">
+                            <field name="VAR">tag</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="remplacer" id="?fcK?GrObc4.6Wq4Dncn">
+                            <value name="C1">
+                              <block type="text" id="v~as}WEichQhlC[IG$$E">
+                                <field name="TEXT">1</field>
+                              </block>
+                            </value>
+                            <value name="C2">
+                              <block type="text" id="7^-FXe;}{{{Nkd:Ai6*#">
+                                <field name="TEXT">0</field>
+                              </block>
+                            </value>
+                            <value name="T">
+                              <block type="variables_get" id=":~Dy+?rgr?s;fMhtSn,4">
+                                <field name="VAR">tag</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="remplacer" id="Mh!)R8@;ta2U-]5W/f|T">
+                                <value name="C1">
+                                  <block type="text" id="Wv5uzUkiB%Zp[m=1u=-l">
+                                    <field name="TEXT">Z</field>
+                                  </block>
+                                </value>
+                                <value name="C2">
+                                  <block type="text" id="%=L;OxCATLgoLfxHDov2">
+                                    <field name="TEXT">1</field>
+                                  </block>
+                                </value>
+                                <value name="T">
+                                  <block type="variables_get" id="l1~EwnDYOTP?1]OOAsvd">
+                                    <field name="VAR">tag</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="text_append" id="gLwD=^s)k3_NH(WXN/|A">
+                                    <field name="VAR">p</field>
+                                    <value name="TEXT">
+                                      <block type="text" id="16^3DV.or1`_|k@5V;`h">
+                                        <field name="TEXT">0</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="text_append" id="B;UJ9[di=Wo?A~_?/vC^">
+                                        <field name="VAR">p</field>
+                                        <value name="TEXT">
+                                          <block type="procedures_callreturn" id="-EE1`#N|uVM,}knjItF2">
+                                            <mutation name="retourné">
+                                              <arg name="t"></arg>
+                                            </mutation>
+                                            <value name="ARG0">
+                                              <block type="variables_get" id="0c1ckOxy*bbRj#L`e{9*">
+                                                <field name="VAR">tag</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="big_aff" id="2[T/?JsHLlSoTT%tywE0">
+                                            <value name="VAR">
+                                              <block type="variables_get" id="[|hvOl|tbeWGy|mQT-@E">
+                                                <field name="VAR">p</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <next>
+                  <block type="remplacer" id="8vq-A?J[`+4(6meJR-rW">
+                    <value name="C1">
+                      <block type="text" id="c|I;NKxB/WetVb)Yyj`8">
+                        <field name="TEXT">0</field>
+                      </block>
+                    </value>
+                    <value name="C2">
+                      <block type="text" id="tUJkqfD;rORoB}d^b^bN">
+                        <field name="TEXT">ga</field>
+                      </block>
+                    </value>
+                    <value name="T">
+                      <block type="variables_get" id="z3VCgkBk)=([Q*taO*y.">
+                        <field name="VAR">p</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="remplacer" id="J+}CT[p(]Hps4AyTNw#]">
+                        <value name="C1">
+                          <block type="text" id="Iw[3I|]yj**8Cj(jc@H~">
+                            <field name="TEXT">1</field>
+                          </block>
+                        </value>
+                        <value name="C2">
+                          <block type="text" id="Dlz8}N7aegerU4To2Z/O">
+                            <field name="TEXT">da</field>
+                          </block>
+                        </value>
+                        <value name="T">
+                          <block type="variables_get" id="0?+4.4/OXZHx4JZ0w:nv">
+                            <field name="VAR">p</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="procedures_callnoreturn" id="A9SMUaJ.`OI-MFxTY{j_">
+                            <mutation name="jouer">
+                              <arg name="mot"></arg>
+                            </mutation>
+                            <value name="ARG0">
+                              <block type="variables_get" id="YQJLECD^$?s?m(N;5.4`">
+                                <field name="VAR">p</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="procedures_defreturn" id="Wj9^4c2D4-RLn(i58uK." x="701" y="259">
+    <mutation>
+      <arg name="t"></arg>
+    </mutation>
+    <field name="NAME">retourné</field>
+    <comment pinned="false" h="80" w="160">Décrire cette fonction…</comment>
+    <statement name="STACK">
+      <block type="variables_set" id="iKGIu=sb*!$=~h[;^5Mo">
+        <field name="VAR">r</field>
+        <value name="VALUE">
+          <block type="text" id="WjM9]a7+JlbSkf)6WJSF">
+            <field name="TEXT"></field>
+          </block>
+        </value>
+        <next>
+          <block type="controls_for" id="!TW}y9wY|(TcuY[B0NCy">
+            <field name="VAR">i</field>
+            <value name="FROM">
+              <block type="text_length" id="xusB?-`q9~Qa!S?f{@jX">
+                <value name="VALUE">
+                  <block type="variables_get" id="S$`t}LA8MixR`/7S(j5i">
+                    <field name="VAR">t</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="TO">
+              <block type="math_number" id="~[(!z9-{^M#Cj]ap,c;i">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <value name="BY">
+              <block type="math_number" id="[!{$Z6eH9NT~Mm`RkI[R">
+                <field name="NUM">-1</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="text_append" id="R%3U2]I/Ch]nWyHN$KGY">
+                <field name="VAR">r</field>
+                <value name="TEXT">
+                  <block type="text_charAt" id="e78E+Yp)852$LEoI_y+Y" inline="false">
+                    <mutation at="true"></mutation>
+                    <field name="WHERE">FROM_START</field>
+                    <value name="VALUE">
+                      <block type="variables_get" id="g?6?E%t0m/y{2lLIflKA">
+                        <field name="VAR">t</field>
+                      </block>
+                    </value>
+                    <value name="AT">
+                      <block type="variables_get" id="h6tet^ZX_LH[ruT:ks~g">
+                        <field name="VAR">i</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="RETURN">
+      <block type="variables_get" id="bcK[yCZRA6=`3E.BW_@Z">
+        <field name="VAR">r</field>
+      </block>
+    </value>
+  </block>
+</xml>

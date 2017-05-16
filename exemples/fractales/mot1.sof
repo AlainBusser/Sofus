@@ -1,0 +1,193 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="procedures_defnoreturn" collapsed="true" x="45" y="111">
+    <mutation>
+      <arg name="mot"></arg>
+    </mutation>
+    <field name="NAME">compiler</field>
+    <statement name="STACK">
+      <block type="variables_set">
+        <field name="VAR">liste</field>
+        <value name="VALUE">
+          <block type="lists_split" inline="false">
+            <mutation mode="SPLIT"></mutation>
+            <field name="MODE">SPLIT</field>
+            <value name="INPUT">
+              <block type="variables_get">
+                <field name="VAR">mot</field>
+              </block>
+            </value>
+            <value name="DELIM">
+              <block type="text">
+                <field name="TEXT"></field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="controls_forEach">
+            <field name="VAR">i</field>
+            <value name="LIST">
+              <block type="variables_get">
+                <field name="VAR">liste</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="controls_if">
+                <mutation else="1"></mutation>
+                <value name="IF0">
+                  <block type="logic_compare">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="variables_get">
+                        <field name="VAR">i</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="text">
+                        <field name="TEXT">a</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="avancer">
+                    <value name="NAME">
+                      <block type="math_number">
+                        <field name="NUM">2</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+                <statement name="ELSE">
+                  <block type="controls_if">
+                    <mutation else="1"></mutation>
+                    <value name="IF0">
+                      <block type="logic_compare">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="variables_get">
+                            <field name="VAR">i</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="text">
+                            <field name="TEXT">r</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="reculer">
+                        <value name="NAME">
+                          <block type="math_number">
+                            <field name="NUM">2</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                    <statement name="ELSE">
+                      <block type="controls_if">
+                        <mutation else="1"></mutation>
+                        <value name="IF0">
+                          <block type="logic_compare">
+                            <field name="OP">EQ</field>
+                            <value name="A">
+                              <block type="variables_get">
+                                <field name="VAR">i</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="text">
+                                <field name="TEXT">g</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="tortue_gauche">
+                            <field name="NAME">90</field>
+                          </block>
+                        </statement>
+                        <statement name="ELSE">
+                          <block type="tortue_droite">
+                            <field name="NAME">90</field>
+                          </block>
+                        </statement>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="variables_set" x="45" y="146">
+    <field name="VAR">programme</field>
+    <value name="VALUE">
+      <block type="text">
+        <field name="TEXT">a</field>
+      </block>
+    </value>
+    <next>
+      <block type="reset">
+        <next>
+          <block type="controls_repeat_ext" collapsed="true">
+            <value name="TIMES">
+              <block type="math_number">
+                <field name="NUM">3</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="remplacer" inline="false">
+                <value name="C1">
+                  <block type="text">
+                    <field name="TEXT">a</field>
+                  </block>
+                </value>
+                <value name="C2">
+                  <block type="text">
+                    <field name="TEXT">agadadaagagada</field>
+                  </block>
+                </value>
+                <value name="T">
+                  <block type="variables_get">
+                    <field name="VAR">programme</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <next>
+              <block type="controls_repeat_ext">
+                <value name="TIMES">
+                  <block type="math_number">
+                    <field name="NUM">4</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="procedures_callnoreturn">
+                    <mutation name="compiler">
+                      <arg name="mot"></arg>
+                    </mutation>
+                    <value name="ARG0">
+                      <block type="variables_get">
+                        <field name="VAR">programme</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="tortue_droite">
+                        <field name="NAME">90</field>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

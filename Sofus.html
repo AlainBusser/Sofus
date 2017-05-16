@@ -515,6 +515,9 @@ $ ->
           </block>
         </value>
       </block>
+      <!-- vient des textes -->
+                  <block type="lists_split"></block>
+
         </category>
         <category name="manipulation">
       <block type="lists_getIndex"><value name="VALUE"><block type="variables_get"><title name="VAR">liste</title></block></value>          
@@ -613,24 +616,60 @@ $ ->
     
         <category name="(Fa)brique" colour="290" custom="PROCEDURE"></category>
         <category name="Texte" colour="160">
-			<block type="developper"></block>
-			<block type="simplifier"></block>
-			<block type="solutions"></block>
-			<block type="deriver"></block>
-			<block type="embelli"></block>
-            <block type="text_join"></block>
-            <block type="text_append"></block>
-            <block type="text_length"></block>
-		<block type="remplacer"></block>
-		<block type="remplacer1"></block>
+			<block type="text"></block>
+			<category name="traiter">
+				<block type="text_changeCase"></block>
+				<block type="text_trim"></block>	
+				<block type="text_join"></block>
+				<block type="text_length"></block>
+				<block type="text_indexOf"></block>
+				<block type="text_charAt"></block>
+            <block type="srevne"></block>
+				<block type="text_getSubstring"></block>
+			</category>
+			<category name="Sofus">
+				<block type="text_append"></block>
+				<block type="remplacer"></block>
+				<block type="remplacer1"></block>
+				<category name="transformations">
+					<block type="CAS_incrementer"></block>
+					<block type="CAS_decrementer"></block>
+					<block type="CAS_augmenter"></block>
+					<block type="CAS_diminuer"></block>
+					<block type="CAS_multiplier"></block>
+					<block type="CAS_diviser"></block>
+				</category>
+				<category name="pourcentages">
+					<block type="CAS_augmenter_fract"></block>
+					<block type="CAS_diminuer_fract"></block>
+					<block type="CAS_multiplier_fract"></block>
+					<block type="CAS_diviser_fract"></block>
+				</category>
+				<category name="fonctions">
+            <block type="CAS_inverser"></block>
+            <block type="CAS_doubler"></block>
+            <block type="CAS_carre"></block>
+			<block type="CAS_puissance">
+				<value name="POW">
+					<block type="math_number">
+						<field name="NUM">2</field>
+					</block>
+				</value>
+			</block>
+				</category>
+			<category name="calcul formel">
+				<block type="developper"></block>
+				<block type="simplifier"></block>
+				<block type="solutions"></block>
+				<block type="deriver"></block>
+				<block type="embelli"></block>
+			</category>
+			<category name="JavaScript">
 		<block type="eval"></block>
 		<block type="eval0"></block>
 		<block type="coffee0"></block>
-            <block type="text_indexOf"></block>
-            <block type="text_charAt"></block>
-            <block type="srevne"></block>
-            <block type="text_getSubstring"></block>
-            <block type="lists_split"></block>
+		</category>
+			</category>
         </category>
 
   </xml>
