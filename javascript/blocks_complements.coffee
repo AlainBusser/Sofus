@@ -2023,7 +2023,7 @@ Blockly.Blocks['doubler_vec'] = init: ->
 
 
 Blockly.Blocks['humain'] = init: ->
-	@appendDummyInput().appendField("un").appendField(new Blockly.FieldImage("../Sophus/img/man.png", 32, 32, "humain"))
+	@appendDummyInput().appendField("un").appendField(new Blockly.FieldImage('img/man.png', 32, 32, "humain"))
 	@setOutput(true, null)
 	@setColour(330)
 	@setTooltip('les humains disent toujours la vérité')
@@ -2031,7 +2031,7 @@ Blockly.Blocks['humain'] = init: ->
 	return
 
 Blockly.Blocks['vampire'] = init: ->
-	@appendDummyInput().appendField("un").appendField(new Blockly.FieldImage("../Sophus/img/vampire.png", 32, 32, "vampire"))
+	@appendDummyInput().appendField("un").appendField(new Blockly.FieldImage('img/vampire.png', 32, 32, "vampire"))
 	@setOutput(true, null)
 	@setColour(330)
 	@setTooltip('les vampires mentent toujours')
@@ -2039,7 +2039,7 @@ Blockly.Blocks['vampire'] = init: ->
 	return
 
 Blockly.Blocks['sain'] = init: ->
-	@appendDummyInput().appendField("un").appendField(new Blockly.FieldImage("../Sophus/img/healthy.png", 32, 32, "sain d'esprit"))
+	@appendDummyInput().appendField("un").appendField(new Blockly.FieldImage('img/healthy.png', 32, 32, "sain d'esprit"))
 	@setOutput(true, null)
 	@setColour(330)
 	@setTooltip('les sains d\'esprit ne croient qu\'en des choses vraies')
@@ -2047,7 +2047,7 @@ Blockly.Blocks['sain'] = init: ->
 	return
 
 Blockly.Blocks['fou'] = init: ->
-	@appendDummyInput().appendField("un").appendField(new Blockly.FieldImage("../Sophus/img/crazy.png", 32, 32, "fou"))
+	@appendDummyInput().appendField("un").appendField(new Blockly.FieldImage('img/crazy.png', 32, 32, "fou"))
 	@setOutput(true, null)
 	@setColour(330)
 	@setTooltip('les fous ne croient qu\'en des choses fausses')
@@ -2055,7 +2055,7 @@ Blockly.Blocks['fou'] = init: ->
 	return
 
 Blockly.Blocks['patient'] = init: ->
-	@appendDummyInput().appendField("un").appendField(new Blockly.FieldImage("../Sophus/img/sick.png", 32, 32, "patient"))
+	@appendDummyInput().appendField("un").appendField(new Blockly.FieldImage('img/sick.png', 32, 32, "patient"))
 	@setOutput(true, null)
 	@setColour(330)
 	@setTooltip('celui qui est soigné, mais est-il vraiment malade ?')
@@ -2063,7 +2063,7 @@ Blockly.Blocks['patient'] = init: ->
 	return
 
 Blockly.Blocks['docteur'] = init: ->
-	@appendDummyInput().appendField("un").appendField(new Blockly.FieldImage("../Sophus/img/medical.png", 32, 32, "docteur"))
+	@appendDummyInput().appendField("un").appendField(new Blockly.FieldImage('img/medical.png', 32, 32, "docteur"))
 	@setOutput(true, null)
 	@setColour(330)
 	@setTooltip('Un médecin, est-il sain d\'esprit ou est-il fou ?')
@@ -2909,4 +2909,71 @@ Blockly.Blocks['CAS_decrementer'] =
     return
 
 
+Blockly.Blocks['texte_doubler'] =
+  init: ->
+    dropdown = new (Blockly.FieldDropdown)([
+      [
+        'doubler'
+        '2'
+      ]
+      [
+        'tripler'
+        '3'
+      ]
+      [
+        'quadrupler'
+        '4'
+      ]
+      [
+        'quintupler'
+        '5'
+      ]
+      [
+        'sextupler'
+        '6'
+      ]
+      [
+        'décupler'
+        '10'
+      ]
+      [
+        'centupler'
+        '100'
+      ]
+    ])
+    variable = new (Blockly.FieldVariable)(Blockly.Msg.VARIABLES_DEFAULT_NAME)
+    @appendDummyInput().appendField(new (Blockly.FieldImage)('./img/multiplier.png', 64, 32, '[*]:   ')).appendField(dropdown, 'CHOIX').appendField('le texte').appendField variable, 'VAR'
+    @setHelpUrl ''
+    @setPreviousStatement true
+    @setNextStatement true
+    @setColour 165
+    return
+  getVars: ->
+    [ @getFieldValue('VAR') ]
+  renameVar: (oldName, newName) ->
+    if Blockly.Names.equals(oldName, @getFieldValue('VAR'))
+      @setFieldValue newName, 'VAR'
+    return
 
+
+Blockly.Blocks['texte_compter'] =
+	init: ->
+		@appendValueInput("Lettre").setCheck(null).appendField("nombre de")
+		@appendValueInput("Mot").setCheck(null).appendField("dans")
+		@setInputsInline(true)
+		@setOutput(true, null)
+		@setColour(165)
+		@setTooltip('compter des lettres dans un mot')
+		@setHelpUrl('')
+		return
+
+Blockly.Blocks['lambda_js'] =
+	init: ->
+		@appendValueInput("var").setCheck(null).appendField("λ")
+		@appendValueInput("fonc").setCheck(null).appendField(".")
+		@setInputsInline(true)
+		@setOutput(true, null)
+		@setColour(300)
+		@setTooltip('fonction anonyme')
+		@setHelpUrl('')
+		return

@@ -2171,7 +2171,7 @@ Blockly.Blocks['doubler_vec'] = {
 
 Blockly.Blocks['humain'] = {
   init: function() {
-    this.appendDummyInput().appendField("un").appendField(new Blockly.FieldImage("../Sophus/img/man.png", 32, 32, "humain"));
+    this.appendDummyInput().appendField("un").appendField(new Blockly.FieldImage('img/man.png', 32, 32, "humain"));
     this.setOutput(true, null);
     this.setColour(330);
     this.setTooltip('les humains disent toujours la vérité');
@@ -2181,7 +2181,7 @@ Blockly.Blocks['humain'] = {
 
 Blockly.Blocks['vampire'] = {
   init: function() {
-    this.appendDummyInput().appendField("un").appendField(new Blockly.FieldImage("../Sophus/img/vampire.png", 32, 32, "vampire"));
+    this.appendDummyInput().appendField("un").appendField(new Blockly.FieldImage('img/vampire.png', 32, 32, "vampire"));
     this.setOutput(true, null);
     this.setColour(330);
     this.setTooltip('les vampires mentent toujours');
@@ -2191,7 +2191,7 @@ Blockly.Blocks['vampire'] = {
 
 Blockly.Blocks['sain'] = {
   init: function() {
-    this.appendDummyInput().appendField("un").appendField(new Blockly.FieldImage("../Sophus/img/healthy.png", 32, 32, "sain d'esprit"));
+    this.appendDummyInput().appendField("un").appendField(new Blockly.FieldImage('img/healthy.png', 32, 32, "sain d'esprit"));
     this.setOutput(true, null);
     this.setColour(330);
     this.setTooltip('les sains d\'esprit ne croient qu\'en des choses vraies');
@@ -2201,7 +2201,7 @@ Blockly.Blocks['sain'] = {
 
 Blockly.Blocks['fou'] = {
   init: function() {
-    this.appendDummyInput().appendField("un").appendField(new Blockly.FieldImage("../Sophus/img/crazy.png", 32, 32, "fou"));
+    this.appendDummyInput().appendField("un").appendField(new Blockly.FieldImage('img/crazy.png', 32, 32, "fou"));
     this.setOutput(true, null);
     this.setColour(330);
     this.setTooltip('les fous ne croient qu\'en des choses fausses');
@@ -2211,7 +2211,7 @@ Blockly.Blocks['fou'] = {
 
 Blockly.Blocks['patient'] = {
   init: function() {
-    this.appendDummyInput().appendField("un").appendField(new Blockly.FieldImage("../Sophus/img/sick.png", 32, 32, "patient"));
+    this.appendDummyInput().appendField("un").appendField(new Blockly.FieldImage('img/sick.png', 32, 32, "patient"));
     this.setOutput(true, null);
     this.setColour(330);
     this.setTooltip('celui qui est soigné, mais est-il vraiment malade ?');
@@ -2221,7 +2221,7 @@ Blockly.Blocks['patient'] = {
 
 Blockly.Blocks['docteur'] = {
   init: function() {
-    this.appendDummyInput().appendField("un").appendField(new Blockly.FieldImage("../Sophus/img/medical.png", 32, 32, "docteur"));
+    this.appendDummyInput().appendField("un").appendField(new Blockly.FieldImage('img/medical.png', 32, 32, "docteur"));
     this.setOutput(true, null);
     this.setColour(330);
     this.setTooltip('Un médecin, est-il sain d\'esprit ou est-il fou ?');
@@ -2909,5 +2909,50 @@ Blockly.Blocks['CAS_decrementer'] = {
     if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
       this.setFieldValue(newName, 'VAR');
     }
+  }
+};
+
+Blockly.Blocks['texte_doubler'] = {
+  init: function() {
+    var dropdown, variable;
+    dropdown = new Blockly.FieldDropdown([['doubler', '2'], ['tripler', '3'], ['quadrupler', '4'], ['quintupler', '5'], ['sextupler', '6'], ['décupler', '10'], ['centupler', '100']]);
+    variable = new Blockly.FieldVariable(Blockly.Msg.VARIABLES_DEFAULT_NAME);
+    this.appendDummyInput().appendField(new Blockly.FieldImage('./img/multiplier.png', 64, 32, '[*]:   ')).appendField(dropdown, 'CHOIX').appendField('le texte').appendField(variable, 'VAR');
+    this.setHelpUrl('');
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(165);
+  },
+  getVars: function() {
+    return [this.getFieldValue('VAR')];
+  },
+  renameVar: function(oldName, newName) {
+    if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+      this.setFieldValue(newName, 'VAR');
+    }
+  }
+};
+
+Blockly.Blocks['texte_compter'] = {
+  init: function() {
+    this.appendValueInput("Lettre").setCheck(null).appendField("nombre de");
+    this.appendValueInput("Mot").setCheck(null).appendField("dans");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(165);
+    this.setTooltip('compter des lettres dans un mot');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['lambda_js'] = {
+  init: function() {
+    this.appendValueInput("var").setCheck(null).appendField("λ");
+    this.appendValueInput("fonc").setCheck(null).appendField(".");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(300);
+    this.setTooltip('fonction anonyme');
+    this.setHelpUrl('');
   }
 };

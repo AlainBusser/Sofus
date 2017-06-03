@@ -625,12 +625,14 @@ $ ->
 				<block type="text_indexOf"></block>
 				<block type="text_charAt"></block>
             <block type="srevne"></block>
+            <block type="texte_doubler"></block>
 				<block type="text_getSubstring"></block>
 			</category>
 			<category name="Sofus">
 				<block type="text_append"></block>
 				<block type="remplacer"></block>
 				<block type="remplacer1"></block>
+				<block type="texte_compter"></block>
 				<category name="transformations">
 					<block type="CAS_incrementer"></block>
 					<block type="CAS_decrementer"></block>
@@ -667,6 +669,7 @@ $ ->
 			<category name="JavaScript">
 		<block type="eval"></block>
 		<block type="eval0"></block>
+		<!--block type="lambda_js"></block-->
 		<block type="coffee0"></block>
 		</category>
 			</category>
@@ -796,7 +799,9 @@ $ ->
   <script>
     var workspace = Blockly.inject('blocklyDiv',
         {media: 'media/',
-         toolbox: document.getElementById('toolbox')});
+         toolbox: document.getElementById('toolbox'),
+         <!--zoom: {controls: true}-->
+          });
     Blockly.Xml.domToWorkspace(workspace,
         document.getElementById('startBlocks'));
   function myUpdateFunction() {

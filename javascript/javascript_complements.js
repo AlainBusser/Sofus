@@ -1248,3 +1248,26 @@ Blockly.JavaScript['CAS_decrementer'] = function(block) {
   varName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
   return varName + " = CQ('('+" + varName + "+')-1').simplify().toString();\n";
 };
+
+Blockly.JavaScript['texte_doubler'] = function(block) {
+  var choix, code, varName;
+  varName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  choix = block.getFieldValue('CHOIX');
+  return code = "var _t = " + varName + "; var _s = ''; for (var _c = 0; _c < " + choix + "; _c++) {_s += _t}; " + varName + " = _s;\n";
+};
+
+Blockly.JavaScript['texte_compter'] = function(block) {
+  var code, value_lettre, value_mot;
+  value_lettre = Blockly.JavaScript.valueToCode(block, 'Lettre', Blockly.JavaScript.ORDER_ATOMIC);
+  value_mot = Blockly.JavaScript.valueToCode(block, 'Mot', Blockly.JavaScript.ORDER_ATOMIC);
+  code = value_mot + ".match(new RegExp(" + value_lettre + ",'g')).length";
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['lambda_js'] = function(block) {
+  var code, value_fonc, value_var;
+  value_var = Blockly.JavaScript.valueToCode(block, 'var', Blockly.JavaScript.ORDER_ATOMIC);
+  value_fonc = Blockly.JavaScript.valueToCode(block, 'fonc', Blockly.JavaScript.ORDER_ATOMIC);
+  code = "function(" + value_var + "){return (" + value_fonc + "); }";
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
