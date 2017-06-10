@@ -1102,45 +1102,45 @@ Blockly.JavaScript['CAS_multiplier_fract'] = (block) ->
   varName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE)
   argument0 = Blockly.JavaScript.valueToCode(block, 'DELTA', Blockly.JavaScript.ORDER_ADDITION) or '0'
   dropdown_denom = block.getFieldValue('DENOM')
-  varName + " = CQ('('+" + varName + "+')*'+" + argument0 + "+'/'+" + dropdown_denom + ").simplify().toString();\n"
+  varName + " = CQ('('+" + varName + "+')*('+" + argument0 + "+')/('+" + dropdown_denom + "+')').simplify().toString();\n"
 
 Blockly.JavaScript['CAS_diviser_fract'] = (block) ->
   varName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE)
   argument0 = Blockly.JavaScript.valueToCode(block, 'DELTA', Blockly.JavaScript.ORDER_ADDITION) or '0'
   dropdown_denom = block.getFieldValue('DENOM')
-  varName + " = CQ('('+" + varName + "+')*'+" + dropdown_denom + "+'/'+" + argument0 + ").simplify().toString();\n"
+  varName + " = CQ('('+" + varName + "+')*('+" + dropdown_denom + "+')/('+" + argument0 + "+')').simplify().toString();\n"
 
 Blockly.JavaScript['CAS_augmenter_fract'] = (block) ->
   varName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE)
   argument0 = Blockly.JavaScript.valueToCode(block, 'DELTA', Blockly.JavaScript.ORDER_ADDITION) or '0'
   dropdown_denom = block.getFieldValue('DENOM')
-  varName + " = CQ('('+" + varName + "+')*(1+'+" + argument0 + "+'/'+" + dropdown_denom + "+')').simplify().toString();\n"
+  varName + " = CQ('('+" + varName + "+')*(1+('+" + argument0 + "+')/'+" + dropdown_denom + "+')').simplify().toString();\n"
 
 Blockly.JavaScript['CAS_diminuer_fract'] = (block) ->
   varName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE)
   argument0 = Blockly.JavaScript.valueToCode(block, 'DELTA', Blockly.JavaScript.ORDER_ADDITION) or '0'
   dropdown_denom = block.getFieldValue('DENOM')
-  varName + " = CQ('('+" + varName + "+')*(1-'+" + argument0 + "+'/'+" + dropdown_denom + "+')').simplify().toString();\n"
+  varName + " = CQ('('+" + varName + "+')*(1-('+" + argument0 + "+')/'+" + dropdown_denom + "+')').simplify().toString();\n"
 
 Blockly.JavaScript['CAS_augmenter'] = (block) ->
   argument0 = Blockly.JavaScript.valueToCode(block, 'DELTA', Blockly.JavaScript.ORDER_ADDITION) or '0'
   varName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE)
-  varName + " = CQ('('+" + varName + "+')+'+" + argument0 + ").simplify().toString();\n"
+  varName + " = CQ('('+" + varName + "+')+('+" + argument0 + "+')').simplify().toString();\n"
 
 Blockly.JavaScript['CAS_diminuer'] = (block) ->
   argument0 = Blockly.JavaScript.valueToCode(block, 'DELTA', Blockly.JavaScript.ORDER_ADDITION) or '0'
   varName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE)
-  varName + " = CQ('('+" + varName + "+')-'+" + argument0 + ").simplify().toString();\n"
+  varName + " = CQ('('+" + varName + "+')-('+" + argument0 + "+')').simplify().toString();\n"
 
 Blockly.JavaScript['CAS_multiplier'] = (block) ->
   argument0 = Blockly.JavaScript.valueToCode(block, 'DELTA', Blockly.JavaScript.ORDER_ADDITION) or '0'
   varName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE)
-  varName + " = CQ('('+" + varName + "+')*'+" + argument0 + ").simplify().toString();\n"
+  varName + " = CQ('('+" + varName + "+')*('+" + argument0 + "+')').simplify().toString();\n"
 
 Blockly.JavaScript['CAS_diviser'] = (block) ->
   argument0 = Blockly.JavaScript.valueToCode(block, 'DELTA', Blockly.JavaScript.ORDER_ADDITION) or '0'
   varName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE)
-  varName + " = CQ('('+" + varName + "+')/'+" + argument0 + ").simplify().toString();\n"
+  varName + " = CQ('('+" + varName + "+')/('+" + argument0 + "+')').simplify().toString();\n"
 
 Blockly.JavaScript['CAS_incrementer'] = (block) ->
   varName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE)
@@ -1167,7 +1167,7 @@ Blockly.JavaScript['texte_compter'] = (block) ->
 Blockly.JavaScript['lambda_js'] = (block) ->
 	value_var = Blockly.JavaScript.valueToCode(block, 'var', Blockly.JavaScript.ORDER_ATOMIC)
 	value_fonc = Blockly.JavaScript.valueToCode(block, 'fonc', Blockly.JavaScript.ORDER_ATOMIC)
-	code = "function(" + value_var + "){return (" + value_fonc + "); }" 
+	code = "function(" + value_var.replace(/\'/g,'') + "){return (" + value_fonc.replace(/\'/g,'') + "); }" 
 	[
 		code
 		Blockly.JavaScript.ORDER_NONE
