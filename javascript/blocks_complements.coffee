@@ -2977,3 +2977,15 @@ Blockly.Blocks['lambda_js'] =
 		@setTooltip('fonction anonyme')
 		@setHelpUrl('')
 		return
+
+Blockly.Blocks['lambda1'] =
+	init: ->
+		@appendValueInput("variables").setCheck(null).appendField("λ")
+		@appendDummyInput().appendField(".").appendField(new Blockly.FieldVariable("element"), "fonctions")
+		@setInputsInline(true)
+		@setOutput(true, null)
+		@setColour(270)
+		@setTooltip('fonction anonyme')
+		@setHelpUrl('')
+		return
+

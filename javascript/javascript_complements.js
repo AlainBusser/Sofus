@@ -1092,7 +1092,7 @@ Blockly.JavaScript['dire'] = function(block) {
   var code, value_name, variable_name;
   variable_name = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE);
   value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
-  code = variable_name + ".humain == " + value_name;
+  code = "(" + variable_name + ".humain == " + variable_name + ".sain) == " + value_name;
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
@@ -1269,5 +1269,13 @@ Blockly.JavaScript['lambda_js'] = function(block) {
   value_var = Blockly.JavaScript.valueToCode(block, 'var', Blockly.JavaScript.ORDER_ATOMIC);
   value_fonc = Blockly.JavaScript.valueToCode(block, 'fonc', Blockly.JavaScript.ORDER_ATOMIC);
   code = "function(" + value_var.replace(/\'/g, '') + "){return (" + value_fonc.replace(/\'/g, '') + "); }";
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['lambda1'] = function(block) {
+  var code, value_variables, variable_fonctions;
+  value_variables = Blockly.JavaScript.valueToCode(block, 'variables', Blockly.JavaScript.ORDER_ATOMIC);
+  variable_fonctions = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('fonctions'), Blockly.Variables.NAME_TYPE);
+  code = "function(" + value_variables.replace(/\'/g, '') + "){return (" + variable_fonctions.replace(/\'/g, '') + "); }";
   return [code, Blockly.JavaScript.ORDER_NONE];
 };

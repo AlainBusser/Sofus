@@ -2956,3 +2956,15 @@ Blockly.Blocks['lambda_js'] = {
     this.setHelpUrl('');
   }
 };
+
+Blockly.Blocks['lambda1'] = {
+  init: function() {
+    this.appendValueInput("variables").setCheck(null).appendField("λ");
+    this.appendDummyInput().appendField(".").appendField(new Blockly.FieldVariable("element"), "fonctions");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(270);
+    this.setTooltip('fonction anonyme');
+    this.setHelpUrl('');
+  }
+};
