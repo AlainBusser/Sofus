@@ -1,4 +1,4 @@
-Version 2.1 avec calcul formel et micromondes de Smullyan; le mode lent est risqué: Il faut mettre un "palimpseste" ou initialiser la tortue 
+Version 2.2 avec calcul formel et micromondes de Smullyan; le mode lent est risqué: Il faut mettre un "palimpseste" ou initialiser la tortue 
 
 Pour programmer en ligne: [Sofus](https://alainbusser.github.io/Sofus/Sofus.html)
 
