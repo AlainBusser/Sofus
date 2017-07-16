@@ -13,8 +13,8 @@ Blockly.Blocks['sophus_carre'] =
       'args0': [
         {
           'type': 'field_image'
-          'src': './img/puissance.png'
-          'width': 64
+          'src': './img/puissance.gif'
+          'width': 32
           'height': 32
           'alt': '[^]:   '
         }
@@ -89,7 +89,7 @@ Blockly.Blocks['sophus_doubler'] =
       ]
     ])
     variable = new (Blockly.FieldVariable)(Blockly.Msg.VARIABLES_DEFAULT_NAME)
-    @appendDummyInput().appendField(new (Blockly.FieldImage)('./img/multiplier.png', 64, 32, '[*]:   ')).appendField(dropdown, 'CHOIX').appendField('').appendField variable, 'VAR'
+    @appendDummyInput().appendField(new (Blockly.FieldImage)('./img/multiplier.gif', 64, 32, '[*]:   ')).appendField(dropdown, 'CHOIX').appendField('').appendField variable, 'VAR'
     @setHelpUrl ''
     @setPreviousStatement true
     @setNextStatement true
@@ -108,8 +108,8 @@ Blockly.Blocks['sophus_augmenter'] =
       'args0': [
         {
           'type': 'field_image'
-          'src': './img/augmenter.png'
-          'width': 64
+          'src': './img/augmenter.gif'
+          'width': 32
           'height': 32
           'alt': '[+]:   '
         }
@@ -145,8 +145,8 @@ Blockly.Blocks['sophus_augmenter_fract'] =
       'args0': [
         {
           'type': 'field_image'
-          'src': './img/augmenter.png'
-          'width': 64
+          'src': './img/augmenter.gif'
+          'width': 32
           'height': 32
           'alt': '[+]:   '
         }
@@ -232,8 +232,8 @@ Blockly.Blocks['sophus_augmenter_pct'] =
       'args0': [
         {
           'type': 'field_image'
-          'src': './img/augmenter.png'
-          'width': 64
+          'src': './img/augmenter.gif'
+          'width': 32
           'height': 32
           'alt': '[+]:   '
         }
@@ -269,8 +269,8 @@ Blockly.Blocks['sophus_diminuer'] =
       'args0': [
         {
           'type': 'field_image'
-          'src': './img/diminuer.png'
-          'width': 64
+          'src': './img/diminuer.gif'
+          'width': 32
           'height': 32
           'alt': '[-]:   '
         }
@@ -306,8 +306,8 @@ Blockly.Blocks['sophus_diminuer_fract'] =
       'args0': [
         {
           'type': 'field_image'
-          'src': './img/diminuer.png'
-          'width': 64
+          'src': './img/diminuer.gif'
+          'width': 32
           'height': 32
           'alt': '[-]:   '
         }
@@ -393,8 +393,8 @@ Blockly.Blocks['sophus_diminuer_pct'] =
       'args0': [
         {
           'type': 'field_image'
-          'src': './img/diminuer.png'
-          'width': 64
+          'src': './img/diminuer.gif'
+          'width': 32
           'height': 32
           'alt': '[-]:   '
         }
@@ -430,8 +430,8 @@ Blockly.Blocks['sophus_multiplier'] =
       'args0': [
         {
           'type': 'field_image'
-          'src': './img/multiplier.png'
-          'width': 64
+          'src': './img/multiplier.gif'
+          'width': 32
           'height': 32
           'alt': '[*]:   '
         }
@@ -467,8 +467,8 @@ Blockly.Blocks['sophus_diviser'] =
       'args0': [
         {
           'type': 'field_image'
-          'src': './img/diviser.png'
-          'width': 64
+          'src': './img/diviser.gif'
+          'width': 32
           'height': 32
           'alt': '[/]:   '
         }
@@ -504,8 +504,8 @@ Blockly.Blocks['sophus_multiplier_fract'] =
       'args0': [
         {
           'type': 'field_image'
-          'src': './img/multiplier.png'
-          'width': 64
+          'src': './img/multiplier.gif'
+          'width': 32
           'height': 32
           'alt': '[*]:   '
         }
@@ -591,8 +591,8 @@ Blockly.Blocks['sophus_diviser_fract'] =
       'args0': [
         {
           'type': 'field_image'
-          'src': './img/diviser.png'
-          'width': 64
+          'src': './img/diviser.gif'
+          'width': 32
           'height': 32
           'alt': '[/]:   '
         }
@@ -678,8 +678,8 @@ Blockly.Blocks['sophus_arrondir'] =
       'args0': [
         {
           'type': 'field_image'
-          'src': './img/arrondi.png'
-          'width': 64
+          'src': './img/arrondir.gif'
+          'width': 32
           'height': 32
           'alt': '[O]:   '
         }
@@ -729,8 +729,8 @@ Blockly.Blocks['sophus_tronquer'] =
       'args0': [
         {
           'type': 'field_image'
-          'src': './img/troncature.png'
-          'width': 64
+          'src': './img/troncature.gif'
+          'width': 32
           'height': 32
           'alt': '[o]:   '
         }
@@ -831,8 +831,8 @@ Blockly.Blocks['sophus_puissance'] =
       'args0': [
         {
           'type': 'field_image'
-          'src': './img/puissance.png'
-          'width': 64
+          'src': './img/puissance.gif'
+          'width': 32
           'height': 32
           'alt': '[^]:   '
         }
@@ -869,8 +869,8 @@ Blockly.Blocks['sophus_inverser'] =
       'args0': [
         {
           'type': 'field_image'
-          'src': './img/inverse.png'
-          'width': 64
+          'src': './img/inverse.gif'
+          'width': 32
           'height': 32
           'alt': '[un]:   '
         }
@@ -904,8 +904,8 @@ Blockly.Blocks['sophus_incrementer'] =
       'args0': [
         {
           'type': 'field_image'
-          'src': './img/augmenter.png'
-          'width': 64
+          'src': './img/augmenter.gif'
+          'width': 32
           'height': 32
           'alt': '[un]:   '
         }
@@ -940,8 +940,8 @@ Blockly.Blocks['sophus_decrementer'] =
       'args0': [
         {
           'type': 'field_image'
-          'src': './img/diminuer.png'
-          'width': 64
+          'src': './img/diminuer.gif'
+          'width': 32
           'height': 32
           'alt': '[un]:   '
         }
@@ -1016,7 +1016,7 @@ Blockly.Blocks['tortue_c'] = init: ->
   @setHelpUrl ''
   return
 Blockly.Blocks['avancer'] = init: ->
-  @appendValueInput('NAME').setCheck('Number').appendField(new (Blockly.FieldImage)('img/turtle.png', 32, 32, '')).appendField 'avancer de'
+  @appendValueInput('NAME').setCheck('Number').appendField(new (Blockly.FieldImage)('img/avancer.gif', 32, 32, '')).appendField 'avancer de'
   @setPreviousStatement true
   @setNextStatement true
   @setColour 120
@@ -1024,7 +1024,7 @@ Blockly.Blocks['avancer'] = init: ->
   @setHelpUrl ''
   return
 Blockly.Blocks['reculer'] = init: ->
-  @appendValueInput('NAME').setCheck('Number').appendField(new (Blockly.FieldImage)('img/turtle.png', 32, 32, '')).appendField 'reculer de'
+  @appendValueInput('NAME').setCheck('Number').appendField(new (Blockly.FieldImage)('img/reculer.gif', 32, 32, '')).appendField 'reculer de'
   @setPreviousStatement true
   @setNextStatement true
   @setColour 120
@@ -1032,7 +1032,7 @@ Blockly.Blocks['reculer'] = init: ->
   @setHelpUrl ''
   return
 Blockly.Blocks['tortue_gauche'] = init: ->
-  @appendDummyInput().appendField(new (Blockly.FieldImage)('img/turtle.png', 32, 32, '')).appendField('vers la gauche de').appendField new (Blockly.FieldAngle)(90), 'NAME'
+  @appendDummyInput().appendField(new (Blockly.FieldImage)('img/gauche.gif', 32, 32, '')).appendField('vers la gauche de').appendField new (Blockly.FieldAngle)(90), 'NAME'
   @setPreviousStatement true
   @setNextStatement true
   @setColour 120
@@ -1040,7 +1040,7 @@ Blockly.Blocks['tortue_gauche'] = init: ->
   @setHelpUrl ''
   return
 Blockly.Blocks['tortue_droite'] = init: ->
-  @appendDummyInput().appendField(new (Blockly.FieldImage)('img/turtle.png', 32, 32, '')).appendField('vers la droite de').appendField new (Blockly.FieldAngle)(90), 'NAME'
+  @appendDummyInput().appendField(new (Blockly.FieldImage)('img/droite.gif', 32, 32, '')).appendField('vers la droite de').appendField new (Blockly.FieldAngle)(90), 'NAME'
   @setPreviousStatement true
   @setNextStatement true
   @setColour 120
@@ -1048,7 +1048,7 @@ Blockly.Blocks['tortue_droite'] = init: ->
   @setHelpUrl ''
   return
 Blockly.Blocks['var_gauche'] = init: ->
-  @appendValueInput('ANGLE').setCheck('Number').appendField(new (Blockly.FieldImage)('img/turtle.png', 32, 32, '')).appendField 'tourner à gauche de'
+  @appendValueInput('ANGLE').setCheck('Number').appendField(new (Blockly.FieldImage)('img/gauche.gif', 32, 32, '')).appendField 'tourner à gauche de'
   @setPreviousStatement true
   @setNextStatement true
   @setColour 120
@@ -1056,7 +1056,7 @@ Blockly.Blocks['var_gauche'] = init: ->
   @setHelpUrl ''
   return
 Blockly.Blocks['var_droite'] = init: ->
-  @appendValueInput('ANGLE').setCheck('Number').appendField(new (Blockly.FieldImage)('img/turtle.png', 32, 32, '')).appendField 'tourner à droite de'
+  @appendValueInput('ANGLE').setCheck('Number').appendField(new (Blockly.FieldImage)('img/droite.gif', 32, 32, '')).appendField 'tourner à droite de'
   @setPreviousStatement true
   @setNextStatement true
   @setColour 120
@@ -1141,7 +1141,7 @@ Blockly.Blocks['montrer_tortue'] = init: ->
   @setHelpUrl ''
   return
 Blockly.Blocks['lever_stylo'] = init: ->
-  @appendDummyInput().appendField(new (Blockly.FieldImage)('img/pencil.png', 32, 32, '')).appendField 'lever le stylo'
+  @appendDummyInput().appendField(new (Blockly.FieldImage)('img/penup.gif', 32, 32, '')).appendField 'lever le stylo'
   @setPreviousStatement true
   @setNextStatement true
   @setColour 120
@@ -1149,7 +1149,7 @@ Blockly.Blocks['lever_stylo'] = init: ->
   @setHelpUrl ''
   return
 Blockly.Blocks['baisser_stylo'] = init: ->
-  @appendDummyInput().appendField(new (Blockly.FieldImage)('img/pencil.png', 32, 32, '')).appendField 'baisser le stylo'
+  @appendDummyInput().appendField(new (Blockly.FieldImage)('img/pendown.gif', 32, 32, '')).appendField 'baisser le stylo'
   @setPreviousStatement true
   @setNextStatement true
   @setColour 120
@@ -1189,7 +1189,7 @@ Blockly.Blocks['reset'] = init: ->
   @setHelpUrl ''
   return
 Blockly.Blocks['axeX'] = init: ->
-  @appendDummyInput().appendField(new (Blockly.FieldImage)('img/pencil.png', 32, 32, '')).appendField 'axe des abscisses'
+  @appendDummyInput().appendField(new (Blockly.FieldImage)('img/axeX.gif', 32, 32, '')).appendField 'axe des abscisses'
   @setPreviousStatement true
   @setNextStatement true
   @setColour 120
@@ -1197,7 +1197,7 @@ Blockly.Blocks['axeX'] = init: ->
   @setHelpUrl ''
   return
 Blockly.Blocks['axeY'] = init: ->
-  @appendDummyInput().appendField(new (Blockly.FieldImage)('img/pencil.png', 32, 32, '')).appendField 'axe des ordonnées'
+  @appendDummyInput().appendField(new (Blockly.FieldImage)('img/axeY.gif', 32, 32, '')).appendField 'axe des ordonnées'
   @setPreviousStatement true
   @setNextStatement true
   @setColour 120
@@ -1205,7 +1205,7 @@ Blockly.Blocks['axeY'] = init: ->
   @setHelpUrl ''
   return
 Blockly.Blocks['axes'] = init: ->
-  @appendDummyInput().appendField(new (Blockly.FieldImage)('img/pencil.png', 32, 32, '')).appendField 'dessiner le repère'
+  @appendDummyInput().appendField(new (Blockly.FieldImage)('img/axes.gif', 32, 32, '')).appendField 'dessiner le repère'
   @setPreviousStatement true
   @setNextStatement true
   @setColour 120
@@ -1213,7 +1213,7 @@ Blockly.Blocks['axes'] = init: ->
   @setHelpUrl ''
   return
 Blockly.Blocks['grille'] = init: ->
-  @appendDummyInput().appendField(new (Blockly.FieldImage)('img/pencil.png', 32, 32, '')).appendField 'dessiner une grille'
+  @appendDummyInput().appendField(new (Blockly.FieldImage)('img/grid.gif', 32, 32, '')).appendField 'dessiner une grille'
   @setPreviousStatement true
   @setNextStatement true
   @setColour 120
@@ -2172,8 +2172,8 @@ Blockly.Blocks['CAS_carre'] =
       'args0': [
         {
           'type': 'field_image'
-          'src': './img/puissance.png'
-          'width': 64
+          'src': './img/puissance.gif'
+          'width': 32
           'height': 32
           'alt': '[^]:   '
         }
@@ -2248,7 +2248,7 @@ Blockly.Blocks['CAS_doubler'] =
       ]
     ])
     variable = new (Blockly.FieldVariable)(Blockly.Msg.VARIABLES_DEFAULT_NAME)
-    @appendDummyInput().appendField(new (Blockly.FieldImage)('./img/multiplier.png', 64, 32, '[*]:   ')).appendField(dropdown, 'CHOIX').appendField('').appendField variable, 'VAR'
+    @appendDummyInput().appendField(new (Blockly.FieldImage)('./img/multiplier.gif', 64, 32, '[*]:   ')).appendField(dropdown, 'CHOIX').appendField('').appendField variable, 'VAR'
     @setHelpUrl ''
     @setPreviousStatement true
     @setNextStatement true
@@ -2268,8 +2268,8 @@ Blockly.Blocks['CAS_puissance'] =
       'args0': [
         {
           'type': 'field_image'
-          'src': './img/puissance.png'
-          'width': 64
+          'src': './img/puissance.gif'
+          'width': 32
           'height': 32
           'alt': '[^]:   '
         }
@@ -2306,8 +2306,8 @@ Blockly.Blocks['CAS_inverser'] =
       'args0': [
         {
           'type': 'field_image'
-          'src': './img/inverse.png'
-          'width': 64
+          'src': './img/inverse.gif'
+          'width': 32
           'height': 32
           'alt': '[un]:   '
         }
@@ -2340,8 +2340,8 @@ Blockly.Blocks['CAS_augmenter_fract'] =
       'args0': [
         {
           'type': 'field_image'
-          'src': './img/augmenter.png'
-          'width': 64
+          'src': './img/augmenter.gif'
+          'width': 32
           'height': 32
           'alt': '[+]:   '
         }
@@ -2429,8 +2429,8 @@ Blockly.Blocks['CAS_diminuer_fract'] =
       'args0': [
         {
           'type': 'field_image'
-          'src': './img/diminuer.png'
-          'width': 64
+          'src': './img/diminuer.gif'
+          'width': 32
           'height': 32
           'alt': '[-]:   '
         }
@@ -2518,8 +2518,8 @@ Blockly.Blocks['CAS_multiplier_fract'] =
       'args0': [
         {
           'type': 'field_image'
-          'src': './img/multiplier.png'
-          'width': 64
+          'src': './img/multiplier.gif'
+          'width': 32
           'height': 32
           'alt': '[*]:   '
         }
@@ -2605,8 +2605,8 @@ Blockly.Blocks['CAS_diviser_fract'] =
       'args0': [
         {
           'type': 'field_image'
-          'src': './img/diviser.png'
-          'width': 64
+          'src': './img/diviser.gif'
+          'width': 32
           'height': 32
           'alt': '[/]:   '
         }
@@ -2694,8 +2694,8 @@ Blockly.Blocks['CAS_augmenter'] =
       'args0': [
         {
           'type': 'field_image'
-          'src': './img/augmenter.png'
-          'width': 64
+          'src': './img/augmenter.gif'
+          'width': 32
           'height': 32
           'alt': '[+]:   '
         }
@@ -2732,8 +2732,8 @@ Blockly.Blocks['CAS_diminuer'] =
       'args0': [
         {
           'type': 'field_image'
-          'src': './img/diminuer.png'
-          'width': 64
+          'src': './img/diminuer.gif'
+          'width': 32
           'height': 32
           'alt': '[-]:   '
         }
@@ -2770,8 +2770,8 @@ Blockly.Blocks['CAS_multiplier'] =
       'args0': [
         {
           'type': 'field_image'
-          'src': './img/multiplier.png'
-          'width': 64
+          'src': './img/multiplier.gif'
+          'width': 32
           'height': 32
           'alt': '[*]:   '
         }
@@ -2806,8 +2806,8 @@ Blockly.Blocks['CAS_diviser'] =
       'args0': [
         {
           'type': 'field_image'
-          'src': './img/diviser.png'
-          'width': 64
+          'src': './img/diviser.gif'
+          'width': 32
           'height': 32
           'alt': '[/]:   '
         }
@@ -2845,8 +2845,8 @@ Blockly.Blocks['CAS_incrementer'] =
       'args0': [
         {
           'type': 'field_image'
-          'src': './img/augmenter.png'
-          'width': 64
+          'src': './img/augmenter.gif'
+          'width': 32
           'height': 32
           'alt': '[un]:   '
         }
@@ -2881,8 +2881,8 @@ Blockly.Blocks['CAS_decrementer'] =
       'args0': [
         {
           'type': 'field_image'
-          'src': './img/diminuer.png'
-          'width': 64
+          'src': './img/diminuer.gif'
+          'width': 32
           'height': 32
           'alt': '[un]:   '
         }
@@ -2942,7 +2942,7 @@ Blockly.Blocks['texte_doubler'] =
       ]
     ])
     variable = new (Blockly.FieldVariable)(Blockly.Msg.VARIABLES_DEFAULT_NAME)
-    @appendDummyInput().appendField(new (Blockly.FieldImage)('./img/multiplier.png', 64, 32, '[*]:   ')).appendField(dropdown, 'CHOIX').appendField('le texte').appendField variable, 'VAR'
+    @appendDummyInput().appendField(new (Blockly.FieldImage)('./img/multiplier.gif', 64, 32, '[*]:   ')).appendField(dropdown, 'CHOIX').appendField('le texte').appendField variable, 'VAR'
     @setHelpUrl ''
     @setPreviousStatement true
     @setNextStatement true
@@ -2969,8 +2969,8 @@ Blockly.Blocks['texte_compter'] =
 
 Blockly.Blocks['lambda_js'] =
 	init: ->
-		@appendValueInput("var").setCheck(null).appendField("λ")
-		@appendValueInput("fonc").setCheck(null).appendField(".")
+		@appendValueInput("var").setCheck(null)
+		@appendValueInput("fonc").setCheck(null).appendField("⟼")
 		@setInputsInline(true)
 		@setOutput(true, null)
 		@setColour(300)

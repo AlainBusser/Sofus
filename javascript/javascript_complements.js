@@ -1146,7 +1146,7 @@ Blockly.JavaScript['solutions'] = function(block) {
 Blockly.JavaScript['embelli'] = function(block) {
   var code, equ;
   equ = Blockly.JavaScript.valueToCode(block, 'EQU', Blockly.JavaScript.ORDER_ATOMIC);
-  code = equ + '.replace(/\\*\\*2/g,"²").replace(/\\*\\*3/g,"³").replace(/\\*/g,"×")';
+  code = equ + '.replace(/\\*\\*2/g,"²").replace(/\\*\\*3/g,"³").replace(/\\*/g," ")';
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
