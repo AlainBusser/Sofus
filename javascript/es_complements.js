@@ -1,4 +1,4 @@
-Blockly.Msg.CONTROLS_FOR_TITLE = "pour %1 de %2 à %3 par %4";
+Blockly.Msg.CONTROLS_FOR_TITLE = "para %1 desde %2 hasta %3 incremento %4";
 Blockly.Msg.VARIABLES_DEFAULT_NAME = "elemento";
 Blockly.Msg.TEXT_PROMPT_TYPE_NUMBER = "introducir un número con un mensaje";
 Blockly.Msg.TEXT_PROMPT_TYPE_TEXT = "introducir texto con un mensaje";

@@ -144,7 +144,7 @@ Blockly.Blocks['constante_entier'] = {
         .appendField(new Blockly.FieldTextInput("2"), "NUM");
     this.setOutput(true, "Fraction");
     this.setColour(45);
-    this.setTooltip('entier vu comme fraction');
+    this.setTooltip('escribir como una fracción');
     this.setHelpUrl('');
   }
 };
@@ -154,11 +154,11 @@ Blockly.Blocks['egale'] = {
   init: function() {
     this.appendValueInput("NAME")
         .setCheck("Fraction")
-        .appendField(new Blockly.FieldVariable("fraction"), "FR1")
+        .appendField(new Blockly.FieldVariable("fracción"), "FR1")
         .appendField("=");
     this.setOutput(true, "Boolean");
     this.setColour(45);
-    this.setTooltip('égalité de fractions');
+    this.setTooltip('igualdad de fracciones');
     this.setHelpUrl('');
   }
 };
@@ -168,11 +168,11 @@ Blockly.Blocks['inferieure'] = {
   init: function() {
     this.appendValueInput("NAME")
         .setCheck("Fraction")
-        .appendField(new Blockly.FieldVariable("fraction"), "FR1")
+        .appendField(new Blockly.FieldVariable("fracción"), "FR1")
         .appendField("<");
     this.setOutput(true, "Boolean");
     this.setColour(45);
-    this.setTooltip('inégalité de fractions');
+    this.setTooltip('inigualdad de fracciones');
     this.setHelpUrl('');
   }
 };
@@ -183,11 +183,11 @@ Blockly.Blocks['superieure'] = {
   init: function() {
     this.appendValueInput("NAME")
         .setCheck("Fraction")
-        .appendField(new Blockly.FieldVariable("fraction"), "FR1")
+        .appendField(new Blockly.FieldVariable("fracción"), "FR1")
         .appendField(">");
     this.setOutput(true, "Boolean");
     this.setColour(45);
-    this.setTooltip('inégalité de fractions');
+    this.setTooltip('inigualdad de fracciones');
     this.setHelpUrl('');
   }
 };
@@ -197,11 +197,11 @@ Blockly.Blocks['infegale'] = {
   init: function() {
     this.appendValueInput("NAME")
         .setCheck("Fraction")
-        .appendField(new Blockly.FieldVariable("fraction"), "FR1")
+        .appendField(new Blockly.FieldVariable("fracción"), "FR1")
         .appendField("≤");
     this.setOutput(true, "Boolean");
     this.setColour(45);
-    this.setTooltip('inégalité de fractions');
+    this.setTooltip('inigualdad de fracciones');
     this.setHelpUrl('');
   }
 };
@@ -212,11 +212,11 @@ Blockly.Blocks['supegale'] = {
   init: function() {
     this.appendValueInput("NAME")
         .setCheck("Fraction")
-        .appendField(new Blockly.FieldVariable("fraction"), "FR1")
+        .appendField(new Blockly.FieldVariable("fracción"), "FR1")
         .appendField("≥");
     this.setOutput(true, "Boolean");
     this.setColour(45);
-    this.setTooltip('inégalité de fractions');
+    this.setTooltip('inigualdad de fracciones');
     this.setHelpUrl('');
   }
 };
@@ -225,11 +225,11 @@ Blockly.Blocks['frac_plus'] = {
   init: function() {
     this.appendValueInput("NAME")
         .setCheck("Fraction")
-        .appendField(new Blockly.FieldVariable("fraction"), "FR1")
+        .appendField(new Blockly.FieldVariable("fracción"), "FR1")
         .appendField("+");
     this.setOutput(true, "Fraction");
     this.setColour(45);
-    this.setTooltip('addition de fractions');
+    this.setTooltip('Suma de Fracciones');
     this.setHelpUrl('');
   }
 };
@@ -238,11 +238,11 @@ Blockly.Blocks['frac_moins'] = {
   init: function() {
     this.appendValueInput("NAME")
         .setCheck("Fraction")
-        .appendField(new Blockly.FieldVariable("fraction"), "FR1")
+        .appendField(new Blockly.FieldVariable("fracción"), "FR1")
         .appendField("-");
     this.setOutput(true, "Fraction");
     this.setColour(45);
-    this.setTooltip('soustraction de fractions');
+    this.setTooltip('Resta de fracciones');
     this.setHelpUrl('');
   }
 };
@@ -251,11 +251,11 @@ Blockly.Blocks['frac_fois'] = {
   init: function() {
     this.appendValueInput("NAME")
         .setCheck("Fraction")
-        .appendField(new Blockly.FieldVariable("fraction"), "FR1")
+        .appendField(new Blockly.FieldVariable("fracción"), "FR1")
         .appendField("×");
     this.setOutput(true, "Fraction");
     this.setColour(45);
-    this.setTooltip('multiplication de fractions');
+    this.setTooltip('Multiplicación de fracciones');
     this.setHelpUrl('');
   }
 };
@@ -264,11 +264,11 @@ Blockly.Blocks['frac_sur'] = {
   init: function() {
     this.appendValueInput("NAME")
         .setCheck("Fraction")
-        .appendField(new Blockly.FieldVariable("fraction"), "FR1")
+        .appendField(new Blockly.FieldVariable("fracción"), "FR1")
         .appendField(":");
     this.setOutput(true, "Fraction");
     this.setColour(45);
-    this.setTooltip('division de fractions');
+    this.setTooltip('División de Fracciones');
     this.setHelpUrl('');
   }
 };
@@ -278,11 +278,11 @@ Blockly.Blocks['frac_pow'] = {
   init: function() {
     this.appendValueInput("NAME")
         .setCheck("Number")
-        .appendField(new Blockly.FieldVariable("fraction"), "FR1")
+        .appendField(new Blockly.FieldVariable("fracción"), "FR1")
         .appendField("^");
     this.setOutput(true, "Fraction");
     this.setColour(45);
-    this.setTooltip('puissance');
+    this.setTooltip('potencia');
     this.setHelpUrl('');
   }
 };
@@ -295,7 +295,7 @@ Blockly.Blocks['inverse'] = {
         .appendField("1/")
     this.setOutput(true, "Fraction");
     this.setColour(45);
-    this.setTooltip('inverse');
+    this.setTooltip('inversa');
     this.setHelpUrl('');
   }
 };
@@ -308,7 +308,7 @@ Blockly.Blocks['oppose'] = {
         .appendField("-")
     this.setOutput(true, "Fraction");
     this.setColour(45);
-    this.setTooltip('opposé');
+    this.setTooltip('opuesto');
     this.setHelpUrl('');
   }
 };
@@ -317,7 +317,7 @@ Blockly.Blocks['oppose'] = {
 Blockly.Blocks['fraction_build'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("crear una fracción con");
+        .appendField("hacer una fracción con");
     this.appendValueInput("FR1")
         .setCheck("Number")
         .appendField("numerador :");
@@ -374,10 +374,10 @@ Blockly.Blocks['arrondi'] = {
   init: function() {
     this.appendValueInput("FRAC")
         .setCheck("Fraction")
-        .appendField("redondeado");
+        .appendField("redondeo de");
     this.setOutput(true);
     this.setColour(45);
-    this.setTooltip('le quotient');
+    this.setTooltip('el cociente');
     this.setHelpUrl('');
   }
 };
@@ -514,8 +514,4 @@ Blockly.JavaScript['arrondi'] = function(block) {
   var code = value_frac + '.toFloat()';
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
-
-
-
-
 
