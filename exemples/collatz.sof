@@ -1,0 +1,84 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="big_efface" x="66" y="49">
+    <next>
+      <block type="variables_set">
+        <field name="VAR">u</field>
+        <value name="VALUE">
+          <block type="math_number">
+            <field name="NUM">65</field>
+          </block>
+        </value>
+        <next>
+          <block type="controls_whileUntil">
+            <field name="MODE">UNTIL</field>
+            <value name="BOOL">
+              <block type="logic_compare" collapsed="true">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="variables_get">
+                    <field name="VAR">u</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="controls_if">
+                <value name="IF0">
+                  <block type="math_number_property" collapsed="true">
+                    <mutation divisor_input="false"></mutation>
+                    <field name="PROPERTY">ODD</field>
+                    <value name="NUMBER_TO_CHECK">
+                      <block type="variables_get">
+                        <field name="VAR">u</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="sophus_doubler">
+                    <field name="CHOIX">3</field>
+                    <field name="VAR">u</field>
+                    <next>
+                      <block type="sophus_augmenter">
+                        <field name="VAR">u</field>
+                        <value name="DELTA">
+                          <block type="math_number">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <next>
+                  <block type="sophus_diviser">
+                    <field name="VAR">u</field>
+                    <value name="DELTA">
+                      <block type="math_number">
+                        <field name="NUM">2</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="big_aff" collapsed="true">
+                        <value name="VAR">
+                          <block type="variables_get">
+                            <field name="VAR">u</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

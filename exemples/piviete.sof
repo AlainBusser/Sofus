@@ -1,0 +1,89 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="variables_set" x="74" y="36">
+    <field name="VAR">c</field>
+    <value name="VALUE">
+      <block type="math_number">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+    <next>
+      <block type="variables_set">
+        <field name="VAR">p</field>
+        <value name="VALUE">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <next>
+          <block type="controls_repeat_ext">
+            <value name="TIMES">
+              <block type="math_number">
+                <field name="NUM">40</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="sophus_augmenter">
+                <field name="VAR">c</field>
+                <value name="DELTA">
+                  <block type="math_number">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="sophus_diviser">
+                    <field name="VAR">c</field>
+                    <value name="DELTA">
+                      <block type="math_number">
+                        <field name="NUM">2</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="sophus_puissance">
+                        <field name="VAR">c</field>
+                        <value name="POW">
+                          <block type="math_number">
+                            <field name="NUM">0.5</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="sophus_multiplier">
+                            <field name="VAR">p</field>
+                            <value name="DELTA">
+                              <block type="variables_get">
+                                <field name="VAR">c</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+            <next>
+              <block type="sophus_inverser">
+                <field name="VAR">p</field>
+                <next>
+                  <block type="sophus_doubler">
+                    <field name="CHOIX">2</field>
+                    <field name="VAR">p</field>
+                    <next>
+                      <block type="text_print">
+                        <value name="TEXT">
+                          <block type="variables_get">
+                            <field name="VAR">p</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

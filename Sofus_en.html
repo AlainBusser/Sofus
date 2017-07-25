@@ -2,22 +2,22 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <title>Programmation graphique</title>
+  <title>Sofus</title>
     <link rel="icon" href="img/totoicon.png" />
     <link rel="stylesheet" href="css/sofus.css">
   <script src="javascript/blockly_compressed.js"></script>
   <script src="javascript/blocks_compressed.js"></script>
   <script src="javascript/javascript_compressed.js"></script>
-  <script src="javascript/fr.js"></script>
+  <script src="javascript/en.js"></script>
   <script src="javascript/jquery-3.1.1.min.js"></script>
   <script src="javascript/coffee-script.js"></script>
   <script src="javascript/tortue.js"></script>
-  <script src="javascript/fractions_fr.js"></script>
+  <script src="javascript/fractions_en.js"></script>
   <script src="javascript/sylvester.js"></script>
   <script src="javascript/coffeequate.min.js"></script>
-  <script src="javascript/blocks_complements_fr.js"></script>
+  <script src="javascript/blocks_complements_en.js"></script>
   <script src="javascript/javascript_complements.js"></script>
-  <script src="javascript/fr_complements.js"></script>
+  <script src="javascript/en_complements.js"></script>
   <script src="javascript/underscore-min.js"></script>
 </head>
 <body>
@@ -28,22 +28,22 @@ $ ->
 		height: 80
 		 }, 1000
 </script>
-  <h1><img src="favicon.ico"/> avec Blockly<img src="img/turtle.png" width="80px"/></h1>
+  <h1><img src="favicon.ico"/> with Blockly<img src="img/turtle.png" width="80px"/></h1>
 
-  <p>Programmer sans prise de tête, avec les tortues</p>
+  <p>Programming with turtles instead of headaches.</p>
 
 <table><tr><td>
   <div id="blocklyDiv" style="height: 480px; width: 800px; margin-left: 1em;"></div>
 
 
-<!-- c'est ici que sont placés les blocs, organisés en menus -->
+<!-- Here are the blocks -->
 
 
 
 
   <xml id="toolbox" style="display: none">
     <category name="Variables" colour="330" custom="VARIABLE"></category>
-    <category name="Entrées-sorties" colour="160">
+    <category name="Inputs-outputs" colour="160">
       <block type="math_number"></block>
         <block type="text"></block>
     <block type="text_print">
@@ -58,8 +58,8 @@ $ ->
     
     <sep></sep>
 
-    <category name="Tortue" colour="120">
-		<category name="déplacement">
+    <category name="Turtle" colour="120">
+		<category name="moves">
 			<block type="avancer">
 				<value name="NAME">
 					<block type="math_number">
@@ -116,15 +116,15 @@ $ ->
 			</block>
 			<block type="tourner_vers_tortue_var"></block>
 		</category>
-		<category name="dessin">
-		<category name="stylo">
+		<category name="drawing">
+		<category name="pen">
 			<block type="scribe"></block>
 			<block type="baisser_stylo"></block>
 			<block type="lever_stylo"></block>
 			<block type="couleur_stylo"></block>
 			<block type="tampon"></block>
 		</category>
-		<category name="gomme">
+		<category name="eraser">
 <!--			<block type="lentement"></block>-->
 			<block type="eff_svg"></block>
 			<block type="reset"></block>
@@ -136,22 +136,22 @@ $ ->
 			<block type="axeY"></block>
 		</category>
 		</category>
-		<category name="aspect">
+		<category name="costumes">
 			<block type="cacher_tortue"></block>
 			<block type="montrer_tortue"></block>
 <!--			<block type="costume_suivant" disabled="true"></block>
 			<block type="costume_pred" disabled="true"></block>
 			<block type="costume" disabled="true"></block> -->
 		</category>
-		<category name="multitortues">
-		<category name="données">
+		<category name="multi-turtles">
+		<category name="data">
 			<block type="tortue_x"></block>
 			<block type="tortue_y"></block>
 			<block type="tortue_t"></block>
 			<block type="tortue_c"></block>
 		  <block type="distance_avec_tortue_var"></block>
 		</category>
-		<category name="gestion">
+		<category name="messages">
 		  <block type="choisir_tortue_var"></block>
 		  <block type="creer_tortue_var"></block>
 		</category>
@@ -165,8 +165,8 @@ $ ->
     
     
     
-    <category name="Logique" colour="210">
-      <category name="Conditions">
+    <category name="Logic" colour="210">
+      <category name="Tests">
         <block type="controls_if"></block>
         <block type="controls_if">
           <mutation else="1"></mutation>
@@ -175,7 +175,7 @@ $ ->
           <mutation elseif="1" else="1"></mutation>
         </block>
       </category>
-      <category name="Propositions">
+      <category name="Sentences">
         <block type="logic_compare"></block>
         <block type="logic_operation"></block>
         <block type="logic_negate"></block>
@@ -183,20 +183,20 @@ $ ->
         <block type="logic_null"></block>
         <block type="logic_ternary"></block>
       </category>
-      <category name="tests fractions">
+      <category name="fractions">
 		  <block type="egale"></block>
 		  <block type="inferieure"></block>
 		  <block type="superieure"></block>
 		  <block type="infegale"></block>
 		  <block type="supegale"></block>
       </category>
-      <category name="vecteurs">
+      <category name="vectors">
         <block type="vec_eq"></block>
         <block type="vec_colineaire"></block>
         <block type="vec_perpendiculaire"></block>
       </category>
     <category name="Vampires" colour="75">
-		<category name="transylvaniens">
+		<category name="transylvanians">
 			<block type="humain"></block>
 			<block type="vampire"></block>
 			<block type="sain"></block>
@@ -204,7 +204,7 @@ $ ->
 			<block type="patient"></block>
 			<block type="docteur"></block>
 		</category>
-		<category name="verbes">
+		<category name="modal logic">
 			<block type="transyl_etat"></block>
 			<block type="devenir"></block>
 			<block type="dire"></block>
@@ -222,8 +222,8 @@ $ ->
     </category>
     </category>
     </category>
-    <category name="Boucles" colour="120">
-        <category name="simples">
+    <category name="Loops" colour="120">
+        <category name="simple">
 <!--      <block type="repeter_doucement">
         <value name="TIMES">
           <block type="math_number">
@@ -242,7 +242,7 @@ $ ->
           <value name="LIST"><block type="variables_get"><field name="VAR">liste</field></block></value>
       </block>
         </category>
-        <category name="complexes">
+        <category name="complex">
       <block type="controls_whileUntil"></block>
       <block type="controls_for">
         <field name="VAR">i</field>
@@ -266,7 +266,7 @@ $ ->
 	</category>
     </category>
     <category name="Math" colour="230">
-        <category name="constantes">
+        <category name="constants">
       <block type="math_number"></block>
       <block type="math_constant"></block>
       <block type="sophus_angle"> 
@@ -275,7 +275,7 @@ $ ->
     <sep></sep>
     
     <category name="Sofus" colour="330">
-		<category name="transformations">
+		<category name="transform">
 			<block type="sophus_incrementer"></block>
 			<block type="sophus_decrementer"></block>
 			<block type="sophus_augmenter">
@@ -307,7 +307,7 @@ $ ->
 				</value>
 			</block>
 		</category>
-        <category name="pourcentages">
+        <category name="percentages">
 			<block type="sophus_multiplier_fract">
 				<value name="DELTA">
 					<block type="math_number">
@@ -337,7 +337,7 @@ $ ->
 				</value>
 			</block>
         </category>
-		<category name="fonctions">
+		<category name="functions">
             <block type="sophus_inverser"></block>
             <block type="sophus_doubler"></block>
             <block type="sophus_carre"></block>
@@ -349,7 +349,7 @@ $ ->
 				</value>
 			</block>
     </category>
-    <category name="arrondis">
+    <category name="round">
 			<block type="sophus_arrondir">
 				<value name="DELTA">
 					<block type="math_number">
@@ -373,7 +373,7 @@ $ ->
 		<block type="diviser_frac"></block>
 		<block type="doubler_frac"></block>
     </category>
-    <category name="vecteurs">
+    <category name="vectors">
 		<block type="normer_sofus"></block>
 		<block type="vec_augmenter"></block>
 		<block type="vec_diminuer"></block>
@@ -391,20 +391,20 @@ $ ->
     </category>
         <sep></sep>
     <category name="Fractions" colour="20">
-		<category name="constantes">
+		<category name="constants">
 			<block type="fraction_constante"></block>
 			<block type="constante_entier"></block>
 			<block type="fraction_build"></block>
       <block type="math_number"></block>
 		</category>
-		<category name="opérations">
+		<category name="operations">
 			<block type="frac_plus"></block>
 			<block type="frac_moins"></block>
 			<block type="frac_fois"></block>
 			<block type="frac_sur"></block>
 			<block type="frac_pow"></block>
 		</category>
-		<category name="fonctions sur les fractions">
+		<category name="functions on fractions">
 			<block type="inverse"></block>
 			<block type="oppose"></block>
 			<block type="numerateur"></block>
@@ -414,7 +414,7 @@ $ ->
 		</category>
 		
     </category>
-      <category name="fonctions">
+      <category name="functions">
       <block type="math_single"></block>
       <block type="math_trig"></block>
       <block type="math_number_property">
@@ -431,7 +431,7 @@ $ ->
           <value name="NUM"><block type="variables_get"><field name="VAR">element</field></block></value>
       </block>
       </category>
-      <category name="opérations">
+      <category name="operations">
       <block type="math_arithmetic"></block>
       <block type="math_modulo"></block>
       <block type="math_constrain">
@@ -449,7 +449,7 @@ $ ->
       </block>
       <block type="pgcd"></block>
       </category>
-      <category name="hasard">
+      <category name="chance">
       <block type="math_random_int">
         <value name="FROM">
           <block type="math_number">
@@ -464,26 +464,26 @@ $ ->
       </block>
       <block type="math_random_float"></block>
       </category>
-    <category name="Statistiques">
+    <category name="Statistics">
       <block type="lists_length">    <value name="VALUE">
       <block type="variables_get">
-        <field name="VAR">liste</field>
+        <field name="VAR">list</field>
       </block>
     </value>
 </block>
       <block type="lists_isEmpty">    <value name="VALUE">
       <block type="variables_get">
-        <field name="VAR">liste</field>
+        <field name="VAR">list</field>
       </block>
     </value>
 </block>
       <block type="math_on_list">    <value name="LIST">
       <block type="variables_get">
-        <field name="VAR">liste</field>
+        <field name="VAR">list</field>
       </block>
     </value>
 </block>
-        <category name="listes">
+        <category name="lists">
       <block type="lists_create_empty"></block>
       <block type="lists_create_with">
                 <value name="ADD0">
@@ -515,11 +515,11 @@ $ ->
           </block>
         </value>
       </block>
-      <!-- vient des textes -->
+      <!-- from strings -->
                   <block type="lists_split"></block>
 
         </category>
-        <category name="manipulation">
+        <category name="process">
       <block type="lists_getIndex"><value name="VALUE"><block type="variables_get"><title name="VAR">liste</title></block></value>          
                             <value name="AT"><block type="math_number"><field name="NUM">1</field></block></value>          
     </block>
@@ -534,7 +534,7 @@ $ ->
       </category>
       <category name="matrices">
     
-    <category name="Vecteurs" colour="20">
+    <category name="Vectors" colour="20">
 		<category name="construction">
 		<block type="vec_const"></block>
 		<block type="vec_expr"></block>
@@ -542,14 +542,14 @@ $ ->
 		<block type="vec_alea"></block>
 		<block type="vec_unitaire"></block>
 		</category>
-		<category name="opérations">
+		<category name="operations">
 		<block type="vec_add"></block>
 		<block type="vec_sub"></block>
 		<block type="vec_dot"></block>
 		<block type="vec_fois"></block>
 		<block type="vec_foisbis"></block>
 		</category>
-		<category name="géométrie">
+		<category name="geometry">
 		<block type="vec_angle"></block>
 		<block type="vec_distance"></block>
 		<block type="vec_abscisse"></block>
@@ -570,7 +570,7 @@ $ ->
 			<block type="mat_alea"></block>
 			<block type="mat_rotation"></block>
 		</category>
-		<category name="opérations">
+		<category name="operations">
 			<block type="mat_mult"></block>
 			<block type="mat_inv"></block>
 			<block type="mat_det"></block>
@@ -578,7 +578,7 @@ $ ->
 			<block type="mat_transpose"></block>
 			<block type="mat_arrondi"></block>
 		</category>
-		<category name="vecteurs">
+		<category name="vectors">
 			<block type="mat_colonne1"></block>
 			<block type="mat_colonne2"></block>
 			<block type="mat_diagonal"></block>
@@ -586,7 +586,7 @@ $ ->
 		</category>
     </category>
     <category name="3D">
-		<category name="vecteurs">
+		<category name="vectors">
 		<block type="vec_3D"></block>
 		<block type="vec_alea3"></block>
 		<block type="vec_nul3"></block>
@@ -614,10 +614,10 @@ $ ->
     
     
     
-        <category name="(Fa)brique" colour="290" custom="PROCEDURE"></category>
-        <category name="Texte" colour="160">
+        <category name="BYOB" colour="290" custom="PROCEDURE"></category>
+        <category name="Text" colour="160">
 			<block type="text"></block>
-			<category name="traiter">
+			<category name="process">
 				<block type="text_changeCase"></block>
 				<block type="text_trim"></block>	
 				<block type="text_join"></block>
@@ -633,7 +633,7 @@ $ ->
 				<block type="remplacer"></block>
 				<block type="remplacer1"></block>
 				<block type="texte_compter"></block>
-				<category name="transformations">
+				<category name="transform">
 					<block type="CAS_incrementer"></block>
 					<block type="CAS_decrementer"></block>
 					<block type="CAS_augmenter"></block>
@@ -641,13 +641,13 @@ $ ->
 					<block type="CAS_multiplier"></block>
 					<block type="CAS_diviser"></block>
 				</category>
-				<category name="pourcentages">
+				<category name="percentages">
 					<block type="CAS_augmenter_fract"></block>
 					<block type="CAS_diminuer_fract"></block>
 					<block type="CAS_multiplier_fract"></block>
 					<block type="CAS_diviser_fract"></block>
 				</category>
-				<category name="fonctions">
+				<category name="functions">
             <block type="CAS_inverser"></block>
             <block type="CAS_doubler"></block>
             <block type="CAS_carre"></block>
@@ -659,7 +659,7 @@ $ ->
 				</value>
 			</block>
 				</category>
-			<category name="calcul formel">
+			<category name="symbolic">
 				<block type="developper"></block>
 				<block type="simplifier"></block>
 				<block type="solutions"></block>
@@ -681,70 +681,44 @@ $ ->
   
   
   
-  <!-- fin du menu des outils et début du menu intégré au plan de travail -->
+  <!-- end of the tools and beginning of the workspace definition -->
 
 <xml id="startBlocks" style="display: none">
-  <block type="big_efface" id="_uqEW!hMb~=7@jI8s~ls" x="3" y="16">
+  <block type="reset" x="101" y="72">
     <next>
-      <block type="variables_set" id="d`5ge1^wvgc{{F17oue6">
-        <field name="VAR">F</field>
+      <block type="variables_set">
+        <field name="VAR">step</field>
         <value name="VALUE">
-          <block type="constante_entier" id="Tz%Jm9.CmbD8kR`BRYo%">
-            <field name="NUM">1</field>
+          <block type="math_number">
+            <field name="NUM">0.5</field>
           </block>
         </value>
         <next>
-          <block type="controls_repeat_ext" id="QxzRpf]6),!Yi4Stl%_m">
+          <block type="controls_repeat_ext">
             <value name="TIMES">
-              <block type="math_number" id="bn/VTweUEZ3v{@d|aKxE">
-                <field name="NUM">10</field>
+              <block type="math_number">
+                <field name="NUM">100</field>
               </block>
             </value>
             <statement name="DO">
-              <block type="augmenter_frac" id=":uGYl[Ax[_q^Rbn1Y/ms">
-                <value name="frac1">
-                  <block type="variables_get" id="zA5rNE=kI_4w![aaAVRv">
-                    <field name="VAR">F</field>
-                  </block>
-                </value>
-                <value name="frac2">
-                  <block type="constante_entier" id="CZoTx9^~[CP%}D|y-Uj(">
-                    <field name="NUM">1</field>
+              <block type="sophus_augmenter_fract">
+                <field name="VAR">step</field>
+                <field name="DENOM">100</field>
+                <value name="DELTA">
+                  <block type="math_number">
+                    <field name="NUM">5</field>
                   </block>
                 </value>
                 <next>
-                  <block type="inverser_frac" id="~0TZX92?_t4;xxd#ka]m">
-                    <value name="frac">
-                      <block type="variables_get" id="%2XY)kC`:oN/YYV,T|78">
-                        <field name="VAR">F</field>
+                  <block type="avancer">
+                    <value name="NAME">
+                      <block type="variables_get">
+                        <field name="VAR">step</field>
                       </block>
                     </value>
                     <next>
-                      <block type="big_aff" id="mhwsk%7UF%EK{:3]p=k~">
-                        <value name="VAR">
-                          <block type="text_join" id="!^rjox3sQBnB@35n~y(x" inline="false">
-                            <mutation items="3"></mutation>
-                            <value name="ADD0">
-                              <block type="variables_get" id="d%B-lLjijOOA}AKClJ.9" collapsed="true">
-                                <field name="VAR">F</field>
-                              </block>
-                            </value>
-                            <value name="ADD1">
-                              <block type="text" id="Hs*+FMXXKr^l|=47,i6/" collapsed="true">
-                                <field name="TEXT"> est la somme de </field>
-                              </block>
-                            </value>
-                            <value name="ADD2">
-                              <block type="egyptian" id="*s2}e5lE,v?K{9PebUck" collapsed="true">
-                                <value name="FRAC">
-                                  <block type="variables_get" id="1wKIe%DJQ8F0WWk/iG,R">
-                                    <field name="VAR">F</field>
-                                  </block>
-                                </value>
-                              </block>
-                            </value>
-                          </block>
-                        </value>
+                      <block type="tortue_gauche">
+                        <field name="NAME">15</field>
                       </block>
                     </next>
                   </block>
@@ -757,22 +731,21 @@ $ ->
     </next>
   </block>
 </xml>
-<!-- fin du programme préchargé -->
+<!-- end of the predefined program -->
 
   </td><td></td>
 
 </tr>
 <tr>
    <td>
-      <button class="grobouton" onClick="lancer();"> <img src="img/flag.png" height="64px"/> Lancer</button>
+      <button class="grobouton" onClick="lancer();"> <img src="img/flag.png" height="64px"/> Run</button>
 
-      <button onClick="Xcas();"><img src="img/xcas.png" height="32px"/>exporter Xcas</button>
-      <button onClick="sauverSVG();"><img src="img/turtle.png" width="40px"/>sauver figure</button>
+      <button onClick="sauverSVG();"><img src="img/turtle.png" width="40px"/>save figure</button>
    </td>
   <td align="center">
       <input type="file" id="fileToLoad" style="display: none" onchange="ouvrirFichier();" />
-      <input type="button" value="Ouvrir" onclick="ouvrirClick();"/>
-      <button type="button" onclick="sauverFichier()">Sauver</button>
+      <input type="button" value="Open" onclick="ouvrirClick();"/>
+      <button type="button" onclick="sauverFichier()">Save</button>
   </td>
 </tr>
 
@@ -794,8 +767,7 @@ $ ->
 
 <textarea id="sortieSVG"></textarea>
 <img src="img/rocket.png" height="64px" />
-      <input type="checkbox" id="vite" checked=true> Tortue turbo</input>
-<!-- si on agit sur des bidules avec du JavaScript défini avant les bidules, ça foire sur certains navigateurs -->
+      <input type="checkbox" id="vite" checked=true> Turbo turtle</input>
   <script>
     var workspace = Blockly.inject('blocklyDiv',
         {media: 'media/',
@@ -868,7 +840,7 @@ function ouvrirFichier() {
 			workspace.clear();
 			Blockly.Xml.domToWorkspace(workspace, Blockly.Xml.textToDom(textFromFileLoaded));
 		} catch (e) {
-			alert("ce fichier est-il un fichier Sofus ?");
+			alert("is this file a Sofus file?");
 		};
 	}
 	fileReader.readAsText(fileToLoad, "UTF-8");
@@ -876,7 +848,7 @@ function ouvrirFichier() {
 function sauverFichier() {
 	var textToWrite = Blockly.Xml.domToPrettyText( Blockly.Xml.workspaceToDom(workspace) );
 	var textFileAsBlob = new Blob([textToWrite], {type:'text/plain'});
-	var fileNameToSaveAs = prompt("nom du fichier (sauvé dans le dossier de téléchargements) ?", "fichier.sof");
+	var fileNameToSaveAs = prompt("name of the file (will be placed inside the Downloads folder) ?", "file.sof");
 	if (fileNameToSaveAs==null) {
 		return;
 	}
@@ -906,7 +878,7 @@ function sauverFichier() {
 var sauverSVG = function() {
 	var fichier = document.getElementById('graphique').innerHTML;
 	var textFileAsBlob = new Blob([fichier], {type:'text/plain'});
-	var fileNameToSaveAs = prompt("nom du fichier (sauvé dans le dossier de téléchargements) ?", "figure.svg");
+	var fileNameToSaveAs = prompt("name of the file (will be placed inside the Download folder) ?", "figure.svg");
 	if (fileNameToSaveAs==null) {
 		return;
 	}
@@ -934,7 +906,7 @@ var sauverSVG = function() {
 }
 
 
-// Un bijou d'EMASCRIPT 6.0 que seul Firefox gère depuis longtemps
+// Firefox does not need that
 
 if (!String.prototype.startsWith) {
     String.prototype.startsWith = function(searchString, position){
@@ -944,37 +916,6 @@ if (!String.prototype.startsWith) {
 }
 
 
-function Xcas(){
-	var code = document.getElementById("sortieJS").value;
-	/* ici on a l'export JavaScript,
-	reste à transformer ce JavaScript en Xcas */
-	code = code.replace(/=/g,":=");
-	code = code.replace(/:=:=/g,"=");
-	code = code.replace(/!:=/g,"!=");
-	code = code.replace(/<:=/g,"<=");
-	code = code.replace(/>:=/g,">=");
-	code = code.replace(/Math./g,"");
-	code = code.replace(/var\s/g,"local ");
-	var variables = [];
-	code.replace(/function\ [^\(]*\(([^\)]*)\)/g,function(t,v){variables.push(v.split(","))});
-	variables = _.union(_.flatten(variables));    // on vire les antécédents des fonctions, qui n'ont pas à être des variables locales
-	for (var v in variables) { 
-		variables[v] = variables[v].replace(/[\ ]*/g, "");
-		var ligne_en_trop = "local " + variables[v] + ";\n";
-		code = code.replace(ligne_en_trop,"");
-	}; 
-	var lignes = code.split("\n");
-	var locales = "";    // les lignes à copier-coller dans le début des fonctions
-	for (n in lignes){
-		if (lignes[n].startsWith("local ")){
-			locales += "   " + lignes[n] + "\n";
-		};
-	};
-	code = code.replace(/local\s*\S*/g,"");    // plus besoin, on les vire
-	code = code.replace(/\{/g,"\{\n"+locales);  // faudra les virer à la main dans les tests et les boucles
-	code = code.replace(/\n\}/g,"\n\}:;");    // Xcas est exigeant sur la syntaxe
-	document.getElementById("sortieNum").value = code;
-}
 
   </script>
 
