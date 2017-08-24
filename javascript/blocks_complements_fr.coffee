@@ -2989,3 +2989,12 @@ Blockly.Blocks['lambda1'] =
 		@setHelpUrl('')
 		return
 
+Blockly.Blocks['nb_txt'] = init: ->
+	@appendValueInput("N").setCheck(null).appendField("nombre en texte")
+	@setInputsInline(true)
+	@setOutput(true, null)
+	@setColour(270)
+	@setTooltip('nombre en texte français')
+	@setHelpUrl('')
+	return
+

@@ -2968,3 +2968,14 @@ Blockly.Blocks['lambda1'] = {
     this.setHelpUrl('');
   }
 };
+
+Blockly.Blocks['nb_txt'] = {
+  init: function() {
+    this.appendValueInput("N").setCheck(null).appendField("nombre en texte");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(270);
+    this.setTooltip('nombre en texte français');
+    this.setHelpUrl('');
+  }
+};

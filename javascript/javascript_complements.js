@@ -1279,3 +1279,9 @@ Blockly.JavaScript['lambda1'] = function(block) {
   code = "function(" + value_variables.replace(/\'/g, '') + "){return (" + variable_fonctions.replace(/\'/g, '') + "); }";
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
+
+Blockly.JavaScript['nb_txt'] = function(block) {
+  var nombre;
+  nombre = Blockly.JavaScript.valueToCode(block, 'N', Blockly.JavaScript.ORDER_ATOMIC);
+  return ['entexte(' + nombre + ')', Blockly.JavaScript.ORDER_NONE];
+};

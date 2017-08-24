@@ -1181,3 +1181,12 @@ Blockly.JavaScript['lambda1'] = (block) ->
 		code
 		Blockly.JavaScript.ORDER_NONE
 	]
+
+
+Blockly.JavaScript['nb_txt'] = (block) ->
+	nombre = Blockly.JavaScript.valueToCode(block, 'N', Blockly.JavaScript.ORDER_ATOMIC)
+	[
+		'entexte('+nombre+')'
+		Blockly.JavaScript.ORDER_NONE
+	]
+

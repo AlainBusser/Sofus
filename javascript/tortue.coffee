@@ -298,3 +298,71 @@ $ ->
   totos[toto] = new Tortue(toto)
   
 
+nunit = ["zéro","et-un","deux","trois","quatre","cinq","six","sept","huit","neuf","dix","onze","douze","treize","quatorze","quinze","seize","dix-sept","dix-huit","dix-neuf"]
+ndiz = ["zéro","dix","vingt","trente","quarante","cinquante","soixante","soixante","quatre-vingt","quatre-vingt"]
+nmillesingulier = ["zéro","mille","million","milliard","billion","billiard","trillion","trillard","quadrillion","quadrillard","quintillion","quintilliard","sextillion","sextilliard"]
+nmille = ["zéro","mille","millions","milliards","billions","billiards","trillions","trillards","quadrillions","quadrillards","quintillions","quintilliards","sextillions","sextilliards"]
+
+quotronc = (n,d) -> Math.floor n/d
+
+deux_chiffres = (n) ->
+    if n==0
+        ""
+    else
+      if n==71
+          "soixante-et-onze"
+      else
+        if n==1
+            "un"
+        else
+            if n<20
+                nunit[n]
+            else
+                if n<60
+                    if n%10==0
+                        ndiz[quotronc(n,10)]
+                    else
+                        ndiz[quotronc(n,10)]+"-"+nunit[n%10]
+                else
+                    if n%20==0
+                        ndiz[quotronc(n,10)]
+                    else
+                        if n%20==1
+                            ndiz[quotronc(n,10)]+"-"+nunit[n%20]
+                        else
+                            ndiz[quotronc(n,10)]+"-"+nunit[n%20]
+		
+trois_chiffres = (n) ->
+    if n<100
+        deux_chiffres(n)
+    else
+        if n<200
+            "cent "+deux_chiffres(n%100)
+        else
+            nunit[quotronc(n,100)]+" cents "+deux_chiffres(n%100)
+
+entexte = (n) ->
+    N = n.toString().length
+    N = quotronc(N-1,3)
+    if N==0
+        trois_chiffres(n)
+    else
+        if N==1
+            if n<2000
+                nmille[N]+" "+trois_chiffres(n%1000)
+            else
+                trois_chiffres(quotronc(n,1000))+" "+nmille[N]+" "+trois_chiffres(n%1000)
+        else
+            texte = trois_chiffres(n%1000)
+            n = quotronc(n,1000)
+            indice = 1
+            while indice<=N
+              if n%1000>0
+                if n%1000==1
+                    texte = " un "+nmillesingulier[indice]+" "+texte
+                else
+                    texte = trois_chiffres(n%1000)+" "+nmille[indice]+" "+texte
+              n = quotronc(n,1000)
+              indice += 1
+            texte
+
