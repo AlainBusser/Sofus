@@ -1,4 +1,4 @@
-Version 2.3 avec calcul formel et micromondes de Smullyan; le mode lent est risqué: Il faut mettre un "palimpseste" ou initialiser la tortue 
+Version 2.4 avec calcul formel et micromondes de Smullyan; le mode lent est risqué: Il faut mettre un "palimpseste" ou initialiser la tortue 
 
 Pour programmer en ligne: [la version française](https://alainbusser.github.io/Sofus/Sofus_fr.html)
 
@@ -7,6 +7,8 @@ To program easy-greasy: [the english version](https://alainbusser.github.io/Sofu
 programa en línea [aqui](https://alainbusser.github.io/Sofus/Sofus_es.html)
 
 (muchas gracias Jose Manuel Ruiz Gutierrez)
+
+Le [manuel de Manuel](https://alainbusser.github.io/Sofus/MANUAL DE SOFUS.pdf)
 
 [attention]: https://cdn0.iconfinder.com/data/icons/woocons1/Sign%20Warning.png "Attention !"
 
