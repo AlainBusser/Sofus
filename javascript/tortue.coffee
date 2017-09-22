@@ -12,6 +12,19 @@ garderobe = [
             <circle cx='34' cy='24' r='2' style='fill: black; '/>
       """,
       """
+	<ellipse cx="20" cy="20" rx="20" ry="14" style="fill: red; "/>
+	<line x1="0" y1="20" x2="340" y2="20" style="stroke: black; stroke-width: 2;"/>
+	<circle cx="8" cy="15" r="3" style="fill: black; "/>
+	<circle cx="16" cy="13" r="3" style="fill: black; "/>
+	<circle cx="24" cy="15" r="3" style="fill: black; "/>
+	<circle cx="8" cy="25" r="3" style="fill: black; "/>
+	<circle cx="16" cy="27" r="3" style="fill: black; "/>
+	<circle cx="24" cy="25" r="3" style="fill: black; "/>
+	<path d="M28 7 v26 a 13 12 -90 0 0 0 -26 z" style="fill: black; "/>
+	<circle cx="36" cy="12" r="3" style="fill: gray; "/>
+	<circle cx="36" cy="28" r="3" style="fill: gray; "/>
+      """,
+      """
 	<line x1="6" y1="12" x2="24" y2="32" stroke-linecap="round" style="stroke: green; stroke-width: 4"/>
 	<line x1="2" y1="28" x2="32" y2="8" stroke-linecap="round" style="stroke: green; stroke-width: 4"/>
 	<line x1="20" y1="20" x2="36" y2="20" stroke-linecap="round" style="stroke: green; stroke-width: 8"/>
