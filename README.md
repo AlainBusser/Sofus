@@ -2,6 +2,9 @@ Version 2.4 avec calcul formel et micromondes de Smullyan; le mode lent est risq
 
 Pour programmer en ligne: [la version française](https://alainbusser.github.io/Sofus/Sofus_fr.html)
 
+Pour le cycle 3: [version expérimentale](https://alainbusser.github.io/Sofus/SofusPrim.html)
+
+
 To program easy-greasy: [the english version](https://alainbusser.github.io/Sofus/Sofus_en.html)
 
 programa en línea [aqui](https://alainbusser.github.io/Sofus/Sofus_es.html)

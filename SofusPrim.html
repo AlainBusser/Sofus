@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Programmation graphique</title>
+    <link rel="icon" href="img/totoicon.png" />
+    <link rel="stylesheet" href="css/sofus.css">
+  <script src="javascript/blockly_compressed.js"></script>
+  <script src="javascript/blocks_compressed.js"></script>
+  <script src="javascript/javascript_compressed.js"></script>
+  <script src="javascript/fr.js"></script>
+  <script src="javascript/jquery-3.1.1.min.js"></script>
+  <script src="javascript/coffee-script.js"></script>
+  <script src="javascript/tortue.js"></script>
+  <script src="javascript/fractions_fr.js"></script>
+  <script src="javascript/sylvester.js"></script>
+  <script src="javascript/coffeequate.min.js"></script>
+  <script src="javascript/blocks_complements_fr.js"></script>
+  <script src="javascript/javascript_complements.js"></script>
+  <script src="javascript/fr_complements.js"></script>
+  <script src="javascript/underscore-min.js"></script>
+</head>
+<body>
+<script type="text/coffeescript">
+$ ->
+	$("#sortieNum").animate { 
+		width: 640,
+		height: 80
+		 }, 1000
+</script>
+  <h1><img src="favicon.ico"/> avec Blockly<img src="img/turtle.png" width="80px"/></h1>
+
+  <p>Programmation avec les tortues</p>
+
+<table><tr><td>
+  <div id="blocklyDiv" style="height: 400px; width: 600px; margin-left: 1em;"></div>
+
+
+<!-- c'est ici que sont placés les blocs, organisés en menus -->
+
+
+
+
+  <xml id="toolbox" style="display: none">
+
+    <category name="Tortue" colour="120">
+			<block type="avancer">
+				<value name="NAME">
+					<block type="math_number">
+						<field name="NUM">80</field>
+					</block>
+				</value>
+			</block>
+			<block type="reculer">
+				<value name="NAME">
+					<block type="math_number">
+						<field name="NUM">80</field>
+					</block>
+				</value>
+			</block>
+			<!--block type="tortue_teleport"></block-->
+			<block type="frac_gauche">
+				<value name="NUMER">
+					<block type="math_number">
+						<field name="NUM">2</field>
+					</block>
+				</value>
+			</block>
+			<block type="frac_droite">
+				<value name="NUMER">
+					<block type="math_number">
+						<field name="NUM">2</field>
+					</block>
+				</value>
+			</block>
+			<block type="reset"></block>
+			</category>
+		<category name="dessin">
+			<block type="scribe"></block>
+			<block type="baisser_stylo"></block>
+			<block type="lever_stylo"></block>
+			<block type="couleur_stylo"></block>
+			<block type="tampon"></block>
+		</category>
+		<category name="aspect">
+			<block type="cacher_tortue"></block>
+			<block type="montrer_tortue"></block>
+<!--			<block type="lentement"></block>-->
+			<block type="eff_svg"></block>
+		</category>
+		<category name="multitortues">
+			<block type="tourner_vers_tortue_var"></block>
+		  <block type="distance_avec_tortue_var"></block>
+		  <block type="choisir_tortue_var"></block>
+		  <block type="creer_tortue_var"></block>
+		</category>
+    </category>
+    
+    <sep></sep>
+    <sep></sep>
+    <sep></sep>
+    
+    
+    
+    
+    <!--category name="Logique" colour="210">
+      <category name="Conditions">
+        <block type="controls_if"></block>
+        <block type="controls_if">
+          <mutation else="1"></mutation>
+        </block>
+        <block type="controls_if">
+          <mutation elseif="1" else="1"></mutation>
+        </block>
+      </category>
+      <category name="Propositions">
+        <block type="logic_compare"></block>
+        <block type="logic_operation"></block>
+        <block type="logic_negate"></block>
+        <block type="logic_boolean"></block>
+        <block type="logic_null"></block>
+        <block type="logic_ternary"></block>
+      </category>
+      <category name="tests fractions">
+		  <block type="egale"></block>
+		  <block type="inferieure"></block>
+		  <block type="superieure"></block>
+		  <block type="infegale"></block>
+		  <block type="supegale"></block>
+      </category>
+      <category name="vecteurs">
+        <block type="vec_eq"></block>
+        <block type="vec_colineaire"></block>
+        <block type="vec_perpendiculaire"></block>
+      </category>
+    <category name="Vampires" colour="75">
+		<category name="transylvaniens">
+			<block type="humain"></block>
+			<block type="vampire"></block>
+			<block type="sain"></block>
+			<block type="fou"></block>
+			<block type="patient"></block>
+			<block type="docteur"></block>
+		</category>
+		<category name="verbes">
+			<block type="transyl_etat"></block>
+			<block type="devenir"></block>
+			<block type="dire"></block>
+			<block type="croire"></block>
+			<block type="transyl_affectation"></block>
+		</category>
+    
+    <category name="Kaprekar">
+		<block type="octet"></block>
+		<block type="binaire"></block>
+		<block type="cconcatener"></block>
+		<block type="kaprekar_doubler"></block>
+		<block type="envers"></block>
+		<block type="kaprekar_ranger"></block>
+    </category>
+    </category>
+    </category-->
+    <category name="Boucles" colour="120">
+<!--      <block type="repeter_doucement">
+        <value name="TIMES">
+          <block type="math_number">
+            <field name="NUM">10</field>
+          </block>
+        </value>
+      </block>-->
+      <block type="controls_repeat_ext">
+        <value name="TIMES">
+          <block type="math_number">
+            <field name="NUM">10</field>
+          </block>
+        </value>
+      </block>
+      <block type="controls_forEach">
+          <value name="LIST"><block type="variables_get"><field name="VAR">liste</field></block></value>
+      </block>
+        </category>
+    <category name="Variables" colour="330" custom="VARIABLE"></category>
+    <category name="Entrées-sorties" colour="160">
+      <block type="math_number"></block>
+        <block type="text"></block>
+    <block type="text_print">
+          <value name="TEXT"><block type="variables_get"><field name="VAR">element</field></block></value>
+    </block>
+<block type="big_aff"></block>
+<block type="big_efface"></block>
+    </category>    
+    
+    
+    <sep></sep>
+    <category name="Math" colour="230">
+    
+    <category name="Sofus" colour="330">
+		<category name="transformations">
+			<block type="sophus_incrementer"></block>
+			<block type="sophus_decrementer"></block>
+			<block type="sophus_augmenter">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">1</field>
+					</block>
+				</value>
+			</block>
+			<block type="sophus_diminuer">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">1</field>
+					</block>
+				</value>
+			</block>
+			<block type="sophus_multiplier">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">2</field>
+					</block>
+				</value>
+			</block>
+			<block type="sophus_diviser">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">2</field>
+					</block>
+				</value>
+			</block>
+		</category>
+        <category name="pourcentages">
+			<block type="sophus_multiplier_fract">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">2</field>
+					</block>
+				</value>
+			</block>
+			<block type="sophus_diviser_fract">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">3</field>
+					</block>
+				</value>
+			</block>
+			<block type="sophus_augmenter_fract">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">2</field>
+					</block>
+				</value>
+			</block>
+			<block type="sophus_diminuer_fract">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">2</field>
+					</block>
+				</value>
+			</block>
+        </category>
+		<category name="fonctions">
+            <block type="sophus_inverser"></block>
+            <block type="sophus_doubler"></block>
+            <block type="sophus_carre"></block>
+			<block type="sophus_puissance">
+				<value name="POW">
+					<block type="math_number">
+						<field name="NUM">2</field>
+					</block>
+				</value>
+			</block>
+    </category>
+    <category name="arrondis">
+			<block type="sophus_arrondir">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">2</field>
+					</block>
+				</value>
+			</block>
+			<block type="sophus_tronquer">
+				<value name="DELTA">
+					<block type="math_number">
+						<field name="NUM">2</field>
+					</block>
+				</value>
+			</block>
+    </category>
+    </category>
+        <sep></sep>
+      <category name="opérations">
+      <block type="math_arithmetic"></block>
+      <block type="math_modulo"></block>
+      <block type="math_constrain">
+        <value name="LOW">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <value name="HIGH">
+          <block type="math_number">
+            <field name="NUM">100</field>
+          </block>
+        </value>
+          <value name="VALUE"><block type="variables_get"><field name="VAR">element</field></block></value>
+      </block>
+      </category>
+      <category name="hasard">
+      <block type="math_random_int">
+        <value name="FROM">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <value name="TO">
+          <block type="math_number">
+            <field name="NUM">100</field>
+          </block>
+        </value>
+      </block>
+      <block type="math_random_float"></block>
+      </category>
+    </category>
+    <sep></sep>
+    <sep></sep>
+    <sep></sep>
+    <sep></sep>
+    <sep></sep>
+    <sep></sep>
+    
+    
+    
+        <category name="(Fa)brique" colour="290" custom="PROCEDURE"></category>
+
+  </xml>
+  
+  
+  
+  
+  
+  <!-- fin du menu des outils et début du menu intégré au plan de travail -->
+
+<xml id="startBlocks" style="display: none">
+  <block type="reset" x="87" y="78">
+    <next>
+      <block type="controls_repeat_ext">
+        <value name="TIMES">
+          <block type="math_number">
+            <field name="NUM">6</field>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="avancer">
+            <value name="NAME">
+              <block type="math_number">
+                <field name="NUM">80</field>
+              </block>
+            </value>
+            <next>
+              <block type="frac_gauche">
+                <value name="NUMER">
+                  <block type="math_number">
+                    <field name="NUM">4</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>
+<!-- fin du programme préchargé -->
+
+  </td><td></td>
+
+</tr>
+<tr>
+   <td>
+      <button class="grobouton" onClick="lancer();"> <img src="img/flag.png" height="64px"/> Lancer</button>
+
+      <button onClick="sauverSVG();"><img src="img/turtle.png" width="40px"/>sauver figure</button>
+   </td>
+  <td align="center">
+      <input type="file" id="fileToLoad" style="display: none" onchange="ouvrirFichier();" />
+      <input type="button" value="Ouvrir" onclick="ouvrirClick();"/>
+      <button type="button" onclick="sauverFichier()">Sauver</button>
+  </td>
+</tr>
+
+<tr><td>  <textarea id="sortieJS" rows="32" cols="100"></textarea></td><td></td></tr>
+</table>
+
+	  <table>
+		  <tr><td>
+<textarea id="sortieNum"></textarea>
+		  </td></tr>
+		  <tr><td>
+<div id="graphique">
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="leSVG" x="0mm" y="0mm" width="640px" height="480px">
+
+</div>
+
+		  </td></tr>
+	  </table>
+
+<textarea id="sortieSVG"></textarea>
+<img src="img/rocket.png" height="64px" />
+      <input type="checkbox" id="vite" checked=true> Tortue turbo</input>
+<!-- si on agit sur des bidules avec du JavaScript défini avant les bidules, ça foire sur certains navigateurs -->
+  <script>
+    var workspace = Blockly.inject('blocklyDiv',
+        {media: 'media/',
+         toolbox: document.getElementById('toolbox'),
+         <!--zoom: {controls: true}-->
+          });
+    Blockly.Xml.domToWorkspace(workspace,
+        document.getElementById('startBlocks'));
+  function myUpdateFunction() {
+  var code = Blockly.JavaScript.workspaceToCode(workspace);
+  document.getElementById('sortieJS').value = code;
+//  lancer();
+}
+workspace.addChangeListener(myUpdateFunction);
+var chronoToto;
+step=0;
+turbo=false;
+	tempo=10;
+function lancer() { 
+	turbo=document.getElementById("vite").checked;
+	if (turbo) {
+		stopToto();
+		    Blockly.JavaScript.addReservedWords('code');
+var code = document.getElementById("sortieJS").value;
+try {
+  eval(code);
+} catch (e) {
+document.getElementById("sortieNum").value += "\n" + e + "\n";
+}
+
+	} else {
+	stopToto();
+	chronoToto = setInterval(function(){ myTimer() }, tempo);
+	function myTimer() {
+		step=0;
+		
+    Blockly.JavaScript.addReservedWords('code');
+//var code = Blockly.JavaScript.workspaceToCode(workspace);
+var code = document.getElementById("sortieJS").value;
+try {
+  eval(code);
+} catch (e) {
+//  alert(e);
+document.getElementById("sortieNum").value += "\n" + e + "\n";
+}
+niveau++;
+if(niveau>100000) {stopToto();};
+	}
+}
+	
+	function stopToto() {
+		clearInterval(chronoToto);
+		niveau=0;
+	}
+}
+
+function effacer() {
+	workspace.clear();
+}
+function ouvrirClick() {
+    var fileinput = document.getElementById("fileToLoad");
+    fileinput.click();
+}
+function ouvrirFichier() {
+	var fileToLoad = document.getElementById("fileToLoad").files[0];
+	var fileReader = new FileReader();
+	fileReader.onload = function(fileLoadedEvent) {
+		var textFromFileLoaded = fileLoadedEvent.target.result;
+		try {
+			workspace.clear();
+			Blockly.Xml.domToWorkspace(workspace, Blockly.Xml.textToDom(textFromFileLoaded));
+		} catch (e) {
+			alert("ce fichier est-il un fichier Sofus ?");
+		};
+	}
+	fileReader.readAsText(fileToLoad, "UTF-8");
+}
+function sauverFichier() {
+	var textToWrite = Blockly.Xml.domToPrettyText( Blockly.Xml.workspaceToDom(workspace) );
+	var textFileAsBlob = new Blob([textToWrite], {type:'text/plain'});
+	var fileNameToSaveAs = prompt("nom du fichier (sauvé dans le dossier de téléchargements) ?", "fichier.sof");
+	if (fileNameToSaveAs==null) {
+		return;
+	}
+	var downloadLink = document.createElement("a");
+	downloadLink.download = fileNameToSaveAs;
+	downloadLink.innerHTML = "Download File";
+	if (window.webkitURL != null)
+	{
+		// Chrome allows the link to be clicked
+		// without actually adding it to the DOM.
+		downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+	}
+	else
+	{
+		// Firefox requires the link to be added to the DOM
+		// before it can be clicked.
+		downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+		downloadLink.onclick = function destroyClickedElement(event) {
+									document.body.removeChild(event.target);
+								};
+		downloadLink.style.display = "none";
+		document.body.appendChild(downloadLink);
+	}
+	downloadLink.click();
+}
+
+var sauverSVG = function() {
+	var fichier = document.getElementById('graphique').innerHTML;
+	var textFileAsBlob = new Blob([fichier], {type:'text/plain'});
+	var fileNameToSaveAs = prompt("nom du fichier (sauvé dans le dossier de téléchargements) ?", "figure.svg");
+	if (fileNameToSaveAs==null) {
+		return;
+	}
+	var downloadLink = document.createElement("a");
+	downloadLink.download = fileNameToSaveAs;
+	downloadLink.innerHTML = "Download File";
+	if (window.webkitURL != null)
+	{
+		// Chrome allows the link to be clicked
+		// without actually adding it to the DOM.
+		downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+	}
+	else
+	{
+		// Firefox requires the link to be added to the DOM
+		// before it can be clicked.
+		downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+		downloadLink.onclick = function destroyClickedElement(event) {
+									document.body.removeChild(event.target);
+								};
+		downloadLink.style.display = "none";
+		document.body.appendChild(downloadLink);
+	}
+	downloadLink.click();
+}
+
+
+// Un bijou d'EMASCRIPT 6.0 que seul Firefox gère depuis longtemps
+
+if (!String.prototype.startsWith) {
+    String.prototype.startsWith = function(searchString, position){
+      position = position || 0;
+      return this.substr(position, searchString.length) === searchString;
+  };
+}
+
+
+
+  </script>
+
+
+</body>
+</html>
