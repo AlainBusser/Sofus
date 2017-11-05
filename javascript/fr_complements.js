@@ -1,3 +1,5 @@
+Blockly.Msg.VARIABLES_SET = "mettre %2 dans %1";
+
 Blockly.Msg.CONTROLS_FOR_TITLE = "pour %1 de %2 à %3 par %4";
 Blockly.Msg.VARIABLES_DEFAULT_NAME = "element";
 Blockly.Msg.TEXT_PROMPT_TYPE_NUMBER = "saisir un nombre avec un message";
