@@ -4,7 +4,7 @@ Blockly.Blocks['sophus_angle'] = {
     this.appendDummyInput().appendField(new Blockly.FieldAngle(90), 'NAME');
     this.setOutput(true, null);
     this.setColour(330);
-    this.setTooltip('angulo en grados');
+    this.setTooltip('angle en degrés');
     this.setHelpUrl('');
   }
 };
@@ -28,7 +28,7 @@ Blockly.Blocks['sophus_carre'] = {
         }, {
           'type': 'field_dropdown',
           'name': 'POW',
-          'options': [['al cuadrado', '2'], ['al cubo', '3'], ['a la 4 potencia', '4']]
+          'options': [['au carré', '2'], ['au cube', '3'], ['à la puissance 4', '4']]
         }
       ],
       'previousStatement': null,
@@ -54,9 +54,9 @@ Blockly.Blocks['sophus_carre'] = {
 Blockly.Blocks['sophus_doubler'] = {
   init: function() {
     var dropdown, variable;
-    dropdown = new Blockly.FieldDropdown([['doblar', '2'], ['triplicar', '3'], ['quadruplicar', '4'], ['quintuplicar', '5'], ['sextuplicar', '6'], ['x 10', '10'], ['x 100', '100']]);
+    dropdown = new Blockly.FieldDropdown([['doubler', '2'], ['tripler', '3'], ['quadrupler', '4'], ['quintupler', '5'], ['sextupler', '6'], ['décupler', '10'], ['centupler', '100']]);
     variable = new Blockly.FieldVariable(Blockly.Msg.VARIABLES_DEFAULT_NAME);
-    this.appendDummyInput().appendField(new Blockly.FieldImage('./img/multiplier.gif', 64, 32, '[*]:   ')).appendField(dropdown, 'CHOIX').appendField('la variable').appendField(variable, 'VAR');
+    this.appendDummyInput().appendField(new Blockly.FieldImage('./img/multiplier.gif', 64, 32, '[*]:   ')).appendField(dropdown, 'CHOIX').appendField('').appendField(variable, 'VAR');
     this.setHelpUrl('');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -118,7 +118,7 @@ Blockly.Blocks['sophus_augmenter_fract'] = {
   init: function() {
     var thisBlock;
     this.jsonInit({
-      'message0': '%1 aumentar %2 de %3 %4',
+      'message0': '%1 augmenter %2 de %3 %4',
       'args0': [
         {
           'type': 'field_image',
@@ -136,7 +136,7 @@ Blockly.Blocks['sophus_augmenter_fract'] = {
         }, {
           'type': 'field_dropdown',
           'name': 'DENOM',
-          'options': [['/ 100', '100'], ['/ 2', '2'], ['/ 3', '3'], ['/ 4', '4'], ['/ 5', '5'], ['/ 6', '6'], ['/ 7', '7'], ['/ 8', '8'], ['/ 9', '9'], ['/ 10', '10'], ['/ 100', '100']]
+          'options': [['pourcents', '100'], ['demis', '2'], ['tiers', '3'], ['quarts', '4'], ['cinquièmes', '5'], ['sixièmes', '6'], ['septièmes', '7'], ['huitièmes', '8'], ['neuvièmes', '9'], ['dixièmes', '10'], ['centièmes', '100']]
         }
       ],
       'previousStatement': null,
@@ -169,7 +169,7 @@ Blockly.Blocks['sophus_augmenter_pct'] = {
         {
           'type': 'field_image',
           'src': './img/augmenter.gif',
-          'width': 64,
+          'width': 32,
           'height': 32,
           'alt': '[+]:   '
         }, {
@@ -248,7 +248,7 @@ Blockly.Blocks['sophus_diminuer_fract'] = {
   init: function() {
     var thisBlock;
     this.jsonInit({
-      'message0': '%1 disminuir %2 de %3 %4',
+      'message0': '%1 diminuer %2 de %3 %4',
       'args0': [
         {
           'type': 'field_image',
@@ -266,7 +266,7 @@ Blockly.Blocks['sophus_diminuer_fract'] = {
         }, {
           'type': 'field_dropdown',
           'name': 'DENOM',
-          'options': [['/100', '100'], ['/ 2', '2'], ['/ 3', '3'], ['/ 4', '4'], ['/ 5', '5'], ['/ 6', '6'], ['/ 7', '7'], ['/ 8', '8'], ['/ 9', '9'], ['/ 10', '10'], ['/ 100', '100']]
+          'options': [['pourcents', '100'], ['demis', '2'], ['tiers', '3'], ['quarts', '4'], ['cinquièmes', '5'], ['sixièmes', '6'], ['septièmes', '7'], ['huitièmes', '8'], ['neuvièmes', '9'], ['dixièmes', '10'], ['centièmes', '100']]
         }
       ],
       'previousStatement': null,
@@ -420,7 +420,7 @@ Blockly.Blocks['sophus_multiplier_fract'] = {
   init: function() {
     var thisBlock;
     this.jsonInit({
-      'message0': '%1 multiplicar %2 por %3 %4',
+      'message0': '%1 multiplier %2 par %3 %4',
       'args0': [
         {
           'type': 'field_image',
@@ -438,7 +438,7 @@ Blockly.Blocks['sophus_multiplier_fract'] = {
         }, {
           'type': 'field_dropdown',
           'name': 'DENOM',
-          'options': [['/100', '100'], ['/ 2', '2'], ['/ 3', '3'], ['/ 4', '4'], ['/ 5', '5'], ['/ 6', '6'], ['/ 7', '7'], ['/ 8', '8'], ['/ 9', '9'], ['/ 10', '10'], ['/ 100', '100']]
+          'options': [['pourcents', '100'], ['demis', '2'], ['tiers', '3'], ['quarts', '4'], ['cinquièmes', '5'], ['sixièmes', '6'], ['septièmes', '7'], ['huitièmes', '8'], ['neuvièmes', '9'], ['dixièmes', '10'], ['centièmes', '100']]
         }
       ],
       'previousStatement': null,
@@ -466,7 +466,7 @@ Blockly.Blocks['sophus_diviser_fract'] = {
   init: function() {
     var thisBlock;
     this.jsonInit({
-      'message0': '%1 dividir %2 por %3 %4',
+      'message0': '%1 diviser %2 par %3 %4',
       'args0': [
         {
           'type': 'field_image',
@@ -484,7 +484,7 @@ Blockly.Blocks['sophus_diviser_fract'] = {
         }, {
           'type': 'field_dropdown',
           'name': 'DENOM',
-          'options': [['/100', '100'], ['/ 2', '2'], ['/ 3', '3'], ['/ 4', '4'], ['/ 5', '5'], ['/ 6', '6'], ['/ 7', '7'], ['/ 8', '8'], ['/ 9', '9'], ['/ 10', '10'], ['/ 100', '100']]
+          'options': [['pourcents', '100'], ['demis', '2'], ['tiers', '3'], ['quarts', '4'], ['cinquièmes', '5'], ['sixièmes', '6'], ['septièmes', '7'], ['huitièmes', '8'], ['neuvièmes', '9'], ['dixièmes', '10'], ['centièmes', '100']]
         }
       ],
       'previousStatement': null,
@@ -512,11 +512,11 @@ Blockly.Blocks['sophus_arrondir'] = {
   init: function() {
     var thisBlock;
     this.jsonInit({
-      'message0': '%1 redondear %2 à %3 %4',
+      'message0': '%1 arrondir %2 à %3 %4',
       'args0': [
         {
           'type': 'field_image',
-          'src': './img/arrondi.gif',
+          'src': './img/arrondir.gif',
           'width': 32,
           'height': 32,
           'alt': '[O]:   '
@@ -530,7 +530,7 @@ Blockly.Blocks['sophus_arrondir'] = {
         }, {
           'type': 'field_dropdown',
           'name': 'GRAD',
-          'options': [['decimales', '1e-'], ['cerca', '']]
+          'options': [['décimales', '1e-'], ['près', '']]
         }
       ],
       'previousStatement': null,
@@ -558,7 +558,7 @@ Blockly.Blocks['sophus_tronquer'] = {
   init: function() {
     var thisBlock;
     this.jsonInit({
-      'message0': '%1 trucar %2 à %3 %4',
+      'message0': '%1 tronquer %2 à %3 %4',
       'args0': [
         {
           'type': 'field_image',
@@ -576,7 +576,7 @@ Blockly.Blocks['sophus_tronquer'] = {
         }, {
           'type': 'field_dropdown',
           'name': 'GRAD',
-          'options': [['decimales', '1e-'], ['cerca', '']]
+          'options': [['décimales', '1e-'], ['près', '']]
         }
       ],
       'previousStatement': null,
@@ -814,442 +814,442 @@ Blockly.Blocks['sophus_decrementer'] = {
 
 Blockly.Blocks['big_aff'] = {
   init: function() {
-    this.appendValueInput('VAR').appendField(new Blockly.FieldImage('img/pencil.png', 32, 32, '')).appendField(' escribir en consola');
+    this.appendValueInput('VAR').appendField(new Blockly.FieldImage('img/pencil.gif', 32, 32, '')).appendField('ajouter en bas');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(20);
-    this.setTooltip('Escribir en la Consola');
+    this.setTooltip('afficher en bas de page');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['big_efface'] = {
   init: function() {
-    this.appendDummyInput().appendField(new Blockly.FieldImage('img/droplet.png', 32, 32, '')).appendField('limpia la consola texto');
+    this.appendDummyInput().appendField(new Blockly.FieldImage('img/droplet.gif', 32, 32, '')).appendField('palimpseste');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(20);
-    this.setTooltip('limpia la consola de texto');
+    this.setTooltip('effacer la sortie');
     this.setHelpUrl('https://fr.wikipedia.org/wiki/Palimpseste');
   }
 };
 
 Blockly.Blocks['tortue_x'] = {
   init: function() {
-    this.appendDummyInput().appendField('abscisa de la tortuga');
+    this.appendDummyInput().appendField('abscisse de la tortue');
     this.setOutput(true, 'Number');
     this.setColour(120);
-    this.setTooltip('abscisa actual de la tortuga');
+    this.setTooltip('abscisse actuelle de la tortue');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['tortue_y'] = {
   init: function() {
-    this.appendDummyInput().appendField('ordenada de la tortuga');
+    this.appendDummyInput().appendField('ordonnée de la tortue');
     this.setOutput(true, 'Number');
     this.setColour(120);
-    this.setTooltip('orden actual de la tortuga');
+    this.setTooltip('ordonnée actuelle de la tortue');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['tortue_t'] = {
   init: function() {
-    this.appendDummyInput().appendField('ángulo de la tortuga');
+    this.appendDummyInput().appendField('angle de la tortue');
     this.setOutput(true, 'Number');
     this.setColour(120);
-    this.setTooltip('angulo de la tortuga con la horizontal');
+    this.setTooltip('angle que fait la tortue avec l\'horizontale');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['tortue_c'] = {
   init: function() {
-    this.appendDummyInput().appendField('color de la tortuga');
+    this.appendDummyInput().appendField('couleur de la tortue');
     this.setOutput(true);
     this.setColour(120);
-    this.setTooltip('color de la pluma');
+    this.setTooltip('couleur du stylo');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['avancer'] = {
   init: function() {
-    this.appendValueInput('NAME').setCheck('Number').appendField(new Blockly.FieldImage('img/avancer.gif', 32, 32, '')).appendField('avanzar');
+    this.appendValueInput('NAME').setCheck('Number').appendField(new Blockly.FieldImage('img/avancer.gif', 32, 32, '')).appendField('avancer de');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('avanzar la toruga');
+    this.setTooltip('avancer la tortue');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['reculer'] = {
   init: function() {
-    this.appendValueInput('NAME').setCheck('Number').appendField(new Blockly.FieldImage('img/reculer.gif', 32, 32, '')).appendField('retroceder');
+    this.appendValueInput('NAME').setCheck('Number').appendField(new Blockly.FieldImage('img/reculer.gif', 32, 32, '')).appendField('reculer de');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('retroceder la tortuga');
+    this.setTooltip('reculer la tortue');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['tortue_gauche'] = {
   init: function() {
-    this.appendDummyInput().appendField(new Blockly.FieldImage('img/gauche.gif', 32, 32, '')).appendField('a la izquierda de').appendField(new Blockly.FieldAngle(90), 'NAME');
+    this.appendDummyInput().appendField(new Blockly.FieldImage('img/gauche.gif', 32, 32, '')).appendField('vers la gauche de').appendField(new Blockly.FieldAngle(90), 'NAME');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('girar la tortuga hacia la izquierda');
+    this.setTooltip('tourner la tortue vers la gauche');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['tortue_droite'] = {
   init: function() {
-    this.appendDummyInput().appendField(new Blockly.FieldImage('img/droite.gif', 32, 32, '')).appendField('a la derecha de').appendField(new Blockly.FieldAngle(90), 'NAME');
+    this.appendDummyInput().appendField(new Blockly.FieldImage('img/droite.gif', 32, 32, '')).appendField('vers la droite de').appendField(new Blockly.FieldAngle(90), 'NAME');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('girar la tortuga a la derecha');
+    this.setTooltip('tourner la tortue vers la droite');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['var_gauche'] = {
   init: function() {
-    this.appendValueInput('ANGLE').setCheck('Number').appendField(new Blockly.FieldImage('img/gauche.gif', 32, 32, '')).appendField('girar a la izquierda');
+    this.appendValueInput('ANGLE').setCheck('Number').appendField(new Blockly.FieldImage('img/gauche.gif', 32, 32, '')).appendField('tourner à gauche de');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('girar a la izquierda d\'un angulo en grados');
+    this.setTooltip('tourner à gauche d\'un angle en degrés');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['var_droite'] = {
   init: function() {
-    this.appendValueInput('ANGLE').setCheck('Number').appendField(new Blockly.FieldImage('img/droite.gif', 32, 32, '')).appendField('girar a la derecha');
+    this.appendValueInput('ANGLE').setCheck('Number').appendField(new Blockly.FieldImage('img/droite.gif', 32, 32, '')).appendField('tourner à droite de');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('girar a la derecha d\'un ángulo en grados');
+    this.setTooltip('tourner à droite d\'un angle en degrés');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['frac_gauche'] = {
   init: function() {
-    this.appendValueInput('NUMER').setCheck('Number').appendField('a la izquierda de');
-    this.appendDummyInput().appendField('/ 6 de ángulo recto');
+    this.appendValueInput('NUMER').setCheck('Number').appendField('à gauche de');
+    this.appendDummyInput().appendField('/ 6 d\'angle droit');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('girar a la izquierda un angulo');
+    this.setTooltip('tourner à gauche d\'un cran');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['frac_droite'] = {
   init: function() {
-    this.appendValueInput('NUMER').setCheck('Number').appendField('a la derecha de');
-    this.appendDummyInput().appendField('/ 6 de ángulo recto');
+    this.appendValueInput('NUMER').setCheck('Number').appendField('à droite de');
+    this.appendDummyInput().appendField('/ 6 d\'angle droit');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('gira a la derecha un angulo');
+    this.setTooltip('tourner à droite d\'un cran');
     this.setHelpUrl('');
   }
 };
- 
+
 Blockly.Blocks['mettre_angle'] = {
   init: function() {
-    this.appendValueInput('ANGLE').setCheck('Number').appendField(new Blockly.FieldImage('img/turtle.png', 32, 32, '')).appendField('guiar la tortuga');
+    this.appendValueInput('ANGLE').setCheck('Number').appendField(new Blockly.FieldImage('img/turtle.gif', 32, 32, '')).appendField('orienter la tortue de');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('imponer una dirección a la tortuga');
+    this.setTooltip('imposer une direction à la tortue');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['teleport'] = {
   init: function() {
-    this.appendDummyInput().appendField(new Blockly.FieldImage('img/turtle.png', 32, 32, '')).appendField('posicionar la tortuga en (').appendField(new Blockly.FieldTextInput('0'), 'X').appendField(',').appendField(new Blockly.FieldTextInput('0'), 'Y').appendField(')');
+    this.appendDummyInput().appendField(new Blockly.FieldImage('img/turtle.gif', 32, 32, '')).appendField('téléporter la tortue en (').appendField(new Blockly.FieldTextInput('0'), 'X').appendField(',').appendField(new Blockly.FieldTextInput('0'), 'Y').appendField(')');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('teletransportarse sin cambiar l\'ángulo o hacer ruta');
+    this.setTooltip('téléporter sans changer l\'angle ni faire de tracé');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['tortue_teleport'] = {
   init: function() {
-    this.appendValueInput('ABS').setCheck('Number').appendField('posicionar la tortuga en (');
+    this.appendValueInput('ABS').setCheck('Number').appendField('téléporter la tortue vers (');
     this.appendValueInput('ORD').setCheck('Number').appendField(',');
     this.appendDummyInput().appendField(')');
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('posicionar la tortuga');
+    this.setTooltip('téléporter la tortue');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['tampon'] = {
   init: function() {
-    this.appendDummyInput().appendField(new Blockly.FieldImage('img/pencil.png', 32, 32, '')).appendField('marcar un punto');
+    this.appendDummyInput().appendField(new Blockly.FieldImage('img/pencil.gif', 32, 32, '')).appendField('marquer un point');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('marcar un circulo en el emplazamiento de la tortuga');
+    this.setTooltip('marquer un cercle à l\'emplacement de la tortue');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['teleport_var'] = {
   init: function() {
-    this.appendDummyInput().appendField(new Blockly.FieldImage('img/turtle.png', 32, 32, '')).appendField('teletransportado la tortuga (').appendField(new Blockly.FieldVariable('x'), 'X').appendField(',').appendField(new Blockly.FieldVariable('y'), 'Y').appendField(')');
+    this.appendDummyInput().appendField(new Blockly.FieldImage('img/turtle.gif', 32, 32, '')).appendField('téléporter la tortue en (').appendField(new Blockly.FieldVariable('x'), 'X').appendField(',').appendField(new Blockly.FieldVariable('y'), 'Y').appendField(')');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('mover la tortuga para las variables de coordenadas');
+    this.setTooltip('déplacer la tortue vers des coordonnées variables');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['cacher_tortue'] = {
   init: function() {
-    this.appendDummyInput().appendField(new Blockly.FieldImage('img/ghost.png', 32, 32, '')).appendField('ocultar la tortuga');
+    this.appendDummyInput().appendField(new Blockly.FieldImage('img/ghost.gif', 32, 32, '')).appendField('cacher la tortue');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('hacer invisible la tortuga');
+    this.setTooltip('dorénavant la tortue est invisible');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['montrer_tortue'] = {
   init: function() {
-    this.appendDummyInput().appendField(new Blockly.FieldImage('img/turtle.png', 32, 32, '')).appendField('mostrar la tortuga');
+    this.appendDummyInput().appendField(new Blockly.FieldImage('img/turtle.gif', 32, 32, '')).appendField('montrer la tortue');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('hacer la tortuga visible');
+    this.setTooltip('dorénavant la tortue est visible');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['lever_stylo'] = {
   init: function() {
-    this.appendDummyInput().appendField(new Blockly.FieldImage('img/penup.gif', 32, 32, '')).appendField('subir la pluma');
+    this.appendDummyInput().appendField(new Blockly.FieldImage('img/penup.gif', 32, 32, '')).appendField('lever le stylo');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('Ahora la tortuga no dibuja');
+    this.setTooltip('dorénavant la tortue ne laisse plus de trace');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['baisser_stylo'] = {
   init: function() {
-    this.appendDummyInput().appendField(new Blockly.FieldImage('img/pendown.gif', 32, 32, '')).appendField('bajar la pluma');
+    this.appendDummyInput().appendField(new Blockly.FieldImage('img/pendown.gif', 32, 32, '')).appendField('baisser le stylo');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('Ahora la tortuga dibuja');
+    this.setTooltip('dorénavant la tortue laisse des traces');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['scribe'] = {
   init: function() {
-    this.appendValueInput('texte').appendField(new Blockly.FieldImage('img/pencil.png', 32, 32, '')).appendField('sellar texto');
+    this.appendValueInput('texte').appendField(new Blockly.FieldImage('img/pencil.gif', 32, 32, '')).appendField('tamponner');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('la tortga escribe texto');
+    this.setTooltip('la tortue écrit un texte là où elle est');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['couleur_stylo'] = {
   init: function() {
-    this.appendDummyInput().appendField(new Blockly.FieldImage('img/pencil.png', 32, 32, '')).appendField('color de la pluma').appendField(new Blockly.FieldColour('#000066'), 'colstyle');
+    this.appendDummyInput().appendField(new Blockly.FieldImage('img/pencil.gif', 32, 32, '')).appendField('toner du stylo à').appendField(new Blockly.FieldColour('#000066'), 'colstyle');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('cambia el color del lapiz');
+    this.setTooltip('changer la couleur du stylo');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['eff_svg'] = {
   init: function() {
-    this.appendDummyInput().appendField(new Blockly.FieldImage('img/droplet.png', 32, 32, '')).appendField('borrar los gráficos de tortuga');
+    this.appendDummyInput().appendField(new Blockly.FieldImage('img/droplet.gif', 32, 32, '')).appendField('gommer le graphisme tortue');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('borrar la pantalla gráfica');
+    this.setTooltip('vider le graphique de la tortue');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['reset'] = {
   init: function() {
-    this.appendDummyInput().appendField(new Blockly.FieldImage('img/droplet.png', 32, 32, '')).appendField('borra la consola gráfica');
+    this.appendDummyInput().appendField(new Blockly.FieldImage('img/droplet.gif', 32, 32, '')).appendField('initialiser le graphisme tortue');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('borra el contenido de la consola gráfica(excepto el color)');
+    this.setTooltip('initialiser le graphique de la tortue (sauf la couleur)');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['axeX'] = {
   init: function() {
-    this.appendDummyInput().appendField(new Blockly.FieldImage('img/axeX.gif', 32, 32, '')).appendField('eje de abcisas');
+    this.appendDummyInput().appendField(new Blockly.FieldImage('img/axeX.gif', 32, 32, '')).appendField('axe des abscisses');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('designar el eje de abcisas');
+    this.setTooltip('dessiner l\'axe des abscisses');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['axeY'] = {
   init: function() {
-    this.appendDummyInput().appendField(new Blockly.FieldImage('img/axeY.gif', 32, 32, '')).appendField('eje de ordenadas');
+    this.appendDummyInput().appendField(new Blockly.FieldImage('img/axeY.gif', 32, 32, '')).appendField('axe des ordonnées');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('designar el eje de ordenadas');
+    this.setTooltip('dessiner l\'axe des ordonnées');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['axes'] = {
   init: function() {
-    this.appendDummyInput().appendField(new Blockly.FieldImage('img/axes.gif', 32, 32, '')).appendField('dibujar la marca');
+    this.appendDummyInput().appendField(new Blockly.FieldImage('img/axes.gif', 32, 32, '')).appendField('dessiner le repère');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('dibujo los dos ejes en la tortuga gráfico');
+    this.setTooltip('dessin des deux axes sur le graphique tortue');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['grille'] = {
   init: function() {
-    this.appendDummyInput().appendField(new Blockly.FieldImage('img/grid.gif', 32, 32, '')).appendField('dibujar una cuadrícula');
+    this.appendDummyInput().appendField(new Blockly.FieldImage('img/grid.gif', 32, 32, '')).appendField('dessiner une grille');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('rejilla ortonormal');
+    this.setTooltip('grille orthonormée');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['creer_tortue'] = {
   init: function() {
-    this.appendDummyInput().appendField(new Blockly.FieldImage('img/turtle.png', 32, 32, '')).appendField('Crear la tortuga #').appendField(new Blockly.FieldTextInput('1'), 'N');
+    this.appendDummyInput().appendField(new Blockly.FieldImage('img/turtle.gif', 32, 32, '')).appendField('Creer la tortue #').appendField(new Blockly.FieldTextInput('1'), 'N');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('Crear una tortuga');
+    this.setTooltip('Creer une tortue');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['creer_tortue_var'] = {
   init: function() {
-    this.appendValueInput('NAME').setCheck('Number').appendField(new Blockly.FieldImage('img/turtle.png', 32, 32, '')).appendField('Crear Tortuga #');
+    this.appendValueInput('NAME').setCheck('Number').appendField(new Blockly.FieldImage('img/turtle.gif', 32, 32, '')).appendField('Créer Tortue #');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('Crear una tortuga (String)');
+    this.setTooltip('Créer une tortue (String)');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['choisir_tortue'] = {
   init: function() {
-    this.appendDummyInput().appendField(new Blockly.FieldImage('img/turtle.png', 32, 32, '')).appendField('Con la tortuga').appendField(new Blockly.FieldTextInput('1'), 'N');
+    this.appendDummyInput().appendField(new Blockly.FieldImage('img/turtle.gif', 32, 32, '')).appendField('Avec la tortue').appendField(new Blockly.FieldTextInput('1'), 'N');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('Elegir una tortuga');
+    this.setTooltip('Choisir une tortue');
     this.setHelpUrl('');
-    this.appendStatementInput('DO').appendField('hacer');
+    this.appendStatementInput('DO').appendField('faire');
   }
 };
 
 Blockly.Blocks['choisir_tortue_var'] = {
   init: function() {
-    this.appendValueInput('NAME').setCheck('Number').appendField(new Blockly.FieldImage('img/turtle.png', 32, 32, '')).appendField('Con la tortuga #');
+    this.appendValueInput('NAME').setCheck('Number').appendField(new Blockly.FieldImage('img/turtle.gif', 32, 32, '')).appendField('Avec la Tortue #');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('Con la tortuga (Numero)');
+    this.setTooltip('Avec la tortue (Number)');
     this.setHelpUrl('');
-    this.appendStatementInput('DO').appendField('hacer');
+    this.appendStatementInput('DO').appendField('faire');
   }
 };
 
 Blockly.Blocks['distance_avec_tortue_var'] = {
   init: function() {
-    this.appendValueInput('NAME').setCheck('Number').appendField(new Blockly.FieldImage('img/turtle.png', 32, 32, '')).appendField('Distancia con la tortuga #');
+    this.appendValueInput('NAME').setCheck('Number').appendField(new Blockly.FieldImage('img/turtle.gif', 32, 32, '')).appendField('Distance avec la Tortue #');
     this.setOutput(true, 'Number');
     this.setColour(120);
-    this.setTooltip('Distancia a la tortuga (Numero)');
+    this.setTooltip('Distance avec la tortue (Number)');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['tourner_vers_tortue_var'] = {
   init: function() {
-    this.appendValueInput('NAME').setCheck('Number').appendField(new Blockly.FieldImage('img/turtle.png', 32, 32, '')).appendField('Volver hacia arriba la tortuga #');
+    this.appendValueInput('NAME').setCheck('Number').appendField(new Blockly.FieldImage('img/turtle.gif', 32, 32, '')).appendField('Tourner vers la Tortue #');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('Volver a la tortuga (Numero)');
+    this.setTooltip('Se tourner vers la tortue (Number)');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['costume_suivant'] = {
   init: function() {
-    this.appendDummyInput().appendField(new Blockly.FieldImage('img/turtle.png', 32, 32, '')).appendField('cambiar siguiente tortuga');
+    this.appendDummyInput().appendField(new Blockly.FieldImage('img/turtle.png', 32, 32, '')).appendField('avatar suivant');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('cambiar el aspecto de la tortuga');
+    this.setTooltip('changer l\'aspect de la tortue');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['costume_pred'] = {
   init: function() {
-    this.appendDummyInput().appendField(new Blockly.FieldImage('img/turtle.png', 32, 32, '')).appendField('cambiar tortuga anterior');
+    this.appendDummyInput().appendField(new Blockly.FieldImage('img/turtle.png', 32, 32, '')).appendField('avatar précédent');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('cambiar el aspecto de la tortuga');
+    this.setTooltip('changer l\'aspect de la tortue');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['costume'] = {
   init: function() {
-    this.appendDummyInput().appendField(new Blockly.FieldImage('img/turtle.png', 32, 32, '')).appendField('elegir imagen').appendField(new Blockly.FieldDropdown([["origen", "0"], ["mariquita", "1"], ["izquierda", "2"], ["derecha", "3"], ["Frente", "4"], ["metal", "5"], ["clásica", "6"]]), "CID");
+    this.appendDummyInput().appendField(new Blockly.FieldImage('img/turtle.png', 32, 32, '')).appendField('choisir l\'avatar').appendField(new Blockly.FieldDropdown([["origine", "0"], ["gauche", "1"], ["droit", "2"], ["Frenet", "3"], ["métal", "4"], ["classique", "5"]]), "CID");
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('cambiar el aspecto de la tortuga');
+    this.setTooltip('changer l\'aspect de la tortue');
     this.setHelpUrl('');
   }
 };
@@ -1260,7 +1260,7 @@ Blockly.Blocks['vec_const'] = {
     this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField(new Blockly.FieldTextInput('2'), 'y');
     this.setOutput(true, 'Vector');
     this.setColour(20);
-    this.setTooltip('vector 2D');
+    this.setTooltip('vecteur 2D');
     this.setHelpUrl('');
   }
 };
@@ -1272,47 +1272,47 @@ Blockly.Blocks['vec_3D'] = {
     this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField(new Blockly.FieldTextInput('1'), 'z');
     this.setOutput(true, 'Vector');
     this.setColour(20);
-    this.setTooltip('vector 3D');
+    this.setTooltip('vecteur 3D');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['vec_alea'] = {
   init: function() {
-    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField('vector aleatorio');
+    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField('vecteur aléatoire');
     this.setOutput(true, 'Vector');
     this.setColour(20);
-    this.setTooltip('vector aleatorio');
+    this.setTooltip('vecteur aléatoire');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['vec_alea3'] = {
   init: function() {
-    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField('vector aleatorio');
+    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField('vecteur aléatoire');
     this.setOutput(true, 'Vector');
     this.setColour(20);
-    this.setTooltip('vector aleatorio');
+    this.setTooltip('vecteur aléatoire');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['vec_nul'] = {
   init: function() {
-    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField('vector nulo');
+    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField('vecteur nul');
     this.setOutput(true, 'Vector');
     this.setColour(20);
-    this.setTooltip('vector nulo');
+    this.setTooltip('vecteur nul');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['vec_nul3'] = {
   init: function() {
-    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField('vector nulo');
+    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField('vecteur nul');
     this.setOutput(true, 'Vector');
     this.setColour(20);
-    this.setTooltip('vector nulo');
+    this.setTooltip('vecteur nul');
     this.setHelpUrl('');
   }
 };
@@ -1322,154 +1322,154 @@ Blockly.Blocks['vec_aff'] = {
     this.appendValueInput('vec').appendField(new Blockly.FieldImage('img/arrowhead.png', 32, 32, ''));
     this.setOutput(true);
     this.setColour(20);
-    this.setTooltip('visibilizar las matrices');
+    this.setTooltip('visibilité des matrices');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['vec_eq'] = {
   init: function() {
-    this.appendValueInput('autre').setCheck(['Vector', 'Matriz']).appendField(new Blockly.FieldVariable('elemento'), 'lui').appendField('=');
+    this.appendValueInput('autre').setCheck(['Vector', 'Matrix']).appendField(new Blockly.FieldVariable('element'), 'lui').appendField('=');
     this.setOutput(true, 'Boolean');
     this.setColour(20);
-    this.setTooltip('igualdad de vectores');
+    this.setTooltip('égalité de matrices');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['vec_add'] = {
   init: function() {
-    this.appendValueInput('autre').appendField(new Blockly.FieldVariable('elemento'), 'lui').appendField('+');
+    this.appendValueInput('autre').appendField(new Blockly.FieldVariable('element'), 'lui').appendField('+');
     this.setOutput(true);
     this.setColour(20);
-    this.setTooltip('suma');
+    this.setTooltip('addition');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['vec_sub'] = {
   init: function() {
-    this.appendValueInput('autre').appendField(new Blockly.FieldVariable('elemento'), 'lui').appendField('-');
+    this.appendValueInput('autre').appendField(new Blockly.FieldVariable('element'), 'lui').appendField('-');
     this.setOutput(true);
     this.setColour(20);
-    this.setTooltip('resta');
+    this.setTooltip('soustraction');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['vec_dot'] = {
   init: function() {
-    this.appendValueInput('autre').setCheck('Vector').appendField(new Blockly.FieldVariable('elemento'), 'lui').appendField('.');
+    this.appendValueInput('autre').setCheck('Vector').appendField(new Blockly.FieldVariable('element'), 'lui').appendField('.');
     this.setOutput(true, 'Number');
     this.setColour(20);
-    this.setTooltip('producto escalar');
+    this.setTooltip('produit scalaire');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['vec_angle'] = {
   init: function() {
-    this.appendValueInput('autre').setCheck('Vector').appendField(new Blockly.FieldVariable('elemento'), 'lui').appendField('angulo');
+    this.appendValueInput('autre').setCheck('Vector').appendField(new Blockly.FieldVariable('element'), 'lui').appendField('angle avec');
     this.setOutput(true, 'Number');
     this.setColour(20);
     this.setTooltip('');
-    this.setHelpUrl('ángulo de vector (en radianes)');
+    this.setHelpUrl('angle de vecteurs (en radians)');
   }
 };
 
 Blockly.Blocks['vec_distance'] = {
   init: function() {
-    this.appendValueInput('autre').setCheck('Vector').appendField(new Blockly.FieldVariable('elemento'), 'lui').appendField('distancia hasta');
+    this.appendValueInput('autre').setCheck('Vector').appendField(new Blockly.FieldVariable('element'), 'lui').appendField('distance jusque');
     this.setOutput(true, 'Number');
     this.setColour(20);
     this.setTooltip('');
-    this.setHelpUrl('distancia entre los vectores (considerados puntos)');
+    this.setHelpUrl('distance entre vecteurs (considérés comme des points)');
   }
 };
 
 Blockly.Blocks['vec_abscisse'] = {
   init: function() {
-    this.appendValueInput('autre').setCheck('Vector').appendField('abscisa de');
+    this.appendValueInput('autre').setCheck('Vector').appendField('abscisse de');
     this.setOutput(true, 'Number');
     this.setColour(20);
-    this.setTooltip('abcisa del vector');
+    this.setTooltip('abscisse du vecteur');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['vec_ordonnee'] = {
   init: function() {
-    this.appendValueInput('autre').setCheck('Vector').appendField('ordenadas de');
+    this.appendValueInput('autre').setCheck('Vector').appendField('ordonnée de');
     this.setOutput(true, 'Number');
     this.setColour(20);
-    this.setTooltip('ordenada del vector');
+    this.setTooltip('ordonnée du vecteur');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['vec_expr'] = {
   init: function() {
-    this.appendDummyInput().appendField("Vector");
+    this.appendDummyInput().appendField("Vecteur");
     this.appendValueInput("ABS").appendField("x: ");
     this.appendValueInput("ORD").appendField("y: ");
     this.setInputsInline(true);
     this.setOutput(true);
     this.setColour(20);
-    this.setTooltip('vector variable');
+    this.setTooltip('vecteur variable');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['vec_expr3D'] = {
   init: function() {
-    this.appendDummyInput().appendField("Vector");
+    this.appendDummyInput().appendField("Vecteur");
     this.appendValueInput("ABS").appendField("x: ");
     this.appendValueInput("ORD").appendField("y: ");
     this.appendValueInput("COT").appendField("z: ");
     this.setInputsInline(true);
     this.setOutput(true);
     this.setColour(20);
-    this.setTooltip('vector variable');
+    this.setTooltip('vecteur variable');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['vec_cote'] = {
   init: function() {
-    this.appendValueInput('autre').setCheck('Vector').appendField('clasificación');
+    this.appendValueInput('autre').setCheck('Vector').appendField('cote de');
     this.setOutput(true, 'Number');
     this.setColour(20);
-    this.setTooltip('cuota del vector');
+    this.setTooltip('cote du vecteur');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['vec_colineaire'] = {
   init: function() {
-    this.appendValueInput('autre').setCheck('Vector').appendField(new Blockly.FieldVariable('elemento'), 'lui').appendField('es colineal con');
+    this.appendValueInput('autre').setCheck('Vector').appendField(new Blockly.FieldVariable('element'), 'lui').appendField('est colinéaire à');
     this.setOutput(true, 'Boolean');
     this.setColour(20);
-    this.setTooltip('colinealidad de prueba (paralelismo o alineación)');
+    this.setTooltip('test de colinéarité (parallélisme ou alignement)');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['vec_perpendiculaire'] = {
   init: function() {
-    this.appendValueInput('autre').setCheck('Vector').appendField(new Blockly.FieldVariable('elemento'), 'lui').appendField('es perpendicular a');
+    this.appendValueInput('autre').setCheck('Vector').appendField(new Blockly.FieldVariable('element'), 'lui').appendField('est perpendiculaire à');
     this.setOutput(true, 'Boolean');
     this.setColour(20);
-    this.setTooltip('perpendicularidad entre los vectores');
+    this.setTooltip('perpendicularité entre vecteurs');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['vec_fois'] = {
   init: function() {
-    this.appendValueInput('autre').setCheck('Number').appendField(new Blockly.FieldVariable('elemento'), 'lui').appendField('×');
+    this.appendValueInput('autre').setCheck('Number').appendField(new Blockly.FieldVariable('element'), 'lui').appendField('×');
     this.setOutput(true);
     this.setColour(20);
-    this.setTooltip('producido por una serie');
+    this.setTooltip('produit par un nombre');
     this.setHelpUrl('');
   }
 };
@@ -1479,179 +1479,179 @@ Blockly.Blocks['vec_foisbis'] = {
     this.appendValueInput('autre').appendField(new Blockly.FieldTextInput('3'), 'facteur').appendField('×');
     this.setOutput(true);
     this.setColour(20);
-    this.setTooltip('producto número matriz *');
+    this.setTooltip('produit nombre*matrice');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['vec_symmetry'] = {
   init: function() {
-    this.appendValueInput('autre').setCheck('Vector').appendField(new Blockly.FieldVariable('elemento'), 'lui').appendField('simétrico a');
+    this.appendValueInput('autre').setCheck('Vector').appendField(new Blockly.FieldVariable('element'), 'lui').appendField('symétrique par rapport à');
     this.setOutput(true, 'Vector');
     this.setColour(20);
-    this.setTooltip('simetría central');
+    this.setTooltip('symétrie centrale');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['vec_rotation'] = {
   init: function() {
-    this.appendValueInput('autre').setCheck('Vector').appendField(new Blockly.FieldVariable('elemento'), 'lui').appendField('convertido').appendField(new Blockly.FieldTextInput('3.14'), 'angulo').appendField('radianes por rotación');
+    this.appendValueInput('autre').setCheck('Vector').appendField(new Blockly.FieldVariable('element'), 'lui').appendField('tourné de').appendField(new Blockly.FieldTextInput('3.14'), 'angle').appendField('radians autour de');
     this.setOutput(true, 'Vector');
     this.setColour(20);
-    this.setTooltip('rotacion ángulo fijo');
+    this.setTooltip('rotation angle fixe');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['vec_norme'] = {
   init: function() {
-    this.appendValueInput('autre').setCheck('Vector').appendField('unitario');
+    this.appendValueInput('autre').setCheck('Vector').appendField('norme de');
     this.setOutput(true, 'Number');
     this.setColour(20);
-    this.setTooltip('unitario (o longitud)');
+    this.setTooltip('norme (ou longueur)');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['vec_unitaire'] = {
   init: function() {
-    this.appendValueInput('autre').setCheck('Vector').appendField('Normalización');
+    this.appendValueInput('autre').setCheck('Vector').appendField('normer');
     this.setOutput(true, 'Vector');
     this.setColour(20);
-    this.setTooltip('vector unitario colineal con este vector ');
+    this.setTooltip('vecteur de norme 1 colinéaire à ce vecteur');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['normer_sofus'] = {
   init: function() {
-    this.appendValueInput('autre').setCheck('Vector').appendField('normalizar');
+    this.appendValueInput('autre').setCheck('Vector').appendField('normer');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(20);
-    this.setTooltip('dar a este vector el vector unidad');
+    this.setTooltip('donner à ce vecteur une norme unité');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['inverser_mat'] = {
   init: function() {
-    this.appendValueInput('matr').setCheck('Matrix').appendField('inversor');
+    this.appendValueInput('matr').setCheck('Matrix').appendField('inverser');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(120);
-    this.setTooltip('invirtiendo la matriz');
+    this.setTooltip('inverser la matrice');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['transposer_mat'] = {
   init: function() {
-    this.appendValueInput('matr').setCheck('Matrix').appendField('transponer');
+    this.appendValueInput('matr').setCheck('Matrix').appendField('transposer');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(120);
-    this.setTooltip('transponer matriz');
+    this.setTooltip('transposer la matrice');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['arrondir_mat'] = {
   init: function() {
-    this.appendValueInput('matr').setCheck('Matrix').appendField('redondear');
+    this.appendValueInput('matr').setCheck('Matrix').appendField('arrondir');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(120);
-    this.setTooltip('redondeando los coeficientes de la matriz');
+    this.setTooltip('arrondir les coefficients de la matrice');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['mult_sofus_mat'] = {
   init: function() {
-    this.appendValueInput('matr').setCheck('Matrix').appendField('multiplicar');
-    this.appendValueInput('vec').setCheck(null).appendField('por');
+    this.appendValueInput('matr').setCheck('Matrix').appendField('multiplier');
+    this.appendValueInput('vec').setCheck(null).appendField('par');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(120);
-    this.setTooltip('la multiplicación de la matriz por una matriz');
+    this.setTooltip('multiplier la matrice par une matrice');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['mult_gauche'] = {
   init: function() {
-    this.appendValueInput('vec').setCheck(null).appendField('multiplicar');
-    this.appendValueInput('matr').setCheck('Matrix').appendField('dada por');
+    this.appendValueInput('vec').setCheck(null).appendField('multiplier');
+    this.appendValueInput('matr').setCheck('Matrix').appendField('à gauche par');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(120);
-    this.setTooltip('la multiplicación de la matriz por una matriz');
+    this.setTooltip('multiplier la matrice par une matrice');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['vec_multiplier'] = {
   init: function() {
-    this.appendValueInput('matr').setCheck('Vector').appendField('multiplicar');
-    this.appendValueInput('vec').setCheck(null).appendField('por');
+    this.appendValueInput('matr').setCheck('Vector').appendField('multiplier');
+    this.appendValueInput('vec').setCheck(null).appendField('par');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(20);
-    this.setTooltip('multiplicando el vector');
+    this.setTooltip('multiplier le vecteur');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['vec_augmenter'] = {
   init: function() {
-    this.appendValueInput('matr').setCheck(null).appendField('aumentar');
-    this.appendValueInput('vec').setCheck(null).appendField('un');
+    this.appendValueInput('matr').setCheck(null).appendField('augmenter');
+    this.appendValueInput('vec').setCheck(null).appendField('de');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(20);
-    this.setTooltip('sumar una matriz');
+    this.setTooltip('additionner une matrice');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['vec_diminuer'] = {
   init: function() {
-    this.appendValueInput('matr').setCheck(null).appendField('disminuir');
-    this.appendValueInput('vec').setCheck(null).appendField('un');
+    this.appendValueInput('matr').setCheck(null).appendField('diminuer');
+    this.appendValueInput('vec').setCheck(null).appendField('de');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(20);
-    this.setTooltip('restando una matriz');
+    this.setTooltip('soustraire une matrice');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['sofus_scalaire'] = {
   init: function() {
-    this.appendValueInput('matr').setCheck('Vector').appendField('multiplicar');
-    this.appendValueInput('vec').setCheck('Vector').appendField('escalar por');
+    this.appendValueInput('matr').setCheck('Vector').appendField('multiplier');
+    this.appendValueInput('vec').setCheck('Vector').appendField('scalairement par');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(20);
-    this.setTooltip('multiplicar un escalar por un vector');
+    this.setTooltip('multiplier scalairement par un vecteur');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['vec_diagonal'] = {
   init: function() {
-    this.appendValueInput('vector').setCheck('Vector').appendField('diagonal');
+    this.appendValueInput('vecteur').setCheck('Vector').appendField('diagonale');
     this.setOutput(true, 'Matrix');
     this.setColour(20);
-    this.setTooltip('matriz diagonal');
+    this.setTooltip('matrice diagonale');
     this.setHelpUrl('');
   }
 };
@@ -1660,9 +1660,9 @@ Blockly.Blocks['mat_matrice'] = {
   init: function() {
     this.appendDummyInput().appendField(new Blockly.FieldTextInput('3'), 'a11').appendField(new Blockly.FieldTextInput('-2'), 'a12');
     this.appendDummyInput().appendField(new Blockly.FieldTextInput('1'), 'a21').appendField(new Blockly.FieldTextInput('5'), 'a22');
-    this.setOutput(true, 'Matriz');
+    this.setOutput(true, 'Matrix');
     this.setColour(120);
-    this.setTooltip('matriz 2 por 2');
+    this.setTooltip('matrice 2 par 2');
     this.setHelpUrl('');
   }
 };
@@ -1672,35 +1672,35 @@ Blockly.Blocks['mat_3D'] = {
     this.appendDummyInput().appendField(new Blockly.FieldTextInput('8'), 'a11').appendField(new Blockly.FieldTextInput('1'), 'a12').appendField(new Blockly.FieldTextInput('6'), 'a13');
     this.appendDummyInput().appendField(new Blockly.FieldTextInput('3'), 'a21').appendField(new Blockly.FieldTextInput('5'), 'a22').appendField(new Blockly.FieldTextInput('7'), 'a23');
     this.appendDummyInput().appendField(new Blockly.FieldTextInput('4'), 'a31').appendField(new Blockly.FieldTextInput('9'), 'a32').appendField(new Blockly.FieldTextInput('2'), 'a33');
-    this.setOutput(true, 'Matriz');
+    this.setOutput(true, 'Matrix');
     this.setColour(120);
-    this.setTooltip('matriz 3 por 3');
+    this.setTooltip('matrice 3 par 3');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['mat_col'] = {
   init: function() {
-    this.appendDummyInput().appendField("columnas");
+    this.appendDummyInput().appendField("colonnes");
     this.appendValueInput("C1");
     this.appendValueInput("C2");
     this.setInputsInline(true);
-    this.setOutput(true, 'Matriz');
+    this.setOutput(true, 'Matrix');
     this.setColour(120);
-    return this.setTooltip('matriz por columnas');
+    return this.setTooltip('matrice par ses colonnes');
   }
 };
 
 Blockly.Blocks['mat3D_col'] = {
   init: function() {
-    this.appendDummyInput().appendField("columnas");
+    this.appendDummyInput().appendField("colonnes");
     this.appendValueInput("C1");
     this.appendValueInput("C2");
     this.appendValueInput("C3");
     this.setInputsInline(true);
-    this.setOutput(true, 'Matriz');
+    this.setOutput(true, 'Matrix');
     this.setColour(120);
-    return this.setTooltip('matriz por columnas');
+    return this.setTooltip('matrice par ses colonnes');
   }
 };
 
@@ -1708,9 +1708,9 @@ Blockly.Blocks['mat_diag'] = {
   init: function() {
     this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField(new Blockly.FieldTextInput('3'), 'a11').appendField('0');
     this.appendDummyInput().appendField('0').appendField(new Blockly.FieldTextInput('2'), 'a22');
-    this.setOutput(true, 'Matriz');
+    this.setOutput(true, 'Matrix');
     this.setColour(120);
-    this.setTooltip('matriz diagonal');
+    this.setTooltip('matrice diagonale');
     this.setHelpUrl('');
   }
 };
@@ -1719,9 +1719,9 @@ Blockly.Blocks['mat_id'] = {
   init: function() {
     this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField('1').appendField('0');
     this.appendDummyInput().appendField('0').appendField('1');
-    this.setOutput(true, 'Matriz');
+    this.setOutput(true, 'Matrix');
     this.setColour(120);
-    this.setTooltip('matriz de identidad');
+    this.setTooltip('matrice identité');
     this.setHelpUrl('');
   }
 };
@@ -1731,29 +1731,29 @@ Blockly.Blocks['mat_id3'] = {
     this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField('1').appendField('0').appendField('0');
     this.appendDummyInput().appendField('0').appendField('1').appendField('0');
     this.appendDummyInput().appendField('0').appendField('0').appendField('1');
-    this.setOutput(true, 'Matriz');
+    this.setOutput(true, 'Matrix');
     this.setColour(120);
-    this.setTooltip('matriz de identidad');
+    this.setTooltip('matrice identité');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['mat_alea'] = {
   init: function() {
-    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField(new Blockly.FieldImage('img/die.png', 32, 32, 'X'));
-    this.setOutput(true, 'Matriz');
+    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField(new Blockly.FieldImage('img/die.gif', 32, 32, 'X'));
+    this.setOutput(true, 'Matrix');
     this.setColour(120);
-    this.setTooltip('matriz aleatoria');
+    this.setTooltip('matrice aléatoire');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['mat_alea3'] = {
   init: function() {
-    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField(new Blockly.FieldImage('img/die.png', 32, 32, 'X'));
-    this.setOutput(true, 'Matriz');
+    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField(new Blockly.FieldImage('img/die.gif', 32, 32, 'X'));
+    this.setOutput(true, 'Matrix');
     this.setColour(120);
-    this.setTooltip('matriz aleatoria');
+    this.setTooltip('matrice aléatoire');
     this.setHelpUrl('');
   }
 };
@@ -1762,9 +1762,9 @@ Blockly.Blocks['mat_nulle'] = {
   init: function() {
     this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField('0').appendField('0');
     this.appendDummyInput().appendField('0').appendField('0');
-    this.setOutput(true, 'Matriz');
+    this.setOutput(true, 'Matrix');
     this.setColour(120);
-    this.setTooltip('matriz nula');
+    this.setTooltip('matrice nulle');
     this.setHelpUrl('');
   }
 };
@@ -1774,69 +1774,69 @@ Blockly.Blocks['mat_nulle3'] = {
     this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField('0').appendField('0').appendField('0');
     this.appendDummyInput().appendField('0').appendField('0').appendField('0');
     this.appendDummyInput().appendField('0').appendField('0').appendField('0');
-    this.setOutput(true, 'Matriz');
+    this.setOutput(true, 'Matrix');
     this.setColour(120);
-    this.setTooltip('matriz nula');
+    this.setTooltip('matrice nulle');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['mat_rotation'] = {
   init: function() {
-    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField('Rotación de angulo').appendField(new Blockly.FieldAngle(45), 'angle');
-    this.setOutput(true, 'Matriz');
+    this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField('rotation d\'angle').appendField(new Blockly.FieldAngle(45), 'angle');
+    this.setOutput(true, 'Matrix');
     this.setColour(120);
-    this.setTooltip('matriz de rotación');
+    this.setTooltip('matrice de rotation');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['mat_colonne1'] = {
   init: function() {
-    this.appendValueInput('NAME').setCheck('Matrix').appendField('primera columna de');
+    this.appendValueInput('NAME').setCheck('Matrix').appendField('première colonne de');
     this.setOutput(true, 'Vector');
     this.setColour(20);
-    this.setTooltip('la primera columna de la matriz es un vector');
+    this.setTooltip('la première colonne de la matrice est un vecteur');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['mat_colonne2'] = {
   init: function() {
-    this.appendValueInput('NAME').setCheck('Matrix').appendField('segunda columna');
+    this.appendValueInput('NAME').setCheck('Matrix').appendField('deuxième colonne de');
     this.setOutput(true, 'Vector');
     this.setColour(20);
-    this.setTooltip('la segunda columna de la matriz es un vector');
+    this.setTooltip('la deuxième colonne de la matrice est un vecteur');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['mat_colonne3'] = {
   init: function() {
-    this.appendValueInput('NAME').setCheck('Matrix').appendField('tercera columna');
+    this.appendValueInput('NAME').setCheck('Matrix').appendField('troisième colonne de');
     this.setOutput(true, 'Vector');
     this.setColour(20);
-    this.setTooltip('la tercera columna de la matriz es un vector');
+    this.setTooltip('la troisième colonne de la matrice est un vecteur');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['mat_diagonal'] = {
   init: function() {
-    this.appendValueInput('NAME').setCheck('Matrix').appendField('diagonal de');
+    this.appendValueInput('NAME').setCheck('Matrix').appendField('diagonale de');
     this.setOutput(true, 'Vector');
     this.setColour(20);
-    this.setTooltip('la diagonal de la matriz es un vector');
+    this.setTooltip('la diagonale de la matrice est un vecteur');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['mat_det'] = {
   init: function() {
-    this.appendValueInput('matr').setCheck('Matrix').appendField('determinante de');
+    this.appendValueInput('matr').setCheck('Matrix').appendField('déterminant de');
     this.setOutput(true, 'Number');
     this.setColour(120);
-    this.setTooltip('determinante');
+    this.setTooltip('déterminant');
     this.setHelpUrl('');
   }
 };
@@ -1856,27 +1856,27 @@ Blockly.Blocks['mat_mult'] = {
     this.appendValueInput('autre').appendField(new Blockly.FieldVariable('matrice'), 'lui').appendField('×');
     this.setOutput(true);
     this.setColour(120);
-    this.setTooltip('producto de matrices (o de matriz por vector)');
+    this.setTooltip('produit de matrices (ou de matrice et vecteur)');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['mat_arrondi'] = {
   init: function() {
-    this.appendValueInput('autre').appendField('redondeo de');
+    this.appendValueInput('autre').appendField('arrondi de');
     this.setOutput(true);
     this.setColour(120);
-    this.setTooltip('redondeo');
+    this.setTooltip('arrondi');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['mat_trace'] = {
   init: function() {
-    this.appendValueInput('autre').setCheck('Matrix').appendField('traza de');
+    this.appendValueInput('autre').setCheck('Matrix').appendField('trace de');
     this.setOutput(true, 'Number');
     this.setColour(120);
-    this.setTooltip('traza de la matriz');
+    this.setTooltip('trace de la matrice');
     this.setHelpUrl('');
   }
 };
@@ -1893,131 +1893,131 @@ Blockly.Blocks['mat_transpose'] = {
 
 Blockly.Blocks['repeter_doucement'] = {
   init: function() {
-    this.appendValueInput('TIMES').setCheck('Number').appendField('repetir lentamente');
+    this.appendValueInput('TIMES').setCheck('Number').appendField('Repeter doucement');
     this.appendDummyInput().appendField('fois');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('Repetir cada 500ms');
+    this.setTooltip('Repeter toutes les 500ms');
     this.setHelpUrl('');
-    this.appendStatementInput('DO').appendField('hacer');
+    this.appendStatementInput('DO').appendField('faire');
   }
 };
 
 Blockly.Blocks['lentement'] = {
   init: function() {
-    this.appendDummyInput().appendField('Muy lentamente');
+    this.appendDummyInput().appendField('Très lentement');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('Ralentizar la tortuga (arriesgado)');
+    this.setTooltip('Ralentir la tortue (risqué)');
     this.setHelpUrl('');
-    this.appendStatementInput('DO').appendField('hacer');
+    this.appendStatementInput('DO').appendField('faire');
   }
 };
 
 Blockly.Blocks['octet'] = {
   init: function() {
-    this.appendDummyInput().appendField('octeto ').appendField(new Blockly.FieldCheckbox("FALSE"), "O7").appendField(new Blockly.FieldCheckbox("FALSE"), "O6").appendField(new Blockly.FieldCheckbox("TRUE"), "O5").appendField(new Blockly.FieldCheckbox("FALSE"), "O4").appendField(new Blockly.FieldCheckbox("TRUE"), "O3").appendField(new Blockly.FieldCheckbox("FALSE"), "O2").appendField(new Blockly.FieldCheckbox("TRUE"), "O1").appendField(new Blockly.FieldCheckbox("FALSE"), "O0");
+    this.appendDummyInput().appendField('octet ').appendField(new Blockly.FieldCheckbox("FALSE"), "O7").appendField(new Blockly.FieldCheckbox("FALSE"), "O6").appendField(new Blockly.FieldCheckbox("TRUE"), "O5").appendField(new Blockly.FieldCheckbox("FALSE"), "O4").appendField(new Blockly.FieldCheckbox("TRUE"), "O3").appendField(new Blockly.FieldCheckbox("FALSE"), "O2").appendField(new Blockly.FieldCheckbox("TRUE"), "O1").appendField(new Blockly.FieldCheckbox("FALSE"), "O0");
     this.setOutput(true, null);
     this.setColour(75);
-    this.setTooltip('Representación binarias de un entero');
+    this.setTooltip('représentation binaire d\'un entier');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['binaire'] = {
   init: function() {
-    this.appendValueInput("N").setCheck(null).appendField("binario");
+    this.appendValueInput("N").setCheck(null).appendField("binaire");
     this.setOutput(true, null);
     this.setColour(75);
-    this.setTooltip('conversión en binario representado en decimal');
+    this.setTooltip('conversion en binaire représenté en décimal');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['envers'] = {
   init: function() {
-    this.appendValueInput("N").setCheck(null).appendField("dar la vuelta");
+    this.appendValueInput("N").setCheck(null).appendField("retourné de");
     this.setOutput(true, null);
     this.setColour(75);
-    this.setTooltip('poner los números al revés');
+    this.setTooltip('mettre les chiffres à l\'envers');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['srevne'] = {
   init: function() {
-    this.appendValueInput("N").setCheck(null).appendField("invertir texto");
+    this.appendValueInput("N").setCheck(null).appendField("retourné de");
     this.setOutput(true, null);
     this.setColour(160);
-    this.setTooltip('poner las letras en orden inverso');
+    this.setTooltip('mettre les lettres à l\'envers');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['kaprekar_doubler'] = {
   init: function() {
-    this.appendValueInput("N").setCheck(null).appendField("repetidos");
+    this.appendValueInput("N").setCheck(null).appendField("répété de");
     this.setOutput(true, null);
     this.setColour(75);
-    this.setTooltip('números duplicados');
+    this.setTooltip('dupliquer les chiffres');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['cconcatener'] = {
   init: function() {
-    this.appendValueInput("A").setCheck(null).appendField("concatenar");
-    this.appendValueInput("B").setCheck(null).appendField("y");
+    this.appendValueInput("A").setCheck(null).appendField("le concaténé de");
+    this.appendValueInput("B").setCheck(null).appendField("et");
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour(75);
-    this.setTooltip('concatenar los números');
+    this.setTooltip('concaténer les chiffres');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['kaprekar_ranger'] = {
   init: function() {
-    this.appendValueInput("N").setCheck(null).appendField("cifras ordenadas");
+    this.appendValueInput("N").setCheck(null).appendField("les chiffres triés de");
     this.setOutput(true, null);
     this.setColour(75);
-    this.setTooltip('poner los números en orden ascendente');
+    this.setTooltip('ranger les chiffres dans l\'ordre croissant');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['remplacer'] = {
   init: function() {
-    this.appendDummyInput().appendField("reemplazar las");
+    this.appendDummyInput().appendField("remplacer les");
     this.appendValueInput("C1").setCheck(null);
-    this.appendDummyInput().appendField("por estas");
+    this.appendDummyInput().appendField("par des");
     this.appendValueInput("C2").setCheck(null);
-    this.appendDummyInput().appendField("en");
+    this.appendDummyInput().appendField("dans");
     this.appendValueInput("T").setCheck(null);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(150);
-    this.setTooltip('sustitución');
+    this.setTooltip('substitution');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['remplacer1'] = {
   init: function() {
-    this.appendDummyInput().appendField("reemplazar la primera");
+    this.appendDummyInput().appendField("remplacer le premier");
     this.appendValueInput("C1").setCheck(null);
-    this.appendDummyInput().appendField("por");
+    this.appendDummyInput().appendField("par");
     this.appendValueInput("C2").setCheck(null);
-    this.appendDummyInput().appendField("en");
+    this.appendDummyInput().appendField("dans");
     this.appendValueInput("T").setCheck(null);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(150);
-    this.setTooltip('sustitución');
+    this.setTooltip('substitution');
     this.setHelpUrl('');
   }
 };
@@ -2058,7 +2058,7 @@ Blockly.Blocks['coffee'] = {
 
 Blockly.Blocks['coffee0'] = {
   init: function() {
-    this.appendValueInput("P").setCheck(null).appendField(new Blockly.FieldImage('img/coffee.png', 32, 32, 'X'));
+    this.appendValueInput("P").setCheck(null).appendField(new Blockly.FieldImage('img/coffee.gif', 32, 32, 'X'));
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -2070,101 +2070,101 @@ Blockly.Blocks['coffee0'] = {
 
 Blockly.Blocks['inverser_frac'] = {
   init: function() {
-    this.appendValueInput('frac').setCheck('Fraction').appendField('inversor');
+    this.appendValueInput('frac').setCheck('Fraction').appendField('inverser');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(45);
-    this.setTooltip('invertir la fracción');
+    this.setTooltip('inverser la fraction');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['augmenter_frac'] = {
   init: function() {
-    this.appendValueInput('frac1').setCheck('Fraction').appendField('aumentar');
-    this.appendValueInput('frac2').setCheck('Fraction').appendField('un');
+    this.appendValueInput('frac1').setCheck('Fraction').appendField('augmenter');
+    this.appendValueInput('frac2').setCheck('Fraction').appendField('de');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(45);
-    this.setTooltip('sumar una fracción');
+    this.setTooltip('additionner une fraction');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['diminuer_frac'] = {
   init: function() {
-    this.appendValueInput('frac1').setCheck('Fraction').appendField('disminuir');
-    this.appendValueInput('frac2').setCheck('Fraction').appendField('un');
+    this.appendValueInput('frac1').setCheck('Fraction').appendField('diminuer');
+    this.appendValueInput('frac2').setCheck('Fraction').appendField('de');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(45);
-    this.setTooltip('restar una fracción');
+    this.setTooltip('soustraire une fraction');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['multiplier_frac'] = {
   init: function() {
-    this.appendValueInput('frac1').setCheck('Fraction').appendField('multiplcar');
-    this.appendValueInput('frac2').setCheck('Fraction').appendField('por');
+    this.appendValueInput('frac1').setCheck('Fraction').appendField('multiplier');
+    this.appendValueInput('frac2').setCheck('Fraction').appendField('par');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(45);
-    this.setTooltip('multiplicar una fraccion');
+    this.setTooltip('multiplier par une fraction');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['diviser_frac'] = {
   init: function() {
-    this.appendValueInput('frac1').setCheck('Fracción').appendField('dividir');
-    this.appendValueInput('frac2').setCheck('Fracción').appendField('por');
+    this.appendValueInput('frac1').setCheck('Fraction').appendField('diviser');
+    this.appendValueInput('frac2').setCheck('Fraction').appendField('par');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(45);
-    this.setTooltip('dividir una fracción');
+    this.setTooltip('diviser par une fraction');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['pgcd'] = {
   init: function() {
-    this.appendValueInput("A").setCheck(null).appendField("mcd de");
-    this.appendValueInput("B").setCheck(null).appendField("y");
+    this.appendValueInput("A").setCheck(null).appendField("pgcd de");
+    this.appendValueInput("B").setCheck(null).appendField("et");
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour(230);
-    this.setTooltip('maximo comun divisor');
+    this.setTooltip('plus grand diviseur commun');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['doubler_frac'] = {
   init: function() {
-    this.appendDummyInput().appendField(new Blockly.FieldDropdown([["doblar", "2"], ["triplicar", "3"], ["quadruplicar", "4"], ["quintuplicar", "5"], ["sextuplicar", "6"], ["octuplicar", "8"], ["decuplicar", "10"], ["centuplicar", "100"]]), "CHOIX");
+    this.appendDummyInput().appendField(new Blockly.FieldDropdown([["doubler", "2"], ["tripler", "3"], ["quadrupler", "4"], ["quintupler", "5"], ["sextupler", "6"], ["octupler", "8"], ["décupler", "10"], ["centupler", "100"]]), "CHOIX");
     this.appendValueInput("VAR").setCheck("Fraction");
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(45);
-    this.setTooltip('multiplicando la fracción por un número entero');
+    this.setTooltip('multiplier la fraction par un entier');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['doubler_vec'] = {
   init: function() {
-    this.appendDummyInput().appendField(new Blockly.FieldDropdown([["doblar", "2"], ["triplicar", "3"], ["quadruplicar", "4"], ["quintuplicar", "5"], ["sextuplicar", "6"], ["octuplicar", "8"], ["decuplicar", "10"], ["centuplicar", "100"]]), "CHOIX");
+    this.appendDummyInput().appendField(new Blockly.FieldDropdown([["doubler", "2"], ["tripler", "3"], ["quadrupler", "4"], ["quintupler", "5"], ["sextupler", "6"], ["octupler", "8"], ["décupler", "10"], ["centupler", "100"]]), "CHOIX");
     this.appendValueInput("VAR");
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(30);
-    this.setTooltip('la multiplicación de la matriz por un número entero');
+    this.setTooltip('multiplier la matrice par un entier');
     this.setHelpUrl('');
   }
 };
@@ -2174,7 +2174,7 @@ Blockly.Blocks['humain'] = {
     this.appendDummyInput().appendField("un").appendField(new Blockly.FieldImage('img/man.png', 32, 32, "humain"));
     this.setOutput(true, null);
     this.setColour(330);
-    this.setTooltip('los seres humanos siempre dicen la verdad');
+    this.setTooltip('les humains disent toujours la vérité');
     this.setHelpUrl('');
   }
 };
@@ -2184,7 +2184,7 @@ Blockly.Blocks['vampire'] = {
     this.appendDummyInput().appendField("un").appendField(new Blockly.FieldImage('img/vampire.png', 32, 32, "vampire"));
     this.setOutput(true, null);
     this.setColour(330);
-    this.setTooltip('vampiros siempre mienten');
+    this.setTooltip('les vampires mentent toujours');
     this.setHelpUrl('');
   }
 };
@@ -2194,7 +2194,7 @@ Blockly.Blocks['sain'] = {
     this.appendDummyInput().appendField("un").appendField(new Blockly.FieldImage('img/healthy.png', 32, 32, "sain d'esprit"));
     this.setOutput(true, null);
     this.setColour(330);
-    this.setTooltip('los sanos de espíritu no creen qu\'en las cosas reales');
+    this.setTooltip('les sains d\'esprit ne croient qu\'en des choses vraies');
     this.setHelpUrl('');
   }
 };
@@ -2204,7 +2204,7 @@ Blockly.Blocks['fou'] = {
     this.appendDummyInput().appendField("un").appendField(new Blockly.FieldImage('img/crazy.png', 32, 32, "fou"));
     this.setOutput(true, null);
     this.setColour(330);
-    this.setTooltip('los tontos creen en las cosas falsas');
+    this.setTooltip('les fous ne croient qu\'en des choses fausses');
     this.setHelpUrl('');
   }
 };
@@ -2214,7 +2214,7 @@ Blockly.Blocks['patient'] = {
     this.appendDummyInput().appendField("un").appendField(new Blockly.FieldImage('img/sick.png', 32, 32, "patient"));
     this.setOutput(true, null);
     this.setColour(330);
-    this.setTooltip('uno cree estar sano, pero es realmente enfermo??');
+    this.setTooltip('celui qui est soigné, mais est-il vraiment malade ?');
     this.setHelpUrl('');
   }
 };
@@ -2224,117 +2224,117 @@ Blockly.Blocks['docteur'] = {
     this.appendDummyInput().appendField("un").appendField(new Blockly.FieldImage('img/medical.png', 32, 32, "docteur"));
     this.setOutput(true, null);
     this.setColour(330);
-    this.setTooltip('Un médico, esta en su sano juicio o no??');
+    this.setTooltip('Un médecin, est-il sain d\'esprit ou est-il fou ?');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['transyl_etat'] = {
   init: function() {
-    this.appendDummyInput().appendField(new Blockly.FieldVariable("transylvanien"), "NAME").appendField("es").appendField(new Blockly.FieldDropdown([["humano", "moi.humain"], ["vampiro", "!moi.humain"], ["sano", "moi.sain"], ["loco", "!moi.sain"], ["un paciente", "!moi.docteur"], ["un médico", "moi.docteur"]]), "etat");
+    this.appendDummyInput().appendField(new Blockly.FieldVariable("transylvanien"), "NAME").appendField("est").appendField(new Blockly.FieldDropdown([["humain", "moi.humain"], ["vampire", "!moi.humain"], ["sain d'esprit", "moi.sain"], ["fou", "!moi.sain"], ["un patient", "!moi.docteur"], ["un médecin", "moi.docteur"]]), "etat");
     this.setInputsInline(true);
     this.setOutput(true, "Boolean");
     this.setColour(330);
-    this.setTooltip('el estado en el que hay un Transylvanian');
+    this.setTooltip('l\'état dans lequel se trouve un transylvanien');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['devenir'] = {
   init: function() {
-    this.appendDummyInput().appendField(new Blockly.FieldVariable("transylvanien"), "NAME").appendField("se convierte en").appendField(new Blockly.FieldDropdown([["humano", ".humain = true"], ["vampiro", ".humain = false"], ["cuerdo", ".sain = true"], ["loco", ".sain = false"], ["un paciente", ".docteur = false"], ["un médecin", ".doctor = true"]]), "etat");
+    this.appendDummyInput().appendField(new Blockly.FieldVariable("transylvanien"), "NAME").appendField("devient").appendField(new Blockly.FieldDropdown([["humain", ".humain = true"], ["vampire", ".humain = false"], ["sain d'esprit", ".sain = true"], ["fou", ".sain = false"], ["un patient", ".docteur = false"], ["un médecin", ".docteur = true"]]), "etat");
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(330);
-    this.setTooltip('évolucion de los transilvanos');
+    this.setTooltip('évolution des transylvaniens');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['dire'] = {
   init: function() {
-    this.appendValueInput("NAME").setCheck("Boolean").appendField(new Blockly.FieldVariable("transylvanien"), "NAME").appendField("dice que");
+    this.appendValueInput("NAME").setCheck("Boolean").appendField(new Blockly.FieldVariable("transylvanien"), "NAME").appendField("dit que");
     this.setInputsInline(true);
     this.setOutput(true, "Boolean");
     this.setColour(330);
-    this.setTooltip('afirmación');
+    this.setTooltip('affirmation');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['croire'] = {
   init: function() {
-    this.appendValueInput("NAME").setCheck("Boolean").appendField(new Blockly.FieldVariable("transylvanien"), "NAME").appendField("cree que");
+    this.appendValueInput("NAME").setCheck("Boolean").appendField(new Blockly.FieldVariable("transylvanien"), "NAME").appendField("croit que");
     this.setInputsInline(true);
     this.setOutput(true, "Boolean");
     this.setColour(330);
-    this.setTooltip('creencia');
+    this.setTooltip('croyance');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['transyl_affectation'] = {
   init: function() {
-    this.appendValueInput("NAME").setCheck("Boolean").appendField("posicionar").appendField(new Blockly.FieldDropdown([["la humanidad", ".humain = "], ["salud mental", ".sain = "], ["la medicina", ".docteur = "]]), "PROP").appendField("de").appendField(new Blockly.FieldVariable("transylvanien"), "NAME").appendField("à");
+    this.appendValueInput("NAME").setCheck("Boolean").appendField("positionner").appendField(new Blockly.FieldDropdown([["l'humanité", ".humain = "], ["la santé mentale", ".sain = "], ["la médicalité", ".docteur = "]]), "PROP").appendField("de").appendField(new Blockly.FieldVariable("transylvanien"), "NAME").appendField("à");
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(330);
-    this.setTooltip('imponer propiedades');
+    this.setTooltip('imposer des propriétés');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['developper'] = {
   init: function() {
-    this.appendDummyInput().appendField("Desarrollar").appendField(new Blockly.FieldVariable("expression"), "EXPR");
+    this.appendDummyInput().appendField("développer").appendField(new Blockly.FieldVariable("expression"), "EXPR");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(150);
-    this.setTooltip('desarrollar una expresión');
+    this.setTooltip('développer une expression');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['simplifier'] = {
   init: function() {
-    this.appendDummyInput().appendField("Simplificar").appendField(new Blockly.FieldVariable("expression"), "EXPR");
+    this.appendDummyInput().appendField("simplifier").appendField(new Blockly.FieldVariable("expression"), "EXPR");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(150);
-    this.setTooltip('simplificar una expresión');
+    this.setTooltip('simplifier une expression');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['deriver'] = {
   init: function() {
-    this.appendDummyInput().appendField("Derivar").appendField(new Blockly.FieldVariable("expression"), "EXPR");
+    this.appendDummyInput().appendField("dériver").appendField(new Blockly.FieldVariable("expression"), "EXPR");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(150);
-    this.setTooltip('derivar una expresión con respecto a su variable');
+    this.setTooltip('dériver une expression par rapport à sa variable');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['solutions'] = {
   init: function() {
-    this.appendValueInput("EQU").setCheck(null).appendField("soluciones de");
+    this.appendValueInput("EQU").setCheck(null).appendField("solutions de");
     this.setOutput(true, null);
     this.setColour(150);
-    this.setTooltip('resolver una ecuación');
+    this.setTooltip('résoudre une équation');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['embelli'] = {
   init: function() {
-    this.appendValueInput("EQU").setCheck(null).appendField("embellecido");
+    this.appendValueInput("EQU").setCheck(null).appendField("embelli de");
     this.setOutput(true, null);
     this.setColour(150);
-    this.setTooltip('escribir mejor');
+    this.setTooltip('écrire mieux');
     this.setHelpUrl('');
   }
 };
@@ -2358,7 +2358,7 @@ Blockly.Blocks['CAS_carre'] = {
         }, {
           'type': 'field_dropdown',
           'name': 'POW',
-          'options': [['al cuadrado', '2'], ['al cubo', '3'], ['a la potencia 4', '4']]
+          'options': [['au carré', '2'], ['au cube', '3'], ['à la puissance 4', '4']]
         }
       ],
       'previousStatement': null,
@@ -2384,7 +2384,7 @@ Blockly.Blocks['CAS_carre'] = {
 Blockly.Blocks['CAS_doubler'] = {
   init: function() {
     var dropdown, variable;
-    dropdown = new Blockly.FieldDropdown([['doblar', '2'], ['triplicar', '3'], ['quatriplicar', '4'], ['quintuplicar', '5'], ['sextuplicar', '6'], ['decuplicar', '10'], ['centuplicar', '100']]);
+    dropdown = new Blockly.FieldDropdown([['doubler', '2'], ['tripler', '3'], ['quadrupler', '4'], ['quintupler', '5'], ['sextupler', '6'], ['décupler', '10'], ['centupler', '100']]);
     variable = new Blockly.FieldVariable(Blockly.Msg.VARIABLES_DEFAULT_NAME);
     this.appendDummyInput().appendField(new Blockly.FieldImage('./img/multiplier.gif', 64, 32, '[*]:   ')).appendField(dropdown, 'CHOIX').appendField('').appendField(variable, 'VAR');
     this.setHelpUrl('');
@@ -2488,7 +2488,7 @@ Blockly.Blocks['CAS_augmenter_fract'] = {
   init: function() {
     var thisBlock;
     this.jsonInit({
-      'message0': '%1 aumentar %2 en %3 %4',
+      'message0': '%1 augmenter %2 de %3 %4',
       'args0': [
         {
           'type': 'field_image',
@@ -2506,7 +2506,7 @@ Blockly.Blocks['CAS_augmenter_fract'] = {
         }, {
           'type': 'field_dropdown',
           'name': 'DENOM',
-          'options': [['/100', '100'], ['/2', '2'], ['/3', '3'], ['/4', '4'], ['/5', '5'], ['/6', '6'], ['/7', '7'], ['/8', '8'], ['/9', '9'], ['/10', '10'], ['/100', '100']]
+          'options': [['pourcents', '100'], ['demis', '2'], ['tiers', '3'], ['quarts', '4'], ['cinquièmes', '5'], ['sixièmes', '6'], ['septièmes', '7'], ['huitièmes', '8'], ['neuvièmes', '9'], ['dixièmes', '10'], ['centièmes', '100']]
         }
       ],
       'previousStatement': null,
@@ -2534,7 +2534,7 @@ Blockly.Blocks['CAS_diminuer_fract'] = {
   init: function() {
     var thisBlock;
     this.jsonInit({
-      'message0': '%1 disminuir %2 en %3 %4',
+      'message0': '%1 diminuer %2 de %3 %4',
       'args0': [
         {
           'type': 'field_image',
@@ -2552,7 +2552,7 @@ Blockly.Blocks['CAS_diminuer_fract'] = {
         }, {
           'type': 'field_dropdown',
           'name': 'DENOM',
-          'options': [['/100', '100'], ['/2', '2'], ['/3', '3'], ['/4', '4'], ['/5', '5'], ['/6', '6'], ['/7', '7'], ['/8', '8'], ['/9', '9'], ['/10', '10'], ['/100', '100']]
+          'options': [['pourcents', '100'], ['demis', '2'], ['tiers', '3'], ['quarts', '4'], ['cinquièmes', '5'], ['sixièmes', '6'], ['septièmes', '7'], ['huitièmes', '8'], ['neuvièmes', '9'], ['dixièmes', '10'], ['centièmes', '100']]
         }
       ],
       'previousStatement': null,
@@ -2580,7 +2580,7 @@ Blockly.Blocks['CAS_multiplier_fract'] = {
   init: function() {
     var thisBlock;
     this.jsonInit({
-      'message0': '%1 multiplicar %2 por %3 %4',
+      'message0': '%1 multiplier %2 par %3 %4',
       'args0': [
         {
           'type': 'field_image',
@@ -2598,7 +2598,7 @@ Blockly.Blocks['CAS_multiplier_fract'] = {
         }, {
           'type': 'field_dropdown',
           'name': 'DENOM',
-          'options': [['/100', '100'], ['/2', '2'], ['/3', '3'], ['/4', '4'], ['/5', '5'], ['/6', '6'], ['/7', '7'], ['/8', '8'], ['/9', '9'], ['/10', '10'], ['/100', '100']]
+          'options': [['pourcents', '100'], ['demis', '2'], ['tiers', '3'], ['quarts', '4'], ['cinquièmes', '5'], ['sixièmes', '6'], ['septièmes', '7'], ['huitièmes', '8'], ['neuvièmes', '9'], ['dixièmes', '10'], ['centièmes', '100']]
         }
       ],
       'previousStatement': null,
@@ -2626,7 +2626,7 @@ Blockly.Blocks['CAS_diviser_fract'] = {
   init: function() {
     var thisBlock;
     this.jsonInit({
-      'message0': '%1 dividir %2 por %3 %4',
+      'message0': '%1 diviser %2 par %3 %4',
       'args0': [
         {
           'type': 'field_image',
@@ -2644,7 +2644,7 @@ Blockly.Blocks['CAS_diviser_fract'] = {
         }, {
           'type': 'field_dropdown',
           'name': 'DENOM',
-          'options': [['/100', '100'], ['/2', '2'], ['/3', '3'], ['/4', '4'], ['/5', '5'], ['/6', '6'], ['/7', '7'], ['/8', '8'], ['/9', '9'], ['/10', '10'], ['/100', '100']]
+          'options': [['pourcents', '100'], ['demis', '2'], ['tiers', '3'], ['quarts', '4'], ['cinquièmes', '5'], ['sixièmes', '6'], ['septièmes', '7'], ['huitièmes', '8'], ['neuvièmes', '9'], ['dixièmes', '10'], ['centièmes', '100']]
         }
       ],
       'previousStatement': null,
@@ -2915,7 +2915,7 @@ Blockly.Blocks['CAS_decrementer'] = {
 Blockly.Blocks['texte_doubler'] = {
   init: function() {
     var dropdown, variable;
-    dropdown = new Blockly.FieldDropdown([['doublar', '2'], ['triplicar', '3'], ['quadruplicar', '4'], ['quintuplicar', '5'], ['sextuplicar', '6'], ['decuplicar', '10'], ['centuplicar', '100']]);
+    dropdown = new Blockly.FieldDropdown([['doubler', '2'], ['tripler', '3'], ['quadrupler', '4'], ['quintupler', '5'], ['sextupler', '6'], ['décupler', '10'], ['centupler', '100']]);
     variable = new Blockly.FieldVariable(Blockly.Msg.VARIABLES_DEFAULT_NAME);
     this.appendDummyInput().appendField(new Blockly.FieldImage('./img/multiplier.gif', 64, 32, '[*]:   ')).appendField(dropdown, 'CHOIX').appendField('le texte').appendField(variable, 'VAR');
     this.setHelpUrl('');
@@ -2935,12 +2935,12 @@ Blockly.Blocks['texte_doubler'] = {
 
 Blockly.Blocks['texte_compter'] = {
   init: function() {
-    this.appendValueInput("Lettre").setCheck(null).appendField("numero de letras");
-    this.appendValueInput("Mot").setCheck(null).appendField("en");
+    this.appendValueInput("Lettre").setCheck(null).appendField("nombre de");
+    this.appendValueInput("Mot").setCheck(null).appendField("dans");
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour(165);
-    this.setTooltip('contar las letras de una palabra');
+    this.setTooltip('compter des lettres dans un mot');
     this.setHelpUrl('');
   }
 };
@@ -2952,54 +2952,7 @@ Blockly.Blocks['lambda_js'] = {
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour(300);
-    this.setTooltip('funcion anónima');
+    this.setTooltip('fonction anonyme');
     this.setHelpUrl('');
-  }
-};
-
-Blockly.Blocks['lambda1'] = {
-  init: function() {
-    this.appendValueInput("variables").setCheck(null).appendField("λ");
-    this.appendDummyInput().appendField(".").appendField(new Blockly.FieldVariable("element"), "fonctions");
-    this.setInputsInline(true);
-    this.setOutput(true, null);
-    this.setColour(270);
-    this.setTooltip('función anónima');
-    this.setHelpUrl('');
-  }
-};
-
-Blockly.Blocks['mat_transpose'] = {
-  init: function() {
-    this.appendValueInput('autre').setCheck('Matrix').appendField('transpuesta de');
-    this.setOutput(true, 'Matrix');
-    this.setColour(120);
-    this.setTooltip('transposición matricial');
-    this.setHelpUrl('');
-  }
-};
-
-Blockly.Blocks['repeter_doucement'] = {
-  init: function() {
-    this.appendValueInput('TIMES').setCheck('Numero').appendField('repetir lentamente');
-    this.appendDummyInput().appendField('veces');
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
-    this.setColour(120);
-    this.setTooltip('Repetir cada 500 ms');
-    this.setHelpUrl('');
-    this.appendStatementInput('DO').appendField('hacer');
-  }
-};
-
-Blockly.Blocks['lentement'] = {
-  init: function() {
-    this.appendDummyInput().appendField('Muy lentamente');
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
-    this.setColour(120);
-    this.setTooltip('Ralentizar la tortuga (arriesgado)');
-    this.setHelpUrl('');
-    this.appendStatementInput('DO').appendField('hacer');
   }
 };
