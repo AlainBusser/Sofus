@@ -902,7 +902,7 @@ Blockly.Blocks['tortue_gauche'] = {
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('tourner la tortue vers la gauche');
+    this.setTooltip('pivoter la tortue vers la gauche');
     this.setHelpUrl('');
   }
 };
@@ -920,18 +920,18 @@ Blockly.Blocks['tortue_droite'] = {
 
 Blockly.Blocks['var_gauche'] = {
   init: function() {
-    this.appendValueInput('ANGLE').setCheck('Number').appendField(new Blockly.FieldImage('img/gauche.gif', 32, 32, '')).appendField('tourner à gauche de');
+    this.appendValueInput('ANGLE').setCheck('Number').appendField(new Blockly.FieldImage('img/gauche.gif', 32, 32, '')).appendField('pivoter à gauche de');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('tourner à gauche d\'un angle en degrés');
+    this.setTooltip('pivoter à gauche d\'un angle en degrés');
     this.setHelpUrl('');
   }
 };
 
 Blockly.Blocks['var_droite'] = {
   init: function() {
-    this.appendValueInput('ANGLE').setCheck('Number').appendField(new Blockly.FieldImage('img/droite.gif', 32, 32, '')).appendField('tourner à droite de');
+    this.appendValueInput('ANGLE').setCheck('Number').appendField(new Blockly.FieldImage('img/droite.gif', 32, 32, '')).appendField('pivoter à droite de');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
@@ -947,7 +947,7 @@ Blockly.Blocks['frac_gauche'] = {
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('tourner à gauche d\'un cran');
+    this.setTooltip('pivoter à gauche d\'un cran');
     this.setHelpUrl('');
   }
 };
@@ -959,7 +959,7 @@ Blockly.Blocks['frac_droite'] = {
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(120);
-    this.setTooltip('tourner à droite d\'un cran');
+    this.setTooltip('pivoter à droite d\'un cran');
     this.setHelpUrl('');
   }
 };

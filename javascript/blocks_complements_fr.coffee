@@ -1036,7 +1036,7 @@ Blockly.Blocks['tortue_gauche'] = init: ->
   @setPreviousStatement true
   @setNextStatement true
   @setColour 120
-  @setTooltip 'tourner la tortue vers la gauche'
+  @setTooltip 'pivoter la tortue vers la gauche'
   @setHelpUrl ''
   return
 Blockly.Blocks['tortue_droite'] = init: ->
@@ -1048,15 +1048,15 @@ Blockly.Blocks['tortue_droite'] = init: ->
   @setHelpUrl ''
   return
 Blockly.Blocks['var_gauche'] = init: ->
-  @appendValueInput('ANGLE').setCheck('Number').appendField(new (Blockly.FieldImage)('img/gauche.gif', 32, 32, '')).appendField 'tourner à gauche de'
+  @appendValueInput('ANGLE').setCheck('Number').appendField(new (Blockly.FieldImage)('img/gauche.gif', 32, 32, '')).appendField 'pivoter à gauche de'
   @setPreviousStatement true
   @setNextStatement true
   @setColour 120
-  @setTooltip 'tourner à gauche d\'un angle en degrés'
+  @setTooltip 'pivoter à gauche d\'un angle en degrés'
   @setHelpUrl ''
   return
 Blockly.Blocks['var_droite'] = init: ->
-  @appendValueInput('ANGLE').setCheck('Number').appendField(new (Blockly.FieldImage)('img/droite.gif', 32, 32, '')).appendField 'tourner à droite de'
+  @appendValueInput('ANGLE').setCheck('Number').appendField(new (Blockly.FieldImage)('img/droite.gif', 32, 32, '')).appendField 'pivoter à droite de'
   @setPreviousStatement true
   @setNextStatement true
   @setColour 120
@@ -1069,7 +1069,7 @@ Blockly.Blocks['frac_gauche'] = init: ->
   @setPreviousStatement true
   @setNextStatement true
   @setColour 120
-  @setTooltip 'tourner à gauche d\'un cran'
+  @setTooltip 'pivoter à gauche d\'un cran'
   @setHelpUrl ''
   return
 Blockly.Blocks['frac_droite'] = init: ->
@@ -1078,7 +1078,7 @@ Blockly.Blocks['frac_droite'] = init: ->
   @setPreviousStatement true
   @setNextStatement true
   @setColour 120
-  @setTooltip 'tourner à droite d\'un cran'
+  @setTooltip 'pivoter à droite d\'un cran'
   @setHelpUrl ''
   return
 Blockly.Blocks['mettre_angle'] = init: ->
