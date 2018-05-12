@@ -1,3 +1,38 @@
+Blockly.Blocks['decimal_comp'] = init: ->
+  @appendValueInput('NB1').setCheck 'Number'
+  @appendDummyInput().appendField new (Blockly.FieldDropdown)([
+    [
+      '='
+      'EQ'
+    ]
+    [
+      '<'
+      'LT'
+    ]
+    [
+      '>'
+      'GT'
+    ]
+    [
+      '≠'
+      'NEQ'
+    ]
+    [
+      '≤'
+      'LE'
+    ]
+    [
+      '≥'
+      'GE'
+    ]
+  ]), 'type'
+  @appendValueInput('NB2').setCheck 'Number'
+  @setInputsInline true
+  @setOutput true, 'Boolean'
+  @setColour 230
+  @setTooltip 'égalité des nombres'
+  return
+
 Blockly.Blocks['sophus_angle'] = init: ->
   @appendDummyInput().appendField new (Blockly.FieldAngle)(90), 'NAME'
   @setOutput true, null

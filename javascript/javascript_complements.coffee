@@ -4,7 +4,22 @@ reverseT = (s) ->
 		ss += s.charAt t
 	ss
 
-
+Blockly.JavaScript['decimal_comp'] = (block) ->
+  value_nb1 = Blockly.JavaScript.valueToCode(block, 'NB1', Blockly.JavaScript.ORDER_ATOMIC)
+  dropdown_type = block.getFieldValue('type')
+  value_nb2 = Blockly.JavaScript.valueToCode(block, 'NB2', Blockly.JavaScript.ORDER_ATOMIC)
+  # TODO: Assemble JavaScript into code variable.
+  switch dropdown_type
+      when 'EQ' then code = 'Math.abs('+value_nb2+'-'+value_nb1+')<1e-10'
+      when 'LT' then code = value_nb2+'-'+value_nb1+'>1e-10'
+      when 'GT' then code = value_nb1+'-'+value_nb2+'>1e-10'
+      when 'NEQ' then code ='Math.abs('+value_nb2+'-'+value_nb1+')>1e-10'
+      when 'LE' then code = value_nb2+'-'+value_nb1+'<1e-10'
+      when 'GE' then code = value_nb1+'-'+value_nb2+'<1e-10'
+  [
+    code
+    Blockly.JavaScript.ORDER_NONE
+  ]
 
 
 Blockly.JavaScript['sophus_angle'] = (block) ->

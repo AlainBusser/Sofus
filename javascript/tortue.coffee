@@ -261,10 +261,10 @@ class Tortue
   
   av : (d) ->
     if turbo
-	    @av1 d
+        @av1 d
     else
-	    for x in [0...d]
-	        @av1 1
+        for x in [0...d]
+            @av1 1
   
 
   re1 : (d) ->
@@ -281,10 +281,10 @@ class Tortue
   
   re : (d) ->
     if turbo
-	    @re1 d
+        @re1 d
     else
-	    for x in [0...d]
-	        @re1 1
+       for x in [0...d]
+            @re1 1
   
   distance : (autre) ->
     d = Math.sqrt(Math.pow(autre.x-@x,2)+Math.pow(autre.y-@y,2))
