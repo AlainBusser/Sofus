@@ -13,7 +13,7 @@ garderobe = [
       """,
       """
 	<ellipse cx="20" cy="20" rx="20" ry="14" style="fill: red; "/>
-	<line x1="0" y1="20" x2="340" y2="20" style="stroke: black; stroke-width: 2;"/>
+	<line x1="0" y1="20" x2="30" y2="20" style="stroke: black; stroke-width: 2;"/>
 	<circle cx="8" cy="15" r="3" style="fill: black; "/>
 	<circle cx="16" cy="13" r="3" style="fill: black; "/>
 	<circle cx="24" cy="15" r="3" style="fill: black; "/>
