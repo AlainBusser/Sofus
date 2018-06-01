@@ -10,5 +10,5 @@
 		color: #507;
 		text-shadow: 2px 1px 3px gray; }
 #sortieSVG { display: none; width: 640px; height: 400px; }
-#graphique { width: 640px; height: 480px; border: 3px inset gray; background-color: white; background-image: url("../img/axes.gif"); background-repeat: no-repeat; background-position: center; }
+#graphique { width: 640px; height: 480px; border: 3px inset gray; background-color: white; background-image: url("../img/sableblanc.jpg"); background-repeat: repeat; background-position: center; }
 #sortieNum { resize: both; height: 80px; width: 640px; background-color: lightCyan; border: 3px inset green; text-shadow: 2px 1px 3px gray; }

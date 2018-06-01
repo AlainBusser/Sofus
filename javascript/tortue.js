@@ -3,7 +3,7 @@ var SVG, Tortue, axeX, axeY, axes, dessineCercle, dessineSegment, dessineTexte, 
 
 totos = {};
 
-toto = 0;
+toto = 1;
 
 SVG = function(tag) {
   return document.createElementNS('http://www.w3.org/2000/svg', tag);
@@ -158,7 +158,7 @@ Tortue = class Tortue {
     this.t = 0;
     this.c = '#000066';
     this.stylo = true;
-    this.costumeId = 5;
+    this.costumeId = 0;
     this.svg = `<svg xmlns='http://www.w3.org/2000/svg' version='1.1'>\n  <g id='${this.id}' transform='translate(300 220) rotate(0 20 20)' width='40' height='40' >\n    ${garderobe[this.costumeId]}\n  </g>\n</svg>`;
     $dessin = $('#leSVG');
     if ($dessin.find(`#${this.id}`).length === 0) {
